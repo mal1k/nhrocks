@@ -1,0 +1,10 @@
+services:
+    admin.listener.before_controller:
+        class: ArcaSolutions\AdminBundle\EventListener\BeforeControllerListener
+        arguments:
+            - '@translator'
+            - '@settings'
+            - '@multi_domain.information'
+            - '@logger'
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernerController, priority: -1}

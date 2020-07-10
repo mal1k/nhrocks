@@ -1,0 +1,169 @@
+.faq-page{
+    .faq-header{
+        padding: 32px 0;
+        
+        @media screen and (min-width: 992px){
+            padding: 64px 0;
+        }
+
+        &[data-bg="brand"]{
+            .wrapper{
+                .faq-info{
+                    .heading{
+                        color: customColor(color-white, base);
+                    }
+    
+                    .paragraph{
+                        color: customColor(color-white, transp-75);
+                    }
+                }
+            }
+        }
+        
+        .wrapper{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: center;
+
+            .faq-info{
+                max-width: 450px;
+
+                .heading{
+                    color: customColor(brand, base);
+                }
+
+                .paragraph{
+                    color: customColor(neutral, transp-75);
+                    font-size: fontsize(size-14);
+                }
+            }
+
+            .faq-search{
+                display: flex;
+                width: 100%;
+                margin-top: 24px;
+
+                @media screen and (max-width: 425px){
+                    flex-flow: row wrap;
+                }
+
+                @media screen and (min-width: 992px){
+                    width: calc(100% - 600px);
+                    margin-top: 0;
+                }
+
+                .input{
+                    flex-grow: 1;
+                }
+
+                .button{
+                    margin-left: 16px;
+
+                    @media screen and (max-width: 425px){
+                        margin-left: 0;
+                        margin-top: 8px;
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+
+    .faq-content{
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 64px 15px;
+
+        .toggle-item{
+            width: 100%;
+
+            @media screen and (min-width: 768px){
+                width: 90%;
+            }
+            
+            @media screen and (min-width: 992px){
+                width: 65%;
+            }
+
+            &:not(:first-child){
+                margin-top: 24px;
+            }
+
+            &[data-bg="brand"]{
+                .toggle-header{
+                    .heading, .button{
+                        color: customColor(color-white, base);
+                    }
+                }
+
+                .toggle-content{
+                    .paragraph{
+                        color: customColor(color-white, transp-75);
+                    }
+                }
+            }
+
+            .toggle-header{
+                padding: 18px 24px;
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-between;
+                align-items: center;
+
+                &.is-open{
+                    .button{
+                        transform: rotate(0);
+
+                        &:before{
+                            opacity: 0;
+                        }
+                    }
+                }
+
+                .toggle-title{
+                    line-height: 1;
+                    max-width: calc(100% - 40px);
+                }
+
+                .button{
+                    background: none;
+                    box-shadow: none;
+                    border: none;
+                    font-size: 22px;
+                    position: relative;
+                    transform: rotate(90deg);
+                    transition: $transitions;
+
+                    &:before{
+                        content: "\f068";
+                        font-family: "fontAwesome";
+                        font-size: 22px;
+                        position: absolute;
+                        left: -1px;
+                        top: -1px;
+                        transform: rotate(90deg);
+                        transition: $transitions;
+                    }
+                }
+            }
+
+            .toggle-content{
+                border-top: 1px solid transparentize($color: #979797, $amount: .77);
+                padding: 24px;
+                display: none;
+
+                .paragraph{
+                    color: customColor(neutral, transp-75);
+                }
+            }
+        }
+
+        .contact-us{
+            margin-top: 32px;
+            display: block;
+            font-size: fontsize(size-14);
+        }
+    }
+}

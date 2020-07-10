@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="fr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>On Queue</source>
+                <target>Sur la file d'attente</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>In Progress</source>
+                <target>En cours</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Completed</source>
+                <target>Terminé</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Aborted</source>
+                <target>Avorté</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Waiting Rollback</source>
+                <target>Rollback en attente</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Undone</source>
+                <target>Défait</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Error</source>
+                <target>Erreur</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,45 @@
+<!-- Browse By -->
+{% set module = getModuleSearch() -%}
+{% set locations = getLocationByModule(module, content.limit) -%}
+{% set route  = (module ? module : 'listing') ~ '_alllocations' -%}
+{% set banner = getBanner(content.customBanners) %}
+{% if locations|length > 0 %}
+    <div class="categories-base" id="browse-by-location" data-type="3" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="categories-header">
+                <h4 class="heading h-4" data-trans="{{ "Browse by location"|trans({}, 'widgets') }}">
+                    {{ content.labelExploreMorePlaces|trans({},'widgets') }}
+                </h4>
+                <a href="{{ url(route) }}" class="link" data-trans="{{ 'more locations'|trans({}, 'widgets') }}" data-trans="{{ "Explore all locations"|trans({}, 'widgets') }}">
+                    {{ content.labelMoreLocations|trans({},'widgets') }}
+                </a>
+            </div>
+            <div class="categories-wrapper" has-ads="{{ banner is empty ? 'false' : 'true' }}" banner-type="{{ content.customBanners ? : '' }}">
+                <div class="categories-content">
+                    <div class="categories-list">
+                        {% for location in locations -%}
+                            <a href="{{ utility_generateSearchUrl(null, module, null, location.friendlyUrl) }}" class="categories-item">
+                                <div class="info">
+                                    <div class="paragraph title">
+                                        {{ location.name }}
+                                        {% if content.enableCounter %}
+                                            <span class="count">{{ location.count }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor -%}
+                    </div>
+                </div>
+                {% if banner is not empty %}
+                    <div class="categories-ads">
+                        {{ banner|raw }}
+                    </div>
+                {% endif %}
+            </div>
+            <button class="button button-bg is-inverse" id="toggle-locations" data-label='["{{ 'view more'|trans({}) }}", "{{ 'view less'|trans({}) }}"]'>{{ 'view more'|trans({}) }}</button>
+        </div>
+    </div>
+{% endif %}
+
+{{ addJSFile("assets/js/widgets/locations/browse-by-location.js") }}

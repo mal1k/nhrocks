@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Error Page</title>
+
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Rubik:300,400,500,700,900" rel="stylesheet">
+
+        {% block stylesheets %}
+            <link href="{{ asset('assets/default/styles/style.min.css') }}" rel="stylesheet"/>
+        {% endblock -%}
+    </head>
+    
+    <body>
+        <main class="error-page">
+            <div class="wrapper">
+                <div class="error-image">
+                    <img src="/assets/images/error-500.svg" alt="Oops, Something went wrong">
+                </div>
+                <div class="error-content">
+                    <div class="error-title">{{ "Oops!"|trans }}</div>
+                    <div class="error-description">{{ "Something went wrong. We're looking into it."|trans }}</div>
+                </div>
+            </div>
+        </main>
+    </body>
+
+</html>

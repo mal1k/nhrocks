@@ -1,0 +1,54 @@
+<!-- Upcoming Events -->
+{% set isEventAvailable = is_module_active('event') -%}
+
+{% if isEventAvailable -%}
+
+    {{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+    {{ addJSFile("assets/js/modules/event/upcoming/event.upcoming.js") -}}
+    {{ addJSFile("assets/js/modules/event/upcoming/upcoming.auto.js") -}}
+
+    {# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+    {% set dateFilter = getDateFilter() -%}
+
+    {# thisMonth \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+    {% set thisMonth = dateFilter.fromTodayFilterOption -%}
+
+    <div class="cards-default hidden" id="upcoming-events" data-type="events" data-today="{{ 'now'|date('Y-m-d') }}"
+         data-success="{{ content.limit }}" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h2 class="heading h-4"
+                    data-trans="{{ 'Upcoming Events'|trans({}, 'widgets') }}">{{ content.labelUpcomingEvents|trans({}, 'widgets') }}</h2>
+                <a href="{{ thisMonth.searchPageUrl }}" class="link">{{ 'more events'|trans }}</a>
+            </div>
+            <div class="cards-list has-slider">
+                <div class="cards-slider">
+                    {#Events here-#}
+                </div>
+
+                {# Event block that is rendered below -#}
+                <script id="upcoming-event-box" type="text/x-jsrender">
+                    <div class="card has-bg cards-upcoming-events" id="upcoming-events-<%:id%>" data-columns="3">
+                        <%:imageBackground%>
+                        <div class="calendar-sm">
+                            <div class="month"><%:month%></div>
+                            <div class="heading day"><%:day%></div>
+                            <div class="day-abbr"><%:day_name%></div>
+                        </div>
+                        <div class="content">
+                            <div class="content-info">
+                                <a href="<%:link%>" class="title heading h-4"><%:title%></a>
+                                <%if categories.length > 0 %>
+                                    <div class="categories">{{ 'in'|trans }}
+                                        <%for categories%><%if #index >= 1%>, <%/if%><a href="<%>link%>" class="link"><%>title%></a><%/for%>
+                                    </div>
+                                <%/if%>
+                            </div>
+                        </div>
+                    </div>
+                </script>
+            </div>
+        </div>
+    </div>
+
+{% endif %}

@@ -1,0 +1,206 @@
+{# use it to shows address -#}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+{% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash|raw -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+{% set address = Utility.address(null, null, item.location, item.address, item.zipCode, locationsIDs, locationsObjs) %}
+
+{% set banner = getBanner('square') %}
+
+{% set hasContent = eventContent(item, level, address, map, gallery) %}
+
+<div class="details-default details-events">
+    <div class="details-header details-header-desktop" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+        <div class="container">
+            <div class="details-header-content">
+                <div class="details-general">
+                    <div class="details-info">
+                        <div class="details-title">
+                            <h1 class="heading h-4">{{ item.title }}</h1>
+                            <div class="details-share">
+                                {{ bookmarkButton(item, 'event') }}
+                                {{ Utility.shareLinks() }}
+                            </div>
+                        </div>
+                        {{ UtilityDetail.categories(categories, 'event') }}
+                        {{ UtilityDetail.EventDate(item, level, nextOcurrence) }}
+                        <div class="details-actions">
+                            {% if level.hasEmail and item.email is not empty -%}
+                                <a href="#" class="button button-bg is-primary" data-module="event" data-modal="contact" data-id="{{ item.id }}">{{ 'Send a message'|trans }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+
+                {{ UtilityDetail.detailsContact(item, level, address) }}
+            </div>
+        </div>
+    </div>
+
+    <div class="details-header details-header-mobile">
+        <div class="detail-header-content-mobile" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+            <div class="details-general-mobile">
+                <div class="details-info">
+                    <div class="details-title">
+                        <div class="heading h-4">{{ item.title }}</div>
+                        <div class="details-share">
+                            {{ bookmarkButton(item, 'event') }}
+                            {{ Utility.shareLinks() }}
+                        </div>
+                    </div>
+                    {{ UtilityDetail.categories(categories, 'event') }}
+                </div>
+            </div>
+
+            {{ Utility.shareLinksMobile() }}
+
+            {{ UtilityDetail.EventDate(item, level) }}
+
+            <div class="details-actions">
+                {% if level.hasEmail and item.email is not empty -%}
+                    <a href="#" class="button button-md is-primary" data-module="event" data-modal="contact" data-id="{{ item.id }}">{{ 'Send a message'|trans }}</a>
+                {% endif %}
+            </div>
+        </div>
+        <div class="detail-info-mobile">
+            <div class="details-title">
+                <h1 class="heading h-3">{{ item.title }}</h1>
+                <div class="details-share">
+                    {{ bookmarkButton(item, 'event') }}
+                    {{ Utility.shareLinks() }}
+                </div>
+            </div>
+            {{ UtilityDetail.categories(categories, 'event') }}
+
+            {{ UtilityDetail.detailsContact(item, level, address) }}
+        </div>
+    </div>
+
+    {% if hasContent.content %}
+        <div class="detail-body" id="detail-body">
+            <div class="container">
+                <div class="detail-body-content">
+                    <div class="tab-content has-sidebar">
+                        <div class="tab-left">
+                            {% if (level.hasSummaryDescription and item.description is not empty) or (gallery is not empty) or (level.hasLongDescription and item.longDescription) -%}
+                                <div class="tab-item tab-item-about">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'About'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        <div class="description">
+                                            {% if level.hasSummaryDescription and item.description is not empty -%}
+                                                <p class="summary-description">{{ item.description|nl2br }}</p>
+                                            {% endif %}
+
+                                            {% if gallery is not empty -%}
+                                                <div class="detail-gallery-main-image">
+                                                    {{ UtilityDetail.mainImage(gallery[0], isSample, {'desktop': 'large', 'laptop': 'medium', 'tablet': 'medium'}) }}
+                                                </div>
+                                            {% endif -%}
+
+                                            {% if level.hasLongDescription and item.longDescription -%}
+                                                {# ModStores Hooks #}
+                                                {% if not HookFire("eventdetail_overwrite_longdescription", {"item": item}) -%}
+                                                    <br>
+                                                    <p>{{ item.longDescription|nl2br }}</p>
+                                                {% endif -%}
+                                            {% endif %}
+
+                                            {% if gallery is not empty -%}
+                                                <div class="detail-gallery-thumb-images">
+                                                    {{ UtilityDetail.galleryImage(gallery, isSample) }}
+                                                </div>
+                                            {% endif -%}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif -%}
+                            {% if level.hasVideo and item.videoSnippet -%}
+                                <div class="tab-item tab-item-video">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Video'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if isSample -%}
+                                            <img src="{{ asset("assets/images/preview-video.png") }}" alt="{{ 'Preview Video'|trans }}">
+                                        {% else -%}
+                                            {{ item.videoSnippet|replace({"http://": "https://"})|raw }}
+                                        {% endif -%}
+                                        {% if item.videoDescription -%}
+                                            <div class="description">
+                                                {{ item.videoDescription|nl2br }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="tab-right">
+
+                            {# ModStores Hooks #}
+                            {% do HookFire("eventdetail_after_render_contact", {"item": item, "level": level, "isSample": isSample}) %}
+
+                            {% if map is not null or address|trim is not empty %}
+                                <div class="tab-item tab-item-location">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Location'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if map is not null -%}
+                                            {{ googleMaps(map) }}
+                                        {% endif %}
+                                        {% if address|trim is not empty -%}
+                                            <div class="location-address">{{ address }}</div>
+                                        {% endif %}
+                                        {% if item.latitude and item.longitude %}
+                                            <a href="{{ getDirectionsLink(item) }}" target="_blank" rel="noopener noreferrer" class="button is-primary"><i class="fa fa-location-arrow"></i> {{ 'Get directions'|trans }}</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {# ModStores Hooks #}
+                            {% if not HookFire("eventdetail_overwrite_facebookpage", {"event": item, "level": level }) -%}
+                                {% if level.hasFacebookPage -%}
+                                    <div class="tab-item tab-item-facebook">
+                                        <div class="tab-item-content">
+                                            {% if isSample -%}
+                                                <img src="{{ asset("assets/images/preview-facebook.png") }}" alt="{{ 'Preview Facebook'|trans }}">
+                                            {% else -%}
+                                                {{ facebookFanPage(item.facebookPage) }}
+                                            {% endif -%}
+                                        </div>
+                                    </div>
+                                {% endif -%}
+                            {% endif -%}
+
+                            {% if banner is not empty %}
+                                {{ banner|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if not isSample and formSendMail -%}
+        {% include ':blocks/modals:modal-send-email.html.twig' with {form: formSendMail, item: item, level: level} %}
+    {% endif %}
+</div>
+
+{# Adding requirements #}
+{{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+{{ addJSFile("assets/js/widgets/details/common.js") }}
+{{ addJSFile("assets/js/lib/social-likes.min.js") }}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}
+{{ addJSFile("assets/js/lib/jquery.fancybox.min.js") }}

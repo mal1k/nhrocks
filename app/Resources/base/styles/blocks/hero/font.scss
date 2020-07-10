@@ -1,0 +1,79 @@
+.hero-default{
+    .wrapper{
+        > .content-location{
+            .link{
+                font-size: fontsize(size-14);
+            }
+        }
+    }
+
+    &.type-1{
+        .heading{
+            @media screen and (min-width: 320px) and (max-width: 767px){
+                font-size: fontsize(size-28);
+            }
+        }
+
+        .paragraph{
+            @media screen and (min-width: 320px) and (max-width: 767px){
+                font-size: fontsize(size-14);
+            }
+        }
+    }
+
+    &.type-2{
+        &.is-column{
+            .wrapper{
+                .heading{
+                    font-size: fontsize(size-32);
+
+                    @media screen and (min-width: 320px) and (max-width: 425px){
+                        font-size: fontsize(size-24);
+                    }
+                }
+
+                .paragraph{
+                    font-size: fontsize(size-18);
+
+                    @media screen and (min-width: 320px) and (max-width: 425px){
+                        font-size: fontsize(size-16);
+                    }
+                }
+            }
+        }
+    }
+
+    &.type-3{
+        .hero-slider{
+            .slider-content{
+                .heading{
+                    @media screen and (min-width: 320px) and (max-width: 425px){
+                        font-size: fontsize(size-24);
+                    }
+                }
+                
+                .paragraph{
+                    @media screen and (min-width: 320px) and (max-width: 425px){
+                        font-size: fontsize(size-16);
+                    }
+                }
+            }
+        }
+    }
+
+    &.type-4, &.type-5, &.type-6{
+        .wrapper{
+            .heading{
+                @media screen and (min-width: 320px) and (max-width: 425px){
+                    font-size: fontsize(size-24);
+                }
+            }
+            
+            .paragraph{
+                @media screen and (min-width: 320px) and (max-width: 425px){
+                    font-size: fontsize(size-16);
+                }
+            }
+        }
+    }
+}

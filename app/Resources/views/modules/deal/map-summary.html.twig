@@ -1,0 +1,70 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               -#}
+{# This page renders the Deal summary block which appears during searches          -#}
+
+{#      Resources:                                                                 -#}
+
+{# item \Elastica\Result                                                           -#}
+{#      The elastica result object                                                 -#}
+
+{# levelFeatures \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{#      Contains information about every level of a certain module                 -#}
+
+{# ModStores Hooks #}
+{% if HookExist("dealsummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("dealsummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("dealsummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("dealsummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{% set itemLevelInfo  = levelFeatures['listing'][data.level] -%}
+
+{% set detailURL      = url('deal_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+{% set listingURL     = url('listing_detail', {'friendlyUrl': data.listing.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+<div class="summary-map-info">
+    <a href="{{ detailURL }}" class="heading h-4 map-info-title">{{ data.title }}</a>
+
+    {% if data.distance and data.distance < 40000 %}
+        <div class="map-info-distance">
+            {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
+        </div>
+    {% endif %}
+
+    {% set priceFlags = 0 %}
+    {% if data.value.real > 0 %}{% set priceFlags = priceFlags + 1 %}{% endif %}
+    {% if data.value.deal > 0 %}{% set priceFlags = priceFlags + 2 %}{% endif %}
+
+    {% if priceFlags %}
+        <div class="map-info-price">
+            {% if priceFlags == 0 %}
+                <div class="info-price-free">{{ "Free"|trans }}</div>
+            {% else %}
+                {% if priceFlags b-and 1 %}
+                    <div class="info-price-offprice">{{ data.value.real }}</div>
+                {% endif %}
+
+                {% if priceFlags b-and 2 %}
+                    <div class="info-price-value">{{ data.value.deal }}</div>
+                {% else %}
+                    <div class="info-price-free">{{ "Free"|trans }}</div>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endif %}
+</div>

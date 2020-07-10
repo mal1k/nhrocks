@@ -1,0 +1,59 @@
+{% set planFrequency = getPlanFrequency(plans) %}
+
+{% if planFrequency %}
+    <div class="pricing-wrapper {{ planFrequency.total_plan > 3 ? 'has-scroll' : '' }}" id="article">
+        <div class="pricing-list pricing-articles">
+            {% for plan in plans %}
+                {% set pricing = advertisePrice(plan, true, content) %}
+                {% if pricing.monthly.value or pricing.monthly.value == pricing.yearly.value %}
+                    <div class="pricing-item">
+                        <div class="paragraph p-3 pricing-plan">{{ plan.name }}</div>
+                        <div class="pricing-price">
+                            <div class="heading h-3 pricing-value">{{ pricing.monthly.value ? pricing.main.symbol ~ pricing.monthly.value : 'Free'|trans }}</div>
+                            <div class="paragraph p-4 pricing-period">{{ pricing.monthly.value ? 'per month'|trans : '' }}</div>
+                        </div>
+                        <div class="pricing-action">
+                            <a href="/advertise/article/{{ plan.level }}" class="button button-bg is-secondary">
+                                {% if plan.trial and pricing.monthly.value %}
+                                    {{ "{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial"|transchoice(plan.trial, {"%trial_days%":plan.trial}) }}
+                                {% else %}
+                                    {{ 'Start today!'|trans }}
+                                {% endif %}
+                            </a>
+                            <a href="{{ url( 'article_sample', {'friendlyUrl': 'sample', 'level': plan.level, '_format': 'html'}) }}" class="link pricing-example">{{ 'view example'|trans }}</a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if pricing.yearly.value %}
+
+                    {% if pricing.monthly.value %}
+                        {% set realYearlyValue = pricing.monthly.value * 12 %}
+                        {% set saveValue = (realYearlyValue - pricing.yearly.value)/(realYearlyValue) * 100 %}
+                    {% endif %}
+
+                    <div class="pricing-item {{ saveValue > 0 ? 'is-highlighted' : '' }}" data-highlighted="{{ saveValue > 0 ? 'Save'|trans ~ ' ' ~ saveValue|round ~ '%' : '' }}">
+                        <div class="paragraph p-3 pricing-plan">{{ plan.name }}</div>
+                        <div class="pricing-price">
+                            <div class="heading h-3 pricing-value">{{ pricing.main.symbol ~ pricing.yearly.value }}</div>
+                            <div class="paragraph p-4 pricing-period">{{ 'per year'|trans }}</div>
+                        </div>
+                        <div class="pricing-action">
+                            <a href="/advertise/article/{{ plan.level }}" onclick="advertiseChoice('yearly')" class="button button-bg is-secondary">
+                                {% if plan.trial %}
+                                    {{ "{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial"|transchoice(plan.trial, {"%trial_days%":plan.trial}) }}
+                                {% else %}
+                                    {{ 'Start today!'|trans }}
+                                {% endif %}
+                            </a>
+                            <a href="{{ url( 'article_sample', {'friendlyUrl': 'sample', 'level': plan.level, '_format': 'html'}) }}" class="link pricing-example">{{ 'view example'|trans }}</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+        <div class="pricing-buttons">
+            <button class="button is-primary previous"><i class="fa fa-angle-left"></i></button>
+            <button class="button is-primary next"><i class="fa fa-angle-right"></i></button>
+        </div>
+    </div>
+{% endif %}

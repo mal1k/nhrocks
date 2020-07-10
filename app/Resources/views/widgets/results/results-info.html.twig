@@ -1,0 +1,24 @@
+{% set paginationCount = pagination.totalItemCount -%}
+{% set isTabLayout = pagination.totalItemCount < 1000 and map %}
+
+{% if paginationCount > 0 -%}
+{# Results Title Bar -#}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+<div class="results-header">
+    <div class="container">
+        {#<div class="results-breadcrumb">#}
+            {#<a href="#" class="paragraph p-3 breadcrumb-item">Home</a>#}
+            {#<a href="#" class="paragraph p-3 breadcrumb-item">Categories</a>#}
+            {#<a href="#" class="paragraph p-3 breadcrumb-item">Restaurants</a>#}
+            {#<a href="#" class="paragraph p-3 breadcrumb-item">Restaurants in Melbourne</a>#}
+        {#</div>#}
+
+        <h1 class="heading h-1 results-title">{{ Utility.generateSummaryTitle( summaryTitle ) }}</h1>
+        {% if summaryTitle.content %}{{ summaryTitle.content|raw }}{% endif %}
+
+        {# pagination \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination -#}
+        <div class="paragraph p-2">{{ "Showing %pageCount% of %totalCount% results"|trans({'%totalCount%': pagination.totalItemCount, '%pageCount%': pagination.count }) }}</div>
+    </div>
+</div>
+{% endif %}

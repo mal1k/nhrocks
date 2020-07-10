@@ -1,0 +1,57 @@
+{#      Description:                                                    -#}
+{# This macro renders account link w/ images                            -#}
+
+{# account object                                                       -#}
+{#      Accountprofilecontact -#}
+
+{% macro accountLink(account) %}
+    {# @var account \ArcaSolutions\WebBundle\Entity\Accountprofilecontact #}
+
+    <div class="author">
+        {% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+        <div class="author-name">
+            {{ 'By'|trans }}
+
+            {% if link is not empty %}
+                <a class="link" href="{{ link }}">{{ account.firstName }} {{ account.lastName }}</a>
+            {% else %}
+                {{ account.firstName }} {{ account.lastName }}
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}
+
+{#      Description:                                                    -#}
+{# This macro renders author info(a different field of account)         -#}
+
+{# item object                                                          -#}
+{#      Module's repository                                             -#}
+
+{% macro authorLink(item, isSample, noFollow) %}
+    {# elasticsearch compatibility #}
+    {% if item.author.name is defined %}
+        {% set name = item.author.name %}
+        {% set url = item.author.url %}
+    {% else %}
+        {% set name = item.author %}
+        {% set url = item.authorUrl %}
+    {% endif %}
+
+    {% if isSample %}
+        {% set url = 'javascript:void(0);' %}
+    {% endif %}
+
+    {% if name is not empty %}
+        <div class="author">
+            <div class="author-name">
+                {{ 'By'|trans }}
+                {% if url %}
+                    <a class="link" href="{{ url }}" {% if noFollow|default(false) %}rel="nofollow"{% endif %}> {{ name }} </a>
+                {% else %}
+                    {{ name }}
+                {% endif %}
+            </div>
+        </div>
+    {% endif %}
+{% endmacro %}

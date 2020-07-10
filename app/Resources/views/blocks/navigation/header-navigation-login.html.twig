@@ -1,0 +1,13 @@
+<ul class="nav navbar-nav">
+    {% for item in items -%}
+
+        <li class="{{ item.pageUrl|trim('/') == app.request.uri|trim('/') ? 'active' : '' }}">
+            <a id="navigation-item-{{ loop.index }}" href="{{ item.pageUrl }}">
+                {{ item.label }}
+            </a>
+        </li>
+
+    {% endfor -%}
+
+    {{ loginNavBar(content) }}
+</ul>

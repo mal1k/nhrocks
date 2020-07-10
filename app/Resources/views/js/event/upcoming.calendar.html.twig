@@ -1,0 +1,77 @@
+{% set dateFilter = getDateFilter() -%}
+
+<script>
+
+$(document).ready(function () {
+    /* Binds */
+
+    if (!$('#days-with-events').length) {
+        return;
+    }
+    var eventDates = $('#days-with-events').val();
+    eventDates = eventDates.split(',');
+
+    var eventDateObjs = eventDates.map( function (elem) {
+        var date = new Date(elem);
+        date.setHours(0,0,0,0);
+        return date.getTime();
+    });
+
+    var calendar = $('.calendar');
+
+    calendar.datepicker({
+        inline: true,
+        language: "{{ dateFilter.bootstrapDatepickerLanguage }}",
+        format: "{{ dateFilter.bootstrapDatepickerDateFormat }}",
+        minDate: new Date(),
+        todayHighlight:  function(date){
+            return $.inArray(date.getTime(), eventDateObjs) != -1;
+        },
+        navTitles: {
+            days: 'MM yyyy',
+            months: 'yyyy',
+            years: 'yyyy1 - yyyy2'
+        },
+
+        beforeShowDay: function(date){
+            if ($.inArray(date.getTime(), eventDateObjs) != -1){
+                return {
+                    classes: 'has-event'
+                };
+            } else {
+                return false;
+            }
+        }
+    });
+
+    calendar.datepicker().on('changeDate', function(e) {
+        var date = e.date;
+
+        eDirectory.Event.populateDaysCalendar(date);
+
+        eDirectory.Event.upcomingEventsCalendar(date);
+    });
+
+    calendar.datepicker().on('changeMonth', function(e) {
+        var date = e.date;
+
+        eDirectory.Event.populateDaysCalendar(date);
+    });
+
+    $(document).on('click', '.calendar-mobile .calendar-sm', function () {
+        var dateArray = $(this).attr('data-day').split('-');
+        var date = new Date(dateArray[0], dateArray[1], dateArray[2]);
+
+        $('.calendar-mobile .calendar-sm').attr('is-active', false);
+        $(this).attr('is-active', true);
+
+        eDirectory.Event.upcomingEventsCalendar(date);
+    });
+
+    var now = new Date(Date.now());
+    now.setHours(0,0,0,0);
+    if ($.inArray(now.getTime(), eventDateObjs) != -1) {
+        eDirectory.Event.upcomingEventsCalendar(now);
+    }
+});
+</script>

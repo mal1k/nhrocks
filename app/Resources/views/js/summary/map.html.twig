@@ -1,0 +1,105 @@
+{% if mapJSHelper and apiHelper -%}
+
+{{ mapJSHelper | raw }}
+{{ apiHelper | raw }}
+
+    {% if searchEngine and mapJsVariable and clustererJSVariable -%}
+        <script type="text/javascript">
+            var windowWidth = $(window).width();
+            var canvasWidth = 0;
+            var infoWindow = null;
+
+            clusterClick = function (cluster) {
+                var markers = cluster.getMarkers();
+
+                if (markers) {
+                    var position = markers[0].position;
+                    var match = true;
+                    var elements = [markers[0].itemElement];
+
+                    for (var i = 1; i < markers.length && match; i++) {
+                        var marker = markers[i];
+
+                        if (match = position.equals(marker.position)) {
+                            elements.push(marker.itemElement);
+                        }
+                    }
+
+                    if (match) {
+                        viewElement(elements, markers[0]);
+                    }
+                }
+            };
+
+            /**
+             * Moves map focus and centers on contained markers
+             */
+            moveToCenter = function () {
+                google.maps.event.trigger({{ mapJsVariable }}, "resize");
+                {{ clustererJSVariable }}.fitMapToMarkers();
+            };
+
+            /**
+             *
+             * @param {Array | string} data
+             * @param element
+             */
+            displayResults = function (data, element) {
+                if (data.constructor !== Array) {
+                    /* Closes previous windows opened */
+                    if (this.infoWindow) {
+                        this.infoWindow.close();
+                    }
+
+                    this.infoWindow = new google.maps.InfoWindow({
+                        content: data,
+                        maxWidth: this.canvasWidth
+                    });
+
+                    this.infoWindow.open(this.map, element);
+                }
+            };
+
+            /**
+             * Shows info about the clicked item on the map
+             * @param data
+             * @param element {Object}
+             */
+            viewElement = function (data, element) {
+                if (data.constructor !== Array) {
+                    data = [data];
+                }
+
+                $.ajaxSetup({
+                    headers: {'X-Robots-Tag': 'noindex'}
+                });
+
+                $.post("{{ path("search_map_summary")|raw }}",{data: data}).done(function (response) {
+                    displayResults(response, element);
+                });
+            };
+
+            window.onload = function() {
+
+                if(windowWidth <= 425){
+                    this.canvasWidth = $("#map_canvas").width() - 60;
+                } else if(windowWidth > 425 && windowWidth <= 768){
+                    this.canvasWidth = 600;
+                } else if(windowWidth >= 992){
+                    this.canvasWidth = 800;
+                }
+
+                var summaryViewMapButton = $('#summaryViewMapButton');
+
+                if(summaryViewMapButton.hasClass('is-selected')) {
+                    moveToCenter();
+                }
+
+                summaryViewMapButton.on('click', function (e) {
+                    moveToCenter();
+                });
+            };
+        </script>
+    {% endif %}
+
+{% endif %}

@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2019-05-21T17:34:37Z" source-language="en" target-language="pt" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="db01a85aaf56c564d8800d48abb752ea2b266e86" resname="(s) import has been completed.">
+        <source>(s) import has been completed.</source>
+        <target> foi finalizada.</target>
+        <jms:reference-file line="3">/../src/ArcaSolutions/ImportBundle/Resources/views/mailer/completed.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eb636431089ede3fdf966a3ff5f42421613f0137" resname="Abort import">
+        <source>Abort import</source>
+        <target>Cancelar Importação</target>
+        <jms:reference-file line="425">/../src/ArcaSolutions/ImportBundle/Controller/ImportController.php</jms:reference-file>
+        <jms:reference-file line="54">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="df7f9db87be0f0be2b5df853b8451372ea50b8c1" resname="All right! Your import has been completed.">
+        <source>All right! Your import has been completed.</source>
+        <target>Tudo certo! Sua importação foi concluída.</target>
+        <jms:reference-file line="265">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="95f6044094b94aa254d94f895afd6b253f870f26" resname="All right! Your import was added to the queue to be processed.">
+        <source>All right! Your import was added to the queue to be processed.</source>
+        <target>Tudo certo! Sua importação foi adicionada à fila para ser processada.</target>
+        <jms:reference-file line="258">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9d12608fc0bdb0a5e7659af03e099b9fbd5449a1" resname="Alphabetical">
+        <source>Alphabetical</source>
+        <target>Alfabético</target>
+        <jms:reference-file line="285">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4dd427f1f51a7dcc71ed37a655c1041f0bf6c392" resname="Average reviews">
+        <source>Average reviews</source>
+        <target>Melhor avaliado</target>
+        <jms:reference-file line="285">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b52b36b7269fbfc58ec24bb724691951a3decbe8" resname="Back">
+        <source>Back</source>
+        <target>Voltar</target>
+        <jms:reference-file line="67">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e5d9eef8b316464a0ee718dd335f97430a733c2a" resname="Belongs to">
+        <source>Belongs to</source>
+        <target>Pertence a</target>
+        <jms:reference-file line="398">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0aff1a37c7dbbafe0936a344adcf950e56fa8091" resname="Browse FTP">
+        <source>Browse FTP</source>
+        <target>Selecionar da pasta de upload por FTP</target>
+        <jms:reference-file line="167">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a4b5358b5d50407c88f27bef1900ad0b73db2767" resname="Cancel import">
+        <source>Cancel import</source>
+        <target>Cancelar importação</target>
+        <jms:reference-file line="59">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1062570190b3d83572db2c9d358b0e09a4fb0fd5" resname="Change File">
+        <source>Change File</source>
+        <target>Mudar Arquivo</target>
+        <jms:reference-file line="133">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a063621f2972f831634dc1e4c2d0de55f22815e9" resname="Choose an Option">
+        <source>Choose an Option</source>
+        <target>Escolha uma opção</target>
+        <jms:reference-file line="102">/../web/includes/forms/form-card.php</jms:reference-file>
+        <jms:reference-file line="181">/../web/includes/forms/form-card.php</jms:reference-file>
+        <jms:reference-file line="290">/../web/includes/forms/form-card.php</jms:reference-file>
+        <jms:reference-file line="304">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="52a52c3143500de552516c09dd4a69dfb12b7dfd" resname="Choose your file">
+        <source>Choose your file</source>
+        <target>Selecione seu arquivo</target>
+        <jms:reference-file line="131">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+        <jms:reference-file line="376">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4c7e574cd88c4411bbb70e24e1bde845e563b5ee" resname="Click to pick categories">
+        <source>Click to pick categories</source>
+        <target>Clique para escolher categorias</target>
+        <jms:reference-file line="341">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bbfa773e5a63a5ea58c9b6207e608ca0120e592a" resname="Close">
+        <source>Close</source>
+        <target>Fechar</target>
+        <jms:reference-file line="373">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+        <jms:reference-file line="381">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ddde6547fc8e0885ccde1c272c599661b7bd70d0" resname="Code does not match">
+        <source>Code does not match</source>
+        <target>Código não corresponde</target>
+        <jms:reference-file line="305">/Resources/views/blocks/form-layout.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b9ee3deaae2695cf53cbcebec20aed5fb9b594e3" resname="Comma">
+        <source>Comma</source>
+        <target>Vírgula</target>
+        <jms:reference-file line="151">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9b7d9a44386c16eb12b44b0a9ca96020b213a19a" resname="Content Mapping">
+        <source>Content Mapping</source>
+        <target>Mapear Conteúdo</target>
+        <jms:reference-file line="82">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9df21e7066af463f77c9d5e005f8cd1771f4e58d" resname="Custom Link">
+        <source>Custom Link</source>
+        <target>Link personalizado</target>
+        <jms:reference-file line="120">/../web/includes/forms/form-card.php</jms:reference-file>
+        <jms:reference-file line="134">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7277e70617593a2b56477d1cb2f2045c2fc984db" resname="Customize rules">
+        <source>Customize rules</source>
+        <target>Personalizado</target>
+        <jms:reference-file line="229">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eb9a4bc1c0c153e4e4b042a79113b815b7e3021d" resname="Date">
+        <source>Date</source>
+        <target>Data</target>
+        <jms:reference-file line="16">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="312130a5bba6b7b7d38f18442d8d8ad1b4862a94" resname="Default level for items without level specified">
+        <source>Default level for items without level specified</source>
+        <target>Nível padrão para itens sem nível especificado</target>
+        <jms:reference-file line="203">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d122080d24c0c22ef574e069299cd9a2669f9d9d" resname="Depending on your data and how busy the system is, the import may take a few minutes to finish.">
+        <source>Depending on your data and how busy the system is, the import may take a few minutes to finish.</source>
+        <target>Dependendo da quantidade de dados e da ocupação do sistema, a importação pode demorar alguns minutos para terminar.</target>
+        <jms:reference-file line="260">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0f4708464019a422769c7c1027614719bd8f2c99" resname="Display Square banners">
+        <source>Display Square banners</source>
+        <target>Exibir banners quadrados</target>
+        <jms:reference-file line="168">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bf4c4f5ef5b4b4c2e335dbb2f6a48636d2547643" resname="Display banners">
+        <source>Display banners</source>
+        <target>Exibir Banner</target>
+        <jms:reference-file line="161">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d7100d5c77292af0f7c059f6c83195ccaa552b9b" resname="Display wideskyscrapper banners">
+        <source>Display wideskyscrapper banners</source>
+        <target>Exibir banners wide skyscraper</target>
+        <jms:reference-file line="171">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="50b568b250f3573931645e36569cefda50cf43bd" resname="Do not display banners">
+        <source>Do not display banners</source>
+        <target>Não exibir banners</target>
+        <jms:reference-file line="163">/../web/includes/forms/form-card.php</jms:reference-file>
+        <jms:reference-file line="165">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="104a4b3780ea60e828d7b496d9221a695a443f86" resname="Download Template File">
+        <source>Download Template File</source>
+        <target>Baixar arquivo de modelo</target>
+        <jms:reference-file line="55">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="146e1eaf1959fb6f833c121daa7000caa54a15fb" resname="Drag your file here">
+        <source>Drag your file here</source>
+        <target>Arraste seu arquivo aqui</target>
+        <jms:reference-file line="125">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="241b623e578aa52a3ed5e4b78009ed6a758bbb72" resname="Drop to Upload">
+        <source>Drop to Upload</source>
+        <target>Solte para enviar</target>
+        <jms:reference-file line="121">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5475c27a2ae9a8e11309ccb820cf03e423c9bbbf" resname="Error Lines">
+        <source>Error Lines</source>
+        <target>Linhas com erro</target>
+        <jms:reference-file line="18">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dca24348c3914f547e47e7b9628d77288d4cbd3f" resname="Error parsing import file">
+        <source>Error parsing import file</source>
+        <target>Erro ao analisar o arquivo de importação</target>
+        <jms:reference-file line="276">/../src/ArcaSolutions/ImportBundle/Controller/ImportController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c5497bca58468ae64aed6c0fd921109217988db3" resname="Events">
+        <source>Events</source>
+        <target>Eventos</target>
+        <jms:reference-file line="29">/../src/ArcaSolutions/ImportBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="321b007516c9f05e4785b5b3e12af45e89d096f8" resname="Expand log">
+        <source>Expand log</source>
+        <target>Abrir log</target>
+        <jms:reference-file line="46">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f887f8d148358ccbca1d3e75c1d4b25795cdcd91" resname="External Link">
+        <source>External Link</source>
+        <target>Link externo</target>
+        <jms:reference-file line="152">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="09979a78c9954035af250cb7f4619ed9d606f0ef" resname="File name">
+        <source>File name</source>
+        <target>Nome do arquivo</target>
+        <jms:reference-file line="14">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+        <jms:reference-file line="318">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="45d0df35c727b943c962e23586be0cafbd8a3340" resname="File size">
+        <source>File size</source>
+        <target>Tamanho do arquivo</target>
+        <jms:reference-file line="319">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4d610ebf5d88ed4ad65d46d5a40eb4cbbb8fdd9f" resname="For each column of your imported data, select a field that it corresponds to.">
+        <source>For each column of your imported data, select a field that it corresponds to.</source>
+        <target>Para cada coluna de seus dados importados, selecione o campo correspondente.</target>
+        <jms:reference-file line="174">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="036e7c6fdc1387144019f26be9ca28555d568460" resname="From which level would you like to display these items?">
+        <source>From which level would you like to display these items?</source>
+        <target>De qual nível você gostaria de exibir esses itens?</target>
+        <jms:reference-file line="261">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7fce6a1aadda32186ee81169eaccec251e6c65fe" resname="How many items would you like to display?">
+        <source>How many items would you like to display?</source>
+        <target>Quantos itens você gostaria de exibir?</target>
+        <jms:reference-file line="320">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b5535e84c5b93698803991418c0d86a0fbbed79d" resname="How to upload files via FTP?">
+        <source>How to upload files via FTP?</source>
+        <target>Como fazer upload de arquivos via FTP?</target>
+        <jms:reference-file line="364">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2d7751646cdf5a82f6fb8af7a0cf1cf5b1690480" resname="How would you like to display your items on this widget?">
+        <source>How would you like to display your items on this widget?</source>
+        <target>Como você gostaria de exibir seus itens neste widget?</target>
+        <jms:reference-file line="213">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b2823e86e5cf5f10d878500f230210c1378c609" resname="How would you like to order the results? Choose two criterias">
+        <source>How would you like to order the results? Choose two criterias</source>
+        <target>Como você gostaria de pedir os resultados? Escolha dois critérios</target>
+        <jms:reference-file line="283">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d6fbc9d2bdd580e18ed0bc5805dc26db323d6f5f" resname="Import">
+        <source>Import</source>
+        <target>Importação</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/ImportBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d49ba8d2a86d6dfcc0b6e2fb1edea9c20ce28b28" resname="Import Completed">
+        <source>Import Completed</source>
+        <target>Importação Finalizada</target>
+        <jms:reference-file line="496">/../src/ArcaSolutions/ElasticsearchBundle/Command/SynchronizeCommand.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4391288cd1f18db22b79938705d80d8d696c8950" resname="Import Events">
+        <source>Import Events</source>
+        <target>Importação de Eventos</target>
+        <jms:reference-file line="11">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f82cfed2beff02c9639e888b643f070334229414" resname="Import Listings">
+        <source>Import Listings</source>
+        <target>Importação de Empresas</target>
+        <jms:reference-file line="7">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="806d984682db321ef08e5e99f4c6ee96f1e058be" resname="Import Log">
+        <source>Import Log</source>
+        <target>Registro de Importação</target>
+        <jms:reference-file line="2">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4367a6af9922238041fcf44e52345a4f4480fc21" resname="Import Preferences">
+        <source>Import Preferences</source>
+        <target>Preferências de Importação</target>
+        <jms:reference-file line="196">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="197f3045a63a54e0286b0578a004ccafcfc14e2a" resname="Import all items to the same user account">
+        <source>Import all items to the same user account</source>
+        <target>Importar todos os itens para a mesma conta de usuário</target>
+        <jms:reference-file line="236">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ce816cfaf77a64df7a08c0e75d6b628179fef930" resname="Import all new categories as featured">
+        <source>Import all new categories as featured</source>
+        <target>Importar todas as novas categorias como destacadas</target>
+        <jms:reference-file line="218">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7dbf16259e5becbe9fd20822e8e3d29778deb323" resname="Import files are limited to %count% lines. Please split your file in smaller ones">
+        <source>Import files are limited to %count% lines. Please split your file in smaller ones</source>
+        <target>Os arquivos de importação estão limitados a %count% linhas. Por favor, dividir seu arquivo em arquivos menores</target>
+        <jms:reference-file line="265">/../src/ArcaSolutions/ImportBundle/Controller/ImportController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6d5c03afcafe3afbaccfca893433825306c56575" resname="Internal Page">
+        <source>Internal Page</source>
+        <target>Página Interna</target>
+        <jms:reference-file line="147">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="db10c195cd272af5a99cba540131b4f1a22803e8" resname="Leave it blank to not display a link">
+        <source>Leave it blank to not display a link</source>
+        <target>Deixe em branco para não exibir um link</target>
+        <jms:reference-file line="94">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7c7f5d049fad2569721d446c4a811f9bd5da5393" resname="Level">
+        <source>Level</source>
+        <target>Nível</target>
+        <jms:reference-file line="285">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3b038bb7353eb466e5f4b222d273d6dca96e23c0" resname="Link Label">
+        <source>Link Label</source>
+        <target>Rótulo do link</target>
+        <jms:reference-file line="93">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e539f597db1f90ad18e9093b2b7f1268953063f4" resname="Listings">
+        <source>Listings</source>
+        <target>Empresas</target>
+        <jms:reference-file line="23">/../src/ArcaSolutions/ImportBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ff4730b4bbe043ac044aa34b2062382825548988" resname="Modification date">
+        <source>Modification date</source>
+        <target>Data de modificação</target>
+        <jms:reference-file line="320">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fb52a4c6e46ec86994785d7bc406dce9466784d9" resname="Module level not found">
+        <source>Module level not found</source>
+        <target>Nível do módulo não encontrado</target>
+        <jms:reference-file line="221">/../src/ArcaSolutions/ImportBundle/Controller/ImportController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="45ae20638fce25fe11335d01e774b9a215e0b8b9" resname="Most viewed">
+        <source>Most viewed</source>
+        <target>Mais visto</target>
+        <jms:reference-file line="285">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="daa064f6a72e7ec73da3816061c0f5d14e9e1490" resname="New event import">
+        <source>New event import</source>
+        <target>Nova importação de eventos</target>
+        <jms:reference-file line="12">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5a79c17c1360c8ac2c295476a50569fe3cdeacef" resname="New listing import">
+        <source>New listing import</source>
+        <target>Nova importação de empresas</target>
+        <jms:reference-file line="8">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bc981983e7f547dc62e19a1e383acfe00782a6d5" resname="Next">
+        <source>Next</source>
+        <target>Próximo</target>
+        <jms:reference-file line="101">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="817d688ede5f6b59aa4a172d6456ffcd8ebd5c9b" resname="Nothing (skip)">
+        <source>Nothing (skip)</source>
+        <target>Nenhuma (pular)</target>
+        <jms:reference-file line="400">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bfbad7d8a5698feed3f14f7427e7900af4bb851b" resname="Number of columns">
+        <source>Number of columns</source>
+        <target>Número de colunas</target>
+        <jms:reference-file line="177">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2bc04e7a688d54a24a89f2ba9dfbe58bd79f7b0a" resname="Overwrite matching items">
+        <source>Overwrite matching items</source>
+        <target>Substituir itens correspondentes</target>
+        <jms:reference-file line="224">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="728077eac4151988c6c3a875438e05e2ea7a5ad6" resname="Pick a module to show on this widget">
+        <source>Pick a module to show on this widget</source>
+        <target>Escolha um módulo para mostrar neste widget</target>
+        <jms:reference-file line="75">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ac7f423024ac69daf9201d0e7655f19c6c23d08d" resname="Pick individual items">
+        <source>Pick individual items</source>
+        <target>Escolha itens individualmente</target>
+        <jms:reference-file line="225">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c83fbcdc07a57ca537f518e17b8a645e3568c0d1" resname="Please Select an Option">
+        <source>Please Select an Option</source>
+        <target>Por favor selecione uma opção</target>
+        <jms:reference-file line="234">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3444aac5d557970c775bfd3e8454dc5e04c64a65" resname="Please select your rating.">
+        <source>Please select your rating.</source>
+        <target>Por favor, selecione sua classificação.</target>
+        <jms:reference-file line="307">/Resources/views/blocks/form-layout.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9dfd349ebee555eb8d652be20dad971cae439eca" resname="Preferences">
+        <source>Preferences</source>
+        <target>Preferências</target>
+        <jms:reference-file line="90">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="58d888c08aa561f370e38cee976121532a883d71" resname="Random">
+        <source>Random</source>
+        <target>Aleatório</target>
+        <jms:reference-file line="286">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5369634238e2e5c40145e582ef385f536e5d6daf" resname="Recently added">
+        <source>Recently added</source>
+        <target>Adicionado recentemente</target>
+        <jms:reference-file line="286">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5f0500ccf919090918c2f2af85893d2bfc3a4cb5" resname="Recently updated">
+        <source>Recently updated</source>
+        <target>Atualizado recentemente</target>
+        <jms:reference-file line="286">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9bf7a8e8909bfd491b38561a42bb2559669d5c63" resname="Row">
+        <source>Row</source>
+        <target>Linha</target>
+        <jms:reference-file line="94">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4ced0161f8a45cd2f326e27774d222c613a7cf98" resname="Select an account">
+        <source>Select an account</source>
+        <target>Selecione uma conta</target>
+        <jms:reference-file line="242">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="065deb7a785a466090c807923db53b40e4391950" resname="Select the csv separator">
+        <source>Select the csv separator</source>
+        <target>Selecione o separador do arquivo</target>
+        <jms:reference-file line="149">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="13b39c7236e0fe0fe7381a5a1bd63bcd4ebad566" resname="Select via FTP">
+        <source>Select via FTP</source>
+        <target>Selecione via FTP</target>
+        <jms:reference-file line="303">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="727ceca929343cf1d251df13f27242491660a92b" resname="Semicolon">
+        <source>Semicolon</source>
+        <target>Ponto e vírgula</target>
+        <jms:reference-file line="152">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e5a210f516f4ee425f3cfd0fd7d1aed2134498ff" resname="Set all imported items as active">
+        <source>Set all imported items as active</source>
+        <target>Importar todos os itens como ativos</target>
+        <jms:reference-file line="212">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1b402fe224d810b643bbec79819a84e7889edc60" resname="Site manager">
+        <source>Site manager</source>
+        <target>Administrador</target>
+        <jms:reference-file line="2">/../src/ArcaSolutions/ImportBundle/Resources/views/mailer/completed.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f26e1d73d92736ab7ed1802c40fff7c3e08b99b3" resname="Something went wrong while reading your file. [Click here] to learn more.">
+        <source>Something went wrong while reading your file. [Click here] to learn more.</source>
+        <target>Algo deu errado ao ler seu arquivo. [Clique aqui] para saber mais.</target>
+        <jms:reference-file line="374">/../src/ArcaSolutions/ImportBundle/Controller/ImportController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bae7d5be70820ed56467bd9a63744e23b47bd711" resname="Status">
+        <source>Status</source>
+        <target>Status</target>
+        <jms:reference-file line="19">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0e4b1dd088b9154f6adc7c60d4a017674a3fd65c" resname="Supported files: CSV or XLS. Maximum file size: ">
+        <source>Supported files: CSV or XLS. Maximum file size: </source>
+        <target>Arquivos suportados: CSV ou XLS. Tamanho máximo do arquivo:</target>
+        <jms:reference-file line="138">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="46bb1afbac9393ac2bdeba75935ed2a890ac88cd" resname="The first line is the header">
+        <source>The first line is the header</source>
+        <target>A primeira linha é o cabeçalho</target>
+        <jms:reference-file line="161">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1cc71e41e3b408f82b05b0d7a445bf27347fe9f7" resname="The selected file will be deleted from FTP after use.">
+        <source>The selected file will be deleted from FTP after use.</source>
+        <target>O arquivo selecionado será excluído do FTP após o uso.</target>
+        <jms:reference-file line="371">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="658021e8d0c97f377f9d146220fdcc1296185819" resname="This value is not a valid captcha.">
+        <source>This value is not a valid captcha.</source>
+        <target>Este valor não é um captcha válido.</target>
+        <jms:reference-file line="305">/Resources/views/blocks/form-layout.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8875a87e00ee49d5661894d6c1c7e2de94979913" resname="Total Lines">
+        <source>Total Lines</source>
+        <target>Total de Linhas</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3deb7456519697ecf4eefc455516c969a3681bae" resname="Type">
+        <source>Type</source>
+        <target>Tipo</target>
+        <jms:reference-file line="15">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0e2d9b0777a485c1276de0803c12a7d76fbc5c39" resname="URL">
+        <source>URL</source>
+        <target>URL</target>
+        <jms:reference-file line="100">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="29f2279ce09330525764aec5d68ed14caac45ffd" resname="Undo import">
+        <source>Undo import</source>
+        <target>Desfazer importação</target>
+        <jms:reference-file line="418">/../src/ArcaSolutions/ImportBundle/Controller/ImportController.php</jms:reference-file>
+        <jms:reference-file line="62">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="523baab918efc25f05de365b298970744de447f4" resname="Upcoming">
+        <source>Upcoming</source>
+        <target>Próximo</target>
+        <jms:reference-file line="286">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f36daf11fc6f8ec101171355a4c78b80bec4d995" resname="Update friendly URLs for matching items">
+        <source>Update friendly URLs for matching items</source>
+        <target>Atualizar URLs amigáveis para itens correspondentes</target>
+        <jms:reference-file line="230">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a1c45d468775ffe0331a5b14968d04e1d042e790" resname="Upload corrected file">
+        <source>Upload corrected file</source>
+        <target>Subir arquivo corrigido</target>
+        <jms:reference-file line="187">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fd76ee8f35eddae8d2b82aa15e2143791a41dd7c" resname="View import log">
+        <source>View import log</source>
+        <target>Ver registro de importação</target>
+        <jms:reference-file line="271">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d3ff9befae1cc14f76fe4fc89e50204f76984643" resname="What type of data do you want to import?">
+        <source>What type of data do you want to import?</source>
+        <target>Que tipo de conteúdo você deseja importar?</target>
+        <jms:reference-file line="18">/../src/ArcaSolutions/ImportBundle/Resources/views/index.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5c0d5a0565bd2b3ceedd1af99bbd8746ca836107" resname="Widget Title">
+        <source>Widget Title</source>
+        <target>Título do Widget</target>
+        <jms:reference-file line="71">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="218631e0228723b49827c70e918585a588a03564" resname="Would you like to filter your listings by specific categories? Leave it blank for all categories.">
+        <source>Would you like to filter your listings by specific categories? Leave it blank for all categories.</source>
+        <target>Gostaria de filtrar suas empresas por categorias específicas? Deixe em branco para todas as categorias.</target>
+        <jms:reference-file line="328">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="854f182122dcff31ec72e2eb702ef3bdeebaa9c7" resname="Would you like to filter your listings by specific locations? Leave it blank for all locations.">
+        <source>Would you like to filter your listings by specific locations? Leave it blank for all locations.</source>
+        <target>Gostaria de filtrar suas empresas por locais específicos? Deixe em branco para todos os locais.</target>
+        <jms:reference-file line="359">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b475b7f01e69c25053cc07c76f89e67c4a102443" resname="You can review the log here">
+        <source>You can review the log here</source>
+        <target>Você pode revisar o registro aqui</target>
+        <jms:reference-file line="7">/../src/ArcaSolutions/ImportBundle/Resources/views/mailer/completed.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a4436940745c9e46918c6452e3ce5c4cabed3325" resname="You don't have any files in your FTP folder.">
+        <source>You don't have any files in your FTP folder.</source>
+        <target>Você não possui nenhum arquivo em sua pasta de FTP.</target>
+        <jms:reference-file line="362">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d5bc93e8a3d2e74231abf7fd09fc10021ab97a30" resname="You have no imports yet.">
+        <source>You have no imports yet.</source>
+        <target>Você ainda não fez nenhuma importação.</target>
+        <jms:reference-file line="8">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1cd4b22ca60bde7e5c69e9b8fab155fc3b9e1750" resname="Your ">
+        <source>Your </source>
+        <target>Sua importação de </target>
+        <jms:reference-file line="3">/../src/ArcaSolutions/ImportBundle/Resources/views/mailer/completed.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8e78caaaf0113f88d8b93528e3062b2bff81315e" resname="lines imported with success">
+        <source>lines imported with success</source>
+        <target>linhas importadas com sucesso</target>
+        <jms:reference-file line="75">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3c74e49abfd8f246f8d97ce501214cc9ee628777" resname="lines with error">
+        <source>lines with error</source>
+        <target>linhas com erro</target>
+        <jms:reference-file line="85">/../src/ArcaSolutions/ImportBundle/Resources/views/items.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1758356db21759f7c5a0da9b4dd1db8fd6feab3f" resname="or">
+        <source>or</source>
+        <target>ou</target>
+        <jms:reference-file line="127">/../src/ArcaSolutions/ImportBundle/Resources/views/wizard.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

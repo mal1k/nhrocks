@@ -1,0 +1,66 @@
+{# reviews array #}
+
+{% import "::blocks/utility/review.html.twig" as Review -%}
+{% import "::blocks/utility/profile.html.twig" as Profile -%}
+{% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+{% for item in reviews %}
+
+    {# review \ArcaSolutions\WebBundle\Entity\Review #}
+    {# module \ArcaSolutions\ListingBundle\Entity\Listing #}
+    {% set review = item.review %}
+    {% set module = item.module %}
+    {% set itemData = getCardData(item.module, 'listing') %}
+
+    {% set format_date = getDateFormat() %}
+
+    {% if format_date == 'm/d/Y' %}
+        {% set format_date = 'MMMM d, y' %}
+        {% set format_enddate = 'MMMM dd, yyyy' %}
+    {% else %}
+        {% set format_date = 'd MMMM, y' %}
+        {% set format_enddate = 'd MMMM, yyyy' %}
+    {% endif %}
+
+    {% set urlProfile = Profile.friendlyUrl(review.profile) %}
+
+    <div class="card" data-columns="4">
+        <a href="{{ itemData.detailLink }}" class="picture">
+            {{ tagPicture(itemData.imagePath, review.reviewTitle) }}
+            <div class="picture-info">
+                {% if itemData.logoImage %}
+                <div class="picture-icon">
+                    <img src="{{ itemData.logoImage|imagine_filter('logo_icon') }}" alt="">
+                </div>
+                {% endif %}
+                <h5 class="heading h-4">{{ module.title|length > 30 ? module.title|slice(0,28) ~ '...' : module.title }}</h5>
+            </div>
+        </a>
+        <div class="content">
+            <a href="{{ itemData.detailLink }}" class="title paragraph p-2">{{ review.reviewTitle|length > 30 ? review.reviewTitle|slice(0,28) ~ '...' : review.reviewTitle }}</a>
+            <div class="reviews">
+                <div class="reviews-stars">
+                    {% for i in 0..4 %}
+                        <i class="fa fa-star{{ i < review.rating ? '' : '-o' }}"></i>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="description">
+                <p class="paragraph">{{ review.review|length > 120 ? review.review|slice(0,118) ~ '...' : review.review }}</p>
+            </div>
+            <div class="author">
+                <div class="author-picture">
+                    {{ Profile.photo(review.profile) }}
+                </div>
+                <div class="author-info">
+                    {% if review.profile %}
+                        <a href="{{ urlProfile }}" class="link author-name">{{ review.reviewerName }}</a>
+                    {% else %}
+                        <a class="author-name">{{ review.reviewerName }}</a>
+                    {% endif %}
+                    <div class="author-days">{{ review.added|localized_date(format_date)|title }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

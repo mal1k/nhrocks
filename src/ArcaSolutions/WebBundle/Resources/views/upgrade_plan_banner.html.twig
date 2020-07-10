@@ -1,0 +1,18 @@
+{% set upgrade_url = 'https://www.edirectory.com/upgrade-from-basic/?domain=' ~ app.request.getSchemeAndHttpHost() %}
+
+<br>
+
+<div class="upgradeplan-banner">
+    <div class="upgradeplan-content">
+        <div class="upgradeplan-icon">
+            <img src="/{{ getParameter('alias_sitemgr_module')}}/assets/img/upgradeplan-icon.png"/>
+        </div>
+        <div class="upgradeplan-text">
+            <h3>{{ 'Upgrade to %premium% to create Unlimited Listings.'|trans({'%premium%': '<strong>Premium</strong>'})|raw }}</h3>
+            <small>{{ '* hosting bandwidth and storage limits apply.'|trans }} </small>
+        </div>
+    </div>
+    <div class="upgradeplan-action">
+        <a href="{{ upgrade_url }}" rel="noopener noreferrer" target="_blank" class="button">{{ 'Upgrade your Plan'|trans }}</a>
+    </div>
+</div>

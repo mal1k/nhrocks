@@ -1,0 +1,113 @@
+{% set banner = getBanner('skyscraper') %}
+
+<div class="results-body" data-align="{{ content.filterSide }}">
+    <div class="container">
+        {% if pagination.totalItemCount > 0 -%}
+
+            {% set activeViewMode = app.request.cookies.get("edirectory_viewmode") -%}
+            {% set pageCategories = pagination.customParameter('pageCategories') -%}
+            {% set pageLocations  = pagination.customParameter('pageLocations') -%}
+            {% set pageBadges     = pagination.customParameter('pageBadges') -%}
+
+            {% if content.resultView == 'list' and activeViewMode == "grid-view" or (activeViewMode == "map-view" and (pagination.totalItemCount >= 1000 or not map)) %}
+                {% set activeViewMode = "list-view" -%}
+            {% elseif content.resultView == 'grid' and activeViewMode == "list-view" %}
+                {% set activeViewMode = "grid-view" -%}
+            {% elseif activeViewMode is empty %}
+                {% if content.resultView == 'list-grid' or content.resultView == 'list' %}
+                    {% set activeViewMode = 'list-view' %}
+                {% else %}
+                    {% set activeViewMode = 'grid-view' %}
+                {% endif %}
+            {% endif %}
+
+            <div class="wrapper">
+                {% if searchEvent.filters|length > 0 %}
+                    <div class="results-sidebar">
+                        <div class="sidebar-wrapper">
+                            {% for filter in searchEvent.filters -%}
+                                {{ filter.filterView|raw }}
+                            {% endfor -%}
+                            {% if banner is not empty %}
+                                {{ banner|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+                <div class="results-content">
+                    <div class="results-actions">
+                        <div class="relevance-filters">
+                            <select name="order" id="searchSorter">
+                                {# sorter \ArcaSolutions\SearchBundle\Entity\Sorters\BaseSorter -#}
+                                {% for sorter in searchEvent.sorters -%}
+                                    <option {{ sorter.selected ? "selected" }} data-needsgeolocation="{{ sorter.needsGeoLocation ? "1" : "0" }}" value="{{ sorter.getSearchPageUrl( ((searchEvent.defaultSorter.name is defined) and (searchEvent.defaultSorter.translatedName == sorter.translatedName)) ) }}">{{ sorter.translatedName|capitalize }}</option>
+                                {% endfor -%}
+                            </select>
+                        </div>
+                        <div class="results-type">
+                            <button style="{{ content.resultView == 'list-grid' or (content.resultView == 'list' and map) ? '' : 'display: none;' }}" class="button button-md is-outline result-type {{ (activeViewMode == 'list-view') or (activeViewMode == 'undefined') ? 'is-selected' : '' }}" data-type="list-view"><i class="fa fa-list"></i> {{'List'|trans}}</button>
+                            <button style="{{ content.resultView == 'list-grid' or (content.resultView == 'grid' and map) ? '' : 'display: none;' }}" class="button button-md is-outline result-type {{ activeViewMode == 'grid-view' ? 'is-selected' : '' }}" data-type="grid-view"><i class="fa fa-th"></i> {{'Grid'|trans}}</button>
+                            <button style="{{ content.resultView == 'list-grid' or ((content.resultView == 'list' or content.resultView == 'grid') and map) ? '' : 'display: none;' }}" class="button button-md is-outline result-type list-button {{ (activeViewMode == 'list-view' or activeViewMode == 'grid-view' or activeViewMode == 'undefined') ? 'is-selected' : '' }}" data-type="list-view"><i class="fa fa-list"></i> {{'List'|trans()}}</button>
+
+                            {% if pagination.totalItemCount < 1000 and map -%}
+                                <button id="summaryViewMapButton" class="button button-md is-outline result-type {{ activeViewMode == 'map-view' ? 'is-selected' : '' }}" data-type="map-view"><i class="fa fa-map-marker"></i> {{ "Map"|trans }}</button>
+                            {% endif %}
+
+                            <button type="button" class="button button-md is-primary refine-button">{{'Refine'|trans()}}</button>
+                        </div>
+                    </div>
+
+                    <div class="summary-list {{ (activeViewMode == 'list-view' or activeViewMode == 'grid-view') ? 'is-active' : '' }}" list-type="{{ activeViewMode ? activeViewMode : 'list-view' }}" {{ activeViewMode == 'map-view' ? 'style=display:none;' : '' }}>
+                        {% for result in pagination -%}
+                             {{ searchSummary(result, pageCategories, pageLocations, pageBadges, levels) }}
+                        {% endfor -%}
+                    </div>
+                    {% if map -%}
+                        <div class="summary-list-map {{ activeViewMode == 'map-view' ? 'is-active' : '' }}">
+                            {{ googleMaps(map) }}
+                            <div id="mapMarkerSummaryBox"></div>
+                        </div>
+                    {% endif %}
+
+                    {% if pagination.pageCount > 1 %}
+                        <div class="results-pagination" {{ activeViewMode == 'map-view' ? 'style=display:none;' : '' }}>
+                            {{ knp_pagination_render(pagination) }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        {% else %}
+            <div class="results-notfound">
+                <h1 class="heading h-2">{{ "No results containing all your search terms were found"|trans }}</h1>
+                <hr>
+                <br>
+                <h3 class="heading h-3">{{ "Suggestions"|trans }}:</h3>
+                <ul>
+                    <li>{{ "Try different and more general keywords"|trans }}</li>
+                    <li>{{ "Try removing filters to broaden your search"|trans }}</li>
+                    <li>{{ "Try browsing by section"|trans }}</li>
+                </ul>
+                <div>{{ 'Try another search or send %link_start%enquiry%link_end% to request information' | trans({'%link_start%' : '<a href="'~path('web_contactus')~'" class="link">', '%link_end%' : '</a>'}, 'account') | raw }}</div>
+                <br>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<div class="details-default">
+    {% if formSendMail %}
+        {% include ':blocks/modals:modal-send-email.html.twig' with {form: formSendMail, item: item} %}
+    {% endif %}
+    {% if formReview %}
+        {% include '@Web/modal-review.html.twig' with {form: formReview, item: item} %}
+    {% endif %}
+</div>
+
+{{ addJSFile("assets/js/utility/geolocation.js") }}
+{{ addJSFile("assets/js/search/sorter.js") }}
+{{ addJSFile("assets/js/search/suggest.js") }}
+{{ addJSFile("assets/js/search/report.click.js") }}
+{{ addJSTwig("::js/summary/results.html.twig") }}
+{{ addJSFile("assets/js/lib/social-likes.min.js") }}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}
+{{ addJSFile("assets/js/review/review.js") }}

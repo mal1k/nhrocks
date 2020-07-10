@@ -1,0 +1,7 @@
+{% set locale = app.request.locale|split('_') %}
+
+<div id="fb-root"></div>
+
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/{{ locale|first ~ '_' ~ locale|last|upper }}/sdk.js#xfbml=1&version=v3.3&appId={{ getSetting('foreignaccount_facebook_apiid') }}&autoLogAppEvents=1"></script>
+
+<div class="fb-comments" data-href="{{ app.request.schemeAndHttpHost~app.request.requestUri }}" data-numposts="{{ quantity_posts }}" data-width="100%" data-mobile="true"></div>

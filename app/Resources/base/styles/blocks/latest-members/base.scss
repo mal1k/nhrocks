@@ -1,0 +1,101 @@
+[data-type="latest-members"]{
+    .members-list{
+        display: flex;
+        flex-flow: row wrap;
+        margin: -48px -16px 0;
+        justify-content: space-between;
+
+        .members-item{
+            text-align: center;
+            display: block;
+            text-decoration: none;
+            margin: 48px 8px 0;
+            max-width: 125px;
+
+            @include mq-screen(340px, 375px){
+                width: 27%;
+            }
+
+            @media screen and (min-width: 768px){
+                margin: 48px 16px 0;
+                max-width: none;
+                width: 125px;
+            }
+            
+            @media screen and (min-width: 1200px){
+                width: 163px;
+            }
+
+            &:hover{
+                .picture{
+                    img{
+                        transform: scale(1.1);
+                    }
+                }
+
+                .content{
+                    .heading{
+                        color: customColor(highlight, base);
+                    }
+                }
+            }
+
+            .picture{
+                width: 96px;
+                height: 96px;
+                border-radius: 9999px;
+                overflow: hidden;
+                border: 1px solid customColor(neutral, transp-25);
+                margin: 0 auto;
+                font-size: fontsize(size-24);
+                color: customColor(brand, base);
+                line-height: 96px;
+
+                img{
+                    max-width: 100%;
+                    height: auto;
+                    display: block;
+                    object-fit: cover;
+                    transition: $transitions;
+                }
+            }
+
+            .content{
+                margin-top: 16px;
+
+                .heading{
+                    font-weight: bold;
+                    transition: $transitions;
+                }
+
+                .joined-time{
+                    color: customColor(neutral, transp-75);
+                }
+            }
+        }
+    }
+
+    &[data-bg="brand"]{
+        .members-list{
+            .members-item{
+                .picture{
+                    border-color: customColor(color-white, transp-50);
+
+                    .fa{
+                        color: customColor(color-white, transp-50);
+                    }
+                }
+
+                .content{
+                    .heading{
+                        color: customColor(color-white, base);
+                    }
+
+                    .joined-time{
+                        color: customColor(color-white, transp-75);
+                    }
+                }
+            }
+        }
+    }
+}

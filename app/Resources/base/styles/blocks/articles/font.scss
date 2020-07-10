@@ -1,0 +1,64 @@
+.cards-default{
+    &[data-type="articles"]{
+        .cards-list{
+            .card-horizontal-full{
+                .content{
+                    .title{
+                        font-size: fontsize(size-24);
+                    }
+
+                    .categories{
+                        .link{
+                            font-size: fontsize(size-14);
+                        }
+                    }
+                }
+            }
+
+            &.list-horizontal{
+                .content{
+                    .title{
+                        font-size: fontsize(size-24);
+                    }
+                }
+            }
+        }
+
+        .card-wrapper-quarter{
+            .card-list-quarter{
+                .card-horizontal-full{
+                    .content{
+                        .title{
+                            font-size: fontsize(size-24);
+                        }
+                    }
+                }
+            }
+
+            .cards-popular{
+                > .list-popular-articles{
+                    .item-popular-articles{
+                        .content-right{
+                            .title{
+                                font-size: fontsize(size-20);
+                            }
+
+                            .author{
+                                font-size: fontsize(size-14);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .card{
+            .content{
+                .title{
+                    font-weight: bold;
+                    font-size: fontsize(size-20);
+                }
+            }
+        }
+    }
+}

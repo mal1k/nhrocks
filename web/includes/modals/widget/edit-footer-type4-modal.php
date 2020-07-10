@@ -1,0 +1,105 @@
+<!-- edit footer modal -->
+<?php
+$content = json_decode($content, true);
+$trans = json_decode($trans, true);
+?>
+<div class="modal-dialog modal-lg widget-footer" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                    aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title"
+                id="myModalLabel"><?= system_showText(LANG_SITEMGR_EDIT_WIDGET); ?> - <span
+                    class="widgetTitle"><?= $widgetTitle ?></span></h4>
+        </div>
+        <div class="modal-body">
+            <div class="alert" id="messageAlertHeader" style="display: none">
+                <div></div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <form name="footer" id="footer" method="post"
+                          action="<?= system_getFormAction($_SERVER['PHP_SELF']) ?>"
+                          enctype="multipart/form-data">
+                        <?
+                        MessageHandler::render();
+                        $footerImg = true;
+                        include INCLUDES_DIR .'/forms/form-logo.php';
+                        ?>
+                    </form>
+                </div>
+                <div class="col-md-6">
+                    <br />
+                    <h4 class="subtitle"><?= system_showText(LANG_SITEMGR_MAILAPP_NEWSLETTER_SING); ?></h4>
+                    <form class="form" name="form_newsletter_footer" id="form_newsletter_footer">
+                        <div class="form-group">
+                            <label for="datainfoSignupFor"
+                                   class="control-label"><?= system_showText(LANG_SITEMGR_MAILAPP_NEWSLETTER_LABEL); ?></label>
+                            <input type="text" class="form-control" id="datainfoSignupFor" name="datainfoSignupFor"
+                                   placeholder="" value="<?= $content['datainfoSignupFor'] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="datainfoNewsletterDesc"
+                                   class="control-label"><?= system_showText(LANG_SITEMGR_LABEL_DESCRIPTION); ?></label>
+                            <textarea class="form-control" rows="5" placeholder="" id="datainfoNewsletterDesc"
+                                      name="datainfoNewsletterDesc"><?= $content['datainfoNewsletterDesc'] ?></textarea>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+
+            <form class="form" name="form_footer" id="form_footer">
+
+                <?php
+                $hasNeutralColor = false;
+
+                include INCLUDES_DIR . '/forms/form-design-settings.php';
+                ?>
+
+                <div class="showLabels">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <p>
+                                <a role="button" class="arrow-toggle collapsed" data-toggle="collapse" href="#collapseShowLabelsFooter" aria-expanded="false" aria-controls="collapseShowLabelsFooter" tabindex="25">
+                                    <?= system_showText(LANG_SITEMGR_WIDGET_SHOW_FOOTER_LABELS) ?>
+                                    <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                                    <i class="fa fa-chevron-up" aria-hidden="true"></i>
+                                </a>
+                            </p>
+
+                            <div class="collapse" id="collapseShowLabelsFooter" style="height: auto;">
+                                <div id="labelInputs">
+                                    <input type="hidden" name="pageWidgetId" value="<?= $pageWidgetId ?>" />
+                                    <? echo $widgetService->getGenericLabelInputs($content, $trans); ?>
+                                </div>
+                                <input type="hidden" name="saveWidgetForAllPages" value="1">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-xs-12 text-right">
+                    <button type="button" class="btn btn-lg"
+                            data-dismiss="modal"><?= system_showText(LANG_SITEMGR_CANCEL); ?></button>
+                    <button type="button" class="btn btn-primary btn-lg action-save"
+                            data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"
+                            onclick="<?= DEMO_LIVE_MODE ? 'livemodeMessage(true, false);' : "saveWidget('footer-with-newsletter');" ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="alert alert-warning text-center">
+            <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+            <?= system_showText(LANG_SITEMGR_CHANGES_WIDGET) ?>
+        </div>
+
+    </div>
+</div>

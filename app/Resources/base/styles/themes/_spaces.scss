@@ -1,0 +1,40 @@
+/**
+* Espaçamentos padrões
+**/
+
+$spaceamounts: (2, 4, 8, 16, 24, 32, 40, 48, 56, 64);
+$sides: (horizontal, vertical);
+
+@each $space in $spaceamounts {
+    @each $side in $sides {
+        @if $side == horizontal{
+            .mg-#{$side}-#{$space} {
+                margin-left: #{$space}px;
+                margin-right: #{$space}px;
+            }
+
+            .pd-#{$side}-#{$space} {
+                padding-left: #{$space}px;
+                padding-right: #{$space}px;
+            }
+        } @else if $side == vertical{
+            .mg-#{$side}-#{$space} {
+                margin-top: #{$space}px;
+                margin-bottom: #{$space}px;
+            }
+            
+            .pd-#{$side}-#{$space} {
+                padding-top: #{$space}px;
+                padding-bottom: #{$space}px;
+            }
+        } @else {
+            .mg-#{$space}{
+                margin: #{$space}px;
+            }
+            
+            .pd-#{$space}{
+                padding: #{$space}px;
+            }
+        }
+    }
+}

@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="tr" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>On Queue</source>
+                <target>Kuyrukta</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>In Progress</source>
+                <target>Devam etmekte</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Completed</source>
+                <target>Tamamlanan</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Aborted</source>
+                <target>Abort edilmiş</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Waiting Rollback</source>
+                <target>tersine çevirmek için bekleyen</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Undone</source>
+                <target></target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Error</source>
+                <target>Hata</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

@@ -1,0 +1,75 @@
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+    {% set logoImage = asset('assets/images/placeholders/96x96.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = deal.coverImage.unsplash -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(deal.coverImage), 'domain_images') -%}
+{% endif -%}
+
+{% if isSample -%}
+    {% set logoImage = asset('assets/images/placeholders/96x96.jpg') -%}
+{% elseif deal.listing.logoImage -%}
+   {% set logoImage = asset(imagePath(deal.listing.logoImage), 'domain_images')|imagine_filter('logo_icon_3') -%}
+{% endif -%}
+
+<div class="details-modal modal-deal">
+
+    <div class="modal-default deals-coupon {{ coverImage ? 'has-coverimage' : ''}} {{(logoImage and not coverImage ) ? 'custom-close-color' : ''}}">
+        <div class="modal-header" style="{{ coverImage ? 'background-image: url(' ~ coverImage ~ ');' : (logoImage ? '' : 'display: none;') }}">
+            <div class="modal-picture" {{ logoImage is empty ? 'style="display: none;"' : '' }}>
+               <img id="redeem-logo" src="{{ logoImage is empty ? '' : logoImage }}" alt="{{ item ? item.title : '' }}">
+           </div>
+        </div>
+        <span class="button modal-close" data-modal="close" data-html2canvas-ignore><i class="fa fa-times"></i></span>
+        <div class="modal-info {{ logoImage is not empty ? 'has-picture' : '' }}">
+            <h5 id="deal-name" class="heading h-5">{{ deal.name }}</h5>
+            <span>{{ 'Please present the coupon at the establishment to receive your discount.'|trans }}</span>
+            <span class="coupon-middle"></span>
+        </div>
+        <div class="deals-content">
+            <div class="deals-content-item">
+                <div class="content-for">
+                    <div class="content-title">{{ 'For'|trans }}</div>
+                    <div class="content-value" id="user-name"></div>
+                </div>
+                <div class="content-valid">
+                    <div class="content-title">{{ 'Valid Until'|trans }}</div>
+                    <div class="content-value" id="deal-endDate">{{ deal ? deal.endDate|localized_date('LLLL dd, yyyy') : '' }}</div>
+                </div>
+            </div>
+            <div class="deals-content-item">
+                <div class="content-deal-value">
+                    <div class="content-title">{{ 'Deal Value'|trans }}</div>
+                    {% if deal %}
+                        <div class="content-value" id="deal-dealValue">{{ deal.dealValue|localized_currency }}</div>
+                    {% else %}
+                        <div class="content-value" id="deal-dealValue"></div>
+                    {% endif %}
+                </div>
+                <div class="content-original-value">
+                    <div class="content-title">{{ 'Original Value'|trans }}</div>
+                    {% if deal %}
+                        <div class="content-value" id="deal-realValue">{{ deal.realValue|localized_currency }}</div>
+                    {% else %}
+                        <div class="content-value" id="deal-realValue"></div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="deals-content-item">
+                <div class="content-offered">
+                    <div class="content-title">{{ 'Offered By'|trans }}</div>
+                    <div class="content-value" id="deal-listingTitle">{{ deal ? deal.listing.title : '' }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="deals-code">
+            <strong>{{ 'Coupon code'|trans }}</strong>
+            <div class="heading h-2" id="code"></div>
+        </div>
+        <div class="deals-action" data-html2canvas-ignore>
+            <a id="download-cupom" data-file-name="{{ deal.friendlyUrl }}" class="button button-lg is-primary">{{ 'Download my coupon'|trans }}</a>
+        </div>
+        <span class="coupon-bottom"></span>
+    </div>
+</div>

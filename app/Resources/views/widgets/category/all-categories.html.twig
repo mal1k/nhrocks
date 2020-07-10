@@ -1,0 +1,129 @@
+<div class="categories-base" data-type="4" scrollable="false" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="categories-header">
+            <h1 class="heading h-4" data-trans="{{ 'Explore All Listings Categories'|trans({}, 'widgets') }}"
+                data-trans="{{ 'Explore All Articles Categories'|trans({}, 'widgets') }}"
+                data-trans="{{ 'Explore All Events Categories'|trans({}, 'widgets') }}"
+                data-trans="{{ 'Explore All Classifieds Categories'|trans({}, 'widgets') }}"
+                data-trans="{{ 'Explore All Deals Categories'|trans({}, 'widgets') }}"
+                data-trans="{{ 'Explore All Blog Categories'|trans({}, 'widgets') }}">
+                {{ content.labelExploreAllCategories|trans({}, 'widgets') }}
+            </h1>
+        </div>
+
+        {% if categories -%}
+            <div class="categories-content">
+                {% for category in categories -%}
+                    <div class="toggle-item">
+                        <div class="toggle-header">
+                            <a href="{{ utility_generateSearchUrl(null, routing, category.friendlyUrl) }}" class="heading h-3 link toggle-title">
+                                {{ category.title }}
+                                {% if category.count > 0 %}
+                                    <span class="title-count">{{ category.count }}</span>
+                                {% endif %}
+                            </a>
+                            {% if category.children -%}
+                                <button class="button button-toggle-title" data-id="{{ category.id|slice(2) }}">
+                                    <span class="fa fa-angle-right"></span>
+                                </button>
+                            {% endif -%}
+                        </div>
+                        <div class="toggle-content" data-parent-id="{{ category.id|slice(2) }}">
+                            <div class="nav-wrapper">
+                                {% if category.children -%}
+                                    <div class="toggle-nav" data-order="1" data-parent-id="{{ category.id|slice(2) }}">
+                                        {% for child in category.children -%}
+                                            <div class="nav-item">
+                                                <a href="{{ utility_generateSearchUrl(null, routing, child.friendlyUrl) }}" class="link nav-link">
+                                                    {{ child.title }}
+                                                    <span class="nav-count">{{ child.count }}</span>
+                                                </a>
+                                                {% if child.children -%}
+                                                    <button class="button button-toggle-nav" data-ref="1" data-id="{{ child.id|slice(2) }}" data-state="close">
+                                                        <span class="fa fa-angle-right"></span>
+                                                    </button>
+                                                {% endif %}
+                                            </div>
+                                        {% endfor -%}
+                                    </div>
+
+                                    {% for child in category.children -%}
+                                        {% if child.children -%}
+                                            <div class="toggle-nav" data-order="2" data-parent-id="{{ child.id|slice(2) }}">
+                                                {% for grandson in child.children -%}
+                                                    <div class="nav-item">
+                                                        <a href="{{ utility_generateSearchUrl(null, routing, grandson.friendlyUrl) }}" class="link nav-link">
+                                                            {{ grandson.title }}
+                                                            <span class="nav-count">{{ grandson.count }}</span>
+                                                        </a>
+                                                        {% if grandson.children -%}
+                                                            <button class="button button-toggle-nav" data-ref="2" data-id="{{ grandson.id|slice(2) }}" data-state="close">
+                                                                <span class="fa fa-angle-right"></span>
+                                                            </button>
+                                                        {% endif %}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        {% endif %}
+                                    {% endfor -%}
+
+                                    {% for child in category.children -%}
+                                        {% if child.children -%}
+                                            {% for grandson in child.children -%}
+                                                {% if grandson.children -%}
+                                                    <div class="toggle-nav" data-order="3" data-parent-id="{{ grandson.id|slice(2) }}">
+                                                        {% for greatGrandson in grandson.children -%}
+                                                            <div class="nav-item">
+                                                                <a href="{{ utility_generateSearchUrl(null, routing, greatGrandson.friendlyUrl) }}" class="link nav-link">
+                                                                    {{ greatGrandson.title }}
+                                                                    <span class="nav-count">{{ greatGrandson.count }}</span>
+                                                                </a>
+                                                                {% if greatGrandson.children -%}
+                                                                    <button class="button button-toggle-nav" data-ref="3" data-id="{{ greatGrandson.id|slice(2) }}" data-state="close">
+                                                                        <span class="fa fa-angle-right"></span>
+                                                                    </button>
+                                                                {% endif %}
+                                                            </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor -%}
+
+
+                                    {% for child in category.children -%}
+                                        {% if child.children -%}
+                                            {% for grandson in child.children -%}
+                                                {% if grandson.children -%}
+                                                    {% for greatGrandson in grandson.children -%}
+                                                        {% if greatGrandson.children -%}
+                                                            <div class="toggle-nav" data-order="4" data-parent-id="{{ greatGrandson.id|slice(2) }}">
+                                                                {% for greatGreatGrandson in greatGrandson.children -%}
+                                                                    <div class="nav-item">
+                                                                        <a href="{{ utility_generateSearchUrl(null, routing, greatGreatGrandson.friendlyUrl) }}" class="link nav-link">
+                                                                            {{ greatGreatGrandson.title }}
+                                                                            <span class="nav-count">{{ greatGreatGrandson.count }}</span>
+                                                                        </a>
+                                                                    </div>
+                                                                {% endfor %}
+                                                            </div>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            {% endfor %}
+                                        {% endif %}
+                                    {% endfor -%}
+
+                                {% endif -%}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor -%}
+            </div>
+        {% endif -%}
+    </div>
+</div>
+
+
+{{ addJSFile("assets/js/widgets/categories/all-categories.js") -}}

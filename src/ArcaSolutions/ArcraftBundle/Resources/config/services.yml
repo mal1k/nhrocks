@@ -1,0 +1,10 @@
+parameters:
+    # services
+    arcraft.service.class: ArcaSolutions\ArcraftBundle\Services\ArcraftService
+
+services:
+    # services
+    arcraft.service:
+        class: '%arcraft.service.class%'
+        arguments:
+            - '@service_container'

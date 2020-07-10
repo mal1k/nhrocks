@@ -1,0 +1,2423 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2020-01-27T06:40:24Z" source-language="en" target-language="pt" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="da39a3ee5e6b4b0d3255bfef95601890afd80709" resname="">
+        <source></source>
+        <target></target>
+        <jms:reference-file line="1271">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1306">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1341">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1376">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1411">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1446">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1481">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1381">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="1476">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="1554">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="1649">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="2429">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="2556">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="2666">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="2793">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3535">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3564">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3630">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3659">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3708">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3737">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3803">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="3832">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4472">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4514">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4547">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4626">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4668">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4701">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4763">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4805">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4838">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4917">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4959">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="4992">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5455">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5484">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5512">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5584">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5613">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5641">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5696">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5725">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5753">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5825">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5854">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="5882">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="6524">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="6615">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="6689">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="6780">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="968">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="1271">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="1306">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="1341">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="644">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="679">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="714">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="749">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="784">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fc02e199eaa2a6900aec454ad22baa13b6e8f8e6" resname=" - ">
+        <source> - </source>
+        <target> - </target>
+        <jms:reference-file line="185">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="62994742a26e2d488488e705e6e5a5cdc9a20aaf" resname=" Log in with Facebook">
+        <source>Log in with Facebook</source>
+        <target>Entre com Facebook</target>
+        <jms:reference-file line="2">/Resources/views/blocks/social-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="aac39a989db89fbc9a4f852cdcad8f8c7fb36a8e" resname="%module% Options">
+        <source>%module% Options</source>
+        <target>Opções de %module%</target>
+        <jms:reference-file line="21">/Resources/views/widgets/advertise/pricing-plans.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b83d818a79c2d58512f980ed6153e568841cad34" resname="%pageTitle% | %directoryTitle%">
+        <source>%pageTitle% | %directoryTitle%</source>
+        <target>%pageTitle% | %directoryTitle%</target>
+        <jms:reference-file line="70">/../src/ArcaSolutions/ArticleBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="84">/../src/ArcaSolutions/BlogBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="87">/../src/ArcaSolutions/ClassifiedBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="88">/../src/ArcaSolutions/DealBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="79">/../src/ArcaSolutions/EventBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="227">/../src/ArcaSolutions/ListingBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="89">/../src/ArcaSolutions/ListingBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+        <jms:reference-file line="309">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ba0b8ddc8ee49663cd3bc49e36a5e12194951ec" resname="%percentage%% OFF">
+        <source>%percentage%% OFF</source>
+        <target>%percentage%% OFF</target>
+        <jms:reference-file line="23">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="75">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="38">/Resources/views/modules/deal/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="91">/Resources/views/modules/deal/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/views/modules/deal/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/views/modules/deal/blocks/list-of-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/Resources/views/modules/deal/blocks/one-horizontal-card.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="76">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="23">/Resources/views/modules/deal/blocks/vertical-cards.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="28015aaf6eb03310758b2a53503c602964dc7419" resname="(more)">
+        <source>(more)</source>
+        <target>(leia mais)</target>
+        <jms:reference-file line="68">/Resources/views/modules/blog/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ae76cf120d6bdc89a229c6905d3790e811b6fa15" resname="* hosting bandwidth and storage limits apply.">
+        <source>* hosting bandwidth and storage limits apply.</source>
+        <target>*os limites de largura de banda e armazenamento são aplicáveis.</target>
+        <jms:reference-file line="12">/../src/ArcaSolutions/WebBundle/Resources/views/upgrade_plan_banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a408a19568280633ee57be22e417f6266595c54b" resname="-22.3344628">
+        <source>-22.3344628</source>
+        <target>-22.3344628</target>
+        <jms:reference-file line="41">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="55">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="68">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4786bf14f4b87d2bcc28851a1908d890acd36986" resname="-49.068844">
+        <source>-49.068844</source>
+        <target>-49.068844</target>
+        <jms:reference-file line="42">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="56">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="69">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="538c7ea66ef1fdc44ac06b797c51594743003609" resname="000.000.0000">
+        <source>000.000.0000</source>
+        <target>(00)0000-0000</target>
+        <jms:reference-file line="40">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="61">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="60">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+        <jms:reference-file line="62">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="50a144aeff1c05ed3d8b8f574f686034f7806540" resname="10% Off - Deal Title">
+        <source>10% Off - Deal Title</source>
+        <target>10% Off - Título da Oferta</target>
+        <jms:reference-file line="16">/../src/ArcaSolutions/DealBundle/Sample/PromotionSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="346ce88bd06e0c7e8f2108603892f6263dd9ccac" resname="A new account was created in">
+        <source>A new account was created in</source>
+        <target>Uma nova conta foi criada em</target>
+        <jms:reference-file line="482">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6b21fb791ac05170893860c248401cd24a59b732" resname="About">
+        <source>About</source>
+        <target>Sobre</target>
+        <jms:reference-file line="106">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="114">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="273">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c887b9d3b3905e1e3eb236a1e334ca966299726f" resname="About Us">
+        <source>About Us</source>
+        <target>Sobre Nós</target>
+        <jms:reference-file line="261">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3e18361540b6479942c0d50d74ce2def3025fae4" resname="Add a comment">
+        <source>Add a comment</source>
+        <target>Adicione um comentário</target>
+        <jms:reference-file line="25">/Resources/views/widgets/article/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="29b9ed39f7d6f9d13ce82e1ce445adc435384161" resname="Add this item to favorites">
+        <source>Add this item to favorites</source>
+        <target>Adicionar aos favoritos</target>
+        <jms:reference-file line="4">/Resources/views/blocks/bookmark/button.html.twig</jms:reference-file>
+        <jms:reference-file line="3">/Resources/views/blocks/bookmark/link.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a9a8e927b18defbd195d5bb1970838c0b30b8c8" resname="Add to favorites ">
+        <source>Add to favorites</source>
+        <target>Adicionar aos favoritos</target>
+        <jms:reference-file line="7">/Resources/views/blocks/modals/add-favorites.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d325348e6e1ff6db8a764316050e2b5040c753b7" resname="Add your phone number (optional)">
+        <source>Add your phone number (optional)</source>
+        <target>Adicione seu número de telefone (opcional)</target>
+        <jms:reference-file line="39">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="911a0b354b810ade1b41221cd419095a4767144e" resname="Additional information">
+        <source>Additional information</source>
+        <target>Informação adicional</target>
+        <jms:reference-file line="138">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="348">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d70f93df5e8f9b55be44fbeee9d203972e3383d4" resname="Address">
+        <source>Address</source>
+        <target>Endereço</target>
+        <jms:reference-file line="46">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="488">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="49">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="63">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="110df454e6dbf2546d98c76b48956787736c2dfa" resname="Advertise">
+        <source>Advertise</source>
+        <target>Anunciar</target>
+        <jms:reference-file line="200">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="208">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="47">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="58">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c4a53b9da5ee6310a0d3055ac35a52036970448" resname="After you are logged in, click on 'Account Settings' link, you will see the 'Current Password' field, type your current password in this field and your new password on the fields 'Password' and 'Retype Password', then hit the submit button.">
+        <source>After you are logged in, click on 'Account Settings' link, you will see the 'Current Password' field, type your current password in this field and your new password on the fields 'Password' and 'Retype Password', then hit the submit button.</source>
+        <target>Após fazer login, clique em 'Configurações da Conta'. Preencha sua senha atual e a nova senha nos campos correspondentes e clique no botão 'Enviar'.</target>
+        <jms:reference-file line="54">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1fd266c217d796db7382651498389bb639d8eaa2" resname="All Categories">
+        <source>All Categories</source>
+        <target>Todas as categorias</target>
+        <jms:reference-file line="17">/Resources/views/widgets/category/browse-by-category-featured.html.twig</jms:reference-file>
+        <jms:reference-file line="14">/Resources/views/widgets/category/list-of-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="493b1440ab676e9079c787eb71ec59961faddb36" resname="Already voted">
+        <source>Already voted</source>
+        <target>Você já avaliou este item</target>
+        <jms:reference-file line="52">/../src/ArcaSolutions/WebBundle/Controller/ReviewController.php</jms:reference-file>
+        <jms:reference-file line="85">/../src/ArcaSolutions/WebBundle/Controller/ReviewController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f9b92fce868b91378698f69b590bbad1ac388d66" resname="Am I required to have an account to add items to the site?">
+        <source>Am I required to have an account to add items to the site?</source>
+        <target>Preciso ter uma conta para adicionar itens ao site? </target>
+        <jms:reference-file line="85">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f4d22e76a6a038e9652e7fbed0034a065b557e39" resname="An error occurred, try again">
+        <source>An error occurred, try again</source>
+        <target>Não foi possível realizar a sua requisição, por favor tente novamente.</target>
+        <jms:reference-file line="239">/../src/ArcaSolutions/WebBundle/Controller/ReviewController.php</jms:reference-file>
+        <jms:reference-file line="27">/../src/ArcaSolutions/WebBundle/Resources/views/modal-review.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/views/blocks/modals/modal-send-email.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7bd1632ecd3c0f85251af31bab4cb6f610de76ab" resname="Any Date">
+        <source>Any Date</source>
+        <target>Qualquer Data</target>
+        <jms:reference-file line="185">/../src/ArcaSolutions/ApiBundle/Entity/Result.php</jms:reference-file>
+        <jms:reference-file line="36">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4360c2dcd4af965377499b10a52640af435c9258" resname="Article">
+        <source>Article</source>
+        <target>Artigo</target>
+        <jms:reference-file line="36">/../src/ArcaSolutions/ArticleBundle/DataFixtures/ORM/LoadArticleLevelData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="21f4d1da0817cf2dbe5be0583550ea6418ae2ab1" resname="Article Author">
+        <source>Article Author</source>
+        <target>Autor</target>
+        <jms:reference-file line="47">/../src/ArcaSolutions/ArticleBundle/Sample/ArticleSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d7cee3773a4ec8c6386bac150f8e4dd5a5e0cbf6" resname="Article Title">
+        <source>Article Title</source>
+        <target>Título do Artigo</target>
+        <jms:reference-file line="37">/../src/ArcaSolutions/ArticleBundle/Sample/ArticleSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c4224390fce5565904e2e6c56882f67dc52f9f1d" resname="Article by">
+        <source>Article by</source>
+        <target>Artigo por</target>
+        <jms:reference-file line="53">/Resources/views/widgets/article/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7c422841b7e3951946583038790545c4ed38481b" resname="Articles">
+        <source>Articles</source>
+        <target>Artigos</target>
+        <jms:reference-file line="131">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="139">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="147">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="44">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="55">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6d12c8adbefeaeacac0d48274df3a195ca9a1d17" resname="Badge">
+        <source>Badge</source>
+        <target>Classificações</target>
+        <jms:reference-file line="22">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5f5a7bdf89d434a1bae11725628c3c5c4d6898f7" resname="Be the first to">
+        <source>Be the first to</source>
+        <target>Seja o primeiro a</target>
+        <jms:reference-file line="199">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="78">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b9d2b2362bc33581ba11fddcb0cf0590ebd3a7a" resname="Blog">
+        <source>Blog</source>
+        <target>Blog</target>
+        <jms:reference-file line="177">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="185">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="193">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="46">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="57">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="339455b0ebf398a33819409c5efef69e86721eff" resname="Button Link">
+        <source>Button Link</source>
+        <target>Link do botão</target>
+        <jms:reference-file line="1146">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a88d151f8d79cd5ee5cbf4013a79e458348d7b05" resname="Button Text">
+        <source>Button Text</source>
+        <target>Texto do botão</target>
+        <jms:reference-file line="1142">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cfadbd7a577133041a60f331a0e2ad6af20f3f8b" resname="By">
+        <source>By</source>
+        <target>Por</target>
+        <jms:reference-file line="14">/Resources/views/blocks/utility/utility.html.twig</jms:reference-file>
+        <jms:reference-file line="48">/Resources/views/blocks/utility/utility.html.twig</jms:reference-file>
+        <jms:reference-file line="51">/Resources/views/modules/article/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="90">/Resources/views/modules/article/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="102">/Resources/views/modules/article/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="47">/Resources/views/modules/article/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="49">/Resources/views/modules/article/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="49">/Resources/views/modules/article/blocks/list-of-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="48">/Resources/views/modules/article/blocks/one-horizontal-card.html.twig</jms:reference-file>
+        <jms:reference-file line="103">/Resources/views/modules/article/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/views/modules/article/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/Resources/views/modules/article/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/views/modules/article/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="49">/Resources/views/modules/article/blocks/vertical-cards.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c836e2e7be42e382144af28a79e89989d8d3d47e" resname="Can I add categories to my deal?">
+        <source>Can I add categories to my deal?</source>
+        <target>Posso adicionar categorias para ofertas?</target>
+        <jms:reference-file line="77">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="974b0b62226a2ac34292c6255d2b78da0bf0354b" resname="Can I change my item level?">
+        <source>Can I change my item level?</source>
+        <target>Posso alterar o nível de meus itens?</target>
+        <jms:reference-file line="69">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cf9fab92c30ec29e9d0dc98e5074e5c0bb15be99" resname="Can I change my username?">
+        <source>Can I change my username?</source>
+        <target>Posso mudar o meu nome de usuário?</target>
+        <jms:reference-file line="61">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="77dfd2135f4db726c47299bb55be26f7f4525a46" resname="Cancel">
+        <source>Cancel</source>
+        <target>Cancelar</target>
+        <jms:reference-file line="90">/../src/ArcaSolutions/WebBundle/Resources/views/modal-review.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/views/blocks/modals/modal-send-email.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ccb60071be8f00760a3824d9f7d0fad57de789f" resname="Categories">
+        <source>Categories</source>
+        <target>Categorias</target>
+        <jms:reference-file line="80">/Resources/views/blocks/filters/category.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/views/widgets/category/list-of-categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="48f5cb782eaf09bfac91cbe53cc4029370eb8a51" resname="Category ">
+        <source>Category </source>
+        <target>Categoria </target>
+        <jms:reference-file line="16">/../src/ArcaSolutions/ArticleBundle/Sample/ArticlecategorySample.php</jms:reference-file>
+        <jms:reference-file line="16">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedcategorySample.php</jms:reference-file>
+        <jms:reference-file line="16">/../src/ArcaSolutions/EventBundle/Sample/EventcategorySample.php</jms:reference-file>
+        <jms:reference-file line="17">/../src/ArcaSolutions/ListingBundle/Sample/CategorySample.php</jms:reference-file>
+        <jms:reference-file line="100">/Resources/views/js/blocks/searchbox.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="62a1b74ed04cbf6fe437d4bc3282b807a54092e6" resname="Changes successfully saved.">
+        <source>Changes successfully saved.</source>
+        <target>Alterações salvas com sucesso.</target>
+        <jms:reference-file line="129">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d52230ba73ee10abea75002f650717a278c9850e" resname="Check your e-mail to complete your subscription.">
+        <source>Check your e-mail to complete your subscription.</source>
+        <target>Verifique seu e-mail para completar sua inscrição.</target>
+        <jms:reference-file line="88">/../src/ArcaSolutions/WebBundle/Controller/DefaultController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a063621f2972f831634dc1e4c2d0de55f22815e9" resname="Choose an Option">
+        <source>Choose an Option</source>
+        <target>Escolha uma opção</target>
+        <jms:reference-file line="79">/../web/includes/forms/form-card.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4271627f4f0bef6104a95cca7bb21cda4d74503e" resname="City">
+        <source>City</source>
+        <target>Cidade</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/CoreBundle/Sample/Location4Sample.php</jms:reference-file>
+        <jms:reference-file line="489">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="870a4f8866ffe49cf637417b93a61cc6e072737f" resname="Claim it here!">
+        <source>Claim it here!</source>
+        <target>Solicite esta empresa aqui!</target>
+        <jms:reference-file line="171">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="98">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a9bf379d1234f54d9594e214a732bfb8df5c3d7" resname="Classified Title">
+        <source>Classified Title</source>
+        <target>Título do Classificado</target>
+        <jms:reference-file line="37">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d8e74020d85ce27d943b5df45867a2cf38f90114" resname="Classifieds">
+        <source>Classifieds</source>
+        <target>Classificados</target>
+        <jms:reference-file line="108">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="116">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="124">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="43">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="54">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="135">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="230">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1ea741d61753e0814d25232f4d3065b195dfe982" resname="Click here to see more info!">
+        <source>Click here to see more info!</source>
+        <target>Clique aqui para ver mais informações!</target>
+        <jms:reference-file line="59">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="79">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+        <jms:reference-file line="149">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="374">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c363ebeddff625bc6362854cee105a65230477e0" resname="Click on the link below to go to the review administration">
+        <source>Click on the link below to go to the review administration</source>
+        <target>Clique no link abaixo para ir para a administração de avaliações</target>
+        <jms:reference-file line="319">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="267017405ec1c6e4d63ab4d9ad44ed20961cdb22" resname="Click to see the %label_additional_phone% number">
+        <source>Click to see the %label_additional_phone% number</source>
+        <target>Clique para ver o número %label_additional_phone%</target>
+        <jms:reference-file line="269">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d917ab9b0a8506e97d3d8d41a9e294532650415e" resname="Click to see the phone number">
+        <source>Click to see the phone number</source>
+        <target>Clique para ver o número do telefone</target>
+        <jms:reference-file line="255">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="88d86b7721d587644e9c4cf33a084202cb3b0ff0" resname="Closed">
+        <source>Closed</source>
+        <target>Fechado</target>
+        <jms:reference-file line="476">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+        <jms:reference-file line="475">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="af542871c9dd7fd1a9e24013ec31c6dccddf0d52" resname="Closed Now">
+        <source>Closed Now</source>
+        <target>Fechado Agora</target>
+        <jms:reference-file line="140">/../src/ArcaSolutions/ListingBundle/Twig/Extension/BlocksExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="57130ea5e8776ea362c253206ca9d8f07e32bc35" resname="Closed today">
+        <source>Closed today</source>
+        <target>Fechado hoje</target>
+        <jms:reference-file line="95">/../src/ArcaSolutions/ListingBundle/Twig/Extension/BlocksExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7ddcd434ab84fd87abb3fd118d55f6ff868d00b6" resname="Closed. Opens at">
+        <source>Closed. Opens at</source>
+        <target>Fechado. Abre às</target>
+        <jms:reference-file line="137">/../src/ArcaSolutions/ListingBundle/Twig/Extension/BlocksExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7ad45de14db3d51c1f0ce87158f067bd3d9fa5c0" resname="Closing soon">
+        <source>Closing soon</source>
+        <target>Fechará em breve</target>
+        <jms:reference-file line="128">/../src/ArcaSolutions/ListingBundle/Twig/Extension/BlocksExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a7894e6b8aa7ee8481f4d7ae46cb9fc9445b44ab" resname="Come back soon to check this page">
+        <source>Come back soon to check this page</source>
+        <target>Volte em breve para ver esta página</target>
+        <jms:reference-file line="11">/../src/ArcaSolutions/WysiwygBundle/Resources/views/default-itemunavailable-content.html.twig</jms:reference-file>
+        <jms:reference-file line="27">/Resources/views/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7a1994999d181deea68e4304b3346e78f838ecb7" resname="Company">
+        <source>Company</source>
+        <target>Empresa</target>
+        <jms:reference-file line="487">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8a42a57da0aaf5c42c4397859d152c1f1513ec66" resname="Contact Name">
+        <source>Contact Name</source>
+        <target>Nome do Contato</target>
+        <jms:reference-file line="47">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="50">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="45">/Resources/views/modules/classified/map-summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0c4e1d04a4a1220e0756230c411881fcf2567e2a" resname="Contact Phone">
+        <source>Contact Phone</source>
+        <target xml:space="preserve">Telefone de contato
+</target>
+        <jms:reference-file line="47">/Resources/views/modules/classified/map-summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9ad0ccff7c60872356cb74b82694782be79ba338" resname="Contact Us">
+        <source>Contact Us</source>
+        <target>Entre em Contato</target>
+        <jms:reference-file line="48">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="59">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="37">/Resources/views/widgets/faq/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4832e45812a2724f16a15f9ae87adfc8ae4168cf" resname="Contact us">
+        <source>Contact us</source>
+        <target>Entre em contato</target>
+        <jms:reference-file line="223">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="231">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d523ebbd10146cdfd39dee077f04c9d08468d0bc" resname="Country">
+        <source>Country</source>
+        <target>País</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/CoreBundle/Sample/Location1Sample.php</jms:reference-file>
+        <jms:reference-file line="73">/../src/ArcaSolutions/WebBundle/Controller/ArcamailerController.php</jms:reference-file>
+        <jms:reference-file line="82">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="83">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b227f5879bdea515264e0b9e40718a7c838d2ef9" resname="Coupon code">
+        <source>Coupon code</source>
+        <target>Código do cupom</target>
+        <jms:reference-file line="67">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="aaf374479756e0a23623511a5fecf4e3f372b9cc" resname="Create account">
+        <source>Create account</source>
+        <target>Criar Conta</target>
+        <jms:reference-file line="57">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="70">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="97">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="547703394f410af94d93bacaad9158fda8fc9228" resname="Create new">
+        <source>Create new</source>
+        <target>Criar nova</target>
+        <jms:reference-file line="142">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d993d77dae41c7bf47ce9ed71627094c053436ab" resname="Custom Date">
+        <source>Custom Date</source>
+        <target>Outra Data</target>
+        <jms:reference-file line="215">/../src/ArcaSolutions/ApiBundle/Entity/Result.php</jms:reference-file>
+        <jms:reference-file line="69">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eb9a4bc1c0c153e4e4b042a79113b815b7e3021d" resname="Date">
+        <source>Date</source>
+        <target>Data</target>
+        <jms:reference-file line="28">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="87078fc0ef8cf02af769e94be31a1b7a01aa958e" resname="Deal">
+        <source>Deal</source>
+        <target>Oferta</target>
+        <jms:reference-file line="17">/Resources/views/blocks/filters/deal.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="914c3f64f6ddfa8089dfc3464e95cbcc0b65db87" resname="Deal Value">
+        <source>Deal Value</source>
+        <target>Valor da oferta</target>
+        <jms:reference-file line="43">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2c874671bfe1cf8c56e0b0d4723ff8ed9d2daca8" resname="Deals">
+        <source>Deals</source>
+        <target>Ofertas</target>
+        <jms:reference-file line="154">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="162">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="170">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="45">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="56">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="132">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="227">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="55f8ebc805e65b5b71ddafdae390e3be2bcd69af" resname="Description">
+        <source>Description</source>
+        <target>Descrição</target>
+        <jms:reference-file line="1138">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="19d10c467f903af66a1d2ed5f52f08fb0010a9e9" resname="Did you find this review helpful?">
+        <source>Did you find this review helpful?</source>
+        <target>Essa avaliação foi útil?</target>
+        <jms:reference-file line="269">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/views/blocks/utility/review.html.twig</jms:reference-file>
+        <jms:reference-file line="114">/Resources/views/widgets/review/module-review.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c601306c69f7bccafcc64442308560ad08b0f22d" resname="Download my coupon">
+        <source>Download my coupon</source>
+        <target>Baixar meu cupom</target>
+        <jms:reference-file line="71">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0d01e2e86669e98441ab4dce5520696c318b7098" resname="E-mail">
+        <source>E-mail</source>
+        <target>Email</target>
+        <jms:reference-file line="455">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="484">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="31">/Resources/views/widgets/navigation/footer-type4.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84add5b2952787581cb9a8851eef63d1ec75d22b" resname="Email">
+        <source>Email</source>
+        <target>Email</target>
+        <jms:reference-file line="30">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+        <jms:reference-file line="34">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+        <jms:reference-file line="29">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="126">/../src/ArcaSolutions/WebBundle/Services/SendMailService.php</jms:reference-file>
+        <jms:reference-file line="112">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="78">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f78a1df5329e0514fc90355560b0fa29969fe5c1" resname="Email already registered.">
+        <source>Email already registered.</source>
+        <target>Email já registrado.</target>
+        <jms:reference-file line="1770">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="18f4b5c67af52f94ca6ef6f9b70f6a0d0cd07502" resname="Email: ">
+        <source>Email: </source>
+        <target>Email: </target>
+        <jms:reference-file line="12">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4f2ec01cf34ddc8f856f434f9559d6b96913bc64" resname="Ends on ">
+        <source>Ends on </source>
+        <target>Termina em </target>
+        <jms:reference-file line="173">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e6c76f169491091fbc6f1ade7f15940401d54477" resname="Enter a question, keyword, topic...">
+        <source>Enter a question, keyword, topic...</source>
+        <target>Digite uma questão ou tópico.</target>
+        <jms:reference-file line="12">/Resources/views/widgets/faq/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7f2f6a15cf8da2b27e5a4af47b58e7ad71c0b3d9" resname="Error">
+        <source>Error</source>
+        <target>Erro</target>
+        <jms:reference-file line="99">/../src/ArcaSolutions/WebBundle/Controller/ContactusController.php</jms:reference-file>
+        <jms:reference-file line="34">/../src/ArcaSolutions/WebBundle/Controller/SendMailController.php</jms:reference-file>
+        <jms:reference-file line="26">/Resources/views/widgets/common/lead-gen-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="072cbaeaf68c934008e8ad01485ab378756803b0" resname="Event Title">
+        <source>Event Title</source>
+        <target>Nome do Evento</target>
+        <jms:reference-file line="45">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c5497bca58468ae64aed6c0fd921109217988db3" resname="Events">
+        <source>Events</source>
+        <target>Eventos</target>
+        <jms:reference-file line="385">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="101">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="85">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="93">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="42">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="53">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4cbb29d6e1ce34b081a682fcc5b5c2cc2819f582" resname="Ex: https://instagram.com/user">
+        <source>Ex: https://instagram.com/user</source>
+        <target>Ex: https://instagram.com/user</target>
+        <jms:reference-file line="44">/../web/includes/code/listing.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cbc5f34e3b7ddd45b70b07cae1f07dee8e41959c" resname="Ex: https://twitter.com/user">
+        <source>Ex: https://twitter.com/user</source>
+        <target>Ex: https://twitter.com/user</target>
+        <jms:reference-file line="48">/../web/includes/code/listing.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="26433b1c04b3e4e665956415f5a5ac51c2839e19" resname="Ex: https://www.facebook.com/fanpage">
+        <source>Ex: https://www.facebook.com/fanpage</source>
+        <target>Ex: https://www.facebook.com/fanpage</target>
+        <jms:reference-file line="40">/../web/includes/code/listing.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a689a999a5e62055bda8c21b1dbe92c119308def" resname="Expired">
+        <source>Expired</source>
+        <target>Expirado</target>
+        <jms:reference-file line="166">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a14c94e69d2d58a7d456d24893c3f5e177ba4cd" resname="Explore Category">
+        <source>Explore Category</source>
+        <target>Explore as Categorias</target>
+        <jms:reference-file line="82">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="90">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="99">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="03688ba6aa340b87549088aa5739944cb6b1dc73" resname="FAQ">
+        <source>FAQ</source>
+        <target>FAQ</target>
+        <jms:reference-file line="246">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="60">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="82da67b211249624f24f3c7db5642a5112c9446f" resname="Facebook">
+        <source>Facebook</source>
+        <target state="new">Facebook</target>
+        <jms:reference-file line="20">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b67fad2e2edf27045555eadaf1e4a848ab242206" resname="Fax">
+        <source>Fax</source>
+        <target>Fax</target>
+        <jms:reference-file line="61">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="84c8a254bc8da898d3af13b532690b859386a69b" resname="Featured Categories">
+        <source>Featured Categories</source>
+        <target>Categorias em Destaque</target>
+        <jms:reference-file line="15">/Resources/views/widgets/category/browse-by-category-featured.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fc338f87a058158eb824b53705961801516a9460" resname="Features">
+        <source>Features</source>
+        <target>Características</target>
+        <jms:reference-file line="330">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3661d3e9d7f5cd02ae8eb23e8e383d8b4912e1bc" resname="File with extension not supported">
+        <source>File with extension not supported</source>
+        <target>Arquivo com extensão não suportada</target>
+        <jms:reference-file line="274">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b6ea992aab4668311bb94778e056dd0285f27621" resname="First Name">
+        <source>First Name</source>
+        <target>Nome</target>
+        <jms:reference-file line="485">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="20">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cca2bfb1727c7ba796bde09db878c883c6ed7264" resname="Follow Us">
+        <source>Follow Us</source>
+        <target>Siga-nos</target>
+        <jms:reference-file line="527">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f7880600348a091a43e2a84906d6002820643108" resname="For">
+        <source>For</source>
+        <target>Para</target>
+        <jms:reference-file line="33">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a2f060b7363f54c9f80d62805d36636dd7ebc33c" resname="Forgot your password?">
+        <source>Forgot your password?</source>
+        <target>Esqueceu a sua senha?</target>
+        <jms:reference-file line="39">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="47">/Resources/views/pages/login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="75f527181b574f84568f33f67adc3b267a6fef9c" resname="Free">
+        <source>Free</source>
+        <target>Grátis</target>
+        <jms:reference-file line="207">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="12">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+        <jms:reference-file line="46">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/views/modules/deal/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/views/modules/deal/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/views/modules/deal/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/views/modules/deal/blocks/list-of-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/Resources/views/modules/deal/blocks/one-horizontal-card.html.twig</jms:reference-file>
+        <jms:reference-file line="104">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="47">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="92">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="46">/Resources/views/modules/deal/blocks/vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/views/modules/deal/map-summary.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/Resources/views/modules/deal/map-summary.html.twig</jms:reference-file>
+        <jms:reference-file line="120">/Resources/views/modules/deal/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="135">/Resources/views/modules/deal/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="100">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="25">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="78">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="98">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6e9b4e1652f2edf3bbee14eb1e8472c1ccd3daa0" resname="From ">
+        <source>From </source>
+        <target>De </target>
+        <jms:reference-file line="162">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b4f579b44c1ba2a63b430a7ed58f7dfcc800a80c" resname="From: ">
+        <source>From: </source>
+        <target>De: </target>
+        <jms:reference-file line="11">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0e16b52652e21b054e245c064279b45b68623035" resname="Get Directions">
+        <source>Get Directions</source>
+        <target>Traçar rota</target>
+        <jms:reference-file line="2">/../src/ArcaSolutions/WebBundle/Resources/views/get-directions.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="648d80584d1a53d5ab0a2c56cd5c7fbbe2eac04f" resname="Get directions">
+        <source>Get directions</source>
+        <target>Obter direções</target>
+        <jms:reference-file line="195">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="190">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="165">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="515">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2b681c0a24baff8899d7163cc7f805c75e1f44e4" resname="Google">
+        <source>Google</source>
+        <target>Google</target>
+        <jms:reference-file line="23">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="58">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="701c483f813cf119ec80b185a049bcfdc29f9161" resname="Grid">
+        <source>Grid</source>
+        <target>Grade</target>
+        <jms:reference-file line="49">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="70f8bb9a8a5393ef080507a89e4b98d139000d65" resname="Home">
+        <source>Home</source>
+        <target>Página Inicial</target>
+        <jms:reference-file line="39">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="47">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="55">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="40">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="51">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9e25a34e635a123f8958bbe26e7c4843278597fb" resname="Hours">
+        <source>Hours</source>
+        <target>Horas</target>
+        <jms:reference-file line="452">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c8341ca2e51dbe6b6d28583de4b991679eeceb5f" resname="How can I change my password?">
+        <source>How can I change my password?</source>
+        <target>Como posso alterar a minha senha?</target>
+        <jms:reference-file line="53">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="155ab7c4f9870e7b19bc5ce26e5d3a0d2c97eebb" resname="How can I sign up for an account?">
+        <source>How can I sign up for an account?</source>
+        <target>Como posso criar uma conta?</target>
+        <jms:reference-file line="93">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="18254a05b4ac5c42c594b47151c3a7708924edd6" resname="How does the 'Sign me in automatically' work?">
+        <source>How does the 'Sign me in automatically' work?</source>
+        <target>Como funciona a opção 'Entrar Automaticamente'?</target>
+        <jms:reference-file line="37">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="16adecd2404b5476cfa05c7729563cc390fc2207" resname="If you attempt to access your account and type in an incorrect password 5 times the account will lock for 1 hour. This is for security reasons.">
+        <source>If you attempt to access your account and type in an incorrect password 5 times the account will lock for 1 hour. This is for security reasons.</source>
+        <target>Se você tentar acessar sua conta e digitar uma senha incorreta 5 vezes a conta será bloqueada por 1 hora. Isto acontece por razões de segurança.</target>
+        <jms:reference-file line="102">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="66037ff9facb2e722b886ddbd75ae0d993c03a4e" resname="If you forget your password, please click on the 'Forgot your Password?' link of the front of the directory or on the sponsor login page. The password recovery email will be sent to the email address provided from your Contact Information. The email will contain a link which will redirect the user to the 'Manage Account' section, where the password can be updated.">
+        <source>If you forget your password, please click on the 'Forgot your Password?' link of the front of the directory or on the sponsor login page. The password recovery email will be sent to the email address provided from your Contact Information. The email will contain a link which will redirect the user to the 'Manage Account' section, where the password can be updated.</source>
+        <target>Se você esquecer sua senha, por favor clique no link 'Esqueceu sua senha?' na página de login de Usuário. Você receberá um e-mail de recuperação de senha com um link que irá redirecioná-lo para a seção 'Gerenciar Conta', onde a senha pode ser atualizada.</target>
+        <jms:reference-file line="46">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5721bbef40b22bbdb2e6a062b096d9b48735c2ff" resname="Instagram">
+        <source>Instagram</source>
+        <target>Instagram</target>
+        <jms:reference-file line="43">/../web/includes/code/listing.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="90819645bc54822f0f1872dc10b5c8968a5a74a4" resname="Is this your listing?">
+        <source>Is this your listing?</source>
+        <target>Esta empresa é sua?</target>
+        <jms:reference-file line="94">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+        <jms:reference-file line="103">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="165">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ecdda59aea5ee67d7d854c969ccf7f4f4b4a4c54" resname="Item">
+        <source>Item</source>
+        <target>Item</target>
+        <jms:reference-file line="124">/../src/ArcaSolutions/WebBundle/Services/SendMailService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="863cb39fbe7d70597076af1960b7ae4618d9e1bc" resname="Last Name">
+        <source>Last Name</source>
+        <target>Sobrenome</target>
+        <jms:reference-file line="486">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="25">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+        <jms:reference-file line="66">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a1fffaaafb7cc996685bceb829c053cc4f7de43d" resname="List">
+        <source>List</source>
+        <target>Lista</target>
+        <jms:reference-file line="48">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a449cfcd6da83b2fd0daa2df4a9a96fc34009bc2" resname="Listing">
+        <source>Listing</source>
+        <target>Empresa</target>
+        <jms:reference-file line="36">/../src/ArcaSolutions/ListingBundle/DataFixtures/ORM/LoadListingTemplateData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="15fd7cf1484cf2a002b20af850fa0e689cc69abe" resname="Listing Title">
+        <source>Listing Title</source>
+        <target>Nome da Empresa</target>
+        <jms:reference-file line="54">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e539f597db1f90ad18e9093b2b7f1268953063f4" resname="Listings">
+        <source>Listings</source>
+        <target>Empresas</target>
+        <jms:reference-file line="62">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="70">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="78">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="41">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+        <jms:reference-file line="52">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d219c68101f532de10add2cf42fb9dbeca73d3be" resname="Location">
+        <source>Location</source>
+        <target>Localização</target>
+        <jms:reference-file line="42">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+        <jms:reference-file line="43">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+        <jms:reference-file line="185">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="180">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="155">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="488">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="266d74e3d0be28403faffd9a24a948051565e6b4" resname="Location Name">
+        <source>Location Name</source>
+        <target>Local</target>
+        <jms:reference-file line="48">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="88b66f2a8f261fc05f4c55fced11104b0a23f948" resname="Location Reference">
+        <source>Location Reference</source>
+        <target>Referência</target>
+        <jms:reference-file line="70">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e59e8f15f76017b59aaf0246d5a07ba76a7d553e" resname="Locations">
+        <source>Locations</source>
+        <target>Localidades</target>
+        <jms:reference-file line="81">/Resources/views/blocks/filters/location.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d527bf3db3dc8af6b10bafbdd71a362727b6c785" resname="Log In">
+        <source>Log In</source>
+        <target>Entrar</target>
+        <jms:reference-file line="43">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f7c400ed695f898b8ee9d21664aa17b5bb693828" resname="Log in">
+        <source>Log in</source>
+        <target>Entre</target>
+        <jms:reference-file line="108">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="123">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="60">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="49">/Resources/views/pages/login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a8040aec90c602bfd590839be50ccdf36f104b7" resname="Log in to the Profile Area">
+        <source>Log in to the Profile Area</source>
+        <target>Entre no seu perfil</target>
+        <jms:reference-file line="17">/Resources/views/pages/login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f8ce4aceb58955bd8e263de52e7c78087a87fb70" resname="Log in with Google">
+        <source>Log in with Google</source>
+        <target>Entre com uma conta do Google</target>
+        <jms:reference-file line="3">/Resources/views/blocks/social-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ab478f3efc840eebab919dff1b9512286f70c10c" resname="Map">
+        <source>Map</source>
+        <target>Mapa</target>
+        <jms:reference-file line="53">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="68f4145fee7dde76afceb910165924ad14cf0d00" resname="Message">
+        <source>Message</source>
+        <target>Mensagem</target>
+        <jms:reference-file line="133">/../src/ArcaSolutions/WebBundle/Controller/SendMailController.php</jms:reference-file>
+        <jms:reference-file line="140">/../src/ArcaSolutions/WebBundle/Controller/SendMailController.php</jms:reference-file>
+        <jms:reference-file line="48">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+        <jms:reference-file line="127">/../src/ArcaSolutions/WebBundle/Services/SendMailService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9863cc5ba53b5378327d9115b2bbb4b85f0f9297" resname="Message successfully sent">
+        <source>Message successfully sent</source>
+        <target>Mensagem enviada com sucesso!</target>
+        <jms:reference-file line="23">/Resources/views/blocks/modals/modal-send-email.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="90d66f27023a46367494ac9544644e279c9da6ba" resname="Message: ">
+        <source>Message: </source>
+        <target>Mensagem: </target>
+        <jms:reference-file line="14">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="082bc378cd60e17a38d99898b21955299c5b60c8" resname="Month">
+        <source>Month</source>
+        <target>Mês</target>
+        <jms:reference-file line="213">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="17">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="17">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d31edb7b8a94bbafe2184d44bbd83463e1dd1158" resname="Monthly">
+        <source>Monthly</source>
+        <target>Mensal</target>
+        <jms:reference-file line="213">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5be161e12f6bb0cee6c189f6289f444d22741278" resname="More events on this date">
+        <source>More events on this date</source>
+        <target>Mais eventos nesta data</target>
+        <jms:reference-file line="50">/Resources/views/widgets/event/events-calendar.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="385b4b232f2a109b63ebe554ff1b3445201c2ea9" resname="Most Popular">
+        <source>Most Popular</source>
+        <target>Mais populares</target>
+        <jms:reference-file line="10">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="11">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="95">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="72">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="512cb69f02d38e4bdd9c8c08a3cd84ecdbb322d7" resname="My Deals">
+        <source>My Deals</source>
+        <target>Minhas Ofertas</target>
+        <jms:reference-file line="239">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9494839e861ebbc9d9ac098b78c61575a38eabdd" resname="My Favorites">
+        <source>My Favorites</source>
+        <target>Meus Favoritos</target>
+        <jms:reference-file line="216">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e53c716761609e3517759cb463a8920dd8091c0c" resname="My Reviews">
+        <source>My Reviews</source>
+        <target>Minhas Avaliações</target>
+        <jms:reference-file line="254">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="709a23220f2c3d64d1e1d6d18c4d5280f8d82fca" resname="Name">
+        <source>Name</source>
+        <target>Nome</target>
+        <jms:reference-file line="29">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+        <jms:reference-file line="30">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+        <jms:reference-file line="65">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="125">/../src/ArcaSolutions/WebBundle/Services/SendMailService.php</jms:reference-file>
+        <jms:reference-file line="74">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="30">/Resources/views/widgets/navigation/footer-type4.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d2b782f85ff8d3a899735862a62f9dcb5db694d3" resname="Neighborhood">
+        <source>Neighborhood</source>
+        <target>Bairro</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/CoreBundle/Sample/Location5Sample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="972821157665ca33ccdcde884a0a65a3bbbecd44" resname="Nevermind">
+        <source>Nevermind</source>
+        <target>Esquecer</target>
+        <jms:reference-file line="120">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="94">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1d19564405516393dd8858cc340e4d602b8c69e2" resname="New Account">
+        <source>New Account</source>
+        <target>Nova conta</target>
+        <jms:reference-file line="498">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1056f00a9447c224c0f6dce9061abe81c8675109" resname="New Contact">
+        <source>New Contact</source>
+        <target>Novo Contato</target>
+        <jms:reference-file line="3">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a180cc6444b21324a8a989a85fdbd31629c13b27" resname="New Inquire">
+        <source>New Inquire</source>
+        <target>Novo Lead</target>
+        <jms:reference-file line="51">/../src/ArcaSolutions/WebBundle/Controller/ContactusController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1ea499bf6f39a38f6e90daeef2f7d9bd20eae95f" resname="New Lead">
+        <source>New Lead</source>
+        <target>Novo lead</target>
+        <jms:reference-file line="3">/Resources/views/mailer/leadgen.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="80ffb94867c08ab0a5c33b597a200252b6f2a80b" resname="New lead through the %widget% widget">
+        <source>New lead through the %widget% widget</source>
+        <target>Novo lead através do widget %widget%</target>
+        <jms:reference-file line="39">/../src/ArcaSolutions/WebBundle/Controller/LeadGenController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6ed05e720ccc3ef269db1b38201da8b873acc895" resname="Newsletter">
+        <source>Newsletter</source>
+        <target>Newsletter</target>
+        <jms:reference-file line="134">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2e3bb7dd7e06038cb60dbb5d5ec7ce3e6ea4bbc8" resname="Newsletter Name">
+        <source>Newsletter Name</source>
+        <target>Nome da Newsletter</target>
+        <jms:reference-file line="138">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="816c52fd2bdd94a63cd0944823a6c0aa9384c103" resname="No">
+        <source>No</source>
+        <target>Não</target>
+        <jms:reference-file line="552">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+        <jms:reference-file line="98">/../src/ArcaSolutions/WebBundle/Form/Builder/JsonFormBuilder.php</jms:reference-file>
+        <jms:reference-file line="241">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+        <jms:reference-file line="359">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f9d82afb4773c9069ae0fa6dde76a9501bbfdd10" resname="No results containing all your search terms were found">
+        <source>No results containing all your search terms were found</source>
+        <target>Não foram encontrados resultados para todos os termos pesquisados</target>
+        <jms:reference-file line="81">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c103da7ff1e642b037f2cfa0c09da709143835d1" resname="No, you cannot. The deal is related to the listing categories you choose.">
+        <source>No, you cannot. The deal is related to the listing categories you choose.</source>
+        <target>Não. Ofertas são associadas a empresas, portanto possuem as mesmas categorias da empresa que está associada.</target>
+        <jms:reference-file line="78">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d9e172ae2327193b044d7b882bcadfba380ee232" resname="OK!">
+        <source>OK!</source>
+        <target>Pronto!</target>
+        <jms:reference-file line="19">/Resources/views/blocks/modals/add-favorites.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5e3b5ad20db0cb5aa3e67d5d0a480b62f68996d9" resname="Offer by">
+        <source>Offer by</source>
+        <target>Oferecido por</target>
+        <jms:reference-file line="184">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="507b1a3da0b11742ff6f991f6604c5d229b81bb5" resname="Offered By">
+        <source>Offered By</source>
+        <target>Oferecido por</target>
+        <jms:reference-file line="61">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3ff47991b865aac4b8bd11e4a2a4fc29a80f4104" resname="Offered by">
+        <source>Offered by</source>
+        <target>Oferecido por</target>
+        <jms:reference-file line="53">/Resources/views/modules/deal/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/Resources/views/modules/deal/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c696d51ef17065561c5d540857d4dcc1cecdd1a3" resname="Offers deals">
+        <source>Offers deals</source>
+        <target>Ofertas disponíveis</target>
+        <jms:reference-file line="23">/Resources/views/modules/listing/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/views/modules/listing/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/views/modules/listing/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="63">/Resources/views/modules/listing/blocks/list-of-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/views/modules/listing/blocks/one-horizontal-card.html.twig</jms:reference-file>
+        <jms:reference-file line="29">/Resources/views/modules/listing/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/Resources/views/modules/listing/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/modules/listing/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/Resources/views/modules/listing/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="21">/Resources/views/modules/listing/blocks/vertical-cards.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1097473a812d03ec30d5284f96bfe33cc77702c3" resname="Ok, continue">
+        <source>Ok, continue</source>
+        <target>Ok, continuar</target>
+        <jms:reference-file line="229">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+        <jms:reference-file line="240">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+        <jms:reference-file line="247">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="627c4f5bf70825289e51054869378c8bd7dca89c" resname="Once you have created your account using a foreign system, it was activated automatically. Please disregard this message.">
+        <source>Once you have created your account using a foreign system, it was activated automatically. Please disregard this message.</source>
+        <target>Uma vez que você tenha criado sua conta usando um sistema estrangeiro, ele foi ativado automaticamente. Por favor desconsidere esta mensagem.</target>
+        <jms:reference-file line="445">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5838f5a2c1ddccc1450f44ce03e5b35040439d10" resname="Only items with deals">
+        <source>Only items with deals</source>
+        <target>Apenas com deals</target>
+        <jms:reference-file line="23">/Resources/views/blocks/filters/deal.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f6443e9cced6bbe715eee75fca29736252dbc184" resname="Oops!">
+        <source>Oops!</source>
+        <target>Ops!</target>
+        <jms:reference-file line="21">/Resources/views/pages/error-500.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c266df1f472dffa520d18ef50b4f60a06325db5e" resname="Open 24h">
+        <source>Open 24h</source>
+        <target>Aberto 24h</target>
+        <jms:reference-file line="468">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c902a1cda0cfbe1b6f1ee36a5b52e2d9d6c92103" resname="Open Now">
+        <source>Open Now</source>
+        <target>Aberto Agora</target>
+        <jms:reference-file line="131">/../src/ArcaSolutions/ListingBundle/Twig/Extension/BlocksExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="432c52ae8d7900f2fdfc0d5594cf282af40a6061" resname="Original Value">
+        <source>Original Value</source>
+        <target>Valor original</target>
+        <jms:reference-file line="51">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0efc2e6be4c23b9a513d7ce0dcff8ed80e8912e7" resname="Overview">
+        <source>Overview</source>
+        <target>Visão geral</target>
+        <jms:reference-file line="123">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="218">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bca7fa63c9f1f3575ad9e15fcfaa0b430e2543d0" resname="Page successfully reset.">
+        <source>Page successfully reset.</source>
+        <target>Página redefinida com sucesso.</target>
+        <jms:reference-file line="311">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8be3c943b1609fffbfc51aad666d0a04adf83c9d" resname="Password">
+        <source>Password</source>
+        <target>Senha</target>
+        <jms:reference-file line="457">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="30">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="116">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="77064d5265236e0ac252f3fc4a5ba7b274b6a583" resname="Phone">
+        <source>Phone</source>
+        <target>Telefone</target>
+        <jms:reference-file line="492">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ab25d61bb12492027e2633997eea946c0f65a6b7" resname="Phone Number">
+        <source>Phone Number</source>
+        <target>Número de Telefone</target>
+        <jms:reference-file line="38">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="42ce412704f67b9df00928b0e063b05895c1b7f6" resname="Phone: ">
+        <source>Phone: </source>
+        <target>Telefone:</target>
+        <jms:reference-file line="13">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c8b2e864eccb38901097806819bf6aba2eed7ae1" resname="Photos">
+        <source>Photos</source>
+        <target>Fotos</target>
+        <jms:reference-file line="126">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="221">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="568">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="583">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ed212fa164b940b935ec0a25b32878a0917c7268" resname="Placeholder">
+        <source>Placeholder</source>
+        <target>Exemplo</target>
+        <jms:reference-file line="612">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="78">/../src/ArcaSolutions/ArticleBundle/Sample/ArticleSample.php</jms:reference-file>
+        <jms:reference-file line="73">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="70">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="85">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="94">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="04a25ec06ea05fd35bc8922c0afe0ef8a8c11386" resname="Placeholder for search by date field">
+        <source>Placeholder for search by date field</source>
+        <target>Marcador de posição para pesquisa por campo de data</target>
+        <jms:reference-file line="628">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1e2db9bc2cd3e7ab08a64c80ed791ac4506cc45a" resname="Placeholder for search by keyword field">
+        <source>Placeholder for search by keyword field</source>
+        <target>Placeholder do campo de pesquisa por palavra-chave</target>
+        <jms:reference-file line="755">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="778">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="524">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="619">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c03d5b0e17915b50a4588128bff8f64723ba568c" resname="Placeholder for search by location field">
+        <source>Placeholder for search by location field</source>
+        <target>Placeholder do campo de pesquisa por endereço</target>
+        <jms:reference-file line="759">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="782">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="528">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="623">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fbd801f59ffe9a8d7e2572a5ee2ac561010a6ae7" resname="Please activate the newsletter integration to enable newsletter widgets.">
+        <source>Please activate the newsletter integration to enable newsletter widgets.</source>
+        <target>Por favor ative a integração de boletins informativos para habilitar widgets de newsletter.</target>
+        <jms:reference-file line="53">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2d84be123af83ce3b3a66dd8238e9eb42844ce6a" resname="Please log in to send your review.">
+        <source>Please log in to send your review.</source>
+        <target>Por favor faça login para enviar sua avaliação.</target>
+        <jms:reference-file line="1403">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c6211cdcb2120da606c0014e2e47fee5f5b11ed" resname="Please present the coupon at the establishment to receive your discount.">
+        <source>Please present the coupon at the establishment to receive your discount.</source>
+        <target>Por favor, apresente o cupom no estabelecimento para receber seu desconto.</target>
+        <jms:reference-file line="27">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="59eb0764c1bc132b2df187af627cc9688d5ce006" resname="Please review the account information below">
+        <source>Please review the account information below</source>
+        <target>Por favor revise as informações da conta abaixo</target>
+        <jms:reference-file line="483">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c419c9a3825c3e4584b67049513fdc6899fbc16c" resname="Please, wait...">
+        <source>Please, wait...</source>
+        <target>Por favor aguarde...</target>
+        <jms:reference-file line="89">/../src/ArcaSolutions/WebBundle/Resources/views/modal-review.html.twig</jms:reference-file>
+        <jms:reference-file line="68">/Resources/views/blocks/modals/modal-send-email.html.twig</jms:reference-file>
+        <jms:reference-file line="40">/Resources/views/widgets/common/lead-gen-form.html.twig</jms:reference-file>
+        <jms:reference-file line="44">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/views/widgets/navigation/footer-type4.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/views/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="68976b9fcb59d26469e60db142fae66c0c4d9c73" resname="Powered by">
+        <source>Powered by</source>
+        <target>Distribuído por</target>
+        <jms:reference-file line="6">/Resources/views/blocks/copyright-footer-small.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/views/blocks/copyright-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="5">/Resources/views/blocks/copyright-social.html.twig</jms:reference-file>
+        <jms:reference-file line="12">/Resources/views/blocks/copyright.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="85c79d064d98dade852d60084a0ab799449cd949" resname="Preview Facebook">
+        <source>Preview Facebook</source>
+        <target>Visualizar o Facebook</target>
+        <jms:reference-file line="177">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="549">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="604751d28e6d1e89fb06d0a4ff1096e61237445b" resname="Preview Video">
+        <source>Preview Video</source>
+        <target xml:space="preserve">Visualizar Vídeo
+</target>
+        <jms:reference-file line="163">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="134">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="390">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9db108ba6b7f6571356060929e37dae65878cfca" resname="Privacy Policy">
+        <source>Privacy Policy</source>
+        <target>Política de Privacidade</target>
+        <jms:reference-file line="276">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="62">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6eda871d82259d685f0d75545c88a61374226921" resname="Publish your site">
+        <source>Publish your site</source>
+        <target>Publique seu site</target>
+        <jms:reference-file line="87">/Resources/views/base.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="282b0da01657fc6e50cac0961942e734426c3f93" resname="Rate It">
+        <source>Rate It</source>
+        <target>Avalie</target>
+        <jms:reference-file line="41">/../src/ArcaSolutions/WebBundle/Resources/views/modal-review.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0435b9bbda17cd224893bf257b10d71abbb93ed8" resname="Rate it">
+        <source>Rate it</source>
+        <target>Dê sua nota!</target>
+        <jms:reference-file line="61">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6437b7bf655854909262d5f53fbe3bc7a6665b48" resname="Rating">
+        <source>Rating</source>
+        <target>Avaliação</target>
+        <jms:reference-file line="19">/Resources/views/blocks/filters/rating.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6c53f03dc08abcdede8981c024e89f0f716d0a45" resname="Rating Notification">
+        <source>Rating Notification</source>
+        <target>Notificação de Avaliação</target>
+        <jms:reference-file line="289">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="646061e2f38829c59bbd2bebc1acc8f7f33e1c4e" resname="Read More">
+        <source>Read More</source>
+        <target>Mais informações</target>
+        <jms:reference-file line="302">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="310">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d4ba278af57a7f151d0e78c762485beca64f4223" resname="Read full article">
+        <source>Read full article</source>
+        <target>Leia o artigo completo</target>
+        <jms:reference-file line="94">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="83c623252bb1bba59c0f26fc6205dd99db323dd1" resname="Recent Reviews">
+        <source>Recent Reviews</source>
+        <target>Avaliações recentes</target>
+        <jms:reference-file line="1164">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+        <jms:reference-file line="897">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="db3f81436889f4ad84f36ba29aecf29d4dbd4670" resname="Redeem">
+        <source>Redeem</source>
+        <target>Resgatar</target>
+        <jms:reference-file line="45">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="78">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e15760689d8a83369c5d10c47d6a79b85956c6e1" resname="Refine">
+        <source>Refine</source>
+        <target>Refinar</target>
+        <jms:reference-file line="56">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b8b620262226778e506104daa9a8f74fd96a4ec" resname="Refresh search">
+        <source>Refresh search</source>
+        <target>Atualizar Busca</target>
+        <jms:reference-file line="75">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0f217179940c6d89f5cb2c7002a58d91ab7286c1" resname="Region">
+        <source>Region</source>
+        <target>Região</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/CoreBundle/Sample/Location2Sample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d672995a14650d0e018026b64f297663d8c71c8d" resname="Register">
+        <source>Register</source>
+        <target>Registrar</target>
+        <jms:reference-file line="10">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ced7b308a348567fbf21dd775ee496dd01207f24" resname="Remember me">
+        <source>Remember me</source>
+        <target>Entrar automaticamente</target>
+        <jms:reference-file line="36">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="612e12d29278b5519294bc25cdaddffec6d0f1c6" resname="Results">
+        <source>Results</source>
+        <target>Resultados</target>
+        <jms:reference-file line="370">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="379">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a89ba47cb30af861cd7b919b5c0962d516faaab6" resname="Results for">
+        <source>Results for</source>
+        <target>Resultados para</target>
+        <jms:reference-file line="362">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="376">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e29a79fe0c349724caeaa1762fa917f5543248ca" resname="Review">
+        <source>Review</source>
+        <target>Avaliar</target>
+        <jms:reference-file line="46">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="7">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="aa665834bbe4f20c97aeb315c5f2b00be506a3d9" resname="Review Title">
+        <source>Review Title</source>
+        <target>Título da Avaliação</target>
+        <jms:reference-file line="50">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+        <jms:reference-file line="17">/../src/ArcaSolutions/WebBundle/Sample/ReviewSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f7aebc73b6a6cfc91647716ede35af5804ad9820" resname="Review successfully sent">
+        <source>Review successfully sent</source>
+        <target>Avaliação enviada com sucesso</target>
+        <jms:reference-file line="23">/../src/ArcaSolutions/WebBundle/Resources/views/modal-review.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0886439f60030f130f3035a8f28d2a3e0275c046" resname="Review this">
+        <source>Review this</source>
+        <target>Avalie Este Item</target>
+        <jms:reference-file line="174">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b83c4cdafef5813f0872892b666e2b04466198c4" resname="Reviews">
+        <source>Reviews</source>
+        <target>Avaliações</target>
+        <jms:reference-file line="129">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="224">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="407">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ba8206efbd85a47f2401d708630523eca854ddc9" resname="Reviews of &quot;%title%&quot;">
+        <source>Reviews of "%title%"</source>
+        <target>Avaliações de "%title%"</target>
+        <jms:reference-file line="199">/../src/ArcaSolutions/ListingBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4fea00b363ddfb47f342e95b6cfc0fd9e2232175" resname="Sales Tax">
+        <source>Sales Tax</source>
+        <target>Taxa</target>
+        <jms:reference-file line="98">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="efc007a393f66cdb14d57d385822a3d9e36ef873" resname="Save">
+        <source>Save</source>
+        <target>Salvar</target>
+        <jms:reference-file line="34">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="86cbefa83dab910cefeee5784b081ff1a76aca90" resname="Save Widget">
+        <source>Save Widget</source>
+        <target>Salvar Widget</target>
+        <jms:reference-file line="204">/../web/sitemgr/design/page-editor/add-new-widget.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bce06414177f72ab70e6387b6af9f8ceef0d6049" resname="Search">
+        <source>Search</source>
+        <target>Busca</target>
+        <jms:reference-file line="36">/Resources/views/blocks/search/search-fields.html.twig</jms:reference-file>
+        <jms:reference-file line="13">/Resources/views/widgets/faq/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9bc2575c3930437e80555f78757b783c842e8e66" resname="Send">
+        <source>Send</source>
+        <target>Enviar</target>
+        <jms:reference-file line="105">/Resources/views/widgets/contactus/contact-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dc2661eea803367a42bf5cd208a6414bb90910fb" resname="Send a message">
+        <source>Send a message</source>
+        <target>Contato</target>
+        <jms:reference-file line="110">/Resources/views/modules/classified/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="59">/Resources/views/modules/classified/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="112">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="125">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="48">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="81">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="210">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="90">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8aee5492912052494365de47bc5cccb99fbfa6b0" resname="Send a message to">
+        <source>Send a message to</source>
+        <target>Envie uma mensagem para</target>
+        <jms:reference-file line="36">/Resources/views/blocks/modals/modal-send-email.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c70a890d1411098b6bbd10f59252da322a68af82" resname="Send message">
+        <source>Send message</source>
+        <target>Enviar mensagem</target>
+        <jms:reference-file line="89">/../src/ArcaSolutions/WebBundle/Resources/views/modal-review.html.twig</jms:reference-file>
+        <jms:reference-file line="69">/Resources/views/blocks/modals/modal-send-email.html.twig</jms:reference-file>
+        <jms:reference-file line="224">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dff29c7eb21ca514510892401c3c47b0ee5262fd" resname="Share link on">
+        <source>Share link on</source>
+        <target>Compartilhar link</target>
+        <jms:reference-file line="346">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="347">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="349">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6367aaddaceeb4070ef9d03b60972c427fb0718f" resname="Showing %pageCount% of %totalCount% results">
+        <source>Showing %pageCount% of %totalCount% results</source>
+        <target>Mostrando %pageCount% de %totalCount% resultados</target>
+        <jms:reference-file line="21">/Resources/views/widgets/results/results-info.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f8492cc1deac31fd73c80bbca9ae51f0def25837" resname="Sign In">
+        <source>Sign In</source>
+        <target>Entrar</target>
+        <jms:reference-file line="9">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2ba4023df482d96f0966d6c0de681fd0be189927" resname="Sign Up">
+        <source>Sign Up</source>
+        <target>Cadastre-se</target>
+        <jms:reference-file line="82">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="34">/Resources/views/widgets/navigation/footer-type4.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/views/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="934a28f48b4e6a40037eb7adddde6c51c20ae123" resname="Site Manager">
+        <source>Site Manager</source>
+        <target>Administrador</target>
+        <jms:reference-file line="481">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="306">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1b402fe224d810b643bbec79819a84e7889edc60" resname="Site manager">
+        <source>Site manager</source>
+        <target>Administrador</target>
+        <jms:reference-file line="6">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="6">/Resources/views/mailer/leadgen.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="76fd56000e689bfed2d9b8b891fa373647b37cba" resname="Sold Out">
+        <source>Sold Out</source>
+        <target>Esgotado</target>
+        <jms:reference-file line="168">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="83f9886240ba8294223eb89c205d996fd7d5046c" resname="Something went wrong. We're looking into it.">
+        <source>Something went wrong. We're looking into it.</source>
+        <target>Algo deu errado. Nós já estamos vendo isso.</target>
+        <jms:reference-file line="22">/Resources/views/pages/error-500.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0068fcd8078c77fd4db7112e33f4b38ec72f587c" resname="Sorry, this item isn't currently available.">
+        <source>Sorry, this item isn't currently available.</source>
+        <target>Desculpe, este item está indisponível no momento.</target>
+        <jms:reference-file line="6">/../src/ArcaSolutions/WysiwygBundle/Resources/views/default-itemunavailable-content.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="faf0cac5ff814224230a8bb9f60b36fe25ec457f" resname="Start a new search to seek for similar items">
+        <source>Start a new search to seek for similar items</source>
+        <target>Comece uma nova busca para encontrar assuntos parecidos</target>
+        <jms:reference-file line="10">/../src/ArcaSolutions/WysiwygBundle/Resources/views/default-itemunavailable-content.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/views/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="97aaf95c3bef1a25241642929fd68a097fbe322f" resname="Start today!">
+        <source>Start today!</source>
+        <target>Comece hoje!</target>
+        <jms:reference-file line="20">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="45">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="32">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+        <jms:reference-file line="108">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="48">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="33">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="44">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="86">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ab78118b63cef603858c373872d0c8451f589d04" resname="Starts on ">
+        <source>Starts on </source>
+        <target>Começa em </target>
+        <jms:reference-file line="164">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a72502067518684f9deeec70cf119fd26326cd33" resname="State">
+        <source>State</source>
+        <target>Estado</target>
+        <jms:reference-file line="17">/../src/ArcaSolutions/CoreBundle/Sample/Location3Sample.php</jms:reference-file>
+        <jms:reference-file line="490">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="8d183dbdcea3b29906090bd83fa6fa37923cc8ec" resname="Subject">
+        <source>Subject</source>
+        <target>Assunto</target>
+        <jms:reference-file line="43">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+        <jms:reference-file line="44">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7ce01f6381463362cf6aef2f843a59261e8f5587" resname="Success!">
+        <source>Success!</source>
+        <target>Sucesso!</target>
+        <jms:reference-file line="90">/../src/ArcaSolutions/WebBundle/Controller/ContactusController.php</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/widgets/common/lead-gen-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="861edba00547bc9ce7a08df78d4378766418179f" resname="Suggestions">
+        <source>Suggestions</source>
+        <target>Sugestões</target>
+        <jms:reference-file line="84">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bd876e2ae611d553214e165790241e7615721505" resname="Sun 8:00 am - 6:00 pm">
+        <source>Sun 8:00 am - 6:00 pm</source>
+        <target>Seg a Sex - 8:00 - 18:00</target>
+        <jms:reference-file line="57">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="894031ed8d341b5ecab5e23002585055f0b7ee4d" resname="Terms and Conditions">
+        <source>Terms and Conditions</source>
+        <target>Termos e Condições</target>
+        <jms:reference-file line="141">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="97738411d629b01052974cc98ddb83a2cb4f8182" resname="Terms of Use">
+        <source>Terms of Use</source>
+        <target>Termos de Uso</target>
+        <jms:reference-file line="268">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingNavigationData.php</jms:reference-file>
+        <jms:reference-file line="61">/../src/ArcaSolutions/WebBundle/Services/NavigationService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c2cbe72f11f33db2bd3d764751da60deee3f66d7" resname="Thank you for submitting your review!">
+        <source>Thank you for submitting your review!</source>
+        <target>Obrigado por enviar sua avaliação!</target>
+        <jms:reference-file line="368">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="30c6474054f105b0223af4108951b6b518e19121" resname="Thank you, we will be in touch shortly.">
+        <source>Thank you, we will be in touch shortly.</source>
+        <target>Obrigado, entraremos em contato em breve.</target>
+        <jms:reference-file line="91">/../src/ArcaSolutions/WebBundle/Controller/ContactusController.php</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/widgets/common/lead-gen-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7c5615cacf7a6af548dfd8aaa339c34829500d97" resname="Thanks! This item is in your favorite list now!">
+        <source>Thanks! This item is in your favorite list now!</source>
+        <target>Obrigado! Este item foi adicionado a sua lista de favoritos.</target>
+        <jms:reference-file line="13">/Resources/views/blocks/modals/add-favorites.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="fe7012a5016ab2a3360cbfdecdc95572965f4f0a" resname="The 'Sign me in automatically' is optional, it saves your username and password on your computer and every time you access the page you will be automatically logged in.">
+        <source>The 'Sign me in automatically' is optional, it saves your username and password on your computer and every time you access the page you will be automatically logged in.</source>
+        <target>O 'Entrar Automaticamente' é opcional. Selecionando essa opção, seu nome de usuário e senha serão salvos em seu computador e toda vez que você acessar a página, você será automaticamente logado.</target>
+        <jms:reference-file line="38">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bed6ca36bed72a06b8787982e6c74a8fbbb7715f" resname="The file is too big">
+        <source>The file is too big</source>
+        <target>O arquivo é muito grande</target>
+        <jms:reference-file line="272">/../src/ArcaSolutions/ImageBundle/ImageUploader.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d3cc3c2b4167e72eef3d8b0b5ff18398c3f07790" resname="The item you are trying to contact does not exist.">
+        <source>The item you are trying to contact does not exist.</source>
+        <target>O item que você está tentando entrar em contato não existe. </target>
+        <jms:reference-file line="35">/../src/ArcaSolutions/WebBundle/Controller/SendMailController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="26b86fc9735f53e656e32266ab0f55bbdba77a2d" resname="The new page URL will be applied for all locations page.">
+        <source>The new page URL will be applied for all locations page.</source>
+        <target>A nova URL da página será aplicada a todas as páginas de localização.</target>
+        <jms:reference-file line="227">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bbbb009db3dec91cc1b140b8a5a2aa4a57103fe8" resname="The new page URL will be applied for all reviews page.">
+        <source>The new page URL will be applied for all reviews page.</source>
+        <target>A nova URL da página será aplicada a todas as páginas de avaliação.</target>
+        <jms:reference-file line="245">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a2a27047e1342914914270f077b41d76ff429e24" resname="The page URL entered is already being used by another page, please choose another URL. The remaining changes were successfully saved.">
+        <source>The page URL entered is already being used by another page, please choose another URL. The remaining changes were successfully saved.</source>
+        <target>A URL inserida já é usada por outra página, escolha outra URL. As modificações restantes foram gravadas com sucesso.</target>
+        <jms:reference-file line="165">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3deedb4935aff37547512c50aeddb9ff0d84e1a1" resname="The server encountered an internal error or misconfiguration and was unable to complete your request.">
+        <source>The server encountered an internal error or misconfiguration and was unable to complete your request.</source>
+        <target>O servidor encontrou um erro interno ou uma configuração incorreta e não pôde concluir sua solicitação.</target>
+        <jms:reference-file line="226">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2d897727a712f8c3ee9af100cdcc9d115b46d62e" resname="There is a limit of 1 deal per person. The promotional value of this deal expires in 3 months. Deal must be presented in order to receive discount. This deal is not valid for cash back, can only be used once, does not cover tax or gratuities. This deal can not be combined with other offers.">
+        <source>There is a limit of 1 deal per person. The promotional value of this deal expires in 3 months. Deal must be presented in order to receive discount. This deal is not valid for cash back, can only be used once, does not cover tax or gratuities. This deal can not be combined with other offers.</source>
+        <target>Limite de uma oferta por pessoa. O valor promocional expira em 30 dias. O cupom deve ser apresentado para receber o desconto. Não é válido para devolução de dinheiro. Pode ser usado uma única vez. Não cobre impostos ou descontos. Não pode ser combinado com outras ofertas.</target>
+        <jms:reference-file line="102">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="46ef7b6eda8be8588557cca115812a898389ee7a" resname="This article is not available for review anymore.">
+        <source>This article is not available for review anymore.</source>
+        <target>Este artigo não está mais disponível para revisão.</target>
+        <jms:reference-file line="1409">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="88f3e80d9a76d208962b7249f27682b555bef2f5" resname="This is an automatically generated email, please do not reply">
+        <source>This is an automatically generated email, please do not reply</source>
+        <target>Este é um email gerado automaticamente, por favor não responda.</target>
+        <jms:reference-file line="172">/Resources/views/mailer/layout-users.html.twig</jms:reference-file>
+        <jms:reference-file line="172">/Resources/views/mailer/layout.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b12c7478d3c592339aa754870ec15074ce739fa1" resname="This item was either temporarily suspended or deleted. Here are some suggestions to help you">
+        <source>This item was either temporarily suspended or deleted. Here are some suggestions to help you</source>
+        <target>Este item foi excluído ou temporariamente suspenso. Aqui estão algumas sugestões para ajudá-lo</target>
+        <jms:reference-file line="8">/../src/ArcaSolutions/WysiwygBundle/Resources/views/default-itemunavailable-content.html.twig</jms:reference-file>
+        <jms:reference-file line="24">/Resources/views/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d05b303ad32388f96313c78a78b41afda4bc51ef" resname="This module does not have review feature.">
+        <source>This module does not have review feature.</source>
+        <target>Este módulo não tem recurso de avaliação.</target>
+        <jms:reference-file line="348">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1b4785331db3b08cd8e3cfa4bd36216731a79e54" resname="This month">
+        <source>This month</source>
+        <target>Este mês</target>
+        <jms:reference-file line="209">/../src/ArcaSolutions/ApiBundle/Entity/Result.php</jms:reference-file>
+        <jms:reference-file line="64">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7b72883e078a6858cf0c79bf3e93e72e765e9ada" resname="This week">
+        <source>This week</source>
+        <target>Esta semana</target>
+        <jms:reference-file line="197">/../src/ArcaSolutions/ApiBundle/Entity/Result.php</jms:reference-file>
+        <jms:reference-file line="50">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1921aa118ad7a4dca5f679eaefc3e1777854c777" resname="This weekend">
+        <source>This weekend</source>
+        <target>Neste final de semana</target>
+        <jms:reference-file line="203">/../src/ArcaSolutions/ApiBundle/Entity/Result.php</jms:reference-file>
+        <jms:reference-file line="57">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9136fbdee132af6dc4de13335100161114304fd4" resname="Time left to redeem">
+        <source>Time left to redeem</source>
+        <target>Tempo Restante para Comprar</target>
+        <jms:reference-file line="155">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d1f7dc891b5e5d1797163b556e805123c9369e4f" resname="Timezone">
+        <source>Timezone</source>
+        <target>Fuso Horário</target>
+        <jms:reference-file line="68">/../src/ArcaSolutions/WebBundle/Controller/ArcamailerController.php</jms:reference-file>
+        <jms:reference-file line="88">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+        <jms:reference-file line="89">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="768e0c1c69573fb588f61f1308a015c11468e05f" resname="Title">
+        <source>Title</source>
+        <target>Título</target>
+        <jms:reference-file line="185">/../src/ArcaSolutions/ArcraftBundle/Services/ArcraftService.php</jms:reference-file>
+        <jms:reference-file line="1133">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+        <jms:reference-file line="1243">/../src/ArcaSolutions/WysiwygBundle/Services/WidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a52e6880f530d5438c10a7827b0806c997fb9d9a" resname="To sign up as a sponsor go to the 'Advertise With Us' link at top menu, select an item and level and click in 'SIGN UP' button. Fill out all fields, write down your username and password for future reference, choose the best payment gateway for you and follow the steps to finish the process. To sign up as a visitor go to 'Sign up | Login' link at top menu, fill out all fields and click in 'Create Account'.">
+        <source>To sign up as a sponsor go to the 'Advertise With Us' link at top menu, select an item and level and click in 'SIGN UP' button. Fill out all fields, write down your username and password for future reference, choose the best payment gateway for you and follow the steps to finish the process. To sign up as a visitor go to 'Sign up | Login' link at top menu, fill out all fields and click in 'Create Account'.</source>
+        <target>Para registrar-se como Anunciante vá até o link 'Anuncie conosco' no menu superior, selecione o item e o nível e clique no botão 'Registrar'. Preencha as demais informações, escolha a forma de pagamento e siga os demais passos para finalizar o processo. Para registrar-se apenas como visitante, vá até o link 'Registra-se | Entrar' no menu superior, preencha os campos e clique em 'Criar Conta'.</target>
+        <jms:reference-file line="94">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5808c90e4fa2c5e944046387482bbb0b5209c3ca" resname="To view the lead, follow the link below.">
+        <source>To view the lead, follow the link below.</source>
+        <target>Para visualizar o novo lead, acesse o link abaixo</target>
+        <jms:reference-file line="30">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/views/mailer/leadgen.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7e7fbc811015943c1c30e7ceeea8b05c76a8ee58" resname="To:">
+        <source>To:</source>
+        <target>A:</target>
+        <jms:reference-file line="50">/Resources/views/modules/event/map-summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="24345a14377fd821d3932f4e82f6431640955b0b" resname="Today">
+        <source>Today</source>
+        <target>Hoje</target>
+        <jms:reference-file line="191">/../src/ArcaSolutions/ApiBundle/Entity/Result.php</jms:reference-file>
+        <jms:reference-file line="43">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+        <jms:reference-file line="152">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a4bbec1e64edc0960b5b35a253bc678e37eb4cd5" resname="Try browsing by section">
+        <source>Try browsing by section</source>
+        <target>Tente navegar por seção</target>
+        <jms:reference-file line="88">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="677e9f215da6747fbcfd262ad49cf3a238f04149" resname="Try different and more general keywords">
+        <source>Try different and more general keywords</source>
+        <target>Tente palavras-chave diferentes ou mais genéricas.</target>
+        <jms:reference-file line="86">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="313885d377b6970997a3673bb799e783878c2625" resname="Try removing filters to broaden your search">
+        <source>Try removing filters to broaden your search</source>
+        <target>Tente remover os filtros para ampliar a sua busca.</target>
+        <jms:reference-file line="87">/Resources/views/widgets/results/results.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5392c950bdde4be7e5f5b8fdc6a1ca5f21e905cf" resname="Twitter">
+        <source>Twitter</source>
+        <target>Twitter</target>
+        <jms:reference-file line="47">/../web/includes/code/listing.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3deb7456519697ecf4eefc455516c969a3681bae" resname="Type">
+        <source>Type</source>
+        <target>Tipo</target>
+        <jms:reference-file line="12">/Resources/views/blocks/filters/module.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="016b90f8b28622c3ef3c350365c064db30d2b8e1" resname="Type a title for your review">
+        <source>Type a title for your review</source>
+        <target>Digite um título para sua avaliação</target>
+        <jms:reference-file line="51">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="19a17d818057e1acb04c78d223d65231e40bdee1" resname="Unavailable Item">
+        <source>Unavailable Item</source>
+        <target>Item indisponível</target>
+        <jms:reference-file line="3">/Resources/views/pages/error-unavailable-item.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4c4c2edfbe377226a524d9bd4724980b260ccd09" resname="Upgrade to %premium% to create Unlimited Listings.">
+        <source>Upgrade to %premium% to create Unlimited Listings.</source>
+        <target>Atualize para %premium% para criar Listagens Ilimitadas.</target>
+        <jms:reference-file line="11">/../src/ArcaSolutions/WebBundle/Resources/views/upgrade_plan_banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3132cfdeb5d84cc2bc96510ca802014def6d3eff" resname="Upgrade your Plan">
+        <source>Upgrade your Plan</source>
+        <target>Atualize seu plano</target>
+        <jms:reference-file line="16">/../src/ArcaSolutions/WebBundle/Resources/views/upgrade_plan_banner.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a144230d8548856647640da53787e8f1761858da" resname="Valid Until">
+        <source>Valid Until</source>
+        <target>Válido até</target>
+        <jms:reference-file line="37">/../src/ArcaSolutions/DealBundle/Resources/views/modal-redeem.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="63">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="87">/Resources/views/modules/deal/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="52">/Resources/views/modules/deal/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/views/modules/deal/blocks/list-of-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="59">/Resources/views/modules/deal/blocks/one-horizontal-card.html.twig</jms:reference-file>
+        <jms:reference-file line="122">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="68">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="109">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="64">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="63">/Resources/views/modules/deal/blocks/vertical-cards.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bc17c1f0179a888f2a7e8389f67d4f2cf5cf4531" resname="Video">
+        <source>Video</source>
+        <target>Video</target>
+        <jms:reference-file line="159">/Resources/views/widgets/classified/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="130">/Resources/views/widgets/event/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="386">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="69bd4ef9fbd0894a22759c3766b859defbdedbc8" resname="View">
+        <source>View</source>
+        <target>Veja</target>
+        <jms:reference-file line="11">/../src/ArcaSolutions/WebBundle/Resources/views/smartbanner/smartbanner-android.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="efd83559209cb6aea97c87e4cd323698f9ea2f60" resname="View All">
+        <source>View All</source>
+        <target>Veja tudo</target>
+        <jms:reference-file line="4">/Resources/views/js/filters/category.js.twig</jms:reference-file>
+        <jms:reference-file line="4">/Resources/views/js/filters/location.js.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="74dcda6032353438d5395c7d669be03fa9bca4e7" resname="View Sample">
+        <source>View Sample</source>
+        <target>Ver amostra</target>
+        <jms:reference-file line="50">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+        <jms:reference-file line="126">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="66">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="82c6ab08b06a2a229bc7da26da43813b53587677" resname="View Website">
+        <source>View Website</source>
+        <target>Ver site</target>
+        <jms:reference-file line="113">/Resources/views/modules/classified/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/views/modules/classified/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="115">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="128">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="58113aead6f8b544153cfd6b1384785de7fc8df9" resname="View all photos">
+        <source>View all photos</source>
+        <target>Ver todas as fotos</target>
+        <jms:reference-file line="295">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="11433b701701b86d478d5d04ffd86d59def902cb" resname="View all reviews">
+        <source>View all reviews</source>
+        <target>Ver todas as avaliações</target>
+        <jms:reference-file line="435">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="da3aa561ffe80090dfe3acf1349a12a01e78d7ea" resname="View author's website">
+        <source>View author's website</source>
+        <target>Veja o site do autor</target>
+        <jms:reference-file line="55">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7e125c438411da1ea1695b0e4cb7a006cc1b5cdf" resname="View photo">
+        <source>View photo</source>
+        <target>Ver foto</target>
+        <jms:reference-file line="591">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="598bfa682e75320e7ad072bb743b69d4b6ba30d2" resname="Visit Website">
+        <source>Visit Website</source>
+        <target>Visite o site</target>
+        <jms:reference-file line="142">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+        <jms:reference-file line="286">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="295">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="324">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c909c1c780a1370ad7d8af0872b2d6635e819732" resname="Visitor">
+        <source>Visitor</source>
+        <target>Visitante</target>
+        <jms:reference-file line="15">/../src/ArcaSolutions/WebBundle/Sample/AccountprofilecontactSample.php</jms:reference-file>
+        <jms:reference-file line="19">/../src/ArcaSolutions/WebBundle/Sample/ReviewSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="958115f04d0c4f41e39ea44dc883957c34821e01" resname="Voted">
+        <source>Voted</source>
+        <target>Escolhido</target>
+        <jms:reference-file line="126">/../src/ArcaSolutions/WebBundle/Controller/ReviewController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0c856cfb4ee507b685a6d7952cb732a8dac866d4" resname="We can not send your email. Try again, please.">
+        <source>We can not send your email. Try again, please.</source>
+        <target>Nós não pudemos enviar seu email. Tente novamente, por favor.</target>
+        <jms:reference-file line="134">/../src/ArcaSolutions/WebBundle/Controller/SendMailController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="74ee5aa904db97689d6a0167a1f247804e576378" resname="We could not find your account. Please log in again and come back later.">
+        <source>We could not find your account. Please log in again and come back later.</source>
+        <target>Não conseguimos encontrar sua conta. Por favor faça login e tente novamente.</target>
+        <jms:reference-file line="1392">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="70f13249de6e94a8540be0b6e4dc5420ea085bff" resname="We couldn't deliver your message, please contact the administrator. Sorry for the inconvenience.">
+        <source>We couldn't deliver your message, please contact the administrator. Sorry for the inconvenience.</source>
+        <target>Não podemos enviar sua mensagem, entre em contato com o administrador. Desculpe pela inconveniência.</target>
+        <jms:reference-file line="100">/../src/ArcaSolutions/WebBundle/Controller/ContactusController.php</jms:reference-file>
+        <jms:reference-file line="27">/Resources/views/widgets/common/lead-gen-form.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2e8a57cc5c472f4ac3b071979a38e80db7e59e87" resname="Website">
+        <source>Website</source>
+        <target>Site</target>
+        <jms:reference-file line="493">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="46b8883298d6f6da1c3dfc298d195c2ed831f5b4" resname="Website Notification">
+        <source>Website Notification</source>
+        <target>Notificação</target>
+        <jms:reference-file line="37">/Resources/views/mailer/layout-users.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/views/mailer/layout-users.html.twig</jms:reference-file>
+        <jms:reference-file line="93">/Resources/views/mailer/layout.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7e4e11199ad16b6b41108e9a9be951c6cc085781" resname="What happens if I forget my password?">
+        <source>What happens if I forget my password?</source>
+        <target>O que acontece se eu esquecer minha senha?</target>
+        <jms:reference-file line="45">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="769bb19e615b7f8e2809e5882e2d05a18f57a531" resname="When">
+        <source>When</source>
+        <target>Quando</target>
+        <jms:reference-file line="42">/Resources/views/modules/event/map-summary.html.twig</jms:reference-file>
+        <jms:reference-file line="146">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c71d757f8d2c41d2e632043270d3523121cb44ec" resname="Why am I receiving an 'Account Locked' message?">
+        <source>Why am I receiving an 'Account Locked' message?</source>
+        <target>Por que estou recebendo uma mensagem 'Conta bloqueada'?</target>
+        <jms:reference-file line="101">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3a5834392a3b749dfb85bce300530b2c5eb223a5" resname="Will not be displayed publicly">
+        <source>Will not be displayed publicly</source>
+        <target>Não será exibido publicamente</target>
+        <jms:reference-file line="35">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="13f09c6f1a44d4e043a5f8b8cbeab67ee9bbce0a" resname="Would you like to update the page URL for all categories pages with the same value of this page?">
+        <source>Would you like to update the page URL for all categories pages with the same value of this page?</source>
+        <target>Deseja atualizar a URL da página para todas as páginas de categoria com o mesmo valor desta página?</target>
+        <jms:reference-file line="238">/../src/ArcaSolutions/WysiwygBundle/Services/PageTypeService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d2684e6248671c20e61b8585181572bfb3dbafff" resname="Write a review">
+        <source>Write a review</source>
+        <target>Avalie</target>
+        <jms:reference-file line="206">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="434">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="625">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="86">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="74">/Resources/views/widgets/review/module-review.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="879e32326c5217968ac8e3a14e4a8a5214957264" resname="Year">
+        <source>Year</source>
+        <target>Ano</target>
+        <jms:reference-file line="214">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="216">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="22">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7622eb5aa42dee6ea6c65f47b2410246c3c3da7d" resname="Yearly">
+        <source>Yearly</source>
+        <target>Anual</target>
+        <jms:reference-file line="214">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="216">/../src/ArcaSolutions/WebBundle/Services/AdvertiseHandler.php</jms:reference-file>
+        <jms:reference-file line="25">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="20">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5397e0583f14f6c88de06b1ef28f460a1fb5b0ae" resname="Yes">
+        <source>Yes</source>
+        <target>Sim</target>
+        <jms:reference-file line="551">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+        <jms:reference-file line="98">/../src/ArcaSolutions/WebBundle/Form/Builder/JsonFormBuilder.php</jms:reference-file>
+        <jms:reference-file line="359">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="667748342a1dfa6d8a8be5735986dffd4971b727" resname="Yes, you can do that by going to 'Manage account' &gt; 'Account Settings' and typing your new e-mail.">
+        <source><![CDATA[Yes, you can do that by going to 'Manage account' > 'Account Settings' and typing your new e-mail.]]></source>
+        <target><![CDATA[Sim, você pode alterar seu nome de usuário na página 'Gerenciar conta > Configurações da Conta'.]]></target>
+        <jms:reference-file line="62">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="903777cbbd24f9db4779cc6f78ad5258f983d530" resname="Yes, you can. After your item is expired you can choose the level (if it is free you can change the level anytime) and pay for it.">
+        <source>Yes, you can. After your item is expired you can choose the level (if it is free you can change the level anytime) and pay for it.</source>
+        <target>Sim. Após a data de renovação de seu item, você pode escolher o nível e renover seu item novamente. Se seu item é gratuito, você pode alterar o nível a qualquer momento.</target>
+        <jms:reference-file line="70">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0681cc509a6ba19bd3a21eb227baada4896b0c94" resname="Yes. In order to add any item, including Free items, to the directory you must have an account.">
+        <source>Yes. In order to add any item, including Free items, to the directory you must have an account.</source>
+        <target>Sim. Para adicionar qualquer item, incluindo itens gratuitos, você precisa ter uma conta.</target>
+        <jms:reference-file line="86">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadFaqData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="11ae8191c1b35d2094d28b019888cd8cd23a60e0" resname="You already reviewed this.">
+        <source>You already reviewed this.</source>
+        <target>Você já avaliou este item.</target>
+        <jms:reference-file line="200">/../src/ArcaSolutions/WebBundle/Controller/ReviewController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bfd8f34d9acc9580fb75055f9224c8ab07499c09" resname="You are currently in maintenance mode">
+        <source>You are currently in maintenance mode</source>
+        <target>Você está atualmente no modo de manutenção</target>
+        <jms:reference-file line="85">/Resources/views/base.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="89467096f886657d3835bab0587d420dd0400e05" resname="You don’t have synchronized your mail account yet">
+        <source>You don’t have synchronized your mail account yet</source>
+        <target>Você ainda não sincronizou sua conta de e-mail</target>
+        <jms:reference-file line="52">/../web/sitemgr/design/page-editor/custom-tabs/newsletter.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2fd50dd6058223e2aeb22830ed6e70f9adc8e8f4" resname="You received a new lead through the %widget% widget.">
+        <source>You received a new lead through the %widget% widget.</source>
+        <target>Você recebeu um novo lead pelo widget %widget%</target>
+        <jms:reference-file line="7">/Resources/views/mailer/leadgen.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7b92cc59c01fe37da489d77ef6fa2666a7402aa5" resname="You received a new lead through the contact form.">
+        <source>You received a new lead through the contact form.</source>
+        <target>Você recebeu uma nova menção no formulário de contato.</target>
+        <jms:reference-file line="7">/Resources/views/mailer/contactus.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="98b07165420dfc31a6a0c62f6890d461089cfff3" resname="Your First Name">
+        <source>Your First Name</source>
+        <target>Seu Primeiro nome</target>
+        <jms:reference-file line="21">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a778d11dd1b3bbad541eb42a1a59c2bd717969ba" resname="Your Last Name">
+        <source>Your Last Name</source>
+        <target>Seu Sobrenome</target>
+        <jms:reference-file line="26">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f48db7e9d3ef7a054e72ceb44729864e1ad32437" resname="Your Name">
+        <source>Your Name</source>
+        <target>Nome</target>
+        <jms:reference-file line="24">/Resources/views/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="41bed490c86383a8ce2fdd7317e8e4f756ac8ee3" resname="Your Review">
+        <source>Your Review</source>
+        <target>Sua Avaliação</target>
+        <jms:reference-file line="55">/../src/ArcaSolutions/WebBundle/Form/Type/ReviewsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f13aa90c24b55d8e3fa689afd6195543a4e9c8cf" resname="Your e-mail">
+        <source>Your e-mail</source>
+        <target>Seu e-mail</target>
+        <jms:reference-file line="29">/Resources/views/widgets/newsletter/signup-for-our-newsletter.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9ca9957eca5c189afefe37ae3c2747e7a8f3c5fc" resname="Your e-mail has been sent. Thank you.">
+        <source>Your e-mail has been sent. Thank you.</source>
+        <target>Seu email foi enviado com sucesso. Obrigado.</target>
+        <jms:reference-file line="2151">/../src/ArcaSolutions/ApiBundle/Controller/DefaultController.php</jms:reference-file>
+        <jms:reference-file line="141">/../src/ArcaSolutions/WebBundle/Controller/SendMailController.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f5778852225648688079a05a10d07ed6fe9a0b5a" resname="Your e-mail, please">
+        <source>Your e-mail, please</source>
+        <target>Seu email, por favor</target>
+        <jms:reference-file line="31">/../src/ArcaSolutions/WebBundle/Form/Type/ContactUsType.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a944d4820d2fcbd7cbe534debb4cbf9ce0edaf35" resname="Your review has been submitted for approval.">
+        <source>Your review has been submitted for approval.</source>
+        <target>Sua avaliação foi enviada para aprovação</target>
+        <jms:reference-file line="367">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="eeb1bf47a6727b57babf3daaca9e46979f2d149a" resname="Zipcode">
+        <source>Zipcode</source>
+        <target>Cep</target>
+        <jms:reference-file line="43">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="491">/../src/ArcaSolutions/CoreBundle/Services/AccountHandler.php</jms:reference-file>
+        <jms:reference-file line="47">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="71">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cffa50a32cb13a240d705317bcec65dd1f31b6ad" resname="and">
+        <source>and</source>
+        <target>e</target>
+        <jms:reference-file line="133">/../src/ArcaSolutions/CoreBundle/Services/Utility.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a9d24446cc1e471bf68005f34aa199e18f46287f" resname="articles">
+        <source>articles</source>
+        <target>artigos</target>
+        <jms:reference-file line="127">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1573f3c1ba13328987ecd1bbf6330416ade449cc" resname="bronze">
+        <source>bronze</source>
+        <target>bronze</target>
+        <jms:reference-file line="94">/../src/ArcaSolutions/ListingBundle/DataFixtures/ORM/LoadListingLevelData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="408158643ed564c72fa0921826f8294d71ccbf7c" resname="by">
+        <source>by</source>
+        <target>por</target>
+        <jms:reference-file line="135">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+        <jms:reference-file line="28">/Resources/views/blocks/utility/review.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="77">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="65c0ec273963aacc69af593b03d1710ff90f75da" resname="classifieds">
+        <source>classifieds</source>
+        <target>classificados</target>
+        <jms:reference-file line="129">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d46925d113594509f50bd5417efb9f26fd2f0786" resname="clock_type">
+        <source>clock_type</source>
+        <target>24</target>
+        <jms:reference-file line="77">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5e0a761bddef9763999f7131bff708b459b2d657" resname="currently on course">
+        <source>currently on course</source>
+        <target>Atualmente em curso</target>
+        <jms:reference-file line="414">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="a2620cbc10f5198dd03e3f5a1569eb5dcf9a6a87" resname="day">
+        <source>day</source>
+        <target>dia</target>
+        <jms:reference-file line="216">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4b5d7ce55386995a786c6a23815793eb8cdd6f51" resname="deals">
+        <source>deals</source>
+        <target>ofertas</target>
+        <jms:reference-file line="130">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f872caad177d67bbe18c119d0505f2d3caa02af3" resname="diamond">
+        <source>diamond</source>
+        <target>diamante</target>
+        <jms:reference-file line="37">/../src/ArcaSolutions/ClassifiedBundle/DataFixtures/ORM/LoadClassifiedLevelData.php</jms:reference-file>
+        <jms:reference-file line="36">/../src/ArcaSolutions/EventBundle/DataFixtures/ORM/LoadEventLevelData.php</jms:reference-file>
+        <jms:reference-file line="37">/../src/ArcaSolutions/ListingBundle/DataFixtures/ORM/LoadListingLevelData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="73da038ee7d9b4b808d2dab93d18732b304b39bb" resname="directory results">
+        <source>directory results</source>
+        <target>Resultados</target>
+        <jms:reference-file line="355">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b2823601927daa1fe6f5e6e3952c45e7445d3588" resname="eDirectory Cloud Service">
+        <source>eDirectory Cloud Service</source>
+        <target>eDirectory Cloud Service</target>
+        <jms:reference-file line="9">/Resources/views/blocks/copyright-footer-small.html.twig</jms:reference-file>
+        <jms:reference-file line="9">/Resources/views/blocks/copyright-newsletter.html.twig</jms:reference-file>
+        <jms:reference-file line="8">/Resources/views/blocks/copyright-social.html.twig</jms:reference-file>
+        <jms:reference-file line="15">/Resources/views/blocks/copyright.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="72560548a2021d2ccf52ed00b73c07d29f1bd5d0" resname="edir_default_language">
+        <source>edir_default_language</source>
+        <target>pt_br</target>
+        <jms:reference-file line="69">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="82d50d9042decb175894924272dd3b5a14cd3716" resname="events">
+        <source>events</source>
+        <target>eventos</target>
+        <jms:reference-file line="131">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0b1e95cfd9775191a7224d0a218ae79187e80c1d" resname="from">
+        <source>from</source>
+        <target>de</target>
+        <jms:reference-file line="319">/../src/ArcaSolutions/CoreBundle/Services/Utility.php</jms:reference-file>
+        <jms:reference-file line="313">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="58921247db4d78379a0332d69c3cd3ad901b7597" resname="from your location">
+        <source>from your location</source>
+        <target>da sua localização</target>
+        <jms:reference-file line="318">/../src/ArcaSolutions/CoreBundle/Services/Utility.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="09feb137fd5e58ac9131bff6c66ba2e70260bf8c" resname="gold">
+        <source>gold</source>
+        <target>ouro</target>
+        <jms:reference-file line="52">/../src/ArcaSolutions/ClassifiedBundle/DataFixtures/ORM/LoadClassifiedLevelData.php</jms:reference-file>
+        <jms:reference-file line="49">/../src/ArcaSolutions/EventBundle/DataFixtures/ORM/LoadEventLevelData.php</jms:reference-file>
+        <jms:reference-file line="56">/../src/ArcaSolutions/ListingBundle/DataFixtures/ORM/LoadListingLevelData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="80c7c234db4ab92f4912d82f22b9e8b1eeb52d2d" resname="happening between %startDate% and %endDate%">
+        <source>happening between %startDate% and %endDate%</source>
+        <target>entre %startDate% e %endDate%</target>
+        <jms:reference-file line="423">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1f2441598bab23d2e3bcbafb7ddfc05a74e51659" resname="happening from %startDate% on">
+        <source>happening from %startDate% on</source>
+        <target>a partir de %startDate%</target>
+        <jms:reference-file line="418">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d8be76e3d86838fcfbc5fa922e3e5a017d9e2198" resname="has a new review">
+        <source>has a new review</source>
+        <target>tem uma nova avaliação</target>
+        <jms:reference-file line="308">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="52ab86a87214a453d9f82538264f190854915247" resname="hour">
+        <source>hour</source>
+        <target>hora</target>
+        <jms:reference-file line="221">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="af10ef20dd9060bbeead0afbc55381a66af442ef" resname="in">
+        <source>in</source>
+        <target>em</target>
+        <jms:reference-file line="358">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="371">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="375">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="380">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="31">/Resources/views/blocks/event-upcoming-widget-carousel.html.twig</jms:reference-file>
+        <jms:reference-file line="4">/Resources/views/blocks/utility/cards.html.twig</jms:reference-file>
+        <jms:reference-file line="67">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+        <jms:reference-file line="53">/Resources/views/modules/classified/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="94">/Resources/views/modules/classified/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="96">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="109">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/views/modules/listing/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/Resources/views/widgets/event/events-calendar.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/views/widgets/event/upcoming-events-bar.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1400dc8752fb51e0d04232d59f8eb67740bc79c1" resname="is this your business?">
+        <source>is this your business?</source>
+        <target>Esse é o seu negócio?</target>
+        <jms:reference-file line="170">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="97">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="213ed3ea453bf610688ff8041e0a3b7b6abb5e6e" resname="last">
+        <source>last</source>
+        <target>última</target>
+        <jms:reference-file line="173">/../src/ArcaSolutions/EventBundle/Twig/Extension/RecurringExtension.php</jms:reference-file>
+        <jms:reference-file line="245">/../src/ArcaSolutions/EventBundle/Twig/Extension/RecurringExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e38ac152519c473c1475268d9d9bb97c23dfc02e" resname="listings">
+        <source>listings</source>
+        <target>empresas</target>
+        <jms:reference-file line="132">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="04987fcab72ade3a87a64267b02a2ad9f8f22484" resname="minute">
+        <source>minute</source>
+        <target>minuto</target>
+        <jms:reference-file line="226">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="3bc20235c1d4231bc3bc8814b896b2735d1535a2" resname="more articles">
+        <source>more articles</source>
+        <target>mais artigos</target>
+        <jms:reference-file line="779">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4927b85d1e7d192985b622bafa8cf7aa066e7bb1" resname="more doctors">
+        <source>more doctors</source>
+        <target>mais médicos</target>
+        <jms:reference-file line="866">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ca0fd305856f526863982e01e230e7b258e23bb2" resname="more events">
+        <source>more events</source>
+        <target>mais eventos</target>
+        <jms:reference-file line="22">/Resources/views/widgets/event/upcoming-events-bar.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="445b8e57b5cca8a5989745cea7fdd38580a6098b" resname="more listings">
+        <source>more listings</source>
+        <target>mais empresas</target>
+        <jms:reference-file line="670">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="b0266acb1c5ddf2fabeaedbfe5379bbb38feb87f" resname="more posts">
+        <source>more posts</source>
+        <target>mais postagens</target>
+        <jms:reference-file line="1140">/../src/ArcaSolutions/WysiwygBundle/Services/PageWidgetService.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d8c46683a8f9c86808adc4afc876b3900a6dcca6" resname="near">
+        <source>near</source>
+        <target>perto de</target>
+        <jms:reference-file line="371">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="380">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="5f44849f42077c8777c5e5a452dd9092b5c29d2d" resname="offered by &quot;%name%&quot;">
+        <source>offered by "%name%"</source>
+        <target>Oferecido por "%name%"</target>
+        <jms:reference-file line="70">/../src/ArcaSolutions/DealBundle/Twig/Extension/SeoExtension.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="db3d405b10675998c030223177d42e71b4e7a312" resname="on">
+        <source>on</source>
+        <target>em</target>
+        <jms:reference-file line="60">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/views/modules/article/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="1758356db21759f7c5a0da9b4dd1db8fd6feab3f" resname="or">
+        <source>or</source>
+        <target>ou</target>
+        <jms:reference-file line="26">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/../src/ArcaSolutions/WebBundle/Resources/views/modal-login.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0c0915cb3310ff2153e2bf7015603384f169a474" resname="or log in using your email address">
+        <source>or log in using your email address</source>
+        <target>ou entre usando seu email</target>
+        <jms:reference-file line="15">/Resources/views/blocks/social-login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f41553459a4b1491c9893ebc921ef5c86d449174" resname="payment_currency_code">
+        <source>payment_currency_code</source>
+        <target>BRL</target>
+        <jms:reference-file line="107">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="83c3f2d933c10cc61a39101ba60210a98f4fe938" resname="payment_currency_symbol">
+        <source>payment_currency_symbol</source>
+        <target>R$</target>
+        <jms:reference-file line="111">/../src/ArcaSolutions/WebBundle/DataFixtures/ORM/Common/LoadSettingData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d0e619b2aa5ddef32561c34c8ea4850328662fb1" resname="per month">
+        <source>per month</source>
+        <target>por mês</target>
+        <jms:reference-file line="13">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="41">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="26">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="37">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d412fe9656b9c8390216895ca8b179634e9c2d7f" resname="per year">
+        <source>per year</source>
+        <target>por ano</target>
+        <jms:reference-file line="38">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="101">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="60">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="79">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="87e38948d5e85c16362140ded9b90d9171b5fa1b" resname="posts">
+        <source>posts</source>
+        <target>posts</target>
+        <jms:reference-file line="128">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="352f7829a2384b001cc12b0c2613c756454a1f6a" resname="second">
+        <source>second</source>
+        <target>segundo</target>
+        <jms:reference-file line="231">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f8248e12727710c946f73d8f6e02eb93530dd9de" resname="silver">
+        <source>silver</source>
+        <target>prata</target>
+        <jms:reference-file line="67">/../src/ArcaSolutions/ClassifiedBundle/DataFixtures/ORM/LoadClassifiedLevelData.php</jms:reference-file>
+        <jms:reference-file line="62">/../src/ArcaSolutions/EventBundle/DataFixtures/ORM/LoadEventLevelData.php</jms:reference-file>
+        <jms:reference-file line="75">/../src/ArcaSolutions/ListingBundle/DataFixtures/ORM/LoadListingLevelData.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="76147eddebc69917a9db244735b89158f2804192" resname="stars">
+        <source>stars</source>
+        <target>estrelas</target>
+        <jms:reference-file line="310">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0bd41b476166955579be9f3d8d37cb7656a715fd" resname="this month">
+        <source>this month</source>
+        <target>este mês</target>
+        <jms:reference-file line="402">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="dae1e5f83a746e442914086da5374a92358c0d0c" resname="this week">
+        <source>this week</source>
+        <target>esta semana</target>
+        <jms:reference-file line="396">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="60ebdc71fda11af21f59b94b265121217c10a9d1" resname="this weekend">
+        <source>this weekend</source>
+        <target>este fim de semana</target>
+        <jms:reference-file line="399">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4374aaee247fb237ce6c97d5c8d64bbe474d16de" resname="to">
+        <source>to</source>
+        <target>a</target>
+        <jms:reference-file line="72">/Resources/views/blocks/filters/date.html.twig</jms:reference-file>
+        <jms:reference-file line="171">/Resources/views/modules/event/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2dd2bed725678b4f963f27d5e847a4f21db31cd1" resname="today">
+        <source>today</source>
+        <target>hoje</target>
+        <jms:reference-file line="390">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+        <jms:reference-file line="393">/../src/ArcaSolutions/SearchBundle/Entity/Summary/SummaryTitle.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7e11a8c7ad11bfb9bc06d1e5f7cc36efe465de2e" resname="until %until_date%">
+        <source>until %until_date%</source>
+        <target>até %until_date%</target>
+        <jms:reference-file line="53">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+        <jms:reference-file line="55">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="7d16b44ac0277310b9fd8c84030203019a41c7a1" resname="view %label_additional_phone% number">
+        <source>view %label_additional_phone% number</source>
+        <target>ver numero %label_additional_phone%</target>
+        <jms:reference-file line="270">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0a6015959d9de7547792a40df38125e99e662410" resname="view example">
+        <source>view example</source>
+        <target>ver exemplo</target>
+        <jms:reference-file line="23">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="48">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="35">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="36">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="70">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="47">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="89">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="c32f1570cc5b24125e1d55e540b6089c00afa377" resname="view less">
+        <source>view less</source>
+        <target>veja menos</target>
+        <jms:reference-file line="40">/Resources/views/widgets/location/browse-by-location.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="40e91027f1df638ad6c81760c1e722f2a797638a" resname="view more">
+        <source>view more</source>
+        <target>Veja mais</target>
+        <jms:reference-file line="40">/Resources/views/widgets/location/browse-by-location.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9b603af2133101a25a7b0370c4d7b0f585f7d204" resname="view phone">
+        <source>view phone</source>
+        <target>veja número de telefone</target>
+        <jms:reference-file line="256">/Resources/views/blocks/utility/summary.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="ab6dfd3c8fdd2809bcab6ab467f2d8bd67461e53" resname="write a review">
+        <source>write a review</source>
+        <target>fazer uma avaliação</target>
+        <jms:reference-file line="199">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="78">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="f2882460e5a66f3ab0f96a8d9d6b086f1cf51c6b" resname="wrote">
+        <source>wrote</source>
+        <target>escreveu</target>
+        <jms:reference-file line="315">/../src/ArcaSolutions/WebBundle/Services/ReviewHandler.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="cdf41e916eb0eeac092ca17c8f3bb8204d6f5542" resname="www.yoursite.com">
+        <source>www.yoursite.com</source>
+        <target>www.seusite.com</target>
+        <jms:reference-file line="48">/../src/ArcaSolutions/ArticleBundle/Sample/ArticleSample.php</jms:reference-file>
+        <jms:reference-file line="50">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="60">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4ff0b1538469338a0073e2cdaab6a517801b6ab4" resname="year">
+        <source>year</source>
+        <target>ano</target>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="19">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="63e8afcc1457d066ea6aa5c7be6f9362a5f7e37e" resname="youremail@yoursite.com">
+        <source>youremail@yoursite.com</source>
+        <target>seunome@seusite.com</target>
+        <jms:reference-file line="49">/../src/ArcaSolutions/ClassifiedBundle/Sample/ClassifiedSample.php</jms:reference-file>
+        <jms:reference-file line="59">/../src/ArcaSolutions/EventBundle/Sample/EventSample.php</jms:reference-file>
+        <jms:reference-file line="59">/../src/ArcaSolutions/ListingBundle/Sample/ListingSample.php</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="e0e92cf5b0ff07c266b7a0501888e496667f458c" resname="{0} Less than one day|{1} One day left|]1,Inf] %count% Days left">
+        <source>{0} Less than one day|{1} One day left|]1,Inf] %count% Days left</source>
+        <target>{0} Menos de 1 dia|{1} Resta 1 dia|]1,Inf] Restam %count% dias</target>
+        <jms:reference-file line="104">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/views/modules/deal/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="85">/Resources/views/modules/deal/blocks/centralized-highlighted-card.html.twig</jms:reference-file>
+        <jms:reference-file line="50">/Resources/views/modules/deal/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="58">/Resources/views/modules/deal/blocks/list-of-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/views/modules/deal/blocks/one-horizontal-card.html.twig</jms:reference-file>
+        <jms:reference-file line="119">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/Resources/views/modules/deal/blocks/three-vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="62">/Resources/views/modules/deal/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="61">/Resources/views/modules/deal/blocks/vertical-cards.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="841aee4975919095522f445b64737b2b7ffca148" resname="{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews">
+        <source>{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews</source>
+        <target>{0}Sem avalição|{1}%count% Avaliação|]1,Inf[%count% Avaliações</target>
+        <jms:reference-file line="218">/Resources/views/blocks/utility/detail.html.twig</jms:reference-file>
+        <jms:reference-file line="103">/Resources/views/modules/listing/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="56">/Resources/views/modules/listing/blocks/2-columns-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="64">/Resources/views/modules/listing/blocks/horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="107">/Resources/views/modules/listing/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="57">/Resources/views/modules/listing/blocks/vertical-card-plus-horizontal-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="54">/Resources/views/modules/listing/blocks/vertical-cards.html.twig</jms:reference-file>
+        <jms:reference-file line="196">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="428">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="623">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="75">/Resources/views/widgets/listing/detail-content.html.twig</jms:reference-file>
+        <jms:reference-file line="72">/Resources/views/widgets/review/module-review.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="082f81207721586bdfaf55b16f494c0444f08797" resname="{0}No records found |{1} &lt;b&gt;One&lt;/b&gt; record found |]1,Inf]Found &lt;b&gt;%count%&lt;/b&gt; records">
+        <source><![CDATA[
+                    {0}No records found |{1} <b>One</b> record found |]1,Inf]Found <b>%count%</b> records]]></source>
+        <target><![CDATA[{0}Nenhum resultado encontrado |{1} <b>Um</b> resultado encontrado |]1,Inf]Encontrados <b>%count%</b> resultados]]></target>
+        <jms:reference-file line="35">/Resources/views/widgets/faq/faq.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2b479230a9a8457bbc1bfa17116d708484bf75ca" resname="{0}SOLD OUT |{1} There is one deal left|]1,Inf[ There are %deals% deals left">
+        <source>{0}SOLD OUT |{1} There is one deal left|]1,Inf[ There are %deals% deals left</source>
+        <target>{0} ESGOTADO | {1} Restou uma oferta |] 1, Inf [Existem %deals% ofertas restantes</target>
+        <jms:reference-file line="160">/Resources/views/widgets/deal/detail-content.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9cc5b09f0d8edaf3a03dee72d949204cf8c29f6b" resname="{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial">
+        <source>{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial</source>
+        <target>{1}%trial_days% dia de teste grátis|]1,Inf[%trial_days% dias de teste grátis</target>
+        <jms:reference-file line="18">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="43">/Resources/views/blocks/advertise/article.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/views/blocks/advertise/banner.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/views/blocks/advertise/classified.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/views/blocks/advertise/event.html.twig</jms:reference-file>
+        <jms:reference-file line="30">/Resources/views/blocks/advertise/listing.html.twig</jms:reference-file>
+        <jms:reference-file line="106">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="46">/Resources/views/widgets/advertise/main-modules-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="31">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="65">/Resources/views/widgets/article/article-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="42">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+        <jms:reference-file line="84">/Resources/views/widgets/banners/banner-prices.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

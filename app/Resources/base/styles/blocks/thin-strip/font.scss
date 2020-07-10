@@ -1,0 +1,37 @@
+.thin-strip-base{
+    &.type-1{
+        .wrapper{
+            > .content-location{
+                .link{
+                    font-size: fontsize(size-14);
+                }
+            }
+        }
+    }
+
+    &.type-6{
+        .wrapper{
+            > .content-download{
+                .heading{
+                    font-size: fontsize(size-16);
+
+                    @media screen and (min-width: 768px) and (max-width: 1023px){
+                        font-size: fontsize(size-24);
+                    }
+
+                    @media screen and (min-width: 1024px){
+                        font-size: fontsize(size-32);
+                    }
+                }
+
+                .paragraph{
+                    font-size: fontsize(size-14);
+
+                    @media screen and (min-width: 1024px){
+                        font-size: fontsize(size-18);
+                    }
+                }
+            }
+        }
+    }
+}

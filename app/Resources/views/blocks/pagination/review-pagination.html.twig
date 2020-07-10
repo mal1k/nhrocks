@@ -1,0 +1,40 @@
+{% if pageCount > 1 -%}
+    {% set endPage = current > 3 ? current + 2 : 6 %}
+    {% set startPage = current > 3 ? current - 2 : 1 %}
+    {% set previous = current > startPage ? current - 1 : null %}
+    {% set next = current < pageCount ? current + 1 : null %}
+    <div class="reviews-pagination">
+        {% if previous is not empty -%}
+            <a href="{{ path('listing_paginated_review', {friendlyUrl: friendlyUrl, page: previous}) }}" class="item-pagination is-previous"><i class="fa fa-angle-left"></i></a>
+        {% else -%}
+            <a class="item-pagination is-previous is-disabled"><i class="fa fa-angle-left"></i></a>
+        {% endif -%}
+
+        {% if startPage > 1 -%}
+                <a href="{{ path('listing_paginated_review', {friendlyUrl: friendlyUrl, page: 1}) }}" class="item-pagination">1</a>
+            {% if startPage == 3 -%}
+                <a href="{{ path('listing_paginated_review', {friendlyUrl: friendlyUrl, page: 2}) }}" class="item-pagination">2</a>
+            {% elseif startPage != 2 -%}
+                <a class="item-pagination">&hellip;</a>
+            {% endif -%}
+        {% endif -%}
+
+        {% for page in startPage..(endPage < pageCount ? endPage : pageCount) -%}
+            {% if page == current %}
+                <a class="item-pagination is-selected">{{ page }}</a>
+            {% else %}
+                <a href="{{ path('listing_paginated_review', {friendlyUrl: friendlyUrl, page: page}) }}" class="item-pagination">{{ page }}</a>
+            {% endif %}
+        {% endfor -%}
+
+        {% if endPage < pageCount -%}
+            <a class="item-pagination">&hellip;</a>
+        {% endif -%}
+
+        {% if next is not empty and current < 800-%}
+            <a href="{{ path('listing_paginated_review', {friendlyUrl: friendlyUrl, page: next}) }}" class="item-pagination is-next"><i class="fa fa-angle-right"></i></a>
+        {% else -%}
+            <a class="item-pagination is-next is-disabled"><i class="fa fa-angle-right"></i></a>
+        {% endif -%}
+    </div>
+{% endif -%}

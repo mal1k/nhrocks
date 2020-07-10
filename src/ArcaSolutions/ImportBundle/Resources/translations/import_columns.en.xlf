@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Listing Title</source>
+                <target>Listing Title</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Listing SEO Title</source>
+                <target>Listing SEO Title</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Listing Email</source>
+                <target>Listing E-mail</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Listing Url</source>
+                <target>Listing URL</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Listing Address</source>
+                <target>Listing Address</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Listing Address2</source>
+                <target>Listing Address 2</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Listing Country</source>
+                <target>Listing Country</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Listing Country Abbreviation</source>
+                <target>Listing Country Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Listing Region</source>
+                <target>Listing Region</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Listing Region Abbreviation</source>
+                <target>Listing Region Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Listing State</source>
+                <target>Listing State</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Listing State Abbreviation</source>
+                <target>Listing State Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Listing City</source>
+                <target>Listing City</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Listing City Abbreviation</source>
+                <target>Listing City Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Listing Neighborhood</source>
+                <target>Listing Neighborhood</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Listing Neighborhood Abbreviation</source>
+                <target>Listing Neighborhood Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Listing Postal Code</source>
+                <target>Listing Zip Code</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>Listing Latitude</source>
+                <target>Listing Latitude</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>Listing Longitude</source>
+                <target>Listing Longitude</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>Listing Phone</source>
+                <target>Listing Phone</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>Listing Short Description</source>
+                <target>Listing Short Description</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>Listing Long Description</source>
+                <target>Listing Long Description</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>Listing Seo Description</source>
+                <target>Listing SEO Description</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>Listing Keywords</source>
+                <target>Listing Keywords</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>Listing Renewal Date</source>
+                <target>Listing Renewal Date</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Listing Status</source>
+                <target>Listing Status</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>Listing Level</source>
+                <target>Listing Level</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>Listing Category 1</source>
+                <target>Listing Category 1</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>Listing Category 2</source>
+                <target>Listing Category 2</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>Listing Category 3</source>
+                <target>Listing Category 3</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>Listing Category 4</source>
+                <target>Listing Category 4</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>Listing Category 5</source>
+                <target>Listing Category 5</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>Listing Category 6</source>
+                <target>Listing Category 6</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>Listing Category 7</source>
+                <target>Listing Category 7</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>Listing Category 8</source>
+                <target>Listing Category 8</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>Listing Category 9</source>
+                <target>Listing Category 9</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>Listing Category 10</source>
+                <target>Listing Category 10</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>Listing Category 11</source>
+                <target>Listing Category 11</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>Listing Category 12</source>
+                <target>Listing Category 12</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>Listing Category 13</source>
+                <target>Listing Category 13</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>Listing Category 14</source>
+                <target>Listing Category 14</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>Listing Category 15</source>
+                <target>Listing Category 15</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>Listing Category 16</source>
+                <target>Listing Category 16</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>Listing Category 17</source>
+                <target>Listing Category 17</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>Listing Category 18</source>
+                <target>Listing Category 18</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>Listing Category 19</source>
+                <target>Listing Category 19</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Listing Category 20</source>
+                <target>Listing Category 20</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>Listing Template</source>
+                <target>Listing Template</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Listing DB Id</source>
+                <target>Listing DB Id</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>Listing Custom Id</source>
+                <target>Custom Id</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>Account Username</source>
+                <target>Account Username</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>Account Password</source>
+                <target>Account Password</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>Account Contact First Name</source>
+                <target>Account Contact First Name</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>Account Contact Last Name</source>
+                <target>Account Contact Last Name</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>Account Contact Company</source>
+                <target>Account Contact Company</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>Account Contact Address</source>
+                <target>Account Contact Address</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>Account Contact Address2</source>
+                <target>Account Contact Address 2</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>Account Contact Country</source>
+                <target>Account Contact Country</target>
+            </trans-unit>
+            <trans-unit id="60">
+                <source>Account Contact State</source>
+                <target>Account Contact State</target>
+            </trans-unit>
+            <trans-unit id="61">
+                <source>Account Contact City</source>
+                <target>Account Contact City</target>
+            </trans-unit>
+            <trans-unit id="62">
+                <source>Account Contact Postal Code</source>
+                <target>Account Contact Zip Code</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>Account Contact Phone</source>
+                <target>Account Contact Phone</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>Account Contact Email</source>
+                <target>Account Contact E-mail</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>Account Contact URL</source>
+                <target>Account Contact URL</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>Event Title</source>
+                <target>Event Title</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>Event SEO Title</source>
+                <target>Event SEO Title</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>Event Email</source>
+                <target>Event E-mail</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>Event Url</source>
+                <target>Event URL</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>Event Address</source>
+                <target>Event Address</target>
+            </trans-unit>
+            <trans-unit id="72">
+                <source>Event Venue</source>
+                <target>Event Venue</target>
+            </trans-unit>
+            <trans-unit id="73">
+                <source>Event Contact Name</source>
+                <target>Event Contact Name</target>
+            </trans-unit>
+            <trans-unit id="74">
+                <source>Event Start Date</source>
+                <target>Event Start Date</target>
+            </trans-unit>
+            <trans-unit id="75">
+                <source>Event End Date</source>
+                <target>Event End Date</target>
+            </trans-unit>
+            <trans-unit id="76">
+                <source>Event Start Time</source>
+                <target>Event Start Time</target>
+            </trans-unit>
+            <trans-unit id="77">
+                <source>Event End Time</source>
+                <target>Event End Time</target>
+            </trans-unit>
+            <trans-unit id="78">
+                <source>Event Country</source>
+                <target>Event Country</target>
+            </trans-unit>
+            <trans-unit id="79">
+                <source>Event Country Abbreviation</source>
+                <target>Event Country Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>Event Region</source>
+                <target>Event Region</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>Event Region Abbreviation</source>
+                <target>Event Region Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="82">
+                <source>Event State</source>
+                <target>Event State</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>Event State Abbreviation</source>
+                <target>Event State Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="84">
+                <source>Event City</source>
+                <target>Event City</target>
+            </trans-unit>
+            <trans-unit id="85">
+                <source>Event City Abbreviation</source>
+                <target>Event City Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="86">
+                <source>Event Neighborhood</source>
+                <target>Event Neighborhood</target>
+            </trans-unit>
+            <trans-unit id="87">
+                <source>Event Neighborhood Abbreviation</source>
+                <target>Event Neighborhood Abbreviation</target>
+            </trans-unit>
+            <trans-unit id="88">
+                <source>Event Postal Code</source>
+                <target>Event Zip Code</target>
+            </trans-unit>
+            <trans-unit id="89">
+                <source>Event Latitude</source>
+                <target>Event Latitude</target>
+            </trans-unit>
+            <trans-unit id="90">
+                <source>Event Longitude</source>
+                <target>Event Longitude</target>
+            </trans-unit>
+            <trans-unit id="91">
+                <source>Event Phone</source>
+                <target>Event Phone</target>
+            </trans-unit>
+            <trans-unit id="92">
+                <source>Event Short Description</source>
+                <target>Event Short Description</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>Event Long Description</source>
+                <target>Event Long Description</target>
+            </trans-unit>
+            <trans-unit id="94">
+                <source>Event Seo Description</source>
+                <target>Event SEO Description</target>
+            </trans-unit>
+            <trans-unit id="95">
+                <source>Event Keywords</source>
+                <target>Event Keywords</target>
+            </trans-unit>
+            <trans-unit id="96">
+                <source>Event Renewal Date</source>
+                <target>Event Renewal Date</target>
+            </trans-unit>
+            <trans-unit id="97">
+                <source>Event Status</source>
+                <target>Event Status</target>
+            </trans-unit>
+            <trans-unit id="98">
+                <source>Event Level</source>
+                <target>Event Level</target>
+            </trans-unit>
+            <trans-unit id="99">
+                <source>Event Category 1</source>
+                <target>Event Category 1</target>
+            </trans-unit>
+            <trans-unit id="100">
+                <source>Event Category 2</source>
+                <target>Event Category 2</target>
+            </trans-unit>
+            <trans-unit id="101">
+                <source>Event Category 3</source>
+                <target>Event Category 3</target>
+            </trans-unit>
+            <trans-unit id="102">
+                <source>Event Category 4</source>
+                <target>Event Category 4</target>
+            </trans-unit>
+            <trans-unit id="103">
+                <source>Event Category 5</source>
+                <target>Event Category 5</target>
+            </trans-unit>
+            <trans-unit id="104">
+                <source>Event DB Id</source>
+                <target>Event DB Id</target>
+            </trans-unit>
+            <trans-unit id="105">
+                <source>Event Custom Id</source>
+                <target>Custom ID</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

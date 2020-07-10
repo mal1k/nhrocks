@@ -1,0 +1,129 @@
+{% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+<div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="events" scrollable="false" mobile-columns="false" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="cards-header">
+            <h2 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h2>
+            {% if widgetLink is not empty %}
+                <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more events'|trans({},'widgets') }}">
+                    {{ content.widgetLink.label|trans({}, 'widgets') }}
+                </a>
+            {% endif %}
+        </div>
+        <div class="card-wrapper card-vertical-plus-horizontal">
+            {% for item in items -%}
+                {% if loop.first %}
+
+                    {% set itemData = getCardData(item, 'event') %}
+
+                    <div class="card-wrapper-vertical">
+                        <div class="cards-list">
+                            <div class="card">
+                                <a href="{{ itemData.detailLink }}" class="picture">
+                                    {{ tagPicture(itemData.imagePath, item.title, {'tablet': 'medium'}) }}
+                                    {% if itemData.month and itemData.month is not empty and itemData.day and itemData.day is not empty and itemData.weekDay and itemData.weekDay is not empty %}
+                                        <div class="calendar-sm">
+                                            <div class="month">{{ 'months'|transchoice(itemData.month, [], 'units')|slice(0,3) }}</div>
+                                            <div class="heading day">{{ itemData.day }}</div>
+                                            <div class="day-abbr">{{ 'week.days'|transchoice(itemData.weekDay, [], 'units')|slice(0,3) }}</div>
+                                        </div>
+                                    {% endif %}
+                                </a>
+                                <div class="content">
+                                    <div class="content-info">
+                                        <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                                        {% if item.categories -%}
+                                            {{UtilityCards.categories(item.categories, content.module)}}
+                                        {% endif %}
+
+                                        {# description -#}
+                                        {% set description = item.longDescription -%}
+
+                                        {% if item.description is not empty -%}
+                                            {% set description = item.description -%}
+                                        {% endif -%}
+
+                                        {% if description is not empty -%}
+                                            <div class="description">
+                                                <p class="paragraph">{{ description|length > 520 ? description|slice(0,519) ~ '...' : description }}</p>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if item.address.location is not empty -%}
+                                            <div class="location">
+                                                <i class="fa fa-map-marker"></i>
+                                                {{ item.address.location }}
+                                            </div>
+                                        {% endif -%}
+
+                                        {% if item.recurring.enabled == 1 -%}
+                                            <div class="recurring-event">
+                                                <i class="fa fa-calendar"></i>
+                                                {{ recurringPhrase(item.event) }}
+                                            </div>
+                                        {% endif -%}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper-horizontal">
+                        <div class="cards-list">
+                        {% else %}
+
+                            {% set itemData = getCardData(item, 'event') %}
+
+                            <div class="card card-horizontal">
+                                <a href="{{ itemData.detailLink }}" class="picture">
+                                    {{ tagPicture(itemData.imagePath, item.title) }}
+                                    {% if itemData.month and itemData.month is not empty and itemData.day and itemData.day is not empty and itemData.weekDay and itemData.weekDay is not empty %}
+                                        <div class="calendar-sm">
+                                            <div class="month">{{ 'months'|transchoice(itemData.month, [], 'units')|slice(0,3) }}</div>
+                                            <div class="heading day">{{ itemData.day }}</div>
+                                            <div class="day-abbr">{{ 'week.days'|transchoice(itemData.weekDay, [], 'units')|slice(0,3) }}</div>
+                                        </div>
+                                    {% endif %}
+                                </a>
+                                <div class="content">
+                                    <div class="content-info">
+                                        <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                                        {% if item.categories -%}
+                                            {{UtilityCards.categories(item.categories, content.module)}}
+                                        {% endif %}
+
+                                        {# description -#}
+                                        {% set description = item.longDescription -%}
+
+                                        {% if item.description is not empty -%}
+                                            {% set description = item.description -%}
+                                        {% endif -%}
+
+                                        {% if description is not empty -%}
+                                            <div class="description">
+                                                <p class="paragraph">{{ description|length > 80 ? description|slice(0,79) ~ '...' : description }}</p>
+                                            </div>
+                                        {% endif %}
+
+                                        {% if item.address.location is not empty -%}
+                                            <div class="location">
+                                                <i class="fa fa-map-marker"></i>
+                                                {{ item.address.location }}
+                                            </div>
+                                        {% endif -%}
+
+                                        {% if item.recurring.enabled == 1 -%}
+                                            <div class="recurring-event">
+                                                <i class="fa fa-calendar"></i>
+                                                {{ recurringPhrase(item.event) }}
+                                            </div>
+                                        {% endif -%}
+                                    </div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

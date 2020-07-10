@@ -1,0 +1,45 @@
+{# @var slider \ArcaSolutions\WebBundle\Entity\Slider #}
+{# Slider Carousel -#}
+
+{% if sliders is not empty %}
+
+    <div class="hero-default hero-with-slider" data-type="3">
+        <div class="hero-slider hero-{{ heroClass }}" active-slider="{{ sliders|length > 1 ? 'true' : 'false' }}">
+
+        <!-- Wrapper for slides -->
+        {% for slider in sliders -%}
+            <div class="carousel-cell {{ loop.first ? 'active' : '' }}" id="slider-{{ slider.slideOrder }}"
+                 style="{{ (slider.image.unsplash is not empty ? 'background-image:url(' ~ slider.image.unsplash|raw ~ ')' : '' ) }}">
+                {% if slider.summary|trim or slider.title|trim %}
+                    <div class="slider-content">
+                        {% if slider.title|trim %}
+                            {% if slider.pageUrl %}
+                                <a href="{{ slider.pageUrl }}" target="{{ '_%s'|format(slider.target) }}" class="link heading h-{{ type == 'lead-form' or type == 'default' ? 2 : 4 }}">
+                                    {{ slider.title|raw|length > 60 ? slider.title|raw|slice(0,60) ~ '...' : slider.title|raw }}
+                                </a>
+                            {% else %}
+                                <h2 class="heading h-{{ type == 'lead-form' or type == 'default' ? 2 : 4 }}">
+                                    {{ slider.title|raw|length > 60 ? slider.title|raw|slice(0,60) ~ '...' : slider.title|raw }}
+                                </h2>
+                            {% endif %}
+                        {% endif %}
+
+                        {% if slider.summary|trim %}
+                            <p class="paragraph p-3">
+                                {{ slider.summary|raw|length > 200 ? slider.summary|raw|slice(0,200) ~ '...' : slider.summary|raw }}
+                            </p>
+                        {% endif %}
+                    </div>
+
+                {% endif %}
+            </div>
+        {% endfor -%}
+        {# Slider End -#}
+
+        </div>
+    </div>
+
+    {% for background in imageBackground %}
+        {{ background|raw }}
+    {% endfor %}
+{% endif %}

@@ -1,0 +1,37 @@
+.cards-events{
+    .calendar-wrapper{
+        .calendar-block{
+            .datepicker{
+                .datepicker--nav{
+                    &-title{
+                        font-size: fontsize(size-20);
+                    }
+                }
+
+                .datepicker--content{
+                    .datepicker--days-names{
+                        .datepicker--day-name{
+                            font-size: fontsize(size-14);
+                        }
+
+                        .datepicker--cells{
+                            .datepicker--cell{
+                                @media screen and (min-width: 768px){
+                                    font-size: fontsize(size-14);
+                                }
+    
+                                @media screen and (min-width: 992px){
+                                    font-size: fontsize(size-16);
+                                }
+    
+                                &.-other-month-{
+                                    font-size: fontsize(size-16);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

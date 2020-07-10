@@ -1,0 +1,115 @@
+{% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+<div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="business" scrollable="false" mobile-columns="false" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="cards-header">
+            <h2 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h2>
+            {% if widgetLink is not empty %}
+                <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more listings'|trans({},'widgets') }}">
+                    {{ content.widgetLink.label|trans({}, 'widgets') }}
+                </a>
+            {% endif %}
+        </div>
+        <div class="card-wrapper card-two-columns-horizontal">
+            {% for item in items -%}
+                {% set itemData = getCardData(item, 'listing') %}
+
+                {% if loop.first %}
+                    <div class="card-wrapper-left">
+                        <div class="cards-list">
+                            <div class="card card-horizontal">
+                                <div class="picture">
+                                    {% if hasDeal(item.id, item.level) -%}
+                                        <a href="{{ itemData.detailLink }}#deal" class="badge">{{ 'Offers deals'|trans }}</a>
+                                    {% endif %}
+                                    <a href="{{ itemData.detailLink }}" class="picture-link">
+                                        {{ tagPicture(itemData.imagePath, item.title) }}
+                                    </a>
+                                </div>
+                                <div class="content">
+                                    <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                                    {% if item.categories -%}
+                                        {{UtilityCards.categories(item.categories, content.module)}}
+                                    {% endif %}
+
+                                    {# description -#}
+                                    {% set description = item.longDescription -%}
+
+                                    {% if item.description is not empty -%}
+                                        {% set description = item.description -%}
+                                    {% endif -%}
+
+                                    {% if description is not empty -%}
+                                        <div class="description">
+                                            <p class="paragraph">{{ description|length > 180 ? description|slice(0,179) ~ '...' : description }}</p>
+                                        </div>
+                                    {% endif %}
+
+                                    {% if item.averageReview is defined and getSetting("review_listing_enabled") %}
+                                        <div class="reviews">
+                                            <div class="reviews-stars">
+                                                {% for i in 0..4 %}
+                                                    <i class="fa fa-star{{ i < item.averageReview ? '' : '-o' }}"></i>
+                                                {% endfor %}
+                                            </div>
+                                            {% if item.reviewTotal != 0 -%}
+                                                <div class="reviews-count">{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(item.reviewTotal, {"%count%":item.reviewTotal}) }}</div>
+                                            {% endif %}
+                                        </div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-wrapper-right">
+                        <div class="cards-list">
+                {% else %}
+                    <div class="card card-horizontal">
+                        <div class="picture">
+                            {% if hasDeal(item.id, item.level) -%}
+                                <a href="{{ itemData.detailLink }}#deal" class="badge">{{ 'Offers deals'|trans }}</a>
+                            {% endif %}
+                            <a href="{{ itemData.detailLink }}" class="picture-link">
+                                {{ tagPicture(itemData.imagePath, item.title) }}
+                            </a>
+                        </div>
+                        <div class="content">
+                            <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                            {% if item.categories -%}
+                                {{UtilityCards.categories(item.categories, content.module)}}
+                            {% endif %}
+
+                            {# description -#}
+                            {% set description = item.longDescription -%}
+
+                            {% if item.description is not empty -%}
+                                {% set description = item.description -%}
+                            {% endif -%}
+
+                            {% if description is not empty -%}
+                                <div class="description">
+                                    <p class="paragraph">{{ description|length > 60 ? description|slice(0,59) ~ '...' : description }}</p>
+                                </div>
+                            {% endif %}
+
+                            {% if item.averageReview is defined and getSetting("review_listing_enabled") %}
+                                <div class="reviews">
+                                    <div class="reviews-stars">
+                                        {% for i in 0..4 %}
+                                            <i class="fa fa-star{{ i < item.averageReview ? '' : '-o' }}"></i>
+                                        {% endfor %}
+                                    </div>
+                                    {% if item.reviewTotal != 0 -%}
+                                        <div class="reviews-count">{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(item.reviewTotal, {"%count%":item.reviewTotal}) }}</div>
+                                    {% endif -%}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

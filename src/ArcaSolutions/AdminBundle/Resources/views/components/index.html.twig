@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"
+              content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        {#<link rel="stylesheet" href="/sitemgr/assets/style/plugins/font-awesome.min.css">#}
+
+        {% block stylesheets %}
+            {% stylesheets
+            filter='cssrewrite'
+            output='assets/default/css/sitemgr.css'
+            '@AdminBundle/Resources/public/styleguide/less/base.less'
+            %}
+            <link href="{{ asset_url }}" rel="stylesheet"/>
+            {% endstylesheets %}
+        {% endblock -%}
+
+    </head>
+    <body style="margin: 0 25px">
+
+        {% block content %}
+            <div>
+                <h4>Style Guide</h4>
+
+                <hr>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_buttons') }}" target="_blank">Buttons</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_colors') }}" target="_blank">Colors</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_containers') }}" target="_blank" style="pointer-events:none;">Containers</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_elements') }}" target="_blank">Elements</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_forms') }}" target="_blank">Forms</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_interative') }}" target="_blank" style="pointer-events:none;">Interative</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_island') }}" target="_blank" style="pointer-events:none;">Island</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_navigation') }}" target="_blank" style="pointer-events:none;">Navigation</a></p>
+
+                <p><a href="{{ path('arca_solutions_sitemgr_type') }}" target="_blank" style="pointer-events:none;">Type</a></p>
+            </div>
+        {% endblock %}
+
+        {% block javascripts %}
+                {#{% javascripts '@AdminBundle/Resources/public/styleguide/js/*.js' %}#}
+                    {#<script src="{{ asset_url }}"></script>#}
+                {#{% endjavascripts %}#}
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,69 @@
+{% set planFrequency = getPlanFrequency(plans) %}
+{% set nonFeatures = getNonFeatures() %}
+
+{% if planFrequency %}
+    <div class="pricing-wrapper {{ planFrequency.total_plan > 3 ? 'has-scroll' : '' }}" id="classified">
+        <div class="pricing-list">
+            {% for plan in plans %}
+                {% set pricing = advertisePrice(plan, true, content) %}
+                <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }}"
+                    {% if plan.isPopular %}
+                        data-highlighted="{{ 'Most Popular'|trans }}"
+                    {% endif %}
+                    >
+                    <div class="paragraph p-3 pricing-plan">{{ plan.name }}</div>
+                    <div class="pricing-price">
+                        {% if pricing.monthly.value %}
+                            <div class="heading h-3 pricing-value">{{ pricing.main.symbol ~ pricing.monthly.value ~ '/' ~ 'Month'|trans }}</div>
+                            {% if pricing.yearly.value %}
+                                <div class="paragraph p-4 pricing-period">{{ 'or'|trans ~ ' ' ~ pricing.main.symbol ~ pricing.yearly.value ~ '/' ~ 'year'|trans }}</div>
+                            {% endif %}
+                        {% elseif pricing.yearly.value %}
+                            <div class="heading h-3 pricing-value">{{ pricing.main.symbol ~ pricing.yearly.value ~ '/' ~ 'Year'|trans }}</div>
+                        {% else %}
+                            <div class="heading h-3 pricing-value">{{ 'Free'|trans }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="pricing-action">
+                        <a href="/advertise/classified/{{ plan.level }}" onclick="advertiseChoice('monthly')" class="button button-bg {{ plan.isPopular ? 'is-primary' : 'is-secondary'}}">
+                            {% if plan.trial and (pricing.monthly.value or pricing.yearly.value) %}
+                                {{ "{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial"|transchoice(plan.trial, {"%trial_days%":plan.trial}) }}
+                            {% else %}
+                                {{ 'Start today!'|trans }}
+                            {% endif %}
+                        </a>
+                    </div>
+                    <div class="pricing-collapse is-open">
+                        <ul class="price-advantages">
+                            {% if pricing.description is not empty %}
+                                <div class="price-description">
+                                    <p class="pragraph p-2">{{ pricing.description }}</p>
+                                </div>
+                            {% else %}
+                                {% for feature, value in plan|cast_to_array %}
+                                    {% if feature not in nonFeatures and value is not null %}
+                                        <li class="price-advantages-item {{ value ? 'has-advantages' : '' }}">
+                                            <div class="icon icon-md"><i class="fa"></i></div>
+                                            {% if feature == 'hasDetail' and value %}
+                                                <a href="{{ url( 'classified_sample', {'friendlyUrl': 'sample', 'level': plan.level, '_format': 'html'}) }}"
+                                                   target="_blank" rel="noopener noreferrer nofollow"
+                                                   title="{{ 'View Sample'|trans }}"
+                                                   class="link item-name">{{ feature|transchoice(value, [], 'advertise') }}</a>
+                                            {% else %}
+                                                <div class="item-name">{{ feature|transchoice(value, [], 'advertise') }}</div>
+                                            {% endif %}
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pricing-buttons">
+            <button class="button is-primary previous"><i class="fa fa-angle-left"></i></button>
+            <button class="button is-primary next"><i class="fa fa-angle-right"></i></button>
+        </div>
+    </div>
+{% endif %}

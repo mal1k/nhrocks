@@ -1,0 +1,33 @@
+<div class="pricing-plans" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="pricing-header">
+            <h2 class="heading h-2">
+                {{ content.labelPromote|trans({}, 'widgets') }}
+            </h2>
+            {% if content.labelPremiumFeatures is not empty %}
+                <span class="paragraph p-1">{{ content.labelPremiumFeatures|trans({}, 'widgets') }}</span>
+            {% endif %}
+        </div>
+        <div class="pricing-table" id="widget-{{ widget_id }}">
+            <div class="pricing-nav multiple-navs multiple-navs multiple-navs"
+                 data-tran-listing="{{ 'Listing'|trans({}, 'widgets') }}"
+                 data-tran-event="{{ 'Event'|trans({}, 'widgets') }}"
+                 data-tran-classified="{{ 'Classified'|trans({}, 'widgets') }}"
+                 data-tran-article="{{ 'Article'|trans({}, 'widgets') }}"
+                 data-tran-banner="{{ 'Banner'|trans({}, 'widgets') }}">
+                {% for module in modules %}
+                    {% set moduleName = module|capitalize|trans({}, 'widgets') %}
+                    <button class="button button-md is-outline {{ loop.first ? 'is-active' : '' }}" data-period="{{ module }}">
+                        {{ "%module% Options"|trans({"%module%": moduleName}) }}
+                    </button>
+                {% endfor %}
+            </div>
+            <!-- Caso tenha 5 itens de pricing, adicionar a classe "has-scroll" -->
+            {% for module in modules %}
+                {{ advertisePlans(module, widget_id) }}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{{ addJSFile("assets/js/widgets/plans/main-modules-prices.js") -}}

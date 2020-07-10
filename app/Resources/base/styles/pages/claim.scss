@@ -1,0 +1,66 @@
+.claim-signup-breadcrumb{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+
+    &.isVisible{
+        display: flex !important;
+    }
+
+    & + .modal-sign{
+        .modal-content{
+            margin-top: 32px;
+        }
+    }
+
+    .breadcrumb-item{
+        background: customColor(brand, base);
+        color: customColor(color-white, base);
+        line-height: 1;
+        padding: 16px 12px;
+        position: relative;
+        font-size: .75em;
+
+        @media screen and (min-width: 768px){
+            padding: 16px 24px;
+            font-size: 1em;
+        }
+
+        &[is-active="true"]{
+            background: customColor(highlight, base);
+        }
+
+        &:not(:first-child){
+            &:before{
+                content: "";
+                position: absolute;
+                top: -5px;
+                left: -4px;
+                width: 6px;
+                height: calc(50% + 6px);
+                background: white;
+                transform: rotate(-15deg);
+            }
+
+            &:after{
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                left: -4px;
+                width: 6px;
+                height: calc(50% + 6px);
+                background: white;
+                transform: rotate(15deg);
+            }
+        }
+
+        strong{
+            display: none;
+            
+            @media screen and (min-width: 768px){
+                display: inline-block;
+            }
+        }
+    }
+}

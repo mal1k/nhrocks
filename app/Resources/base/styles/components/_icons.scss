@@ -1,0 +1,72 @@
+.icon{
+    // Icon Reset
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    color: $icons-color;
+
+    // Icon Sizes
+    &.icon-xs{
+        width: icons(xs, width);
+        height: icons(xs, height);
+        font-size: icons(xs, font-size);
+    }
+
+    &.icon-sm{
+        width: icons(sm, width);
+        height: icons(sm, height);
+        font-size: icons(sm, font-size);
+    }
+    
+    &.icon-md{
+        width: icons(md, width);
+        height: icons(md, height);
+        font-size: icons(md, font-size);
+    }
+    
+    &.icon-lg{
+        width: icons(lg, width);
+        height: icons(lg, height);
+        font-size: icons(lg, font-size);
+    }
+    
+    &.icon-xl{
+        width: icons(xl, width);
+        height: icons(xl, height);
+        font-size: icons(xl, font-size);
+    }
+}
+
+.pin{
+    // Pin Reset
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 50% 0;
+    background: $icons-color;
+    transform: rotate(-45deg);
+    position: relative;
+
+    &.is-null{
+        &:after{
+            content: '';
+            width: 10px;
+            height: 10px;
+            margin: 10px 0 0 10px;
+            background: white;
+            position: absolute;
+            border-radius: 50%;
+        }
+    }
+
+    > .count{
+        text-align: center;
+        transform: rotate(45deg);
+        display: block;
+        color: white;
+        font-size: 1.125em;
+        line-height: 1;
+        font-weight: 500;
+        padding: 5px 0 0 5px;
+    }
+}

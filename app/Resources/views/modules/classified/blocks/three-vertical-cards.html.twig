@@ -1,0 +1,95 @@
+{% if items|length > 0 %}
+    {% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+    
+    <div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h4 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h4>
+                {% if widgetLink is not empty %}
+                    <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more classifieds'|trans({},'widgets') }}">
+                        {{ content.widgetLink.label|trans({}, 'widgets') }}
+                    </a>
+                {% endif %}
+            </div>
+            <div class="cards-list cards-list-half">
+                {% for item in items -%}
+                    {% set itemData = getCardData(item, 'classified') %}
+
+                    {% if loop.index == 1 %}
+                        <div class="card" data-columns="2">
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                {% if item.thumbnail is defined and item.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(item.thumbnail, 'domain_images'), item.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(title) }}
+                                {% endif -%}
+                            </a>
+                            <div class="content">
+                                <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                {# description -#}
+                                {% set description = item.description -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{- description|length > 180 ? description|slice(0,179) ~ '...' : description -}}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if item.classifiedPrice -%}
+                                    {% set price = item.classifiedPrice %}
+                                {% else %}
+                                    {% set price = item.price %}
+                                {% endif %}
+
+                                {% if price != 0 -%}
+                                    <div class="heading h-3 price">{{ price|localized_currency }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card" data-columns="4">
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                {% if item.thumbnail is defined and item.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(item.thumbnail, 'domain_images'), item.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(title) }}
+                                {% endif -%}
+                            </a>
+                            <div class="content">
+                                <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                {# description -#}
+                                {% set description = item.description -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{- description|length > 250 ? description|slice(0,249) ~ '...' : description -}}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if item.classifiedPrice -%}
+                                    {% set price = item.classifiedPrice %}
+                                {% else %}
+                                    {% set price = item.price %}
+                                {% endif %}
+
+                                {% if price != 0 -%}
+                                    <div class="heading h-3 price">{{ price|localized_currency }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor -%}
+            </div>
+        </div>
+    </div>
+{% endif %}

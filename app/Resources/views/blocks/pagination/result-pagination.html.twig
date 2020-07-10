@@ -1,0 +1,37 @@
+{% if pageCount > 1 -%}
+    {% if previous is defined -%}
+        <a href="{{ path(route, query|merge({(pageParameterName): convertToPaginationFormat(previous) })) }}" class="item-pagination is-previous"><i class="fa fa-angle-left"></i></a>
+    {% else -%}
+        <a class="item-pagination is-previous"><i class="fa fa-angle-left"></i></a>
+    {% endif -%}
+
+    {% if startPage > 1 -%}
+            <a href="{{ path(route, query|merge({(pageParameterName): convertToPaginationFormat(1)})) }}" class="item-pagination">1</a>
+        {% if startPage == 3 -%}
+            <a href="{{ path(route, query|merge({(pageParameterName): convertToPaginationFormat(2)})) }}" class="item-pagination">2</a>
+        {% elseif startPage != 2 -%}
+            <a class="item-pagination">&hellip;</a>
+        {% endif -%}
+    {% endif -%}
+
+    {% for page in pagesInRange -%}
+        {% if page == current -%}
+            <a class="item-pagination is-selected">{{ page }}</a>
+        {% elseif page < 801 -%}
+            <a href="{{ path(route, query|merge({(pageParameterName): convertToPaginationFormat(page)})) }}" class="item-pagination">{{ page }}</a>
+        {% endif -%}
+
+    {% endfor -%}
+
+    {% if pageCount > endPage -%}
+        {% if (pageCount > endPage) and current < 798 -%}
+            <a class="item-pagination">&hellip;</a>
+        {% endif -%}
+    {% endif -%}
+
+    {% if next is defined and current < 800-%}
+        <a href="{{ path(route, query|merge({(pageParameterName): convertToPaginationFormat(next)})) }}" class="item-pagination is-next"><i class="fa fa-angle-right"></i></a>
+    {% else -%}
+        <a class="item-pagination is-next"><i class="fa fa-angle-right"></i></a>
+    {% endif -%}
+{% endif -%}

@@ -1,0 +1,79 @@
+{% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+<div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="business" scrollable="{{ itemsPerRow == 3 ? "true" : "false" }}" mobile-columns="false" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="cards-header">
+            <h2 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h2>
+            {% if widgetLink is not empty %}
+                <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more listings'|trans({},'widgets') }}">
+                    {{ content.widgetLink.label|trans({}, 'widgets') }}
+                </a>
+            {% endif %}
+        </div>
+        <div class="cards-wrapper" has-ads="{{ banner is not empty ? 'true' : 'false' }}" banner-type="{{content.banner}}">
+            <div class="cards-list">
+                {% for item in items -%}
+                    {% set itemData = getCardData(item, 'listing') %}
+
+                    {# 
+                        align-items: flex-start;
+                        flex-shrink: 0;
+                        width: 170px;
+                        margin-right: 24px;
+                        justify-content: flex-start;
+                     #}
+                    <div class="card card-horizontal" data-columns="{{ itemsPerRow }}">
+                        <div class="picture">
+                            {% if hasDeal(item.id, item.level) -%}
+                                <a href="{{ itemData.detailLink }}#deal" class="badge">{{ 'Offers deals'|trans }}</a>
+                            {% endif %}
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                {{ tagPicture(itemData.imagePath, item.title) }}
+                            </a>
+                        </div>
+                        <div class="content">
+                            <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                            {% if item.categories -%}
+                                {{UtilityCards.categories(item.categories, content.module)}}
+                            {% endif %}
+
+                            {# description -#}
+                            {% set description = item.longDescription -%}
+
+                            {% if item.description is not empty -%}
+                                {% set description = item.description -%}
+                            {% endif -%}
+                            
+                            {# 
+                                display: none
+                             #}
+                            {% if description is not empty -%}
+                                <div class="description">
+                                    <p class="paragraph">{{ description|length > 80 ? description|slice(0,79) ~ '...' : description }}</p>
+                                </div>
+                            {% endif %}
+
+                            {% if item.averageReview is defined and getSetting("review_listing_enabled") %}
+                                <div class="reviews">
+                                    <div class="reviews-stars">
+                                        {% for i in 0..4 %}
+                                            <i class="fa fa-star{{ i < item.averageReview ? '' : '-o' }}"></i>
+                                        {% endfor %}
+                                    </div>
+                                    {% if item.reviewTotal != 0 -%}
+                                        <div class="reviews-count">{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(item.reviewTotal, {"%count%":item.reviewTotal}) }}</div>
+                                    {% endif -%}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            {% if banner is not empty %}
+                <div class="cards-ads">
+                    {{banner | raw}}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

@@ -1,0 +1,21 @@
+{% set recent_reviews = reviewListing(8) -%}
+{% set banner = getBanner(content.customBanners) %}
+{% if recent_reviews is not empty -%}
+    <div class="cards-default" data-type="recent-reviews" scrollable="false" mobile-columns="false" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h2 class="heading h-4" data-trans="{{ 'Recent Reviews'|trans({}, 'widgets') }}">{{ content.labelRecentReviews|trans({}, 'widgets') }}</h2>
+            </div>
+            <div class="cards-wrapper" has-ads="{{ banner is empty ? 'false' : 'true' }}" banner-type="{{ content.customBanners ? : '' }}">
+                <div class="cards-list">
+                    {{ recent_reviews|raw }}
+                </div>
+                <div class="cards-ads">
+                    {% if banner is not empty %}
+                        {{ banner|raw }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

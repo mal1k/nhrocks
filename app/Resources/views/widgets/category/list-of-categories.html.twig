@@ -1,0 +1,42 @@
+{% set module = getModule() -%}
+{% set categories = getCategoriesByModule(module, content.limit, 'featured') -%}
+
+{% if categories.featured %}
+    {% set all = module ~ '_allcategories' -%}
+    {% set banner = getBanner(content.customBanners) %}
+
+    <div class="categories-base" data-type="3" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="categories-header">
+                <h2 class="heading h-4" data-trans="{{ 'Categories'|trans }}">
+                    {{ content.labelCategories|trans }}
+                </h2>
+                <a href="{{ url(all) }}" class="link" data-trans="{{ 'All Categories'|trans }}">
+                    {{ content.labelAllCategories|trans }}
+                </a>
+            </div>
+            <div class="categories-wrapper" has-ads="{{ banner is empty ? 'false' : 'true' }}" banner-type="{{ content.customBanners ? : '' }}">
+                <div class="categories-content">
+                    <div class="categories-list">
+                        {% for category in categories.featured -%}
+                            <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" class="categories-item">
+                                <div class="info">
+                                    <div class="paragraph title">{{ category.title }}
+                                        {% if content.enableCounter %}
+                                            <span class="count">{{ category.count }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="categories-ads">
+                    {% if banner is not empty %}
+                        {{ banner|raw }}
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

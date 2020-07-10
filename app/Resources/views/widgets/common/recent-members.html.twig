@@ -1,0 +1,13 @@
+{% set socialnetwork_feature = getSetting('socialnetwork_feature') %}
+{% set recent_members = recentMembers(12) -%}
+{% if socialnetwork_feature == 'on' and recent_members is not empty -%}
+    <div class="cards-default" data-type="latest-members" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h2 class="heading h-4" data-trans="{{ 'Recent Members'|trans({}, 'widgets') }}">{{ content.labelRecentMembers|trans({}, 'widgets') }}</h2>
+            </div>
+
+            {{ recent_members|raw }}
+        </div>
+    </div>
+{% endif %}

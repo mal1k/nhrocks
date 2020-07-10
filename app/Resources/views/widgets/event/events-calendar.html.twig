@@ -1,0 +1,64 @@
+{# Events Calendar #}
+
+{% if is_module_active('event') and checkValidEvent() %}
+
+    {# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+    {% set dateFilter = getDateFilter() -%}
+    {% set days = getDaysWithEvents(30) -%}
+    {% set daysWithEvent = [] -%}
+    {% for day in days -%}
+        {% set daysWithEvent = daysWithEvent|merge([day.date|date('Y-m-d H:i:s')]) %}
+    {% endfor %}
+
+    <div class="cards-default" data-type="events" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h2 class="heading h-4"
+                    data-trans="{{ 'Events Calendar'|trans({}, 'widgets') }}">{{ content.labelCalendar|trans({}, 'widgets') }}</h2>
+            </div>
+            <div class="calendar-wrapper">
+                <div class="calendar-block">
+                    <div class="calendar"></div>
+                </div>
+                <div class="calendar-events">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input type="hidden" id="days-with-events" value="{{ daysWithEvent|join(',') }}">
+
+    <script id="upcoming-event-calendar" type="text/x-jsrender">
+        <div class="cards-list-calendar" id="<%:id%>">
+            <%for data.events%>
+                <div class="events-item">
+                    <a href="<%:link%>" class="picture">
+                        <%:picture%>
+                    </a>
+                    <div class="content-info">
+                        <a href="<%:link%>" class="title heading h-4"><%:title%></a>
+                        <%if categories.length > 0 %>
+                            <div class="categories">{{ 'in'|trans }}
+                            <%for categories %><%if #index >= 1%>,<%/if%>
+                            <a href="<%>link%>" class="link"><%>title%></a><%/for%>
+                            </div>
+                        <%/if%>
+                    </div>
+                </div>
+            <%/for%>
+            <%if data.events.length == 10 %>
+                <a href="<%:data.all_events%>" class="button button-bg is-primary">{{ 'More events on this date'|trans }}</a>
+            <%/if%>
+        </div>
+    </script>
+
+    {# Files #}
+    {{ addJSFile("assets/js/lib/datepicker/bootstrap-datepicker.min.js") }}
+    {% if dateFilter.bootstrapDatepickerLanguage != "en" %}
+        {{ addJSFile("assets/js/lib/datepicker/locales/bootstrap-datepicker."~ dateFilter.bootstrapDatepickerLanguage ~".min.js") }}
+    {% endif %}
+
+    {{ addJSFile("assets/js/modules/event/upcoming/event.upcoming.js") -}}
+    {{ addJSTwig("::js/event/upcoming.calendar.html.twig") }}
+
+{% endif %}

@@ -1,0 +1,75 @@
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash|raw -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+{% if isSample -%}
+    {% set logoImage = asset('assets/images/placeholders/96x96.jpg') -%}
+{% elseif item.logoImage -%}
+    {% set logoImage = asset(imagePath(item.logoImage), 'domain_images')|imagine_filter('logo_icon_3') -%}
+{% endif -%}
+
+{% set module = getModule() != 'deal' ? getModule() : 'listing' %}
+
+<div class="details-modal modal-contact">
+    <div class="modal-default message-modal {{ level.hasCoverImage and coverImage ? 'has-coverimage' : '' }} {{ (level.hasLogoImage and logoImage) and (not coverImage or not level.hasCoverImage) ? 'custom-close-color' : '' }}">
+        <div class="modal-return">
+            <i class="fa fa-check"></i>
+            {{ 'Message successfully sent'|trans }}
+        </div>
+        <div class="modal-return-error">
+            <i class="fa fa-warning"></i>
+            {{ 'An error occurred, try again'|trans }}
+        </div>
+        <div class="modal-header" style="{{ level.hasCoverImage and coverImage ? 'background-image: url(' ~ coverImage ~ ');' : (level.hasLogoImage and logoImage ? '' : 'display: none;') }}">
+            <div class="modal-picture" {{ not level.hasLogoImage or logoImage is empty ? 'style="display: none;"' : '' }}>
+                <img id="send-email-logo" src="{{ not level.hasLogoImage or logoImage is empty ? '' : logoImage }}" alt="{{ item ? item.title : '' }}">
+            </div>
+        </div>
+        <span class="modal-close" data-modal="close"><i class="fa fa-times"></i></span>
+        <div class="modal-info {{ level.hasLogoImage and logoImage is not empty ? 'has-picture' : '' }}">
+            <span>{{ 'Send a message to'|trans }}</span>
+            <h5 id="send-email-title" class="heading h-5">{{ item ? item.title : ''}}</h5>
+        </div>
+        <div class="modal-form">
+            <form {{ form_enctype(form) }} action="{{ item ? path(module~'_sendmail', {id: item.id}) : '' }}" id="send-email" class="content-form" data-search-title="Search">
+
+                {{ form_row(form._token) }}
+
+                {{ form_widget(form.name, { 'attr': { 'placeholder': 'Name'} }) }}
+                {{ form_errors(form.name) }}
+
+                {{ form_widget(form.email, { 'attr': { 'placeholder': 'Email'} }) }}
+                {{ form_errors(form.email) }}
+
+                {{ form_widget(form.subject, { 'attr': { 'placeholder': 'Subject'} }) }}
+                {{ form_errors(form.subject) }}
+
+                {{ form_widget(form.text, { 'attr': { 'rows': 4, 'placeholder': 'Message'} }) }}
+                {{ form_errors(form.text) }}
+
+                <div class="modalError"></div>
+
+                {% if form.sendEmailCaptcha is defined %}
+                    {% block edirectory_captcha_widget -%}
+                        {% spaceless -%}
+                            {{ form_widget(form.sendEmailCaptcha) }}
+                            {{ form_errors(form.sendEmailCaptcha) }}
+                        {% endspaceless -%}
+                    {% endblock -%}
+                {% endif %}
+
+                <div class="form-actions">
+                    <button type="submit" id="sendEmailButton" data-loading="<i class='fa fa-spinner fa-spin'></i> {{ "Please, wait..."|trans }}"
+                            data-size="" data-content="" class="button button-bg is-primary">{{ 'Send message'|trans }}</button>
+                    <button type="button" class="button button-bg is-outline" data-modal="close">{{ 'Cancel'|trans }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

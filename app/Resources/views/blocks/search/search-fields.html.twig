@@ -1,0 +1,56 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+
+<form id="headerSearchForm" class="content-form" data-search-title="Search">
+    <div class="input-group">
+        <div class="input-group-icon">
+            <div class="icon icon-lg"><i class="fa fa-search"></i></div>
+        </div>
+        <input data-prefill="0" id="searchKeyword" type="text" class="input" placeholder="{{ content.placeholderSearchKeyword.value|trans({}, 'widgets') }}" data-trans="{{ 'Food, service, hotel...'|trans({}, 'widgets') }}">
+    </div>
+
+    {% if module != "article" and module != "blog" %}
+        <div class="input-group" id="searchLocationDiv">
+            <div class="input-group-icon">
+                <div class="icon icon-lg"><i class="fa fa-map-marker"></i></div>
+            </div>
+            <input data-prefill="0" id="searchLocation" type="text" class="input" placeholder="{{ content.placeholderSearchLocation.value|trans({},'widgets') }}"  data-trans="{{ 'Enter location...'|trans({}, 'widgets') }}" data-trans="{{ 'This field won\'t be shown when used on Article and Blog pages'|trans({},'widgets') }}">
+        </div>
+    {% endif %}
+
+    {% if module == 'event' %}
+        {% set dateFilter = getDateFilter() %}
+
+        <div class="input-group">
+            <div class="input-group-icon">
+                <div class="icon icon-lg"><i class="fa fa-calendar-o"></i></div>
+            </div>
+            <input data-trans="{{ 'Placeholder for search by keyword field'|trans({},'widgets') }}"
+                   data-trans="{{ 'Placeholder for search by location field'|trans({},'widgets') }}"
+                   data-trans="{{ 'Placeholder for search by date field'|trans({},'widgets') }}"
+                   data-trans="{{ 'This field will be shown only when used on Events Pages'|trans({},'widgets') }}" data-prefill="0" id="searchCalendar" type="text" autocomplete="off" class="input input-date" placeholder="{{ content.placeholderSearchDate.value|trans({},'widgets') }}">
+        </div>
+    {% endif %}
+
+    <div class="input-group-action">
+        <button class="button button-bg is-primary" type="submit">
+            {{ "Search"|trans }}
+        </button>
+    </div>
+</form>
+
+{# Adding requirements -#}
+{% if dateFilter %}
+    {# Parameters #}
+    {{ addJSTwigParameter("Header.dateFilter", dateFilter) }}
+
+    {{ addJSFile("assets/js/lib/datepicker/bootstrap-datepicker.min.js") }}
+    {% if dateFilter.bootstrapDatepickerLanguage != "en" %}
+        {{ addJSFile("assets/js/lib/datepicker/locales/bootstrap-datepicker."~ dateFilter.bootstrapDatepickerLanguage ~".min.js") }}
+    {% endif %}
+{% endif %}
+
+{# Files #}
+{{ addJSFile("assets/js/lib/typeahead.bundle.min.js") }}
+{{ addJSFile("assets/js/search/utility.js") }}
+{{ addJSFile("assets/js/search/suggest.js") }}
+{{ addJSTwig("::js/blocks/searchbox.html.twig") }}

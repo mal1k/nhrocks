@@ -1,0 +1,69 @@
+listing_homepage:
+    path:     /
+    defaults: { _controller: ListingBundle:Default:index }
+
+listing_contactinfo:
+    path:     /phone
+    defaults: { _controller: ListingBundle:Default:viewContact }
+
+listing_allcategories:
+    path:     /%alias_listing_allcategories_url_divisor%
+    defaults: { _controller: ListingBundle:Default:allcategories }
+
+listing_alllocations:
+    path:     /%alias_alllocations_url_divisor%
+    defaults: { _controller: ListingBundle:Default:alllocations }
+
+listing_locations:
+    path:     /getlocations/
+    defaults: { _controller: ListingBundle:Default:locations }
+
+listing_sample:
+    path:     /{friendlyUrl}-{level}.{_format}
+    defaults: { _controller: ListingBundle:Default:sampleDetail }
+    requirements:
+        friendlyUrl: "sample"
+        level: \d+
+        _format:  html
+
+listing_detail:
+    path:     /{friendlyUrl}.{_format}
+    defaults: { _controller: ListingBundle:Default:detail }
+    requirements:
+        _format:  html
+
+listing_claim:
+    path:     /claim/{friendlyUrl}
+    defaults: { _controller: ListingBundle:Default:detail }
+
+listing_review:
+    path:     /reviews/{friendlyUrl}/{page}
+    defaults: { _controller: ListingBundle:Default:review, page: "p:1" }
+    requirements:
+        page: "p:\d+"
+
+listing_paginated_review:
+    path:     /paginated-reviews/{friendlyUrl}/{page}
+    defaults: { _controller: ListingBundle:Default:paginatedReview, page: "1" }
+    requirements:
+        page: "\d+"
+    condition: "request.isXmlHttpRequest()"
+    options:
+        expose: true
+
+listing_sendmail:
+    path:     /sendmail/{id}/{ajax}
+    defaults: { _controller: WebBundle:SendMail:index, module: listing, ajax: false }
+    requirements:
+        id: \d+
+    condition: "request.isXmlHttpRequest()"
+    options:
+        expose: true
+
+listing_clickreport:
+    path:     /clickreport/
+    defaults: { _controller: ListingBundle:Default:reportClick }
+    methods: [POST]
+    condition: "request.isXmlHttpRequest()"
+    options:
+        expose: true

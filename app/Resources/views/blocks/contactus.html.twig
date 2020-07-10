@@ -1,0 +1,23 @@
+{% if address is not empty or phone is not empty %}
+    <div class="footer-item" data-content="contact-content">
+        <div class="heading footer-item-title" data-trans="{{ 'Contact Us'|trans({}, 'widgets') }}">
+            {{ content.labelContactUs|trans({}, 'widgets') }}
+        </div>
+        <div class="footer-item-content">
+            {% if address is not empty %}
+                <div class="footer-info">
+                    <div class="icon icon-md"><i class="fa fa-map-marker"></i></div>
+                    {{ address|raw }}
+                </div>
+            {% endif %}
+            {% if phone is not empty %}
+                <div class="footer-info">
+                    <div class="icon icon-md"><i class="fa fa-phone"></i></div>
+                    <a href="tel:{{ phone }}">{{ phone }}</a>
+                </div>
+            {% endif %}
+            {% do HookFire('contactus_after_phone_rendering', {'content':content}, true) %}
+        </div>
+    </div>
+{% endif %}
+

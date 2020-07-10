@@ -1,0 +1,5 @@
+{% if unsplash %}
+    background-image: url({{ unsplash|raw }});
+{% elseif imageId %}
+    background-image: url({{ asset(imagePath(null, imageId), 'domain_images') }});
+{% endif -%}

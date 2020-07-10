@@ -1,0 +1,55 @@
+{% if items|length == 1 %}
+    {% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+    {% set item = items|first %}
+    {% set itemData = getCardData(item, 'classified') %}
+
+    <div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            {% if content.widgetTitle is not empty -%}
+                <div class="cards-header">
+                    <h4 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h4>
+                    {% if widgetLink is not empty %}
+                        <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more classifieds'|trans({},'widgets') }}">
+                            {{ content.widgetLink.label|trans({}, 'widgets') }}
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif -%}
+            <div class="cards-list no-margin" data-align="left">
+                <div class="card card-horizontal card-horizontal-full">
+                    <div class="content">
+                        {% if item.categories -%}
+                            {{UtilityCards.categories(item.categories, content.module)}}
+                        {% endif %}
+
+                        <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                        {# description -#}
+                        {% set description = item.description -%}
+
+                        {% if description is not empty -%}
+                            <div class="description">
+                                <p class="paragraph">{{- description|length > 180 ? description|slice(0,179) ~ '...' : description -}}</p>
+                            </div>
+                        {% endif %}
+
+                        {% if item.classifiedPrice -%}
+                            {% set price = item.classifiedPrice %}
+                        {% else %}
+                            {% set price = item.price %}
+                        {% endif %}
+
+                        {% if price != 0 -%}
+                            <div class="heading h-3 price">{{ price|localized_currency }}</div>
+                        {% endif %}
+                    </div>
+                    <a href="{{ itemData.detailLink }}" class="picture">
+                        {{ tagPicture(itemData.imagePath, item.title, {'desktop': 'medium', 'tablet': 'medium'}) }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}

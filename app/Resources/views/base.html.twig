@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="{{ getISOLang(getDomainParameter('locale')) }}">
+    <head>
+    {% set theme = getTheme() -%}
+
+    {% block head -%}
+        {{ googleTagManager() }}
+
+        <meta charset="{{ getParameter('charset') }}">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {{ getSetting("google_webmaster_validation") }}
+
+        {{ getSetting("bing_webmaster_validation") }}
+
+        {{ metaTagsSmartBanner() }}
+
+        {% block SEO %}
+            {{ generateSEOFromPage( pageTitle, metaDescription, metaKeywords ) }}
+        {% endblock %}
+
+        {% if file_exists(getParameter('domain.favicon')|replace({'/custom': 'custom'})) -%}
+            <link rel="preload" type="image/x-icon" href="{{ asset(getParameter('domain.favicon')) }}" as="image"/>
+            <link rel="shortcut icon" type="image/x-icon" href="{{ asset(getParameter('domain.favicon')) }}"/>
+        {% endif -%}
+
+        {# ModStores Hooks #}
+        {% do HookFire("base_before_render_styles") %}
+        <style>
+            @font-face {
+                font-family: 'FontAwesome';
+                font-display: swap;
+            }
+        </style>
+        <link rel="preload" href="{{ asset('assets/icons/font-awesome-4-7-0.min.css') }}" as="style"/>
+        <link href="{{ asset('assets/icons/font-awesome-4-7-0.min.css') }}" rel="stylesheet">
+
+        {% block stylesheets %}
+            <link rel="preload" href="{{ asset('assets/' ~ theme ~ '/styles/style.min.css') }}" as="style"/>
+            <link href="{{ asset('assets/' ~ theme ~ '/styles/style.min.css') }}" rel="stylesheet"/>
+        {% endblock -%}
+
+        {{ getColorScheme() }}
+
+        {% if file_exists(getDomainParameter('path') ~ 'theme/' ~ theme ~ '/csseditor.css') -%}
+            <link rel="preload" href="{{ asset(getDomainParameter('path') ~ 'theme/' ~ theme ~ '/csseditor.css') }}" as="style"/>
+            <link href="{{ asset(getDomainParameter('path') ~ 'theme/' ~ theme ~ '/csseditor.css') }}" rel="stylesheet"/>
+        {% endif -%}
+
+        {{ googleTagAnalytics() }}
+
+        {% if customTag %}
+            {{ customTag | raw }}
+        {% endif %}
+
+        <meta property="fb:app_id" content="{{ getSetting('foreignaccount_facebook_apiid') }}">
+
+        {# ModStores Hooks #}
+        {% do HookFire("base_before_close_head") %}
+
+    {% endblock -%}
+    </head>
+    
+    <body class="{{ isSitemgrSession()? "pd-t" : "" }}">
+        {{ googleTagManager('body') }}
+
+        {% if isSitemgrSession() %}
+            <div class="admin-bar">
+                <div class="content-left">
+                    {% if getDomainParameter('branded') == 'on' %}
+                        <img src="/assets/images/icon-edirectory.svg" alt="eDirectory">
+                    {% endif %}
+                    <a href="/{{ getParameter('alias_sitemgr_module')}}" rel="noopener noreferrer" target="_blank" class="admin-bar-link">
+                        <i class="fa fa-tachometer" aria-hidden="true"></i>
+                        <span>{{ "Dashboard"|trans({},'widgets') }}</span>
+                    </a>
+                    <a href="/{{getParameter('alias_sitemgr_module') ~ "/design/page-editor/custom.php?id=" ~ pageId}}" rel="noopener noreferrer" target="_blank" class="admin-bar-link">
+                        <i class="fa fa-pencil"></i>
+                        <span>{{ "Edit this page"|trans({},'widgets') }}</span>
+                    </a>
+                </div>
+                <div class="content-right">
+                    {% if getSetting('maintenance_mode') == 'on' %}
+                        <span class="maintenance-message">{{ 'You are currently in maintenance mode'|trans }}</span>
+                        <form action="/{{ getParameter('alias_sitemgr_module') }}/configuration/general-settings/index.php" method="post">
+                            <button class="button button-md is-primary" name="maintenance" value="maintenance">{{ 'Publish your site'|trans }}</button>
+                        </form>
+                    {% endif %}
+                    <a href="/{{ getParameter('alias_sitemgr_module') }}/logout.php" class="admin-bar-link">
+                        <i class="fa fa-sign-out" aria-hidden="true"></i>
+                        <span>{{ "Sign out"|trans({},'widgets') }}</span>
+                    </a>
+                </div>
+            </div>
+        {% endif %}
+
+        {# ModStores Hooks #}
+        {% do HookFire("marketbox") %}
+
+        {% block body -%}
+            {# Main Content -#}
+            {{ renderPage(pageId) }}
+        {% endblock -%}
+
+        {% include '@Web/modal-login.html.twig' %}
+
+        {# Scripts -#}
+        {% block scripts -%}
+            <link rel="preload" href="{{ asset('bundles/fosjsrouting/js/router.js') }}" as="script"/>
+            <link rel="preload" href="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}" as="script"/>
+            <link rel="preload" href="{{ asset('assets/' ~ theme ~ '/scripts/main.min.js') }}" as="script"/>
+
+            <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+            <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+
+            <script src="{{ asset('assets/' ~ theme ~ '/scripts/main.min.js') }}"></script>
+            <script src="{{ asset('assets/js/utility/modernizr.js') }}"></script>
+
+            <script>
+
+                {# uncomment it if you wanna debug in jsrender
+                $.views.tags({
+                    debug: function(obj) {
+                        console.log(obj);
+                    }
+                });-#}
+
+                {# changes JsRender delimiters -#}
+                $.views.settings.delimiters('<%', '%>');
+            </script>
+
+            {{ smartBannerAndroid() }}
+
+            {{ renderJS() }}
+
+            {# ModStores Hooks #}
+            {% do HookFire("base_after_add_js") %}
+
+        {% endblock -%}
+
+        {# ModStores Hooks #}
+        {% do HookFire("base_before_close_body") %}
+
+    </body>
+
+</html>

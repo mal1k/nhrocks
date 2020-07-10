@@ -1,0 +1,161 @@
+{% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+{% set navigationBlock = navigationHeader() %}
+
+<header class="header" data-type="1" is-sticky="{{ content.stickyMenu == 'true' ? 'true' : 'false' }}" is-inverse="{{ content.backgroundColor == 'base' ? 'true' : 'false' }}" has-opacity="{{ content.isTransparent == 'true' ? 'true' : 'false' }}" has-mod="{% do HookFire("header_check_dropdown") %}">
+    <div class="header-bar">
+        <div class="container">
+            <div class="wrapper">
+                <a href="{{ path('web_advertise') }}" class="bar-link"
+                data-trans="{{ 'List with Us'|trans({},'widgets') }}">
+                    {{ content.labelListWithUs|trans({},'widgets') }}
+                </a>
+                {% set account = getAccount() -%}
+                {% if account %}
+                    <div class="bar-link user-button">
+                        {{ account.profile.nickname }} <i class="fa fa-angle-down"></i>
+                        <div class="user-content">
+                            {% if account.isSponsor == 'y' %}
+                                <a href="/{{ getParameter('alias_members_module') ~ "/" }}" data-trans="{{ 'Dashboard'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelDashboard|trans({},'widgets') }}
+                                </a>
+
+                                <a href="/{{ getParameter('alias_members_module') ~ "/faq.php" }}" data-trans="{{ 'Faq'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelFaq|trans({},'widgets') }}
+                                </a>
+
+                                <a href="/{{ getParameter('alias_members_module') ~ "/account/" }}" data-trans="{{ 'Settings'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelAccountPref|trans({},'widgets') }}
+                                </a>
+
+                                {% if account.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                                    <a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}" class="user-link">
+                                        {{ content.labelProfile|trans({},'widgets') }}
+                                    </a>
+                                {% endif %}
+
+                                <a href="/{{ getParameter('alias_members_module') ~ "/logout.php" }}" data-trans="{{ 'Log Off'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelLogOff|trans({},'widgets') }}
+                                </a>
+
+                            {% endif %}
+
+                            {% if account.isSponsor == 'n' and account.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                                <a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelProfile|trans({},'widgets') }}
+                                </a>
+                                <a href="{{ path("web_faq") }}" data-trans="{{ 'Faq'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelFaq|trans({},'widgets') }}
+                                </a>
+                                <a href="/profile/edit.php" data-trans="{{ 'Settings'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelAccountPref|trans({},'widgets') }}
+                                </a>
+                                <a href="/profile/logout.php" data-trans="{{ 'Log Off'|trans({},'widgets') }}" class="user-link">
+                                    {{ content.labelLogOff|trans({},'widgets') }}
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% else %}
+                    <a href="javascript:void(0);" id="navbar-signin" data-modal="login" data-trans="{{ 'Sign In'|trans({},'widgets') }}" class="bar-link bar-button">{{ content.labelSignIn|trans({},'widgets') }}</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="header-content">
+        <div class="container">
+            <div class="wrapper">
+                <div class="content-left">
+                    <a href="{{ path('web_homepage') }}" target="_parent" title="{{ title }}" class="header-logo" style="background-image: url({{ utility_getLogoImage()|imagine_filter('logo') }}?{{ 'now' | date('U') }})"></a>
+                </div>
+                <nav class="header-navbar">
+
+                    {{ navigationBlock|raw }}
+
+                    <div class="navbar-more">
+                        <div class="more-label" data-trans="{{ 'More'|trans({},'widgets') }}">
+                            {{ content.labelMore|trans({},'widgets') }} <i class="fa fa-angle-down"></i>
+                        </div>
+                        <div class="more-content"></div>
+                    </div>
+                </nav>
+                <div class="content-mobile">
+                    <button class="toggler-button search-toggler"><i class="fa fa-search"></i></button>
+                    <button class="toggler-button navbar-toggler"><i class="fa fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-mobile">
+        {% if account %}
+            <div class="navbar-user">
+                <div class="user-picture">
+                    {{ Profile.photo(account.profile) }}
+                </div>
+                <div class="user-info">
+                    <div class="heading user-name">
+                        {{ account.profile.nickname }}
+                    </div>
+                    <div class="user-date">{{ account.contact.email }}</div>
+                </div>
+            </div>
+
+            <nav class="navbar-links">
+                {#// @todo: Put is-active class on active links by url  #}
+                {% if account.isSponsor == 'y' %}
+                    <a href="/{{ getParameter('alias_members_module') ~ "/" }}" data-trans="{{ 'Dashboard'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelDashboard|trans({},'widgets') }}
+                    </a>
+
+                    <a href="/{{ getParameter('alias_members_module') ~ "/faq.php" }}" data-trans="{{ 'Faq'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelFaq|trans({},'widgets') }}
+                    </a>
+
+                    <a href="/{{ getParameter('alias_members_module') ~ "/account/" }}" data-trans="{{ 'Settings'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelAccountPref|trans({},'widgets') }}
+                    </a>
+
+                    {% if account.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                        <a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}" class="navbar-link">
+                            {{ content.labelProfile|trans({},'widgets') }}
+                        </a>
+                    {% endif %}
+
+                    <a href="/{{ getParameter('alias_members_module') ~ "/logout.php" }}" data-trans="{{ 'Log Off'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelLogOff|trans({},'widgets') }}
+                    </a>
+
+                {% endif %}
+
+                {% if account.isSponsor == 'n' and account.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                    <a href="/profile/" data-trans="{{ 'Profile'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelProfile|trans({},'widgets') }}
+                    </a>
+                    <a href="{{ path("web_faq") }}" data-trans="{{ 'Faq'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelFaq|trans({},'widgets') }}
+                    </a>
+                    <a href="/profile/edit.php" data-trans="{{ 'Settings'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelAccountPref|trans({},'widgets') }}
+                    </a>
+                    <a href="/profile/logout.php" data-trans="{{ 'Log Off'|trans({},'widgets') }}" class="navbar-link">
+                        {{ content.labelLogOff|trans({},'widgets') }}
+                    </a>
+                {% endif %}
+            </nav>
+        {% else %}
+        <nav class="navbar-links">
+            <a href="javascript:void(0);" id="navbar-signin" data-modal="login" data-trans="{{ 'Sign In'|trans({},'widgets') }}" class="bar-link bar-button">{{ content.labelSignIn|trans({},'widgets') }}</a>
+        </nav>
+        {% endif %}
+
+        <nav class="navbar-links">
+            {{ navigationBlock|raw }}
+        </nav>
+        <nav class="navbar-links">
+            <a href="{{ path('web_advertise') }}" class="navbar-link"
+               data-trans="{{ 'List with Us'|trans({},'widgets') }}">
+                {{ content.labelListWithUs|trans({},'widgets') }}
+            </a>
+        </nav>
+    </div>
+</header>

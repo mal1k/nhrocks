@@ -1,0 +1,71 @@
+{% if items|length == 1 %}
+    {% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+    {% set item = items|first %}
+    {% set itemData = getCardData(item, 'event') %}
+
+    <div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            {% if content.widgetTitle is not empty -%}
+                <div class="cards-header">
+                    <h4 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h4>
+                    {% if widgetLink is not empty %}
+                <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more events'|trans({},'widgets') }}">
+                    {{ content.widgetLink.label|trans({}, 'widgets') }}
+                </a>
+            {% endif %}
+                </div>
+            {% endif -%}
+            <div class="cards-list no-margin" data-align="left">
+                <div class="card card-horizontal card-horizontal-full">
+                    <div class="content">
+                        {% if item.categories -%}
+                            {{UtilityCards.categories(item.categories, content.module)}}
+                        {% endif %}
+
+                        <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                        {# description -#}
+                        {% set description = item.longDescription -%}
+
+                        {% if item.description is not empty -%}
+                            {% set description = item.description -%}
+                        {% endif -%}
+
+                        {% if description is not empty -%}
+                            <div class="description">
+                                <p class="paragraph">{{ description|length > 180 ? description|slice(0,179) ~ '...' : description }}</p>
+                            </div>
+                        {% endif %}
+
+                        {% if item.address.location is not empty -%}
+                            <div class="location">
+                                <i class="fa fa-map-marker"></i>
+                                {{ item.address.location }}
+                            </div>
+                        {% endif -%}
+
+                        {% if item.recurring.enabled == 1 -%}
+                            <div class="recurring-event">
+                                <i class="fa fa-calendar"></i>
+                                {{ recurringPhrase(item.event) }}
+                            </div>
+                        {% endif -%}
+
+                    </div>
+                    <a href="{{ itemData.detailLink }}" class="picture">
+                        {% if itemData.month and itemData.month is not empty and itemData.day and itemData.day is not empty and itemData.weekDay and itemData.weekDay is not empty %}
+                            <div class="calendar-sm">
+                                <div class="month">{{ 'months'|transchoice(itemData.month, [], 'units')|slice(0,3) }}</div>
+                                <div class="heading day">{{ itemData.day }}</div>
+                                <div class="day-abbr">{{ 'week.days'|transchoice(itemData.weekDay, [], 'units')|slice(0,3) }}</div>
+                            </div>
+                        {% endif %}
+                        {{ tagPicture(itemData.imagePath, item.title, {'desktop': 'medium', 'tablet': 'medium'}) }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endif %}

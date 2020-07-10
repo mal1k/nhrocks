@@ -1,0 +1,48 @@
+{#  Newsletter Block -#}
+{% set newsletter = getSetting('arcamailer_customer_listid') -%}
+
+{% if newsletter -%}
+
+    {% set backgroundImage = backgroundImage(content.unsplash,content.imageId) %}
+
+    <div class="hero-default {{ backgroundImage is not empty ? '' : 'empty-hero' }}" data-type="2" style="{{ backgroundImage is not empty ? backgroundImage : '' }}" data-align="{{ content.dataAlignment }}">
+        {# General Background Image -#}
+        <div class="container">
+            <div class="wrapper">
+                <div class="hero-header">
+                    <h2 class="heading h-3" data-trans="{{ 'Sign up for our newsletter'|trans({}, 'widgets') }}">
+                        {{ content.labelSignupFor|trans({}, 'widgets') }}
+                    </h2>
+                    <p class="paragraph p-2" data-trans="{{ 'Sign up for our monthly newsletter. No spams, just product updates.'|trans({}, 'widgets') }}">
+                        {{ content.labelNewsletterDesc|trans({}, 'widgets') }}
+                    </p>
+                </div>
+                <form id="formNewsletter" class="hero-form">
+                    <div class="alert-message" data-type="success" is-dismissible="false" is-visible="false"></div>
+                    <div class="hero-form-wrapper">
+                        <div class="input-group">
+                            <input type="text" class="input" id="name" name="name" placeholder="{{ 'Your Name'|trans }}">
+                            <div class="alert-message" data-field="name" data-type="error" is-dismissible="false" is-visible="false"></div>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="email" class="input" id="email" name="email" placeholder="{{ 'Your e-mail'|trans }}">
+                            <div class="alert-message" data-field="email" data-type="error" is-dismissible="false" is-visible="false"></div>
+                        </div>
+
+                        <button class="button button-bg is-primary" data-size="" data-content=""
+                                data-loading="{{ 'Please, wait...'|trans }}">
+                            {{ "Sign Up"|trans }}
+                        </button>
+                    </div>
+                </form>
+
+                <div class="form-privacy">
+                    {{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a href="/'~getParameter('alias_terms_url_divisor')~'" class="link">', '%end_terms%' : '</a>', '%start_privacy%' : '<a href="/'~getParameter('alias_privacy_url_divisor')~'" class="link">', '%end_privacy%' : '</a>'}, 'account') | raw }}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ addJSFile("assets/js/widgets/newsletter/newsletter.js") }}
+{% endif -%}

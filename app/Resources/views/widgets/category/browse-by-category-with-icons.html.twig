@@ -1,0 +1,40 @@
+{% set module = getModule() -%}
+{% set categories = getCategoriesByModule(module, content.limit, 'featured') -%}
+
+{% if categories.featured %}
+    {% set all = module ~ '_allcategories' -%}
+    {% set activeItemsNameField = categories.activeItemsNameField -%}
+
+    <div class="categories-base" data-type="2" scrollable="false" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container" data-trans="{{ 'Find by category'|trans({}, 'widgets') }}">
+            <div class="categories-header" data-trans="{{ 'All categories'|trans({}, 'widgets') }}">
+                <h2 class="heading h-4" data-trans="{{ 'Browse by category'|trans({}, 'widgets') }}">{{ content.labelBrowseByCat|trans({}, 'widgets') }}</h2>
+                <a href="{{ url(all) }}" class="link" data-trans="{{ 'more categories'|trans({}, 'widgets') }}">{{ content.labelMoreCat|trans({}, 'widgets') }}</a>
+            </div>
+            <div class="categories-content">
+                <div class="categories-list categories-icon">
+                    {% for category in categories.featured -%}
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" class="categories-item">
+                            {% if category.icon -%}
+                                {% set image = asset(category.icon, 'domain_images') %}
+                            {% else %}
+                                {% set image = utility_getNoImagePath(category.title)|imagine_filter('noimage_3') %}
+                            {% endif %}
+                            <div class="picture">
+                                <img src="{{ image }}" alt="{{ category.title }}">
+                            </div>
+                            <div class="info">
+                                <div class="paragraph title">
+                                    {{ category.title }}
+                                    {% if content.enableCounter %}
+                                        <span class="count">{{ category.count }}</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

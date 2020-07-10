@@ -1,0 +1,56 @@
+{
+    "paths": {
+        "core": "./app/Resources/",
+        "themes": "./app/Resources/themes/",
+        "assets": "./web/assets/",
+        "custom": "./app/Resources/custom/"
+    },
+    "src": {
+        "styles": {
+            "paths": {
+                "core": "/base/styles/styles.scss",
+                "themes": "/base/styles.scss"
+            },
+            "watch": [
+                "./app/Resources/base/styles/**/**/**/**/*.scss",
+                "./app/Resources/custom/*.scss",
+                "./app/Resources/themes/**/base/*.scss"
+            ]
+        },
+        "scripts": {
+            "watch": [
+                "./app/Resources/base/scripts/*.js",
+                "web/scripts/*.js",
+                "web/assets/js/modal/modal.js",
+                "./web/assets/js/modules/event/upcoming/*.js",
+                "./web/assets/js/utility/main.js"
+            ]
+        }
+    },
+    "dist": {
+        "styles": {
+            "paths": {
+                "assets": "./app/Resources/assets/styles/",
+                "themes": "./app/Resources/themes/"
+            },
+            "watch": [
+                "./app/web/assets/**/styles/*.css"
+            ]
+        },
+        "scripts": {
+            "paths": {
+                "assets": "./app/Resources/assets/scripts/"
+            }
+        }
+    },
+    "watch": [
+        "./app/Resources/views/**/**/**/**",
+        "./web/frontend/**",
+        "./web/includes/**/**",
+        "./web/sponsors/**",
+        "./web/profile/**",
+        "./web/*.php",
+        "./src/ArcaSolutions/WebBundle/Resources/views/**/**",
+        "./src/ArcaSolutions/ModStoresBundle/Plugins/**/Resources/**"
+    ]
+}

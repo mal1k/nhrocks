@@ -1,0 +1,90 @@
+/*
+    branco - branco -> tira padding do proximo
+    branco - neutral -> mantem espaçamento
+    branco - brand -> mantem espaçamento
+
+    neutral - neutral -> tira padding do proximo
+    neutral - branco -> mantem espaçamento
+    neutral - brand -> mantem espaçamento
+    
+    brand - brand -> tira padding do proximo
+    brand - branco -> mantem espaçamento
+    brand - neutral -> mantem espaçamento
+
+    if (branco && branco) tira padding do proximo
+    if (branco && neutral) mantem espaçamento
+    if (branco && brand) mantem espaçamento
+*/
+[has-gap]{
+    &[data-bg="base"]{
+        & + &[data-bg="base"]{
+            padding-top: 0;
+        }
+    }
+    
+    &[data-bg="neural"]{
+        & + &[data-bg="neural"]{
+            padding-top: 0;
+        }
+    }
+    
+    &[data-bg="brand"]{
+        & + &[data-bg="brand"]{
+            padding-top: 0;
+        }
+    }
+}
+
+.header{
+    &:not([data-type="3"]):not([data-type="4"]){
+        &[is-inverse="false"]{
+            & + .section-headers{
+                &[data-bg="brand"]{
+                    padding-top: 0;
+                }
+            }
+
+            & + .section-headers{
+                &[data-bg="brand"]{
+                    padding-top: 0;
+                }
+            }
+            
+            & + main{
+                > .section-headers{
+                    &[data-bg="brand"]{
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+        
+        &[is-inverse="true"]{
+            & + .section-headers{
+                &[data-bg="base"]{
+                    padding-top: 0;
+                }
+            }
+
+            & + .section-headers{
+                &[data-bg="base"]{
+                    padding-top: 0;
+                }
+            }
+
+            & + main{
+                > .section-headers{
+                    &[data-bg="base"]{
+                        padding-top: 0;
+                    }
+                }
+            }
+        }
+    }   
+}
+
+.thin-strip-base{
+    &[last-item]{
+        padding-bottom: 0;
+    }
+}

@@ -1,0 +1,39 @@
+{% extends "@Import/layout.html.twig" -%}
+
+{% block javascripts %}
+    {{ parent() }}
+    {% javascripts '@ImportBundle/Resources/public/js/import.log.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+
+{% block body %}
+    {% if blockImport %}
+        {% include '@Web/upgrade_plan_banner.html.twig' %}
+    {% else %}
+        <div class="row menu">
+            <div class="col-md-12">
+                <h2>{{ 'Import'|trans({}, 'administrator') }}</h2>
+                <p>{{ 'What type of data do you want to import?'|trans({}, 'administrator') }}</p>
+            </div>
+            <div class="col-xs-6">
+                <a href="/sitemgr/content/import/listing" id="import-listing" class="island">
+                    <i class="fa fa-list-ul" aria-hidden="true"></i>
+                    {{ 'Listings'|trans({}, 'administrator') }}
+                </a>
+            </div>
+            <div class="col-xs-6">
+                <a href="/sitemgr/content/import/event" id="import-event" class="island">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                    {{ 'Events'|trans({}, 'administrator') }}
+                </a>
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="items">
+        {% include '@Import/items.html.twig' %}
+    </div>
+{% endblock %}
+

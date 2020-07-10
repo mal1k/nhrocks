@@ -1,0 +1,84 @@
+{% if items|length > 0 %}
+    {% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+    
+    <div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            {% if content.widgetTitle is not empty -%}
+                <div class="cards-header">
+                    <h4 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h4>
+                    {% if widgetLink is not empty %}
+                <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more events'|trans({},'widgets') }}">
+                    {{ content.widgetLink.label|trans({}, 'widgets') }}
+                </a>
+            {% endif %}
+                </div>
+            {% endif -%}
+
+            <div class="cards-wrapper" has-ads="{{ banner is not empty ? 'true' : 'false' }}" banner-type="{{ content.banner }}">
+                <div class="cards-list no-margin cards-betweens" data-align="left">
+                    {% for item in items -%}
+                        {% set itemData = getCardData(item, 'event') %}
+
+                        <div class="card card-horizontal card-horizontal-full list-horizontal">
+                            <div class="content">
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                                {# description -#}
+                                {% set description = item.longDescription -%}
+
+                                {% if item.description is not empty -%}
+                                    {% set description = item.description -%}
+                                {% endif -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{ description|length > 180 ? description|slice(0,179) ~ '...' : description }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if item.address.location is not empty -%}
+                                    <div class="location">
+                                        <i class="fa fa-map-marker"></i>
+                                        {{ item.address.location }}
+                                    </div>
+                                {% endif -%}
+
+                                {% if item.recurring.enabled == 1 -%}
+                                    <div class="recurring-event">
+                                        <i class="fa fa-calendar"></i>
+                                        {{ recurringPhrase(item.event) }}
+                                    </div>
+                                {% endif -%}
+                            </div>
+
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                {% if itemData.month and itemData.month is not empty and itemData.day and itemData.day is not empty and itemData.weekDay and itemData.weekDay is not empty %}
+                                    <div class="calendar-sm">
+                                        <div class="month">{{ 'months'|transchoice(itemData.month, [], 'units')|slice(0,3) }}</div>
+                                        <div class="heading day">{{ itemData.day }}</div>
+                                        <div class="day-abbr">{{ 'week.days'|transchoice(itemData.weekDay, [], 'units')|slice(0,3) }}</div>
+                                    </div>
+                                {% endif %}
+                                {% if item.thumbnail is defined and item.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(item.thumbnail, 'domain_images'), item.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(title) }}
+                                {% endif -%}
+                            </a>
+                        </div>
+                    {% endfor -%}
+                </div>
+
+                {% if banner is not empty %}
+                    <div class="cards-ads">
+                        {{ banner | raw }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

@@ -1,0 +1,54 @@
+{% set banner = getBanner('square') %}
+
+{% set data = getRecentPostsData() %}
+
+<div class="blog-sidebar">
+    {% if data.categoriesFeatured %}
+        <div class="blog-card">
+            <div class="heading h-3 card-header" data-trans="{{ 'Categories'|trans({}, 'widgets') }}">
+                {{ content.labelCategories|trans({}, 'widgets') }}
+            </div>
+            <div class="card-content">
+                <div class="card-categories">
+                    {% for category in data.categoriesFeatured -%}
+                        <a href="{{ utility_generateSearchUrl(null, ['blog'], category.friendlyUrl) }}" class="categories-item" title="{{ category.title }}">
+                            {{ category.title }} <span class="pull-right">{{ category.count }}</span>
+                        </a>
+                    {% endfor -%}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if data.popularPosts %}
+        <div class="blog-card">
+            <div class="heading h-3 card-header" data-trans="{{ 'Popular Posts'|trans({}, 'widgets') }}">{{ content.labelPopularPosts|trans({}, 'widgets') }}</div>
+            <div class="card-content">
+                <div class="card-popular">
+                    {% for post in data.popularPosts -%}
+                        <div class="popular-item">
+                            <div class="item-count">{{ loop.index }}</div>
+                            <div class="item-content">
+                                <a href="{{ path('blog_detail', {'friendlyUrl': post.friendlyUrl, "_format" : "html"}) }}" class="paragraph p-2 item-title">
+                                    {{ post.title }}
+                                </a>
+                                {% if post.categories %}
+                                    <div class="paragraph p-3 item-category">
+                                        {{ 'in'|trans({}, 'widgets') }}
+                                        {% for category in post.categories -%}
+                                            <a href="{{ utility_generateSearchUrl(null, "blog", category.friendlyUrl) }}" class="link">{{ category.title }}</a>{{ (not loop.last ? ', ' : '') }}
+                                        {% endfor -%}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor -%}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+    {% if banner is not empty %}
+        {{ banner|raw }}
+    {% endif %}
+</div>

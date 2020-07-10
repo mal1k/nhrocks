@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="85px" height="111px" viewBox="0 0 85 111" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.1 (47250) - http://www.bohemiancoding.com/sketch -->
+    <title>xls</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Step-1---Loading" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-702.000000, -409.000000)">
+        <g id="Group-5" transform="translate(521.000000, 364.000000)" stroke="#B9C6D6">
+            <g id="xls" transform="translate(182.000000, 46.000000)">
+                <path d="M59.0940614,0 L2.83996555,0 C1.26732251,0 0,1.26732251 0,3.72927217 L0,106.619867 C0,107.291088 1.26732251,108.560833 2.83996555,108.560833 L80.5222315,108.560833 C82.0851818,108.560833 83.3525043,107.291088 83.3525043,106.619867 L83.3525043,25.1598655 C83.3525043,23.8053085 83.1731891,23.3715595 82.860599,23.0589694 L60.3056508,0.501598011 C59.983368,0.179315231 59.5471958,0 59.0940614,0 Z" id="Fill-1" fill="#FFFFFF"></path>
+                <polygon id="Fill-2" fill="#E8ECF1" points="60.0972574 0.777840394 60.0972574 23.7519986 83.0592997 23.7519986"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

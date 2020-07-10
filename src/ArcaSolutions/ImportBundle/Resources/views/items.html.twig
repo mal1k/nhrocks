@@ -1,0 +1,113 @@
+<div class="col-12 content island">
+    <h3>{{ 'Import Log'|trans({}, 'administrator') }}</h3>
+
+    {# @var logs \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination -#}
+    {% if logs.totalItemCount <= 0 %}
+        <div class="content-empty">
+            <div class="img-empty img-empty--package"></div>
+            <p>{{ 'You have no imports yet.'|trans({}, 'administrator') }}</p>
+        </div>
+    {% else %}
+        <div class="table-hidden">
+            <table id="log-table" class="horizontal-scroll">
+                <tr class="line">
+                    <th>{{ 'File name'|trans({}, 'administrator') }}</th>
+                    <th class="text-center">{{ 'Type'|trans({}, 'administrator') }}</th>
+                    <th class="text-center">{{ 'Date'|trans({}, 'administrator') }}</th>
+                    <th class="text-center">{{ 'Total Lines'|trans({}, 'administrator') }}</th>
+                    <th class="text-center">{{ 'Error Lines'|trans({}, 'administrator') }}</th>
+                    <th class="text-center">{{ 'Status'|trans({}, 'administrator') }}</th>
+                    <th class="text-center"></th>
+                </tr>
+
+                {# @var log \ArcaSolutions\ImportBundle\Entity\ImportLog #}
+                {% for log in logs %}
+                    <tr class="line" data-import-id="{{ log.id }}">
+                        <td class="name">{{ log.filename }}</td>
+                        <td class="text-center">{{ pluralize(log.module|capitalize)|trans({}, 'administrator') }}</td>
+                        <td class="text-center">{{ log.createdAt|localized_date("MMMM dd, yyyy") }}</td>
+                        <td class="text-center">{{ log.totalLines }}</td>
+                        <td class="text-center">{{ log.errorLines }}</td>
+                        <td class="text-center {{ friendly_title(logStatus[log.status]|lower) }}" data-import-status>
+                            {{ logStatus[log.status]|trans({}, 'import_status') }}
+                        </td>
+                        <td class="text-center" data-th="">
+                            <div class="dropdown">
+                                {% if log.errors|length > 0 or log.status in {}|merge(statusUndone)|merge(statusAborted) %}
+                                    <button type="button" data-toggle="dropdown" aria-haspopup="true"
+                                            aria-expanded="false">
+                                        <span class="caret"></span>
+                                    </button>
+                                {% endif %}
+                                <ul data-option-list="{{ log.id }}" class="dropdown-menu">
+                                    {% if log.errors|length > 0 %}
+                                        <li>
+                                            <a data-toggle="collapse" href="#collapse_log{{ log.id }}">
+                                                {{ 'Expand log'|trans({}, 'administrator') }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if log.status in statusAborted %}
+                                        <li data-option="{{ log.id }}">
+                                            <a data-import-log="{{ log.id }}" data-import-event="status"
+                                               data-import-value="{{ constant('STATUS_ABORTED', log) }}"
+                                               href="#">{{ 'Abort import'|trans({}, 'administrator') }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                    {% if log.status in statusUndone %}
+                                        <li data-option="{{ log.id }}">
+                                            <a data-import-log="{{ log.id }}" data-import-event="status"
+                                               data-import-value="{{ constant('STATUS_WAITROLLBACK', log) }}"
+                                               href="#">{{ 'Undo import'|trans({}, 'administrator') }}
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr id="collapse_log{{ log.id }}" class="collapse">
+                        <td colspan="8">
+                            <table>
+                                <tr>
+                                    <td colspan="5">
+                                        {{ log.totalLines - log.errorLines }} {{ 'lines imported with success'|trans({}, 'administrator') }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <a data-toggle="collapse" href="#log-errors-{{ log.id }}" class="">
+                                            <i class="fa fa-caret-down" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td class="error" colspan="5">
+                                        {{ log.errorLines }} {{ 'lines with error' | trans({}, 'administrator') }}
+                                    </td>
+                                </tr>
+                                <tr id="log-errors-{{ log.id }}" class="collapse-2">
+                                    <td colspan="2">
+                                        <table>
+                                            {% for error in log.errors %}
+                                                <tr>
+                                                    <td>
+                                                        {{ 'Row'|trans({}, 'administrator') }} {{ error.line+1 }}
+                                                        : {{ error.message }}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+
+        <div class="center">
+            {{ knp_pagination_render(logs) }}
+        </div>
+    {% endif %}
+</div>

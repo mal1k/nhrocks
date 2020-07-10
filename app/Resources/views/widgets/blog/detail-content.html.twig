@@ -1,0 +1,84 @@
+{% set module = getModule() -%}
+{% set moduleSearch = getModuleSearch() -%}
+{{ addJSTwigParameter("searchBoxModule", moduleSearch) }}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+{% if item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash|raw -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+<div class="details-default details-blog">
+    <div class="detail-body">
+        <div class="container">
+            <div class="detail-body-content">
+                <div class="blog-content">
+                    {% if categories %}
+                        <div class="paragraph p-3 blog-category">
+                            {{ 'in'|trans({}, 'widgets') }}
+                            {% for category in categories -%}
+                                <a href="{{ utility_generateSearchUrl(null, "blog", category.friendlyUrl) }}" class="link">{{ category.title }}</a>{{ (not loop.last ? ', ' : '') }}
+                            {% endfor -%}
+                        </div>
+                    {% endif %}
+
+                    <h1 class="heading blog-title">{{ item.title }}</h1>
+
+                    {% if coverImage -%}
+                        <div class="blog-picture">
+                            {% if isSample -%}
+                                <img data-src="{{ asset('assets/images/placeholders/1024x768.jpg') }}" alt="{{ item.title }}" class="lazy">
+                            {% elseif item.coverImage.unsplash is not empty -%}
+                                <img data-src="{{ item.coverImage.unsplash|raw }}" alt="{{ item.title }}" class="lazy">
+                            {% elseif item.coverImage is not empty -%}
+                                {{ tagPicture(asset(imagePath(item.coverImage), 'domain_images'), item.title, {'desktop': 'medium', 'tablet': 'medium'}) }}
+                            {% endif -%}
+                            <div class="calendar-sm">
+                                <div class="month">{{ item.entered|localized_date('MMM') }}</div>
+                                <div class="heading day">{{ item.entered|localized_date('dd') }}</div>
+                                <div class="day-abbr">{{ item.entered|localized_date('EE')|capitalize }}</div>
+                            </div>
+                        </div>
+                    {% else -%}
+                        <div class="paragraph p-1 blog-date">{{ item.entered|localized_date('MMMM dd, yyyy') }}</div>
+                    {% endif -%}
+
+                    <div class="blog-text">
+                        {{ item.content|raw }}
+                    </div>
+
+                    {% if categories -%}
+                        <div class="blog-categories">
+                            {% for category in categories if 'y' == category.enabled -%}
+                                <a href="{{ utility_generateSearchUrl(null, "blog", category.friendlyUrl) }}" class="categorie-item">{{ category.title }}</a>
+                            {% endfor -%}
+                        </div>
+                    {% endif -%}
+
+                    <div class="blog-share">
+                        <div class="share-dropdown">
+                            <div class="facebook"><i class="fa fa-facebook"></i></div>
+                            <div class="twitter"><i class="fa fa-twitter"></i></div>
+                            {% if getSetting('disable_whatsapp_share_button') != 'y' %}
+                            <div class="whatsapp" data-url="{{ app.request.uri }}"><i class="fa fa-whatsapp"></i></div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <div class="blog-facebook-comment">
+                        {{ facebookComments() }}
+                    </div>
+                </div>
+
+                {% include 'blocks/blog/blog-sidebar.html.twig' %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{ addJSFile("assets/js/lib/social-likes.min.js") }}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}
+
+

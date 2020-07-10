@@ -1,0 +1,122 @@
+{# use it to shows address -#}
+{% import "::blocks/utility/utility.html.twig" as Utility %}
+{% import "::blocks/utility/summary.html.twig" as SummaryUtility -%}
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash|raw -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+<div class="details-default details-articles">
+    <div class="details-header" {{ coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+        <div class="container">
+            <div class="details-header-content">
+                <div class="article-header">
+                    <div class="article-date">{{ item.publicationDate|localized_date('MMMM dd, yyyy') }}</div>
+                    <h1 class="heading h-2 article-title">{{ item.title }}</h1>
+                    {# ModStores Hooks #}
+                    {% do HookFire("articledetail_after_render_overview", {"item": item, "level": level, "isSample": isSample}) %}
+                    <div class="article-actions">
+                        {%- if getSetting('commenting_fb') == 'on' -%}
+                            <a href="javascript:void(0);" id="fb-comments" class="icon icon-md tooltip" data-tooltip="{{ 'Add a comment'|trans }}"><i class="fa fa-comments"></i></a>
+                        {%- endif -%}
+
+                        {{ bookmarkButton(item, 'article') }}
+
+                        {{ SummaryUtility.shareLinks() }}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {{ SummaryUtility.shareLinksMobile() }}
+
+    </div>
+    <div class="detail-body" id="detail-body">
+        <div class="container">
+            <div class="detail-body-content">
+                <div class="tab-content">
+                    {% if item.author is not empty -%}
+                        <div class="article-author">
+                            <div class="article-picture">
+                                {% if item.authorImage is not empty %}
+                                    <img src="{{ asset(imagePath(item.authorImage), 'domain_images') }}" alt="{{ item.author }}">
+                                {% else %}
+                                    <i class="fa fa-user"></i>
+                                {% endif %}
+                            </div>
+                            <div class="article-content">
+                                {{ 'Article by'|trans}}: <br>
+                                <a href="{{ item.authorUrl }}" class="heading h-6 author-name">{{ item.author }}</a>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if gallery is not empty and 'y' == gallery[0].imageDefault -%}
+                        <br>
+                        <div class="detail-gallery-main-image">
+                            {{ UtilityDetail.mainImage(gallery[0], isSample, {'desktop': 'large', 'laptop': 'medium', 'tablet': 'medium'}) }}
+                        </div>
+                    {% endif -%}
+
+                    <div class="article-description">
+                        {{ item.content|raw }}
+                    </div>
+
+                    {% if gallery is not empty %}
+                        <div class="detail-gallery-thumb-images">
+                            {{ UtilityDetail.galleryImage(gallery, isSample) }}
+                        </div>
+                    {% endif %}
+
+                    {# ModStores Hooks #}
+                    {% do HookFire("articledetail_after_render_gallery", {"item": item, "level": level, "isSample": isSample}) %}
+
+                    {% if item.author is not empty -%}
+                        <div class="article-author-full">
+                            <div class="author-full-picture">
+                                {% if item.authorImage is not empty %}
+                                    <img src="{{ asset(imagePath(item.authorImage), 'domain_images') }}" alt="{{ item.author }}">
+                                {% else %}
+                                    <i class="fa fa-user"></i>
+                                {% endif %}
+                            </div>
+                            <div class="author-full-about">
+                                <strong>{{ item.author }}</strong>
+                                {% if item.authorAbout is not empty %}
+                                    {{ item.authorAbout|raw }}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="article-categories">
+                        {% for category in categories if 'y' == category.enabled -%}
+                            {% if isSample -%}
+                                {% set link = 'javascript:void(0);' -%}
+                            {% else -%}
+                                {% set link = utility_generateSearchUrl(null, "article", category.friendlyUrl) -%}
+                            {% endif -%}
+                            <a href="{{ link }}" class="categorie-item">{{ category.title }}</a>
+                        {% endfor %}
+                    </div>
+                    <section>
+                        {{ facebookComments() }}
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{# Adding requirements #}
+{{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+{{ addJSFile("assets/js/widgets/details/common.js") }}
+{{ addJSFile("assets/js/widgets/details/article.js") }}
+{{ addJSFile("assets/js/lib/social-likes.min.js") }}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}
+{{ addJSFile("assets/js/lib/jquery.fancybox.min.js") }}

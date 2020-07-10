@@ -1,0 +1,83 @@
+// Transitions
+$transitions: .2s ease-in-out !default;
+
+// Icons Color
+$icons-color: var(--highlight-base, $highlight-color) !default;
+
+// Bock Spaces
+$block-spaces: 48px !default;
+
+// Button Spaces
+$buttons: (
+    lg: (
+        padding-y: 24px,
+        padding-x: 48px,
+        font-size: 1.125em
+    ),
+
+    bg: (
+        padding-y: 16px,
+        padding-x: 32px,
+        font-size: 1em
+    ),
+    
+    md: (
+        padding-y: 8px,
+        padding-x: 24px,
+        font-size: .875em
+    ),
+    
+    sm: (
+        padding-y: 4px,
+        padding-x: 16px,
+        font-size: .75em
+    )
+);
+
+// Button Spaces
+$icons: (
+    xs: (
+        width: 12px,
+        height: 12px,
+        font-size: 8px
+    ),
+    
+    sm: (
+        width: 18px,
+        height: 18px,
+        font-size: 12px
+    ),
+    
+    md: (
+        width: 24px,
+        height: 24px,
+        font-size: 16px
+    ),
+    
+    lg: (
+        width: 28px,
+        height: 28px,
+        font-size: 20px
+    ),
+    
+    xl: (
+        width: 32px,
+        height: 32px,
+        font-size: 24px
+    ),
+);
+
+// Fontfamily Variation
+$fonts: (
+    size-10: #{10 / $font-size-base-value}em,
+    size-12: #{12 / $font-size-base-value}em,
+    size-14: #{14 / $font-size-base-value}em,
+    size-15: #{15 / $font-size-base-value}em,
+    size-16: #{16 / $font-size-base-value}em,
+    size-18: #{18 / $font-size-base-value}em,
+    size-20: #{20 / $font-size-base-value}em,
+    size-24: #{24 / $font-size-base-value}em,
+    size-28: #{28 / $font-size-base-value}em,
+    size-32: #{32 / $font-size-base-value}em,
+    size-40: #{40 / $font-size-base-value}em,
+);

@@ -1,0 +1,13 @@
+<footer class="footer" data-type="1" is-inverse="{{ content.backgroundColor == 'base' ? 'true' : 'false' }}">
+    <div class="footer-content">
+        <div class="container">
+            <div class="wrapper">
+                {{ navigationFooter(content) }}
+                {{ contactUs(content) }}
+                {{ contactUsSocial(content) }}
+                {{ apps(content) }}
+            </div>
+        </div>
+    </div>
+    {{ copyright(content) }}
+</footer>

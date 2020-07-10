@@ -1,0 +1,475 @@
+/**
+ * Mixin para gerar cor do texto baseada no fundo
+ * @Params $color Cor do background do elemento
+ * @Return Retorna a cor com base no background
+**/
+
+@mixin color-contrast($color){
+	@if(lightness($color) > 55){
+		color: darken($color, 45%);
+	} @else if(lightness($color) < 55) and (lightness($color) > 25){
+		color: lighten($color, 45%);
+	} @else if(lightness($color) < 25){
+		color: lighten($color, 85%);
+	}
+}
+
+/**
+ * Mixin para gerar o media query atravéz do maior valor
+ * @Params $name nome do breakpoint
+**/
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar o media query atravéz do menor valor
+ * @Params $name nome do breakpoint
+**/
+
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+    $max: breakpoint-max($name, $breakpoints);
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    } @else {
+        @content;
+    }
+}
+
+/**
+ * Mixin para retornar valores entre o menor e o maior breakpoint
+ * @Params $lower menor breakpoint
+ * @Params $upper maior breakpoint
+ * @Return Retorna os media-queries entre os valores escolhidos
+**/
+
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($lower, $breakpoints);
+    $max: breakpoint-max($upper, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include media-breakpoint-up($lower, $breakpoints) {
+            @content;
+        }
+    } @else if $min == null {
+        @include media-breakpoint-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+/**
+ * Mixin para retornar o maior ou menor breakpoint possivel
+ * @Params $name breakpoint escolhido
+ * @Return Retorna o media query escolhido
+**/
+
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+    $min: breakpoint-min($name, $breakpoints);
+    $max: breakpoint-max($name, $breakpoints);
+
+    @if $min != null and $max != null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    } @else if $max == null {
+        @include media-breakpoint-up($name, $breakpoints) {
+            @content;
+        }
+    } @else if $min == null {
+        @include media-breakpoint-down($name, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+/**
+ * Mixin para retornar estrutura base do container
+**/
+
+@mixin make-container() {
+    width: 100%;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/**
+ * Mixin para retornar os tamanhos maximos do container com relação ao breakpoint atual
+**/
+
+@mixin make-container-max-widths($max-widths: $container-max-widths, $breakpoints: $grid-breakpoints) {
+    @each $breakpoint, $container-max-width in $max-widths {
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            max-width: $container-max-width;
+        }
+    }
+}
+
+/**
+ * Mixin para retornar estrutura base do row
+**/
+
+@mixin make-row() {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: ($grid-gutter-width / -2);
+    margin-left: ($grid-gutter-width / -2);
+}
+ 
+/**
+ * Mixin para retornar estrutura base do col
+**/
+
+@mixin make-col-ready() {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: ($grid-gutter-width / 2);
+    padding-left: ($grid-gutter-width / 2);
+}
+
+/**
+ * Mixin para retornar estrutura do col referente a cada tamanho
+**/
+
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 percentage($size / $columns);
+    max-width: percentage($size / $columns);
+}
+
+/**
+ * Mixin para retornar um offset na col
+**/
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+    $num: $size / $columns;
+    margin-left: if($num == 0, 0, percentage($num));
+}
+
+/**
+ * Mixin para gerar as classes do grid
+**/
+
+@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+    %grid-column {
+        position: relative;
+        width: 100%;
+        min-height: 1px;
+        padding-right: ($gutter / 2);
+        padding-left: ($gutter / 2);
+    }
+
+    @each $breakpoint in map-keys($breakpoints) {
+        $infix: breakpoint-infix($breakpoint, $breakpoints);
+
+        @for $i from 1 through $columns {
+            .col#{$infix}-#{$i} {
+                @extend %grid-column;
+            }
+        }
+        
+        .col#{$infix},
+        .col#{$infix}-auto {
+            @extend %grid-column;
+        }
+
+        @include media-breakpoint-up($breakpoint, $breakpoints) {
+            .col#{$infix} {
+                flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
+            }
+            
+            .col#{$infix}-auto {
+                flex: 0 0 auto;
+                width: auto;
+                max-width: none;
+            }
+
+            @for $i from 1 through $columns {
+                .col#{$infix}-#{$i} {
+                    @include make-col($i, $columns);
+                }
+            }
+
+            .order#{$infix}-first { order: -1; }
+
+            .order#{$infix}-last { order: $columns + 1; }
+
+            @for $i from 0 through $columns {
+                .order#{$infix}-#{$i} { order: $i; }
+            }
+
+            @for $i from 0 through ($columns - 1) {
+                @if not ($infix == "" and $i == 0) {
+                    .offset#{$infix}-#{$i} {
+                        @include make-col-offset($i, $columns);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/**
+ * Mixin para retornar o espaçamento padrão dos blocos
+**/
+
+@mixin block-padding($top: $block-spaces, $bottom: $block-spaces, $resize: false){
+    padding-top: $top/2;
+    padding-bottom: $bottom/2;
+
+    @include mq-min-screen(992px){
+        padding-top: $top;
+        padding-bottom: $bottom;
+    }
+}
+
+/**
+ * Mixin para definir uma imagem responsiva
+**/
+
+@mixin img-responsive(){
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/**
+ * Mixin para gerar o width dos card
+**/
+
+@mixin card-width($mobile: 1, $tablet: 2, $notebook: 3, $desktop: 4, $scrollable: false, $margin: 16px){
+    @if $mobile > 1{
+        @if $scrollable == false{
+            @supports (-ms-ime-align:auto) {
+                width: calc((100% / #{$mobile}) - (#{$margin} / 2) - 1px);
+            }
+            width: calc(calc(100% / #{$mobile}) - (#{$margin} / 2));
+            margin-right: ($margin / 4);
+        } @else {
+            @supports (-ms-ime-align:auto) {
+                min-width: calc((100% / #{$mobile}) - (#{$margin} * 2) - 1px);
+            }
+            min-width: calc(calc(100% / #{$mobile}) - (#{$margin} * 2));
+            margin-right: 0;
+        }
+
+        margin-left: ($margin / 4);
+    } @else {
+        @if $scrollable == false{
+            width: 100%;
+        } @else {
+            min-width: calc(100% - (#{$margin} * 2));
+            margin-right: $margin;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        @if $scrollable == false{
+            @supports (-ms-ime-align:auto) {
+                width: calc((100% / #{$tablet}) - (#{$margin} * 2) - 1px);
+            }
+            width: calc(calc(100% / #{$tablet}) - (#{$margin} * 2));
+            margin-right: $margin;
+        } @else {
+            @supports (-ms-ime-align:auto) {
+                min-width: calc((100% / #{$tablet}) - (#{$margin} * 2) - 1px);
+            }
+            min-width: calc(calc(100% / #{$tablet}) - (#{$margin} * 2));
+            margin-right: 0;
+        }
+
+        margin-left: $margin;
+    }
+    
+
+    @media screen and (min-width: 992px){
+        @supports (-ms-ime-align:auto) {
+            width: calc((100% / #{$notebook}) - (#{$margin} * 2) - 1px);
+        }
+        width: calc(calc(100% / #{$notebook}) - (#{$margin} * 2));
+        min-width: auto;
+        margin-right: $margin;
+    }
+
+    @media screen and (min-width: 1200px){
+        @supports (-ms-ime-align:auto) {
+            width: calc((100% / #{$desktop}) - (#{$margin} * 2) - 1px);
+        }
+        width: calc((100% / #{$desktop}) - (#{$margin} * 2));
+    }
+}
+
+/**
+ * Mixin para gerar os blocos de media query
+**/
+
+@mixin mq($args...) {
+    $media-type: 'only screen';
+    $media-type-key: 'media-type';
+    $args: keywords($args);
+    $expr: '';
+
+    @if map-has-key($args, $media-type-key) {
+        $media-type: map-get($args, $media-type-key);
+        $args: map-remove($args, $media-type-key);
+    }
+
+    @each $key, $value in $args {
+        @if $value {
+            $expr: "#{$expr} and (#{$key}: #{$value})";
+        }
+    }
+
+    @media #{$media-type} #{$expr} {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query customizados
+ * @Params $min width minimo
+ * @Params $max width maximo
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-screen($min, $max, $orientation: false) {
+    @include mq($min-width: $min, $max-width: $max, $orientation: $orientation) {
+        @content;
+    }
+}
+
+@mixin mq-max-screen($max) {
+    @include mq($max-width: $max) {
+        @content;
+    }
+}
+
+@mixin mq-min-screen($min) {
+    @include mq($min-width: $min) {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query pequeno
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-sm($orientation: false) {
+    $min: 320px;
+    $max: 374px;
+
+    @include mq(
+        $min-width: $min,
+        $max-width: $max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query medio
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-md($orientation: false) {
+    $min: 375px;
+    $max: 424px;
+
+    @include mq(
+        $min-width: $min,
+        $max-width: $max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query grande
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-lg($orientation: false) {
+    $min: 425px;
+    $max: 767px;
+
+    @include mq(
+        $min-width: $min,
+        $max-width: $max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query tablets
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-tablet($orientation: false) {
+    $min: 768px;
+    $max: 1023px;
+
+    @include mq(
+        $min-width: $min,
+        $max-width: $max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query notebooks
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-laptop($orientation: false) {
+    $min: 1024px;
+    $max: 1139px;
+
+    @include mq(
+        $min-width: $min,
+        $max-width: $max,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}
+
+/**
+ * Mixin para gerar media query notebooks
+ * @Params $orientation orientação do celular portrait ou landscape 
+**/
+
+@mixin mq-desk($orientation: false) {
+    $min: 1140px;
+
+    @include mq(
+        $min-width: $min,
+        $orientation: $orientation
+    ) {
+        @content;
+    }
+}

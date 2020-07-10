@@ -1,0 +1,8 @@
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+<div class="reviews-list">
+    {{ UtilityDetail.reviews(reviewsPaginated.reviews, 'true') }}
+    {% do HookFire('detailcontent_after_renderreview', {'review': reviewsPaginated.reviews, 'overview': 'false', 'item': item}) %}
+</div>
+
+{% include 'blocks/pagination/review-pagination.html.twig' with {pageCount: reviewsPaginated.pageCount, friendlyUrl: friendlyUrl, current: page} %}

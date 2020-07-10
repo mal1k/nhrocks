@@ -1,0 +1,24 @@
+<div id="styleguide">
+    <div class="container-fluid">
+
+        {% set header_title = "Import Listing" -%}
+        {#{% block header -%}
+            <div class="row header">
+                <div class="col-md-12">
+                    <h2>{{- header_title -}}</h2>
+                    <p>What type of data do you want to import?</p>
+                </div>
+            </div>
+        {% endblock %}#}
+
+        <div class="main">
+            {% block body %} {% endblock %}
+        </div>
+
+    </div>
+</div>
+
+{% block javascripts %}
+    <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+    <script src="{{ path('fos_js_routing_js', {'callback': 'fos.Router.setData'}) }}"></script>
+{% endblock %}

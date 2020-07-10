@@ -1,0 +1,109 @@
+{% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+<div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" scrollable="false" mobile-columns="false" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="cards-header">
+            <h2 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h2>
+            {% if widgetLink is not empty %}
+                <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more articles'|trans({},'widgets') }}">
+                    {{ content.widgetLink.label|trans({}, 'widgets') }}
+                </a>
+            {% endif %}
+        </div>
+        <div class="card-wrapper card-two-columns-horizontal">
+            {% for item in items -%}
+                {% set itemData = getCardData(item, module) %}
+
+                {% if loop.first %}
+                <div class="card-wrapper-left">
+                    <div class="cards-list">
+                        <div class="card card-horizontal">
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                <div class="badge">{{ date(item.publicationDate)|localized_date('MMMM dd, yyyy') }}</div>
+                                {{ tagPicture(itemData.imagePath, item.title) }}
+                            </a>
+                            <div class="content">
+                                <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                {% if item.abstract is not empty -%}
+                                    {% set description = item.abstract -%}
+                                {% endif -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{ description|length > 140 ? description|slice(0,139) ~ '...' : description }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if item.author.name %}
+                                    <div class="author">
+                                        <div class="author-picture">
+                                            {% if item.authorImageId != 0 %}
+                                                {# date from DB -#}
+                                                <img src="{{ itemData.authorImage }}" alt="">
+                                            {% else %}
+                                                <i class="fa fa-user"></i>
+                                            {% endif %}
+                                        </div>
+                                        <div class="author-name">{{ 'By'|trans }}
+                                            {% if item.author.url %}
+                                                <a href="{{ item.author.url }}" class="link">
+                                                    {{ item.author.name }}
+                                                </a>
+                                            {% else %}
+                                                {{ item.author.name }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-wrapper-right">
+                    <div class="cards-list">
+                    {% else %}
+                        <div class="card card-horizontal">
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                <div class="badge">{{ date(item.publicationDate)|localized_date('MMMM dd, yyyy') }}</div>
+                                {{ tagPicture(itemData.imagePath, item.title) }}
+                            </a>
+                            <div class="content">
+                                <a href="{{ itemData.detailLink }}" class="title heading h-4">{{ item.title }}</a>
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                {% if item.author.name %}
+                                    <div class="author">
+                                        <div class="author-picture">
+                                            {% if item.authorImageId != 0 %}
+                                                {# date from DB -#}
+                                                <img src="{{ itemData.authorImage }}" alt="">
+                                            {% else %}
+                                                <i class="fa fa-user"></i>
+                                            {% endif %}
+                                        </div>
+                                        <div class="author-name">{{ 'By'|trans }}
+                                            {% if item.author.url %}
+                                                <a href="{{ item.author.url }}" class="link">
+                                                    {{ item.author.name }}
+                                                </a>
+                                            {% else %}
+                                                {{ item.author.name }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

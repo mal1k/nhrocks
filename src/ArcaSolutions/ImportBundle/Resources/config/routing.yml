@@ -1,0 +1,38 @@
+import_home:
+    path:     /
+    defaults: { _controller: ImportBundle:Import:index }
+    options:
+        expose: true
+
+import_paginate:
+    path:     /{page}
+    defaults: { _controller: ImportBundle:Import:paginate }
+    requirements:
+        page: '\d+'
+    options:
+        expose: true
+
+import_update_status:
+    path:     /update/status
+    defaults: { _controller: ImportBundle:Import:updateStatus }
+    options:
+        expose: true
+
+import_file_upload:
+    path: /upload
+    defaults: { _controller: ImportBundle:Import:upload }
+    options:
+        expose: true
+
+import_finish:
+    path: /finish
+    defaults: { _controller: ImportBundle:Import:finish }
+    options:
+        expose: true
+
+import_status:
+    path: /status
+    methods: ["GET"]
+    defaults: { _controller: ImportBundle:Import:status }
+    options:
+        expose: true

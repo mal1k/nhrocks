@@ -1,0 +1,521 @@
+[data-type="events"]{
+    .cards-list{
+        .card{
+            &.no-image, &.has-bg{
+                .content{
+                    align-items: flex-end;
+                }
+
+                .calendar-sm{
+                    border: none;
+                }
+            }
+
+            .content{
+                width: 100%;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .cards-upcoming-events{
+        .calendar-sm{
+            position: absolute;
+            top: 16px;
+        }
+    }
+
+    .calendar-mobile{
+        display: flex;
+        margin-bottom: 16px;
+        padding: 16px 0;
+        overflow-x: auto;
+        overflow-y: hidden;
+        max-width: 100%;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar { 
+            width: 0 !important;
+        }
+
+        @media screen and (min-width: 768px){
+            display: none;
+        }
+
+        .calendar-sm:not(:last-child){
+            margin-right: 16px;
+
+            @media screen and (min-width: 425px){
+                margin-right: 12px;
+            }
+        }
+
+        .calendar-sm:not(:first-child){
+            margin-left: 0;
+        }
+    }
+
+    .calendar-wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+
+        .calendar-block{
+            border: 1px solid customColor(neutral, transp-25);
+            border-radius: $border-radius;
+            background: white;
+            padding: 16px;
+            width: 100%;
+
+            @media screen and (min-width: 768px){
+                width: 350px;
+            }
+            
+            @media screen and (min-width: 992px){
+                width: 470px;
+                padding: 32px;
+            }
+            
+            @media screen and (min-width: 1200px){
+                width: 570px;
+                padding: 56px 56px 48px;
+            }
+
+            .datepicker{
+                width: 100%;
+
+                table{
+                    display: block;
+                }
+
+                table *{
+                    display: block;
+                }
+
+                table tr td,
+                table tr th{
+                    height: auto;
+                }
+
+                thead{
+                    tr{
+                        &:nth-child(2){
+                            display: flex;
+                            justify-content: space-between;
+                            align-items: center;
+
+                            th{
+                                cursor: pointer;
+
+                                &.datepicker-switch{
+                                    font-weight: 500;
+                                    color: customColor(neutral, transp-75);
+                                    font-family: $heading-font;
+                                    padding: 0;
+
+                                    &:hover{
+                                        background: none;
+                                    }
+                                }
+
+                                &.prev,
+                                &.next{
+                                    text-indent: -9999px;
+                                    padding: 0;
+                                    line-height: 1;
+
+                                    &:before{
+                                        font-family: "fontAwesome";
+                                        text-indent: 0;
+                                        float: left;
+                                        color: customColor(neutral, transp-75);
+                                        font-size: 22px;
+                                        width: 40px;
+                                        text-align: center;
+                                    }
+
+                                    &:hover{
+                                        background: none;
+                                    }
+                                }
+
+                                &.prev{
+                                    &:before{
+                                        content: "\f104";
+                                    }
+                                }
+
+                                &.next{
+                                    &:before{
+                                        content: "\f105";
+                                    }
+                                }
+                            }
+                        }
+
+                        &:nth-child(3){
+                            margin-top: 48px;
+                            display: flex;
+                            justify-content: space-between;
+                            padding: 0;
+
+                            th{
+                                padding: 0;
+                                color: customColor(neutral, transp-50);
+                                font-weight: bold;
+                                font-size: fontsize(size-14);
+                                text-transform: uppercase;
+                                width: 35px;
+                                text-align: center;
+
+                                @media screen and (min-width: 768px){
+                                    width: 40px;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                tbody{
+                    display: flex;
+                    flex-flow: column wrap;
+                    margin-top: 16px;
+
+                    tr{
+                        display: flex;
+                        justify-content: space-between;
+                        padding: 0;
+
+                        .day{
+                            padding: 0;
+                            width: 35px;
+                            height: 35px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            margin-top: 8px;
+
+                            color: customColor(neutral, base);
+                            border-radius: 9999px;
+                            border: 1px solid transparent;
+                            font-family: $paragraph-font;
+                            transition: $transitions;
+                            cursor: pointer;
+
+                            @media screen and (min-width: 768px){
+                                width: 40px;
+                                height: 40px;
+                            }
+
+                            &.old,
+                            &.new,
+                            &.disabled{
+                                color: customColor(neutral, transp-25);
+                                font-weight: normal;
+                            }
+
+                            &.disabled{
+                                cursor: not-allowed;
+                            }
+
+                            &.active{
+                                background: customColor(highlight, base);
+                                color: customColor(color-white, base);
+
+                                &.today{
+                                    color: customColor(color-white, base);
+                                }
+
+                                &.has-event{
+                                    background: customColor(highlight, base);
+                                    color: customColor(color-white, base);
+                                }
+
+                                &:hover{
+                                    background: customColor(highlight, base);
+                                    color: customColor(color-white, base);
+                                    border-color: transparent;
+                                }
+                            }
+
+                            &.today{
+                                color: customColor(highlight, base);
+                                font-weight: bold;
+                            }
+
+                            &.has-event,
+                            &.disabled{
+                                background: customColor(neutral, transp-10);
+                            }
+
+                            &:hover {
+                                &:not(.disabled) {
+                                    background: white;
+                                    border-color: customColor(highlight, base);
+                                    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
+                                    color: customColor(highlight, base);
+                                }
+                            }
+                        }
+
+                        td:not(.day){
+                            width: 100%;
+                            display: flex;
+                            flex-flow: row wrap;
+                            margin-left: -8px;
+
+                            .month, .year{
+                                width: calc((100% / 4) - 16px);
+                                height: 45px;
+                                padding: 0;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                margin: 0;
+                                float: none;
+                                line-height: 1;
+                                margin-top: 16px;
+                                margin-left: 16px;
+                                color: customColor(neutral, base);
+                                border: 1px solid transparent;
+                                font-family: $paragraph-font;
+                                font-size: fontsize(size-20);
+                                transition: $transitions;
+                                cursor: pointer;
+                                border-radius: $border-radius-icon;
+
+                                @media screen and (min-width: 768px){
+                                    height: 60px;
+                                }
+                                
+                                @media screen and (min-width: 992px){
+                                    height: 95px;
+                                    font-size: fontsize(size-28);
+                                }
+
+                                &.focused{
+                                    background: customColor(highlight, base);
+                                    color: customColor(color-white, base);
+
+                                    &:hover{
+                                        background: customColor(highlight, base);
+                                        color: customColor(color-white, base);
+                                        border-color: transparent;
+                                    }
+                                }
+
+                                &:hover{
+                                    background: white;
+                                    border-color: customColor(highlight, base);
+                                    box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.15);
+                                    color: customColor(highlight, base);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .calendar-events{
+            width: 100%;
+            overflow: auto;
+            position: relative;
+            margin-top: 24px;
+
+            @media screen and (min-width: 768px){
+                width: calc(350px - 32px);
+                max-height: 436px;
+                margin-top: 0;
+            }
+
+            @media screen and (min-width: 992px){
+                width: calc(470px - 32px);
+                max-height: 460px;
+            }
+
+            @media screen and (min-width: 1200px){
+                width: calc(570px - 32px);
+                max-height: 548px;
+            }
+
+            &.is-loading{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: #676c80;
+            }
+
+            .events-item{
+                border: 1px solid customColor(neutral, transp-25);
+                border-radius: $border-radius;
+                padding: 16px;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                background: white;
+                margin-top: 16px;
+
+                &:first-child{
+                    margin-top: 0;
+                }
+                
+                .content-info{
+                    width: calc(100% - 64px);
+
+                    .title{
+                        text-decoration: none;
+                    }
+                }
+
+                .picture{
+                    img {
+                        width: 110px;
+                        height: 71px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            .button{
+                text-align: center;
+                display: block;
+                margin-top: 16px;
+            }
+        }
+    }
+
+    &#upcoming-events{
+        padding-bottom: 56px;
+
+        @media screen and (min-width: 768px){
+            padding-bottom: $block-spaces / 2;
+        }
+    }
+
+    &[data-bg="brand"]{
+        #loading{
+            color: customColor(color-white, transp-75);
+        }
+
+        .cards-upcoming{
+            .selected-date{
+                background: customColor(brand, base);
+            }
+        }
+
+        .cards-list{
+            .card{
+                .content{
+                    .title{
+                        color: customColor(color-white, base);
+                    }
+
+                    .categories{
+                        color: customColor(color-white, transp-75);
+                    }
+
+                    .calendar-sm{
+                        border: none;
+                    }
+
+                    .location{
+                        color: customColor(color-white, transp-75);
+                    }
+                    
+                    .recurring-event{
+                        color: customColor(color-white, transp-75);
+                    }
+
+                    .description{
+                        .paragraph{
+                            color: customColor(color-white, transp-75);
+                        }
+                    }
+                }
+
+                &.no-image{
+                    background: customColor(color-white, base);
+
+                    &:hover{
+                        background: customColor(color-white, dark-10);
+                    }
+
+                    .content{
+                        .title{
+                            color: customColor(neutral, base);
+                        }
+
+                        .categories{
+                            color: customColor(neutral, transp-75);
+                        }
+
+                        .calendar-sm{
+                            background: customColor(neutral, transp-50);
+
+                            .day, .day-abbr{
+                                color: customColor(color-white, base)
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.has-slider{
+                .flickity-page-dots{
+                    .dot{
+                        border-color: customColor(color-white, base);
+
+                        &:hover{
+                            border-color: customColor(color-white, base);
+                            background: customColor(color-white, base);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-bg="neutral"]{
+        .cards-upcoming{
+            .selected-date{
+                background: white;
+            }
+        }
+    }
+
+    &[scrollable=""],
+    &[scrollable="false"]{
+        &[mobile-columns="true"]{
+            &:not(.has-slider):not(.no-image){
+                .cards-list{
+                    @media screen and (max-width: 425px){
+                        .card{
+                            position: relative;
+
+                            .content{
+                                margin-top: 16px;
+
+                                .title{
+                                    font-size: fontsize(size-16);
+                                }
+
+                                .calendar-sm{
+                                    position: absolute;
+                                    top: 8px;
+                                    left: 8px;
+
+                                    & + .content-info{
+                                        width: 100%;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

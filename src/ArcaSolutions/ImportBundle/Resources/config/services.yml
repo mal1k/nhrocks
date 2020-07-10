@@ -1,0 +1,103 @@
+services:
+    # Data extractor service
+    import.extractor:
+        class: ArcaSolutions\ImportBundle\Services\Extractor
+        arguments:
+            - "@validator"
+            - "@settings"
+            - "@service_container"
+
+    # Elastic repository
+    import.elastic_repository:
+        class: ArcaSolutions\ImportBundle\Services\ElasticRepository
+        arguments:
+            - "%elastic_host%"
+            - "%elastic_port%"
+
+    import.worker:
+        class: ArcaSolutions\ImportBundle\Services\ImportService
+        arguments:
+            - "@doctrine"
+            - "@import.extractor"
+            - "@import.elastic_repository"
+            - '@multi_domain.information'
+            - "@service_container"
+
+    import.listing_import:
+        class: ArcaSolutions\ImportBundle\Services\ListingImportService
+        arguments:
+            - "@service_container"
+
+    import.event_import:
+        class: ArcaSolutions\ImportBundle\Services\EventImportService
+        arguments:
+            - "@service_container"
+
+    # Validators Services
+    validator.listing_level:
+        class: ArcaSolutions\ImportBundle\Validator\Constraints\ListingLevelValidator
+        arguments:
+            - "@doctrine"
+        tags:
+            - { name: validator.constraint_validator, alias: validator.listing_level }
+
+    validator.event_level:
+        class: ArcaSolutions\ImportBundle\Validator\Constraints\EventLevelValidator
+        arguments:
+            - "@doctrine"
+        tags:
+            - { name: validator.constraint_validator, alias: validator.event_level }
+
+    validator.date_format:
+        class: ArcaSolutions\ImportBundle\Validator\Constraints\DateFormatValidator
+        arguments:
+            - "@settings"
+        tags:
+            - { name: validator.constraint_validator, alias: validator.date_format}
+
+    validator.futuredate:
+        class: ArcaSolutions\ImportBundle\Validator\Constraints\FutureDateValidator
+        arguments:
+            - "@settings"
+        tags:
+            - { name: validator.constraint_validator, alias: validator.futuredate}
+
+    validator.timeformat:
+            class: ArcaSolutions\ImportBundle\Validator\Constraints\TimeFormatValidator
+            arguments:
+                - "@settings"
+            tags:
+                - { name: validator.constraint_validator, alias: validator.timeformat}
+
+    validator.event.enddate:
+            class: ArcaSolutions\ImportBundle\Validator\Constraints\EventEndDateValidator
+            arguments:
+                - "@settings"
+            tags:
+                - { name: validator.constraint_validator, alias: validator.event.enddate}
+
+    validator.locationhierarchy:
+                class: ArcaSolutions\ImportBundle\Validator\Constraints\LocationHierarchyValidator
+                arguments:
+                    - "@doctrine"
+                tags:
+                    - { name: validator.constraint_validator, alias: validator.locationhierarchy}
+
+
+    import.file_handler:
+        class: ArcaSolutions\ImportBundle\File\ImportFileHandler
+        arguments:
+            - "@doctrine"
+            - "%kernel.root_dir%"
+            - "@multi_domain.information"
+            - "%import.config%"
+
+    import.file_analyser:
+        class: ArcaSolutions\ImportBundle\File\FileAnalyser
+        arguments:
+            - "@import.extractor"
+
+    import.mapping:
+        class: ArcaSolutions\ImportBundle\File\Mapping
+        arguments:
+            - "@import.worker"

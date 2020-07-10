@@ -1,0 +1,11 @@
+{% if content.customHtml %}
+	<section class="custom-content">
+		{% if content.fullWidth %}
+			{{ content.customHtml|raw }}
+		{% else %}
+			<div class="container">
+				{{ content.customHtml|raw }}
+			</div>
+		{% endif %}
+	</section>
+{% endif %}

@@ -1,0 +1,297 @@
+{#      Description:                                                    -#}
+{# This macro renders event phrase used in event detail                 -#}
+
+{# item object                                                       -#}
+{#      Event -#}
+{% macro EventDate(item, level, nextOcurrence) -%}
+    {% if item -%}
+
+        {% set current_year = "now"|date("Y") -%}
+
+        <div class="details-date">
+            <div class="details-date-time"><i class="fa fa-calendar"></i>
+                {% if nextOcurrence is not null %}
+                    {% if current_year == nextOcurrence|localized_date("Y") %}
+                        {{ nextOcurrence|localized_date('extensive.date.format'|trans({},'units')) }}
+                    {% else %}
+                        {{ nextOcurrence|localized_date('extensive.date.year.format'|trans({},'units')) }}
+                    {% endif %}
+                {% else %}
+                    {% if current_year == item.startDate|localized_date("Y") %}
+                        {{ item.startDate|localized_date('extensive.date.format'|trans({},'units')) }}
+                    {% else %}
+                        {{ item.startDate|localized_date('extensive.date.year.format'|trans({},'units')) }}
+                    {% endif %}
+                {% endif %}
+                {% if 'Y' != item.recurring -%}
+                    {{ ' - ' }}
+                    {% if current_year == item.endDate|localized_date("Y") %}
+                        {{ item.endDate|localized_date('extensive.date.format'|trans({},'units')) }}
+                    {% else %}
+                        {{ item.endDate|localized_date('extensive.date.year.format'|trans({},'units')) }}
+                    {% endif %}
+                {% endif -%}
+            </div>
+            {% if level.hasEventTime -%}
+                {% if item.startTime or item.endTime %}
+                    <div class="details-date-open"><i class="fa fa-clock-o"></i>
+                        {{ item.startTime|date(getTimeFormat()) }}
+                        {% if item.endTime is not null -%}
+                            {{ ' - ' }}
+                            {{ item.endTime|date(getTimeFormat()) }}
+                        {% endif -%}
+                    </div>
+                {% endif %}
+            {% endif %}
+        </div>
+
+        {% if 'Y' == item.recurring -%}
+            <div class="details-occurence">
+                {{ recurringPhrase(item) }}
+                {%- if item.untilDate -%}
+                    {% if current_year == item.untilDate|localized_date("Y") %}
+                        {{ ' ' ~ 'until %until_date%'|trans({'%until_date%': item.untilDate|localized_date('extensive.date.format'|trans({},'units'))|title}) }}
+                    {% else %}
+                        {{ ' ' ~ 'until %until_date%'|trans({'%until_date%': item.untilDate|localized_date('extensive.date.year.format'|trans({},'units'))|title}) }}
+                    {% endif %}
+                {%- endif -%}
+            </div>
+        {% endif -%}
+
+    {% endif -%}
+{% endmacro -%}
+
+{% macro categories(categories, module) -%}
+    {% if categories is not empty -%}
+        <div class="details-categories">
+            {{ 'in'|trans }}
+            {% for category in categories -%}
+                {% if 'y' == category.enabled  -%}
+                    {% if isSample -%}
+                        {% set link = 'javascript:void(0);' -%}
+                    {% else -%}
+                        {% set link = utility_generateSearchUrl(null, module, category.friendlyUrl) -%}
+                    {% endif -%}
+
+                    {% if loop.index < 6 %}
+                        <a href="{{ link }}" class="link">{{ category.title }}</a> {%- if not loop.last -%}, {% endif -%}
+                    {% endif -%}
+
+                    {% if loop.index == 6 -%}
+                        <div class="categories-dropdown">
+                            <div class="categories-dropdown-toggle link">(+{{categories|length - 5}})</div>
+                            <div class="categories-dropdown-content">
+                                <a href="{{ link }}" class="link">{{ category.title }}</a>
+                                {%- if not loop.last -%},
+                                {% else -%}
+                            </div>
+                        </div>
+                                {% endif -%}
+                    {% endif -%}
+                    {% if loop.index > 6 -%}
+                        <a href="{{ link }}" class="link">{{ category.title }}</a>
+                        {%- if not loop.last -%},
+                                {% else -%}
+                            </div>
+                        </div>
+                        {% endif -%}
+                    {% endif -%}
+                {% endif -%}
+            {% endfor -%}
+        </div>
+    {% endif %}
+{% endmacro -%}
+
+{% macro detailsContact(item, level, address) -%}
+    <div class="details-contact">
+        {% if level.hasPhone and ((item.phone is not empty) or HookFire('listingdetail_overwrite_listingphone', {"item": item, "level": level}, true)) -%}
+            <div class="contact-item item-phone">
+                <span class="icon icon-md"><i class="fa fa-phone"></i></span>
+                <a href="tel:{{ item.phone }}">{{ item.phone }}</a>
+            </div>
+        {% endif -%}
+
+        {% if level.hasAdditionalPhone and item.additionalPhone is not empty -%}
+            <div class="contact-item item-phone addition-phone">
+                <a href="tel:{{ item.additionalPhone }}">{{ item.additionalPhone }}</a>
+                {% if item.labelAdditionalPhone and item.labelAdditionalPhone is not empty -%}
+                    <small>({{ item.labelAdditionalPhone }})</small>
+                {% endif -%}
+            </div>
+        {% endif -%}
+
+        {% do HookFire('listingdetail_before_address', {"item": item, "level": level}, true) %}
+
+        {% if not HookFire('listingdetail_overwrite_address', {"address": address}, true) and address|trim is not empty -%}
+            <div class="contact-item item-location">
+                <span class="icon icon-md"><i class="fa fa-map-marker"></i></span>
+                {{ address }}
+            </div>
+        {% endif -%}
+
+        {% if level.hasContactName and item.contactName is not empty -%}
+            <div class="contact-item contact-item-name">
+                <span class="icon icon-md"><i class="fa fa-user"></i></span>
+                {{ 'by'|trans }} {{item.contactName}}
+            </div>
+        {% endif -%}
+
+        {% if not HookFire('listingdetail_overwrite_url', {"item": item, "level": level}, true) and level.hasURL and item.url is not empty -%}
+            <div class="contact-item item-phone">
+                <span class="icon icon-md"><i class="fa fa-desktop"></i></span>
+                <a href="{{ item.url }}" target="_blank" rel="noopener noreferrer nofollow" data-info="{{ encrypt( {friendlyUrl: item.friendlyUrl} ) }}" class="contact-item-link-website">{{ "Visit Website"|trans }}</a>
+            </div>
+        {% endif -%}
+
+    </div>
+{% endmacro -%}
+
+{% macro mainImage(image, isSample, filter = {}) -%}
+    {% if isSample -%}
+        {% set url = image.image.url -%}
+        <a href="{{url}}" data-fancybox="detail-gallery-main-image">
+            <img data-src="{{ url }}" class="lazy img-responsive">
+        </a>
+    {% else -%}
+        {% set url = asset(imagePath(image.image), 'domain_images') -%}
+        <a href="{{url}}" data-fancybox="detail-gallery-main-image">
+            {{ tagPicture(url, '', filter) }}
+        </a>
+    {% endif -%}
+{% endmacro -%}
+
+{% macro galleryImage(gallery, isSample, filter = {}) -%}
+    {% set galleryItems = gallery|slice(1,(gallery|length)-1) -%}
+
+    {% for photo in galleryItems -%}
+        {% if isSample -%}
+            {% set url = photo.image.url -%}
+            <a href="{{url}}" data-fancybox="detail-gallery-thumb-images">
+                <img data-src="{{ url }}" class="lazy img-responsive">
+            </a>
+        {% else -%}
+            {% set url = asset(imagePath(photo.image), 'domain_images') -%}
+            <a href="{{url}}" data-fancybox="detail-gallery-thumb-images"  data-options='{"caption" : "{{photo.imageCaption}}"}'>
+                {{ tagPicture(url, '', filter) }}
+            </a>
+        {% endif -%}
+    {% endfor -%}
+{% endmacro -%}
+
+{% macro offerBy(listing,listing_level,reviewsTotal, listingDetailURL) -%}
+    {% if listing is not empty -%}
+        <div class="tab-item-heading">
+            <h4 class="heading h-4">{{ 'Offer by'|trans }}</h4>
+        </div>
+        <div class="tab-item-content">
+            {% if listing.logoImage is not empty or isSample -%}
+                {% if isSample -%}
+                    {% set logoImage =  asset('assets/images/placeholders/50x50.jpg') -%}
+                {% elseif listing.logoImage -%}
+                    {% set logoImage =  asset(imagePath(listing.logoImage), 'domain_images')|imagine_filter('logo_icon') -%}
+                {% endif -%}
+                {% if logoImage %}
+                    <div class="owner-picture">
+                        <img src="{{ logoImage }}" alt="{{ listing.title }}">
+                    </div>
+                {% endif %}
+            {% endif %}
+
+            <div class="owner-content">
+                {% if listing_level.hasDetail %}
+                    <a href="{{ listingDetailURL }}" class="heading owner-name">{{ listing.title }}</a>
+                {% else %}
+                    <div class="heading owner-name">{{ listing.title }}</div>
+                {% endif %}
+                {% if (listing_level.hasReview and getSetting('review_listing_enabled')) -%}
+                    <div class="reviews-vote">
+                        {% if listing.avgReview -%}
+                            <div class="reviews-rating">{{ listing.avgReview }}</div>
+                        {% endif -%}
+                        <div class="reviews-stars">
+                            {% for i in 0..4 %}
+                                <i class="fa fa-star{{ i < listing.avgReview ? '' : '-o' }}"></i>
+                            {% endfor %}
+                        </div>
+                        {% if reviewsTotal -%}
+                            <div class="reviews-count">
+                                {{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviewsTotal, {"%count%":reviewsTotal}) }}
+                            </div>
+                        {% endif -%}
+                    </div>
+                {% endif -%}
+                <div class="owner-actions">
+                    <a href="#" class="button button-sm is-secondary" data-module="listing" data-modal="contact" data-id="{{ listing.id }}">{{ 'Send message'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    {% endif -%}
+{% endmacro %}
+
+{% macro reviews(reviews, hasResponse) %}
+    {% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+    {% for review in reviews -%}
+        <div class="reviews-item">
+            <div class="review-picture">
+                {{ Profile.photo(review.profile) }}
+            </div>
+            <div class="review-content">
+                <div class="review-author">
+                    {% if review.profile.accountId != 0 %}
+                        {% if review.profile.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                            <a rel="nofollow" href="{{ Profile.friendlyUrl(review.profile) }}">
+                                {{ review.profile.firstName }} {{ review.profile.lastName }}
+                            </a>
+                        {% else %}
+                            {{ review.profile.firstName }} {{ review.profile.lastName }}
+                        {% endif %}
+                    {% else %}
+                        {{ review.reviewerName }}
+                    {% endif %}
+                </div>
+                <div class="review-date">
+                    {{ date(review.added)|localized_date('MMMM dd, yyyy') }}
+                    <div class="reviews-stars">
+                        {% for i in 0..4 %}
+                            <i class="fa fa-star{{ i < review.rating ? '' : '-o' }}"></i>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="review-description">
+                    <b>{{ review.reviewTitle }}</b><br>
+                    {{ review.review }}
+                </div>
+
+                {% do HookFire('reviewdetail_after_review', {'review': review}) %}
+
+                <div class="review-helpfull">
+                    {{ 'Did you find this review helpful?'|trans }}
+                    <div class="review-helpfull-vote">
+                        <div class="like vote-good" data-id="{{ review.id }}" data-type="like">
+                            <i class="fa fa-thumbs-up"></i>
+                            <div class="up-vote-count">
+                                {{ review.like }}
+                            </div>
+                        </div>
+                        <div class="like vote-bad" data-id="{{ review.id }}" data-type="dislike">
+                            <i class="fa fa-thumbs-down"></i>
+                            <div class="down-vote-count">
+                                {{ review.dislike }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if hasResponse and review.response is not empty and review.responseapproved -%}
+                    <div class="review-reply">
+                        <div class="reply-content">
+                            <div class="review-description">
+                                {{ review.response }}
+                            </div>
+                        </div>
+                    </div>
+                {% endif -%}
+            </div>
+        </div>
+    {% endfor %}
+{% endmacro %}

@@ -1,0 +1,32 @@
+search:
+    elasticsearch:
+        servers:
+            server1:
+                host: '%elastic_host%'
+                port: '%elastic_port%'
+    settings:
+        randomizationInterval: '20 minutes'
+        defaultSearchResultSize: 10
+        defaultSearchResultGridSize: 12
+        locationUnit: mi
+        aggregationSize: '9999'
+    map:
+        icons:
+            classified: classified.svg
+            deal: deal.svg
+            event: event.svg
+            listing: listing.svg
+            group:
+                url: pin.svg
+                textColor: '#FFFFFF'
+                height: 40
+                width: 40
+    seo:
+        friendlyUrlOrder:
+            - module
+            - category
+            - location
+            - keyword
+            - where
+            - startDate
+            - endDate

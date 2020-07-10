@@ -1,0 +1,42 @@
+{% if (content.linkPlayStore is not empty and content.labelAvailablePlayStore is not empty) or (content.linkAppleStore is not empty and content.labelAvailableAppleStore is not empty) -%}
+    <div class="thin-strip-base" data-type="6" data-bg="{{ content.backgroundColor }}" {{ content.lastItem ? 'last-item' : '' }}>
+        <div class="container">
+            <div class="wrapper">
+                {% if content.labelDownloadOurApp is not empty or content.labelAvailablePlataforms is not empty -%}
+                    <div class="content-download">
+                        {% if content.labelDownloadOurApp is not empty -%}
+                            <h2 class="heading h-2" data-trans="{{ 'Download our App'|trans({}, 'widgets') }}">
+                                {{ content.labelDownloadOurApp|trans({}, 'widgets') }}
+                            </h2>
+                        {% endif -%}
+                        {% if content.labelAvailablePlataforms is not empty -%}
+                            <div class="paragraph p-1" data-trans="{{ 'Available for iPhone and Android.'|trans({}, 'widgets') }}">
+                                {{ content.labelAvailablePlataforms|trans({}, 'widgets') }}
+                            </div>
+                        {% endif -%}
+                    </div>
+                {% endif -%}
+
+                <div class="content-stores">
+                    {% if content.linkPlayStore is not empty and content.labelAvailablePlayStore is not empty -%}
+                        <a href="{{ content.linkPlayStore }}" target="{{ content.checkboxOpenWindow }}" class="link-store">
+                            <div class="app-icon"><i class="fa fa-android"></i></div>
+                            <div class="app-info" data-trans="{{ 'Available on the Play Store'|trans({}, 'widgets') }}">
+                                <span>{{ content.labelAvailablePlayStore|trans({}, 'widgets') }}</span>
+                            </div>
+                        </a>
+                    {% endif %}
+
+                    {% if content.linkAppleStore is not empty and content.labelAvailableAppleStore is not empty -%}
+                        <a href="{{ content.linkAppleStore }}" target="{{ content.checkboxOpenWindow }}" class="link-store">
+                            <div class="app-icon"><i class="fa fa-apple"></i></div>
+                            <div class="app-info" data-trans="{{ 'Available on the Apple Store'|trans({}, 'widgets') }}">
+                                <span>{{ content.labelAvailableAppleStore|trans({}, 'widgets') }}</span>
+                            </div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif -%}

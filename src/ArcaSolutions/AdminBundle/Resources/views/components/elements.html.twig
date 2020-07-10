@@ -1,0 +1,89 @@
+{% extends 'AdminBundle:components:index.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        body { margin: 0 20px; }
+        h2 { font-weight: 300; }
+    </style>
+{% endblock -%}
+
+{% block content %}
+    <h2>Drag & Drop file</h2>
+    <hr><br>
+    <div class="dd-zone text-center">
+        <!-- D&D Zone-->
+        <div id="drag-and-drop-zone" class="uploader col-md-4 col-md-offset-4">
+            <h3>Drag & Drop Files Here <br><small>or</small></h3>
+            <div class="browser">
+                <label class="btn btn--medium btn--primary">
+                    <span>Choose your file</span>
+                    <input type="file" name="files[]" multiple="multiple" title='Click to add Files'>
+                </label>
+            </div>
+            <br><small>CSV or XLS format, maximum size 5MB</small>
+        </div>
+        <!-- /D&D Zone -->
+    </div>
+    <br><br>
+    <h2>Modal</h2>
+    <hr><br>
+
+    <br><br>
+    <h2>Progress bar</h2>
+    <hr><br>
+
+    <br><br>
+    <h2>Search</h2>
+    <hr><br>
+
+    <br><br>
+    <h2>Spinner</h2>
+    <hr><br>
+
+    <br><br>
+    <h2>Switch</h2>
+    <hr><br>
+    <div class="switch switch--small">
+        <input id="toggle1" class="toggle" type="checkbox">
+        <label for="toggle1"></label>
+    </div>
+    <div class="switch switch--small">
+        <input id="toggle2" class="toggle" type="checkbox" checked>
+        <label for="toggle2"></label>
+    </div>
+    <div class="switch switch--small">
+        <input id="toggle3" class="toggle" type="checkbox" disabled>
+        <label for="toggle3"></label>
+    </div>
+    <br>
+    <div class="switch switch--medium">
+        <input id="toggle4" class="toggle" type="checkbox">
+        <label for="toggle4"></label>
+    </div>
+    <div class="switch switch--medium">
+        <input id="toggle5" class="toggle" type="checkbox" checked>
+        <label for="toggle5"></label>
+    </div>
+    <div class="switch switch--medium">
+        <input id="toggle6" class="toggle" type="checkbox" disabled>
+        <label for="toggle6"></label>
+    </div>
+    <br><br>
+    <h2>Tooltip</h2>
+    <hr><br>
+    <br><br>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+    '@AdminBundle/Resources/public/styleguide/js/drag-drop/dd-zone.js'
+    '@AdminBundle/Resources/public/styleguide/js/drag-drop/demo.min.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}

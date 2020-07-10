@@ -1,0 +1,7 @@
+admin_styleguide:
+   resource: "@AdminBundle/Resources/config/styleguide.yml"
+   prefix:   /styleguide/
+
+admin_import:
+    resource: "@ImportBundle/Resources/config/routing.yml"
+    prefix:   /import/

@@ -1,0 +1,15 @@
+{%- set module = getModuleBanner() -%}
+{%- set bannersInfo = renderImageBanner(module, content.banners|cast_to_array, bannerCategories) -%}
+{%- if bannersInfo.banners -%}
+    {% if content.bannerType != "large-mobile" -%}
+        <div class="banner" type="{{ content.bannerType }}" is-wide="{{ content.isWide }}" data-bg="{{ content.backgroundColor }}" has-gap>
+            {{ bannersInfo.banners|raw }}
+        </div>
+    {% else -%}
+        <div class="banner" type="{{ content.bannerType }}" is-wide="{{ content.isWide }}" data-bg="{{ content.backgroundColor }}" data-count="{{ bannersInfo.counter }}" has-gap>
+            <div class="container">
+                {{ bannersInfo.banners|raw }}
+            </div>
+        </div>
+    {% endif -%}
+{%- endif -%}

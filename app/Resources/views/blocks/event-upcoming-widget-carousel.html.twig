@@ -1,0 +1,41 @@
+<div class="cards-upcoming">
+    <button class="upcoming-button" data-direction="previous"><i class="fa fa-angle-left"></i></button>
+    <button class="upcoming-button" data-direction="next"><i class="fa fa-angle-right"></i></button>
+    <div class="selected-date"></div>
+    <div class="cards-upcoming-wrapper">
+        {% for day in days -%}
+            <div class="calendar-sm" data-day="{{ day|date('Y-m-d') }}" is-active="{{ loop.index == 1 ? 'true' : 'false' }}" data-id="{{ loop.index }}">
+                <div class="month">{{ day|localized_date('MMM') }}</div>
+                <div class="heading day">{{ day|localized_date('dd') }}</div>
+                <div class="day-abbr">{{ day|localized_date('eee')|capitalize }}</div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="parent-cards-list">
+    {# Events here -#}
+</div>
+
+<script id="upcoming-event-carousel" type="text/x-jsrender">
+    <div class="cards-list" id="<%:id%>">
+        <%for data.events%>
+            <div class="card" data-columns="4">
+                <a href="<%:link%>" class="picture">
+                    <%:picture%>
+                </a>
+                <div class="content">
+                    <div class="content-info">
+                        <a href="<%:link%>" class="title heading h-4"><%:title%></a>
+                        <%if categories.length > 0 %>
+                            <div class="categories">{{ 'in'|trans }}
+                            <%for categories %><%if #index >= 1%>,<%/if%>
+                                <a href="<%>link%>" class="link"><%>title%></a><%/for%>
+                            </div>
+                        <%/if%>
+                    </div>
+                </div>
+            </div>
+        <%/for%>
+    </div>
+</script>

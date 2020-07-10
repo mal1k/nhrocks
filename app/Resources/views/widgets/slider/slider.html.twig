@@ -1,0 +1,9 @@
+{% set slider = contentSlider(content, 'default', 'common-slider') %}
+
+{% if slider is not empty %}
+    {# Render slider images #}
+    {{ slider.sliderBlock|raw }}
+
+    {{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+    {{ addJSFile("assets/js/widgets/hero/slider.js") -}}
+{% endif %}

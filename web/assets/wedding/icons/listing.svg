@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="38.7199" viewBox="0 0 32 38.7199">
+    <defs>
+        <style>.pin{fill:#fe8b90;}.circle{fill:#fff;}</style>
+    </defs>
+
+    <g>
+        <path class="pin" d="M4.5311,27.2346,15.66,38.72,27.1455,27.5907a16.1223,16.1223,0,0,0,.3562-22.7035A16.0238,16.0238,0,1,0,4.5311,27.2346Z"/>
+        <circle class="circle" cx="16.0164" cy="16.0164" r="6.2323"/>
+    </g>
+</svg>

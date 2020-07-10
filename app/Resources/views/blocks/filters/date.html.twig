@@ -1,0 +1,86 @@
+{#      Description:                                         -#}
+{# This page represents the Deal Filter HTML on Search pages -#}
+
+{#      Resources:                                           -#}
+
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+
+{# anyDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set anyDate = dateFilter.anyDateFilterOption -%}
+{# today \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set today = dateFilter.todayFilterOption -%}
+{# thisWeek \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set thisWeek = dateFilter.weekFilterOption -%}
+{# thisWeekend \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set thisWeekend = dateFilter.weekendFilterOption -%}
+{# thisMonth \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set thisMonth = dateFilter.monthFilterOption -%}
+{# customDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set customDate = dateFilter.customDateFilterOption -%}
+{# stardDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set stardDate = dateFilter.startDateString %}
+{# endDate \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{% set endDate = dateFilter.endDateString %}
+
+<div class="sidebar-item">
+    <div class="item-header sidebar-toggler">
+        <span class="paragraph p-2 item-title">
+            {{ "Date"|trans }}
+        </span>
+        <i class="fa fa-minus"></i>
+    </div>
+    <div class="item-body no-scroll">
+        <div class="category-item" is-selected="{{ anyDate.isSelected ? "true" : "false" }}" has-subcategory="false">
+            <div class="category-header">
+                <a href="{{ anyDate.searchPageUrl }}" class="category-link" rel="nofollow">
+                    {{ 'Any Date'|trans }}
+                </a>
+            </div>
+        </div>
+        <div class="category-item" is-selected="{{ today.isSelected ? "true" : "false" }}" has-subcategory="false">
+            <div class="category-header">
+                <a href="{{ today.searchPageUrl }}" class="category-link" rel="nofollow">
+                    {{ 'Today'|trans }}
+                </a>
+            </div>
+        </div>
+        <div class="category-item" is-selected="{{ thisWeek.isSelected ? "true" : "false" }}" has-subcategory="false">
+            <div class="category-header">
+                <a href="{{ thisWeek.searchPageUrl }}" class="category-link" rel="nofollow">
+                    {{ 'This week'|trans }}
+                </a>
+            </div>
+        </div>
+        <div class="category-item" is-selected="{{ thisWeekend.isSelected ? "true" : "false" }}" has-subcategory="false">
+            <div class="category-header">
+                <a href="{{ thisWeekend.searchPageUrl }}" class="category-link" rel="nofollow">
+                    {{ 'This weekend'|trans }}
+                </a>
+            </div>
+        </div>
+        <div class="category-item" is-selected="{{ thisMonth.isSelected ? "true" : "false" }}" has-subcategory="false">
+            <div class="category-header">
+                <a href="{{ thisMonth.searchPageUrl }}" class="category-link" rel="nofollow">
+                    {{ 'This month'|trans }}
+                </a>
+            </div>
+        </div>
+        <div class="category-item custom-item-datepicker">
+            <label>{{ 'Custom Date'|trans }}</label>
+            <div class="form-group">
+                <input type="text" class="input" autocomplete="off" name="start" id="startDateInput" value="{{ stardDate }}">
+                <span class="attr">{{ 'to'|trans }}</span>
+                <input type="text" class="input" autocomplete="off" name="end" id="endDateInput" value="{{ endDate }}">
+            </div>
+            <button id="dateFilterRefreshButton" class="button button-md is-primary" full-width="true" data-urlformat="{{ customDate.searchPageUrl }}">{{ 'Refresh search'|trans }}</button>
+        </div>
+    </div>
+</div>
+
+{{ addJSFile("assets/js/lib/datepicker/bootstrap-datepicker.min.js") }}
+{% if dateFilter.bootstrapDatepickerLanguage != "en" %}
+    {{ addJSFile("assets/js/lib/datepicker/locales/bootstrap-datepicker."~ dateFilter.bootstrapDatepickerLanguage ~".min.js") }}
+{% endif %}
+
+{{ addJSTwigParameter("Search.Filters.dateFilter", dateFilter) }}
+{{ addJSTwig("::js/filters/date.html.twig") }}

@@ -1,0 +1,221 @@
+.details-default{
+    >.details-modal{
+        &.is-sent{
+            .modal-default{
+                .modal-return{
+                    font-size: fontsize(size-18);
+                }
+            }
+        }
+
+        &.deals-coupon{
+            .deals-content{
+                .deals-content-item{
+                    .content-title{
+                        font-size: fontsize(size-12);
+                    }
+                }
+            }
+        }
+    }
+
+    >.details-header{
+        .details-general{
+            .details-info{
+                .details-categories{
+                    font-size: fontsize(size-14);
+                }
+
+                .details-old-price{
+                    font-size: fontsize(size-14);
+                }
+
+                .details-date{
+                    font-size: fontsize(size-16);
+                }
+
+                .details-reviews{
+                    .reviews-first{
+                        font-size: fontsize(size-14);
+                    }
+                }
+
+                .details-actions{
+                    .button{
+                        @media screen and (min-width: 992px){
+                            font-size: fontsize(size-14);
+                        }
+
+                        @media screen and (min-width: 1200px){
+                            font-size: fontsize(size-16);
+                        }
+                    }
+                }
+
+                .details-claim{
+                    font-size: fontsize(size-14);
+                }
+
+                .details-certified{
+                    .item-certified{
+                        .title{
+                            font-size: fontsize(size-14);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    >.detail-body{
+        .detail-body-content{
+            .tab-item{
+                &-features{
+                    .item-features{
+                        font-size: fontsize(size-14);
+                    }
+                }
+
+                &-reviews{
+                    .reviews-header{
+                        .reviews-vote{
+                            .reviews-rating{
+                                font-size: fontsize(size-16);
+                            }
+
+                            .reviews-count{
+                                font-size: fontsize(size-14);
+                            }
+                        }
+                    }
+
+                    .reviews-list{
+                        .reviews-item{
+                            .review-content{
+                                .review-author{
+                                    font-size: fontsize(size-16);
+                                }
+
+                                .review-date{
+                                    font-size: fontsize(size-12);
+                                }
+
+                                .review-description{
+                                    font-size: fontsize(size-16);
+                                }
+
+                                .review-helpfull{
+                                    font-size: fontsize(size-12);
+                                }
+                            }
+                        }
+                    }
+
+                    .reviews-pagination{
+                        .item-pagination{
+                            font-size: fontsize(size-16);
+                        }
+                    }
+                }
+
+                &-additional {
+                    .additional-item{
+                        .additional-question{
+                            font-size: fontsize(size-16);
+                        }
+
+                        .additional-answer{
+                            font-size: fontsize(size-16);
+                        }
+                    }
+                }
+
+                &-photos{
+                    .photos-list{
+                        .photos-item{
+                            .photos-caption{
+                                font-size: fontsize(size-16);
+                            }
+                        }
+                    }
+                }
+
+                &-location{
+                    .button{
+                        font-size: fontsize(size-16);
+                    }
+                }
+
+                &-hours{
+                    .hour-item{
+                        .day{
+                            font-size: fontsize(size-16);
+                        }
+
+                        .time{
+                            font-size: fontsize(size-16);
+                        }
+                    }
+                }
+
+                &-owner{
+                    .tab-item-content{
+                        .owner-content{
+                            .owner-name{
+                                font-size: fontsize(size-16);
+                            }
+
+                            .owner-email{
+                                font-size: fontsize(size-14);
+                            }
+                        }
+                    }
+                }
+
+                &-offer-time{
+                    .tab-item-content{
+                        .item-label{
+                            font-size: fontsize(size-14);
+                        }
+                    }
+                }
+
+                &-offer-owner{
+                    .owner-name{
+                        font-size: fontsize(size-16);
+                    }
+
+                    .reviews-vote{
+                        .reviews-rating{
+                            font-size: fontsize(size-16);
+                        }
+
+                        .reviews-count{
+                            font-size: fontsize(size-14);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &.details-articles{
+        .article-header{
+            .article-date{
+                font-size: fontsize(size-18);
+            }
+        }
+
+        .tab-content{
+            .article-author{
+                .article-content{
+                    font-size: fontsize(size-16);
+
+                    .author-name{
+                        font-size: fontsize(size-14);
+                    }
+                }
+            }
+        }
+    }
+}

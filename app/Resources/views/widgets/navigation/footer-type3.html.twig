@@ -1,0 +1,25 @@
+<footer class="footer" data-type="3" is-inverse="{{ content.backgroundColor == 'base' ? 'true' : 'false' }}">
+    <div class="footer-content">
+        {% set address = getSetting('contact_address') %}
+        {% set phone = getSetting('contact_phone') %}
+        {% if address|trim is not empty or phone is not empty %}
+            <div class="footer-contact">
+                {% if address|trim is not empty %}
+                    <div class="contact-item">
+                        <div class="icon icon-md"><i class="fa fa-map-marker"></i></div>
+                        {{ address }}
+                    </div>
+                {% endif %}
+                {% if phone is not empty %}
+                    <div class="contact-item">
+                        <div class="icon icon-md"><i class="fa fa-phone"></i></div>
+                        {{ phone }}
+                    </div>
+                {% endif %}
+                {% do HookFire('footer_type3_footer_contact_after_phone_rendering', {'content':content}, true) %}
+            </div>
+        {% endif %}
+        {{ socialMedia() }}
+    </div>
+    {{ copyright(content) }}
+</footer>

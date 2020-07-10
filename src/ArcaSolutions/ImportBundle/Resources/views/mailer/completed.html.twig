@@ -1,0 +1,10 @@
+{% block paragraph -%}
+    {{ "Site manager"|trans({}, 'administrator') }},<br/><br/>
+    {{ "Your "|trans({}, 'administrator') ~ module ~ "(s) import has been completed."|trans({}, 'administrator') }}<br/>
+{% endblock -%}
+
+{% block secondparagraph -%}
+    {{ "You can review the log here"|trans({}, 'administrator') }}:<br/>
+    {% set import_url = absolute_url('sitemgr/content/import/') %}
+    <a href="{{ import_url }}">{{ import_url }}</a>
+{% endblock -%}

@@ -1,0 +1,28 @@
+api_config:
+    path: /{version}/config.{_format}
+    defaults: { _controller: ApiBundle:DefaultV2:getConfig }
+    methods: [GET]
+    requirements:
+        _format: 'json'
+
+api_home:
+    type: rest
+    prefix: /v1
+    resource: "ArcaSolutions\ApiBundle\Controller\DefaultController"
+    name_prefix: api_1_ #namin collision
+
+api_home_2:
+    type: rest
+    prefix: /v2
+    resource: "ArcaSolutions\ApiBundle\Controller\DefaultV2Controller"
+    name_prefix: api_2_ #namin collision
+
+api_home_3:
+    type: rest
+    prefix: /v3
+    resource: "ArcaSolutions\ApiBundle\Controller\DefaultV3Controller"
+    name_prefix: api_3_ #namin collision
+
+NelmioApiDocBundle:
+    resource: "@NelmioApiDocBundle/Resources/config/routing.yml"
+    prefix:   /doc

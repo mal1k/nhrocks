@@ -1,0 +1,56 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{# item \Elastica\Result                                                           #}
+{# levelFeatures \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures     #}
+
+{# ModStores Hooks #}
+{% if HookExist("eventmapsummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("eventmapsummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("eventmapsummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("eventmapsummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{# itemLevelInfo \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['event'][data.level] -%}
+
+{% set detailURL      = url('event_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+<div class="summary-map-info">
+    <a href="{{ detailURL }}" class="heading h-4 map-info-title">{{ data.title }}</a>
+
+    {% if data.distance and data.distance < 40000 %}
+        <div class="map-info-distance">
+            {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
+        </div>
+    {% endif %}
+
+    {% if itemLevelInfo.hasEventTime and data.date.start is not null -%}
+        <div class="map-info-date">
+            <span class="info-date-label">{{ "When"|trans }}</span>
+            <div class="info-date-value"><strong>{{ data.date.start|date("D") }}</strong> - {{ data.date.start|date("m/d/Y") }}</div>
+            <div class="info-date-hour">
+                {% if data.time.start %}
+                    <strong>{{ data.time.start|date(getTimeFormat()) }}</strong>
+                {% endif %}
+
+                {% if data.time.end is not null -%}
+                    {{ "To:"|trans }}
+                    <strong>{{ data.time.end|date(getTimeFormat()) }}</strong>
+                {% endif -%}
+            </div>
+        </div>
+    {% endif -%}
+</div>

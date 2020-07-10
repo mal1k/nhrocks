@@ -1,0 +1,167 @@
+<script type="text/template" id="template-location-toggle-nav">
+    <div class="toggle-nav" data-order="%order%">
+        %items%
+    </div>
+</script>
+
+<script type="text/template" id="template-location-item">
+    <div class="nav-item">
+        <a href="%friendUrl%" class="link nav-link">
+            %name%
+        </a>
+        %button%
+    </div>
+</script>
+
+<script type="text/template" id="template-location-item-button">
+    <button class="button more-info-item" %collapse% data-ref="%ref%" data-state="close">
+        <span class="fa fa-angle-right"></span>
+    </button>
+</script>
+
+<script>
+    $(document).on("click", "button.more-info", function (e) {
+        e.preventDefault();
+
+        var $button = $(this);
+        var $parent = $button.parent();
+
+        if ($parent.hasClass('is-open')) {
+            $parent.removeClass('is-open');
+            $parent.siblings('.toggle-content').slideUp(400);
+            $parent.siblings('.toggle-content').find('.nav-wrapper').html('');
+        } else {
+            $('.toggle-item').each(function () {
+                if ($(this).find('.toggle-header').hasClass('is-open')) {
+                    $(this).find('.toggle-header').removeClass('is-open');
+                    $(this).find('.toggle-content').slideUp(400);
+                    $(this).find('.toggle-content').find('.nav-wrapper').html('');
+                }
+            });
+
+            getLocations($button, $button.data("itemid"), $button.data("level"), $button.data("friendlyurl"), "{{ routing }}");
+        }
+    });
+
+    $(document).on("click", "button.more-info-item", function (e) {
+        e.preventDefault();
+
+        var $button = $(this);
+
+        getLocations($button, $button.data("itemid"), $button.data("level"), $button.data("friendlyurl"), "{{ routing }}");
+
+    });
+
+    function hideColumns(since, $button) {
+        return new Promise(function (resolve, reject) {
+            for (var i = since; i <= 4; i++) {
+                var colEl = $("[data-order='" + i + "'");
+                colEl.fadeOut(400).promise().done(function () {
+                    if(i === 4) {
+                        resolve();
+                    }
+                });
+                colEl.find('.is-selected').each(function () {
+                    $button.removeClass('is-selected');
+                });
+            }
+        });
+    }
+
+    async function openNextColumn(parentIsSelected, $order, $button, since) {
+        // Hide all next
+        hideColumns(since, $button).then(function () {
+            // Clean current column selection
+            $("[data-order='" + $order + "']").find('.is-selected').each(function () {
+                $(this).removeClass('is-selected');
+            });
+
+            if (!parentIsSelected) {
+                var $element = $("[data-order='" + $order + "'");
+                var $next = $("[data-order='" + ($order + 1) + "'");
+                $button.parent().toggleClass("is-selected");
+                $element.toggleClass("is-open");
+                $next.animate({width: 'toggle'});
+            }
+        });
+    }
+
+    function getLocations(element, id, level, friendlyUrl, routing) {
+        var $button = element;
+
+        $button.attr("disabled", true);
+
+        if ($button.find('span.fa')) {
+            $button.find('span.fa').removeClass('fa-angle-right');
+            $button.find('span.fa').addClass('fa-spinner fa-pulse');
+        }
+
+        $.post("{{ path(getModule() ~ "_locations")|raw }}", {id: id, level: level, routing: routing}, "json")
+            .done(function (locations) {
+
+                var items = '';
+                var ref = $button.data('ref') + 1;
+                var $parent = $button.parent();
+                var order = (ref ? ref : $parent.siblings('.toggle-content').find('.nav-wrapper > .toggle-nav').length + 1);
+                var toggleNav = $('#template-location-toggle-nav').html();
+
+                toggleNav = toggleNav.replace(/\%order\%/g, order);
+
+                if (locations) {
+                    $.each(locations, function (i, location) {
+
+                        var collapse = '';
+                        var button = '';
+                        var href = location.item.friendlyUrl ? location.item.friendlyUrl : 'javascript:;';
+
+                        if (location.children) {
+                            collapse = 'data-itemId="' + location.item.id + '" data-level="' + location.level + '"  data-friendlyUrl="' + location.item.friendlyUrl + '" data-toggle="collapse" data-parent=' + id + '-' + level;
+                            button = $('#template-location-item-button').html();
+                            button = button.replace(/\%ref\%/g, order);
+                            button = button.replace(/\%collapse\%/g, collapse);
+                        }
+
+                        var item = $('#template-location-item').html();
+
+                        item = item.replace(/\%friendUrl\%/g, href);
+                        item = item.replace(/\%name\%/g, location.item.name);
+                        item = item.replace(/\%button\%/g, button);
+
+                        items += item;
+                    });
+                }
+
+                toggleNav = toggleNav.replace(/\%items\%/g, items);
+
+                if ($button.hasClass('more-info-item')) {
+
+                    var $openedToggleNav = $button.parents('.nav-wrapper').find(".toggle-nav[data-order='" + ref + "']");
+
+                    if($openedToggleNav.length){
+                        $openedToggleNav.remove();
+                    }
+
+                    $button.parents('.nav-wrapper').append(toggleNav);
+
+                    var parentIsSelected = $button.hasClass("is-selected");
+                    var $order = $button.data("ref");
+                    var since = $order + 1;
+
+                    // Open next column if clicked item isn't selected (new selection)
+                    openNextColumn(parentIsSelected, $order, $button, since);
+
+                } else {
+                    $parent.siblings('.toggle-content').find('.nav-wrapper').html(toggleNav);
+                    $parent.next().slideToggle(400);
+                    $parent.toggleClass("is-open");
+                }
+
+                if ($button.find('span.fa')) {
+                    $button.find('span.fa').removeClass('fa-spinner fa-pulse');
+                    $button.find('span.fa').addClass('fa-angle-right');
+                }
+
+                $button.removeAttr('disabled');
+            });
+    }
+</script>

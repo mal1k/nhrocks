@@ -1,0 +1,7 @@
+{# banner \ArcaSolutions\BannersBundle\Entity\Banner #}
+<a href="{{ url }}" {% if banner.targetWindow == 2 %} target="_blank" rel="noopener noreferrer" {% endif %} class="banner-link banner-sponsored-link">
+    <span class="title">{{ banner.caption }}</span>
+    {% if banner.contentLine1 %}<span class="text">{{ banner.contentLine1 }}</span>{% endif %}
+    {% if banner.contentLine2 %}<span class="text">{{ banner.contentLine2 }}</span>{% endif %}
+    <span class="url">{{ displayUrl }}</span>
+</a>

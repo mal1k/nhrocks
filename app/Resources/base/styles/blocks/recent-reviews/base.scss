@@ -1,0 +1,162 @@
+[data-type="recent-reviews"]{
+    .cards-list{
+        .card{
+            &:hover{
+                .picture{
+                    transform: scale(1);
+
+                    &:before{
+                        top: 50%;
+                    }
+                }
+            }
+
+            .picture{
+                position: relative;
+
+                &:before{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    opacity: 0.75;
+                    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0), #000000);
+                    transition: $transitions;
+                    z-index: 5;
+                }
+
+                .picture-info{
+                    position: absolute;
+                    z-index: 5;
+                    bottom: 16px;
+                    left: 16px;
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: space-between;
+                    flex-wrap: wrap;
+                    width: calc(100% - 32px);
+
+                    .picture-icon{
+                        width: 48px;
+                        height: 48px;
+                        border-radius: $border-radius-icon;
+                        overflow: hidden;
+                    }
+
+                    .icon{
+                        width: 48px;
+                        height: 48px;
+                        border-radius: $border-radius-icon;
+                        background: customColor(color-white, transp-75);
+                        font-size: 24px;
+                        color: white;
+                    }
+
+                    .heading{
+                        color: white;
+                        width: calc(100% - 64px);
+                    }
+                }    
+            }
+
+            .content{
+                .title{
+                    font-weight: bold;
+                }
+            }
+        }
+    }
+
+    &[data-bg="brand"]{
+        .cards-list{
+            .card{
+                .content{
+                    .title{
+                        color: customColor(color-white, base);
+                    }
+
+                    .description{
+                        .paragraph{
+                            color: customColor(color-white, transp-75);
+                        }
+                    }
+
+                    .reviews{
+                        .reviews-stars{
+                            .fa-star-o{
+                                color: customColor(color-white, transp-75);
+                            }
+                        }
+
+                        .reviews-count{
+                            color: customColor(color-white, transp-75);
+                        }
+                    }
+
+                    .author{
+                        .author-picture{
+                            border-color: customColor(color-white, transp-75);
+
+                            .fa{
+                                color: customColor(color-white, transp-75);
+                            }
+                        }
+
+                        .author-name{
+                            color: customColor(color-white, transp-75);
+                        }
+
+                        .author-days{
+                            color: customColor(color-white, transp-50);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[scrollable=""],
+    &[scrollable="false"]{
+        &[mobile-columns="true"]{
+            .cards-list{
+                @media screen and (max-width: 425px){
+                    .card{
+                        .picture{
+                            .picture-info{
+                                .icon{
+                                    display: none;
+                                }
+
+                                .heading{
+                                    width: 100%;
+                                    font-size: fontsize(size-16);
+                                }
+                            }
+                        }
+
+                        .content{
+                            margin-top: 16px;
+
+                            .description{
+                                max-height: 100px;
+                                overflow: auto;
+                            }
+
+                            .author{
+                                .author-picture{
+                                    display: none;
+                                }
+
+                                .author-info{
+                                    margin-left: 0;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

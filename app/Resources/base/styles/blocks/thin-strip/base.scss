@@ -1,0 +1,396 @@
+.thin-strip-base{
+    @include block-padding;
+
+    &#thin-strip-search{
+        .content-form{
+            flex-wrap: wrap;
+            
+            @media screen and (min-width: 992px){
+                flex-wrap: nowrap;
+            }
+        }
+    }
+
+    .wrapper{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+
+        > .content-social{
+            display: flex;
+            flex-wrap: wrap;
+
+            .social-icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-right: 16px;
+                text-decoration: none;
+                transition: $transitions;
+
+                @include mq-sm{
+                    margin-right: 4px;
+                }
+
+                @include mq-md{
+                    margin-right: 8px;
+                }
+
+                &.has-border{
+                    width: 36px;
+                    height: 36px;
+                    border: 1px solid customColor(color-white, base);
+                    border-radius: 50%;
+
+                    &:hover{
+                        border-color: customColor(highlight, base);
+                    }
+                }
+
+                &:hover{
+                    .icon{
+                        color: customColor(highlight, base);
+                    }
+                }
+
+                .icon{
+                    font-size: 16px;
+                    color: customColor(color-white, base);
+                    transition: $transitions;
+                }
+            }   
+        }
+
+        > .content-form{
+            @media screen and (min-width: 768px){
+                margin-top: 16px;
+            }
+
+            @media screen and (min-width: 1024px){
+                margin-top: 0;
+            }
+
+            .input-group{
+                &:nth-child(2){
+                    width: 100%;
+
+                    @media screen and (min-width: 768px){
+                        width: 342px;
+                    }
+        
+                    @media screen and (min-width: 1024px){
+                        width: 270px;
+                    }
+                    
+                    @media screen and (min-width: 1200px){
+                        width: 385px;
+                    }
+                }
+                
+                &:nth-child(3){
+                    width: 100%;
+
+                    @media screen and (min-width: 768px){
+                        width: 218px;
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-type="1"]{
+        .wrapper{
+            > .content-location{
+                display: flex;
+                align-items: center;
+                flex-wrap: wrap;
+
+                @include mq-sm{
+                    max-width: 310px;
+                }
+                
+                @include mq-md{
+                    max-width: 345px;
+                }
+                
+                @include mq-lg{
+                    max-width: 360px;
+                }
+
+                @include mq-tablet{
+                    max-width: 100%;
+                }
+
+                @include mq-laptop{
+                    max-width: 310px;
+                }
+    
+                .icon{
+                    color: customColor(color-white, base);
+                    margin-right: 8px;
+                }
+    
+                .paragraph{
+                    color: customColor(color-white, base);
+                    margin-right: 16px;
+                }
+    
+                .link{
+                    color: customColor(link, base);
+                }
+            }
+        }
+
+        &[is-inverse="true"]{
+            background: customColor(color-white, base);
+
+            .wrapper{
+                > .content-location{
+                    .icon{
+                        color: customColor(neutral, base);
+                    }
+        
+                    .paragraph{
+                        color: customColor(neutral, base);
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-type="2"]{
+        .wrapper{
+            justify-content: center;
+
+            > .content-form{
+                margin-top: 0;
+                
+                .form-toggle{
+                    top: 6px;
+                }
+            }
+        }
+    }
+
+    &[data-type="3"]{
+        .wrapper{
+            justify-content: center;
+        }
+    }
+
+    &[data-type="4"]{
+        display: none;
+
+        @media screen and (min-width: 992px){
+            display: block;
+        }
+        
+        .wrapper{
+            justify-content: center;
+
+            > .content-form{
+                margin-top: 0;
+
+                .form-toggle{
+                    top: 6px;
+                }
+                
+                .input-group{
+                    width: 100%;
+                    
+                    @media screen and (min-width: 992px){
+                        width: auto;
+                        
+                        &:nth-child(3){
+                            width: 280px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-type="5"]{
+        .wrapper{
+            > .content-contact{
+                display: flex;
+                flex-wrap: wrap;
+
+                .paragraph{
+                    color: customColor(color-white, base);
+                    display: flex;
+                    align-items: center;
+                    margin-right: 32px;
+
+                    &:last-child{
+                        margin-right: 0;
+                    }
+
+                    .icon{
+                        color: customColor(color-white, base);
+                        margin-right: 16px;
+                    }
+
+                    a{
+                        color: customColor(color-white, base);
+                    }
+                }
+            }
+
+            > .content-social{
+                margin-top: 16px;
+
+                @include mq-min-screen(768px){
+                    margin-top: 0;
+                }
+
+                .social-icon{
+                    @include mq-tablet{
+                        margin-right: 8px;
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-type="6"]{
+        padding: 24px 0;
+
+        @include mq-min-screen(768px){
+            padding: 48px 0;
+        }
+
+        .wrapper{
+            > .content-download{
+                max-width: 100%;
+                
+                @media screen and (min-width: 992px){
+                    max-width: 50%;
+                }
+
+                .heading{
+                    color: customColor(color-white, base);
+                }
+
+                .paragraph{
+                    color: customColor(color-white, base);
+                    opacity: .75;
+
+                    @include mq-min-screen(1024px){
+                        margin-top: 16px;
+                    }
+                }
+            }
+
+            > .content-stores{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                margin-top: 24px;
+                
+                @media screen and (min-width: 1200px){
+                    margin-top: 0;
+                }
+
+                .link-store{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 100%;
+                    background: black;
+                    border: 1px solid white;
+                    border-radius: $border-radius-button;
+                    color: white;
+                    padding: 8px 16px;
+                    text-decoration: none;
+                    max-width: 100%;
+                    width: 100%;
+
+                    @media screen and (min-width: 768px){
+                        max-width: 230px;
+                        width: auto;
+                    }
+
+                    &:not(:first-child){
+                        margin-top: 16px;
+
+                        @media screen and (min-width: 768px){
+                            margin-left: 16px;
+                            margin-top: 0;
+                        }
+                    }
+
+                    .app-icon{
+                        font-size: 24px;
+                        line-height: 1;
+
+                        @media screen and (min-width: 768px){
+                            font-size: 42px;
+                        }
+                    }
+
+                    .app-info{
+                        max-width: calc(100% - 16px);
+                        margin-left: 16px;
+
+                        span{
+                            font-size: 13px;
+                            display: block;
+                            line-height: 1;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-bg="neutral"],
+    &[data-bg="base"]{
+        .wrapper{
+            > .content-contact{
+                .icon{
+                    color: customColor(brand, base);
+                }
+    
+                .paragraph{
+                    color: customColor(brand, base);
+
+                    .icon{
+                        color: customColor(brand, base);
+                    }
+
+                    a{
+                        color: customColor(brand, base);
+                    }
+                }
+            }
+
+            > .content-social{
+                .social-icon{
+                    border-color: customColor(brand, transp-50);
+
+                    .icon{
+                        color: customColor(brand, transp-50);
+                    }
+                }
+            }
+
+            > .content-download{
+                .heading{
+                    color: customColor(brand, base);
+                }
+    
+                .paragraph{
+                    color: customColor(brand, base);
+                }
+            }
+
+            > .content-stores{
+                .link-store{
+                    border-color: customColor(brand, base);
+                }
+            }
+        }
+    }
+}

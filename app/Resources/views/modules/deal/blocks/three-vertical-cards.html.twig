@@ -1,0 +1,131 @@
+{% if items|length > 0 %}
+    {% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+    <div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h4 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h4>
+                {% if widgetLink is not empty %}
+                    <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more deals'|trans({},'widgets') }}">
+                        {{ content.widgetLink.label|trans({}, 'widgets') }}
+                    </a>
+                {% endif %}
+            </div>
+            <div class="cards-list cards-list-half">
+                {% for item in items -%}
+                    {% set itemData = getCardData(item, 'deal') %}
+
+                    {% if loop.index == 1 %}
+                        <div class="card" data-columns="2">
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                {% if itemData.percentage %}
+                                    <div class="badge">{{ '%percentage%% OFF'|trans({'%percentage%': itemData.percentage|number_format}) }}</div>
+                                {% endif %}
+                                {% if item.thumbnail is defined and item.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(item.thumbnail, 'domain_images'), item.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(title) }}
+                                {% endif -%}
+                            </a>
+                            <div class="content">
+                                <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                {# description -#}
+                                {% set description = item.description -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{ description|length > 180 ? description|slice(0,179) ~ '...' : description }}</p>
+                                    </div>
+                                {% endif %}
+
+                                <div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>
+                                {% if itemData.dealvalue > 0 %}
+                                    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>
+                                {% else %}
+                                    <div class="heading h-3 price">{{ 'Free'|trans }}</div>
+                                {% endif %}
+                                {# shows until date -#}
+                                {# if endDate does not exist the data it from elasticsearch -#}
+                                {% if itemData.endDate is defined %}
+                                    {% set endDate = itemData.endDate %}
+                                {% else %}
+                                    {% set endDate = date(item.date.end) %}
+                                {% endif %}
+
+                                {# workaround to fix edirectory behavior #}
+                                {% set newEndDate = endDate|date_modify('+1 day') %}
+                                {% set interval = newEndDate.diff(date('now')) -%}
+
+                                {% if interval.days <= 30 -%}
+                                    <div class="paragraph p-2 valid-time">{{ '{0} Less than one day|{1} One day left|]1,Inf] %count% Days left'|transchoice(interval.days) }}</div>
+                                {% else %}
+                                    <div class="paragraph p-2 valid-time">
+                                        <b>{{ "Valid Until"|trans }} </b>{{ newEndDate|localized_date('MMMM dd, yyyy') }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="card" data-columns="4">
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                {% if itemData.percentage %}
+                                    <div class="badge">{{ '%percentage%% OFF'|trans({'%percentage%': itemData.percentage|number_format}) }}</div>
+                                {% endif %}
+                                {% if item.thumbnail is defined and item.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(item.thumbnail, 'domain_images'), item.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(title) }}
+                                {% endif -%}
+                            </a>
+                            <div class="content">
+                                <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                {# description -#}
+                                {% set description = item.description -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{ description|length > 250 ? description|slice(0,249) ~ '...' : description }}</p>
+                                    </div>
+                                {% endif %}
+
+                                <div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>
+                                {% if itemData.dealvalue > 0 %}
+                                    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>
+                                {% else %}
+                                    <div class="heading h-3 price">{{ 'Free'|trans }}</div>
+                                {% endif %}
+                                {# shows until date -#}
+                                {# if endDate does not exist the data it from elasticsearch -#}
+                                {% if itemData.endDate is defined %}
+                                    {% set endDate = itemData.endDate %}
+                                {% else %}
+                                    {% set endDate = date(item.date.end) %}
+                                {% endif %}
+
+                                {# workaround to fix edirectory behavior #}
+                                {% set newEndDate = endDate|date_modify('+1 day') %}
+                                {% set interval = newEndDate.diff(date('now')) -%}
+
+                                {% if interval.days <= 30 -%}
+                                    <div class="paragraph p-2 valid-time">{{ '{0} Less than one day|{1} One day left|]1,Inf] %count% Days left'|transchoice(interval.days) }}</div>
+                                {% else %}
+                                    <div class="paragraph p-2 valid-time">
+                                        <b>{{ "Valid Until"|trans }} </b>{{ newEndDate|localized_date('MMMM dd, yyyy') }}</div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor -%}
+            </div>
+        </div>
+    </div>
+{% endif %}

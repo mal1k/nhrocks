@@ -1,0 +1,218 @@
+.button{
+    // Button Reset
+    padding: 0;
+    line-height: 1.15;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+    transition: $transitions;
+    text-decoration: none;
+    display: inline-block;
+
+    &:focus, &:visited, &:active{
+        outline: none;
+    }
+    
+    &:focus, &:visited, &:active, &:hover{
+        text-decoration: none;
+    }
+
+    // Button Sizes
+    &.button-lg{
+        padding-top: button(lg, padding-y);
+        padding-bottom: button(lg, padding-y);
+        padding-left: button(lg, padding-x);
+        padding-right: button(lg, padding-x);
+        border-radius: $border-radius-button;
+        font-size: button(lg, font-size);
+    }
+                                      
+    &.button-bg{
+        padding-top: button(bg, padding-y);
+        padding-bottom: button(bg, padding-y);
+        padding-left: button(bg, padding-x);
+        padding-right: button(bg, padding-x);
+        border-radius: $border-radius-button;
+        font-size: button(bg, font-size);
+    }
+    
+    &.button-md{
+        padding-top: button(md, padding-y);
+        padding-bottom: button(md, padding-y);
+        padding-left: button(md, padding-x);
+        padding-right: button(md, padding-x);
+        border-radius: $border-radius-button;
+        font-size: button(md, font-size);
+    }
+    
+    &.button-sm{
+        padding-top: button(sm, padding-y);
+        padding-bottom: button(sm, padding-y);
+        padding-left: button(sm, padding-x);
+        padding-right: button(sm, padding-x);
+        border-radius: $border-radius-button;
+        font-size: button(sm, font-size);
+    }
+
+    // Buton Types
+    &.is-primary{
+        background: customColor(highlight, base);
+        @include color-contrast(color(highlight, base));
+
+        &:focus, &:visited, &:active{
+            background: customColor(highlight, dark);
+        }
+
+        &:hover{
+            background: customColor(highlight, light-2);
+        }
+
+        &.disabled{
+            opacity: .50;
+            background: customColor(highlight, base);
+            cursor: not-allowed;
+        }
+    }
+
+    &.is-secondary{
+        background: customColor(neutral, transp-10);
+        color: customColor(neutral, base);
+
+        &:focus, &:visited, &:active{
+            background: customColor(neutral, transp-25);
+        }
+
+        &:hover{
+            background: customColor(neutral, transp-15);
+        }
+
+        &.is-loading{
+            background: customColor(neutral, transp-15);
+        }
+
+        &.disabled{
+            opacity: .50;
+            background: customColor(neutral, transp-10);
+            cursor: not-allowed;
+        }
+    }
+    
+    &.is-success{
+        background: customColor(success, base);
+        color: customColor(color-white, base);
+
+        &:focus, &:visited, &:active{
+            background: customColor(success, transp-25);
+        }
+
+        &:hover{
+            background: customColor(success, transp-15);
+        }
+
+        &.is-loading{
+            background: customColor(success, transp-15);
+        }
+
+        &.disabled{
+            opacity: .50;
+            background: customColor(success, transp-10);
+            cursor: not-allowed;
+        }
+    }
+    
+    &.is-warning{
+        background: customColor(warning, base);
+        color: customColor(color-white, base);
+
+        &:focus, &:visited, &:active{
+            background: customColor(warning, transp-25);
+        }
+
+        &:hover{
+            background: customColor(warning, transp-15);
+        }
+
+        &.is-loading{
+            background: customColor(warning, transp-15);
+        }
+
+        &.disabled{
+            opacity: .50;
+            background: customColor(warning, transp-10);
+            cursor: not-allowed;
+        }
+    }
+    
+    &.is-attention{
+        background: customColor(attention, base);
+        color: customColor(color-white, base);
+
+        &:focus, &:visited, &:active{
+            background: customColor(attention, transp-25);
+        }
+
+        &:hover{
+            background: customColor(attention, transp-15);
+        }
+
+        &.is-loading{
+            background: customColor(attention, transp-15);
+        }
+
+        &.disabled{
+            opacity: .50;
+            background: customColor(attention, transp-10);
+            cursor: not-allowed;
+        }
+    }
+
+    &.is-outline{
+        background: transparent;
+        border: 1px solid customColor(neutral, transp-75);
+        color: customColor(neutral, base);
+        opacity: .75;
+
+        &:focus, &:visited, &:active, &.is-loading{
+            border-color: customColor(neutral, transp-50);
+            opacity: .5;
+        }
+
+        &:hover{
+            border-color: customColor(neutral, base);
+            opacity: 1;
+        }
+
+        &.disabled{
+            opacity: .25;
+            border-color: customColor(neutral, transp-75);
+            cursor: not-allowed;
+        }
+    }
+
+    &.is-inverse{
+        background: transparent;
+        border: 1px solid customColor(color-white, transp-75);
+        color: customColor(color-white, base);
+
+        &:focus, &:visited, &:active, &.is-loading{
+            border-color: customColor(color-white, transp-50);
+            opacity: .5;
+        }
+
+        &:hover{
+            border-color: customColor(color-white, base);
+            opacity: 1;
+        }
+
+        &.disabled{
+            opacity: .25;
+            border-color: customColor(color-white, transp-75);
+            cursor: not-allowed;
+        }
+    }
+
+    &[full-width="true"]{
+        display: block;
+        width: 100%;
+    }
+}

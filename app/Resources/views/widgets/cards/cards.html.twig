@@ -1,0 +1,5 @@
+{# Featured Listings -#}
+{% set contentCards = contentCards(content, widgetLink) -%}
+{% if contentCards is not empty -%}
+    {{ contentCards|raw }}
+{% endif -%}

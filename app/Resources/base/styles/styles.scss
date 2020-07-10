@@ -1,0 +1,176 @@
+/* ARQUIVOS DE CONFIGURAÇÕES */
+@import 'config/_initial';
+@import 'config/_reset.scss';
+@import 'config/_grid.scss';
+/* ARQUIVOS DE CONFIGURAÇÕES */
+
+/* ARQUIVOS DE FUNÇÕES */
+@import 'functions/_functions';
+@import 'functions/_mixins';
+/* ARQUIVOS DE FUNÇÕES */
+
+/* ARQUIVOS DE TEMAS */
+@import 'themes/_colors';
+@import 'themes/_spaces';
+@import 'themes/_class';
+/* ARQUIVOS DE TEMAS */
+
+/* ARQUIVOS DE COMPONENTS */
+@import 'components/_grid';
+@import 'components/_buttons';
+@import 'components/_icons';
+@import 'components/_placeholders';
+@import 'components/_inputs';
+@import 'components/_link';
+@import 'components/_forms';
+@import 'components/_cards';
+@import 'components/_calendar';
+@import 'components/_navbar';
+@import 'components/_typography';
+@import 'components/_adminbar';
+@import 'components/_modal';
+@import 'components/_tables';
+@import 'components/_smartbanner';
+@import 'components/_alerts';
+@import 'components/_gaps';
+@import 'components/_lazyload';
+/* ARQUIVOS DE COMPONENTS */
+
+/* ARQUIVOS DE TEMPLATES */
+@import 'templates/base';
+/* ARQUIVOS DE TEMPLATES */
+
+/* ARQUIVOS DE BLOCOS */
+
+// CATEGORIES BLOCKS
+@import 'blocks/categories/config';
+@import 'blocks/categories/base';
+
+// THIN STRIP BLOCKS
+@import 'blocks/thin-strip/config';
+@import 'blocks/thin-strip/base';
+
+// HERO BLOCKS
+@import 'blocks/hero/config';
+@import 'blocks/hero/base';
+
+// FOOTER BLOCKS
+@import 'blocks/footer/config';
+@import 'blocks/footer/base';
+
+// BUSINESS BLOCKS
+@import 'blocks/business/config';
+@import 'blocks/business/base';
+
+// EVENTS BLOCKS
+@import 'blocks/events/config';
+@import 'blocks/events/base';
+
+// CLASSIFIEDS BLOCKS
+@import 'blocks/classifieds/config';
+@import 'blocks/classifieds/base';
+
+// ARTICLES BLOCKS
+@import 'blocks/articles/config';
+@import 'blocks/articles/base';
+
+// RECENT REVIEWS BLOCKS
+@import 'blocks/recent-reviews/config';
+@import 'blocks/recent-reviews/base';
+
+// LATEST MEMBERS BLOCKS
+@import 'blocks/latest-members/config';
+@import 'blocks/latest-members/base';
+
+// DEALS BLOCKS
+@import 'blocks/deals/config';
+@import 'blocks/deals/base';
+
+// ADS BLOCKS
+@import 'blocks/ads/config';
+@import 'blocks/ads/base';
+
+// PRICING PLANS BLOCKS
+@import 'blocks/pricing-plans/config';
+@import 'blocks/pricing-plans/base';
+
+// HEADER BLOCKS
+@import 'blocks/header/config';
+@import 'blocks/header/base';
+
+// VIDEO GALLERY BLOCKS
+@import 'blocks/video-gallery/config';
+@import 'blocks/video-gallery/base';
+
+// VERTICAL HORIZONTAL CARDS BLOCKS
+@import 'blocks/vertical-horizontal-cards/config';
+@import 'blocks/vertical-horizontal-cards/base';
+
+// TWO COLUMNS HORIZONTAL CARDS BLOCKS
+@import 'blocks/two-columns-horizontal-cards/config';
+@import 'blocks/two-columns-horizontal-cards/base';
+
+// CENTRALIZED HIGHLIGHTED CARDS BLOCKS
+@import 'blocks/centralized-highlight-cards/config';
+@import 'blocks/centralized-highlight-cards/base';
+
+// SECTION HEADERS BLOCKS
+@import 'blocks/section-headers/config';
+@import 'blocks/section-headers/base';
+
+// DETAILS BLOCKS
+@import 'blocks/details/config';
+@import 'blocks/details/base';
+
+// SIGN MODAL BLOCKS
+@import 'blocks/sign-modal/config';
+@import 'blocks/sign-modal/base';
+
+// CONTACT US BLOCKS
+@import 'blocks/contact-us/config';
+@import 'blocks/contact-us/base';
+
+// FAQ BLOCKS
+@import 'blocks/faq/config';
+@import 'blocks/faq/base';
+
+// CUSTOM CONTENT BLOCKS
+@import 'blocks/custom-content/config';
+@import 'blocks/custom-content/base';
+
+// RESULTS BLOCKS
+@import 'blocks/results/config';
+@import 'blocks/results/base';
+
+/* ARQUIVOS DE BLOCOS */
+
+/* CUSTOM FILES */
+@import 'blocks/articles/font';
+@import 'blocks/categories/font';
+@import 'blocks/deals/font';
+@import 'blocks/details/font';
+@import 'blocks/events/font';
+@import 'blocks/footer/font';
+@import 'blocks/header/font';
+@import 'blocks/hero/font';
+@import 'blocks/latest-members/font';
+@import 'blocks/pricing-plans/font';
+@import 'blocks/sign-modal/font';
+@import 'blocks/thin-strip/font';
+@import 'blocks/video-gallery/font';
+/* CUSTOM FILES */
+
+/* ARQUIVOS DE PAGINAS */
+@import 'pages/home';
+@import 'pages/members';
+@import 'pages/claim';
+@import 'pages/error';
+/* ARQUIVOS DE PAGINAS */
+
+/* ARQUIVOS DE MODSTORES */
+@import 'modstore/modstore';
+/* ARQUIVOS DE MODSTORES */
+
+/* ARQUIVOS DE PLUGINS */
+@import 'plugins/timepicker';
+/* ARQUIVOS DE PLUGINS */

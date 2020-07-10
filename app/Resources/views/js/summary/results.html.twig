@@ -1,0 +1,53 @@
+<script>
+    var geoLocation = eDirectory.Utility.Geolocation.getInstance("{{ geolocationCookieName }}");
+    var sorter = new eDirectory.Search.Sorter($("#searchSorter"), geoLocation);
+
+    $(document).ready(function () {
+        var type = $('.result-type.is-selected').data('type');
+
+        if(type) {
+            Cookies.set('edirectory_viewmode', type);
+        } else {
+            Cookies.set('edirectory_viewmode', 'list-view');
+        }
+
+        $(".result-type").on("click", function () {
+            var viewType = $(this).data('type');
+
+            $(".result-type").each(function(){
+                $(this).removeClass('is-selected');
+            });
+
+            $(this).addClass('is-selected');
+
+            Cookies.set("edirectory_viewmode", viewType);
+
+            if(viewType == 'map-view'){
+                $(".summary-list").hide().removeClass('is-active');
+                $(".summary-list-map").css('display','').addClass('is-active');
+                $(".results-pagination").hide();
+            } else {
+                $(".summary-list-map").hide().removeClass('is-active');
+                $(".summary-list").attr("list-type", viewType).css('display','').addClass('is-active');
+                $(".results-pagination").show();
+            }
+        });
+
+        sorter.initialize();
+
+        $(".subcategory-toggler").on("click", function () {
+            $(this).parent().next('.category-subcategory').slideToggle(400);
+            $(this).find('.fa').toggleClass('fa-plus').toggleClass('fa-minus');
+        });
+
+        $(".refine-button").on("click", function(){
+            $(".sidebar-wrapper").slideToggle(400);
+        });
+
+        if($(window).width() <= 1024){
+            $(".sidebar-toggler").find('.fa').attr('class', 'fa fa-plus');
+        } else {
+            $(".sidebar-toggler").find('.fa').attr('class', 'fa fa-minus');
+        }
+    });
+</script>

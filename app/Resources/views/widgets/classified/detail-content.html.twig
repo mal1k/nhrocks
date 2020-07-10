@@ -1,0 +1,220 @@
+{# use it to shows address -#}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash|raw -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+{% set address = Utility.address(null, null, item.address, item.address2, item.zipCode, locationsIDs, locationsObjs) %}
+
+{% if item.listing %}
+    {% set listingDetailURL = url('listing_detail', {'friendlyUrl': item.listing.friendlyUrl, "_format" : "html"}) -%}
+{% endif %}
+
+{% set banner = getBanner('square') %}
+
+{% set hasContent = classifiedContent(item, level, gallery, address, map) %}
+
+<div class="details-default details-classifieds">
+    <div class="details-header details-header-desktop" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+        <div class="container">
+            <div class="details-header-content">
+                <div class="details-general">
+                    <div class="details-info">
+                        <div class="details-title">
+                            <h1 class="heading h-4">{{ item.title }}</h1>
+                            <div class="details-share">
+                                {{ bookmarkButton(item, 'classified') }}
+                                {{ Utility.shareLinks() }}
+                            </div>
+                        </div>
+                        {{ UtilityDetail.categories(categories, 'classified') }}
+                        {% if level.hasClassifiedPrice and item.classifiedPrice %}
+                            <h2 class="heading h-2 details-price">{{ item.classifiedPrice|localized_currency }}</h2>
+                        {% endif %}
+
+                        {% if level.hasEmail and item.email is not empty -%}
+                            <div class="details-actions">
+                                <a href="#" class="button button-bg is-primary" data-module="classified" data-modal="contact" data-id="{{ item.id }}">{{ 'Send a message'|trans }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {{ UtilityDetail.detailsContact(item, level, address) }}
+
+            </div>
+        </div>
+    </div>
+
+    <div class="details-header details-header-mobile">
+        <div class="detail-header-content-mobile" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+            <div class="details-general-mobile">
+                <div class="details-info">
+                    <div class="details-title">
+                        <div class="heading h-4">{{ item.title }}</div>
+                        <div class="details-share">
+                            {{ bookmarkButton(item, 'classified') }}
+                            {{ Utility.shareLinks() }}
+                        </div>
+                    </div>
+                    {{ UtilityDetail.categories(categories, 'classified') }}
+                </div>
+            </div>
+
+            {{ Utility.shareLinksMobile() }}
+
+            {% if level.hasEmail and item.email is not empty -%}
+                <div class="details-actions">
+                    <a href="#" class="button button-bg is-primary" data-module="listing" data-modal="contact" data-id="{{ item.id }}">{{ 'Send a message'|trans }}</a>
+                </div>
+            {% endif %}
+        </div>
+        <div class="detail-info-mobile">
+            <div class="details-title">
+                <h1 class="heading h-3">{{ item.title }}</h1>
+                <div class="details-share">
+                    {{ bookmarkButton(item, 'classified') }}
+                    {{ Utility.shareLinks() }}
+                </div>
+            </div>
+
+            {{ UtilityDetail.categories(categories, 'classified') }}
+
+            {% if level.hasClassifiedPrice and item.classifiedPrice %}
+                <h2 class="heading h-2 details-price">{{ item.classifiedPrice|localized_currency }}</h2>
+            {% endif %}
+
+            {{ UtilityDetail.detailsContact(item, level, address) }}
+        </div>
+    </div>
+
+    {% if hasContent.content %}
+        <div class="detail-body" id="detail-body">
+            <div class="container">
+                <div class="detail-body-content">
+                    <div class="tab-content has-sidebar">
+                        <div class="tab-left">
+                            {% if (level.hasSummaryDescription and item.summarydesc is not empty) or (level.hasLongDescription and item.detaildesc) or gallery is not empty %}
+                                <div class="tab-item tab-item-about">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'About'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        <div class="description">
+                                            {% if level.hasSummaryDescription and item.summarydesc is not empty -%}
+                                                <p class="summary-description">{{ item.summarydesc|nl2br }}</p>
+                                            {% endif %}
+
+                                            {% if gallery is not empty -%}
+                                                <div class="detail-gallery-main-image">
+                                                    {{ UtilityDetail.mainImage(gallery[0], isSample, {'desktop': 'large', 'laptop': 'medium', 'tablet': 'medium'}) }}
+                                                </div>
+                                            {% endif -%}
+
+                                            {% if level.hasLongDescription and item.detaildesc -%}
+                                                <br>
+                                                <p>{{ item.detaildesc|nl2br }}</p>
+                                            {% endif %}
+
+                                            {% if gallery is not empty -%}
+                                                <div class="detail-gallery-thumb-images">
+                                                    {{ UtilityDetail.galleryImage(gallery, isSample) }}
+                                                </div>
+                                            {% endif -%}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if level.hasAdditionalFiles and item.attachmentFile is not empty %}
+                                <div class="tab-item tab-item-additional">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Additional information'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if isSample -%}
+                                            {% set link = 'javascript:void(0);' -%}
+                                        {% else -%}
+                                            {% set link = asset(item.attachmentFile, 'domain_extrafiles') -%}
+                                        {% endif -%}
+
+                                        <div class="tab-item-additional tab-item-others">
+                                            <div class="tab-item-content">
+                                                <a href="{{ link ~ '?' ~  'now' | date('U') }}" class="other-name" download><i class="fa fa-file"></i>{{ item.attachmentCaption ? item.attachmentCaption : 'Click here to see more info!'|trans }}</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if level.hasVideo and item.videoSnippet -%}
+                                <div class="tab-item tab-item-video">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Video'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if isSample -%}
+                                            <img src="{{ asset("assets/images/preview-video.png") }}" alt="{{ 'Preview Video'|trans }}">
+                                        {% else -%}
+                                            {{ item.videoSnippet|replace({"http://": "https://"})|raw }}
+                                        {% endif -%}
+                                        {% if item.videoDescription -%}
+                                            <div class="description">
+                                                {{ item.videoDescription|nl2br }}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="tab-right">
+                            {% if item.listing %}
+                                <div class="tab-item tab-item-offer-owner">
+                                    {{ UtilityDetail.offerBy(item.listing,listingLevel,listingReviewsTotal,listingDetailURL) }}
+                                </div>
+                            {% endif %}
+                            {% if map is not null or address|trim is not empty %}
+                                <div class="tab-item tab-item-location">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Location'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if map is not null -%}
+                                            {{ googleMaps(map) }}
+                                        {% endif %}
+                                        {% if address|trim is not empty -%}
+                                            <div class="location-address">{{ address }}</div>
+                                        {% endif %}
+                                        {% if item.latitude and item.longitude %}
+                                            <a href="{{ getDirectionsLink(item) }}" target="_blank" rel="noopener noreferrer" class="button is-primary"><i class="fa fa-location-arrow"></i> {{ 'Get directions'|trans }}</a>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if banner is not empty %}
+                                {{ banner|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    {% if not isSample and formSendMail -%}
+        {% include ':blocks/modals:modal-send-email.html.twig' with {form: formSendMail, item: item, level: level} %}
+    {% endif %}
+</div>
+
+{# Adding requirements #}
+{{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+{{ addJSFile("assets/js/widgets/details/common.js") }}
+{{ addJSFile("assets/js/lib/social-likes.min.js") }}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}
+{{ addJSFile("assets/js/lib/jquery.fancybox.min.js") }}

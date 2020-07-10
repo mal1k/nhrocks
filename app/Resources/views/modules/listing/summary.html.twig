@@ -1,0 +1,198 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               #}
+{# This page renders the Listing summary block which appears during searches       #}
+
+{#      Resources:                                                                 #}
+
+{# item \Elastica\Result                                                           #}
+{#      The elastica result object                                                 #}
+
+{# pagination \Knp\Bundle\PaginatorBundle\Pagination\SlidingPagination             #}
+{#      Contains data about the current search page                                #}
+
+{# levelFeatures \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+{#      Contains information about every level of a certain module                 #}
+
+{# ModStores Hooks #}
+{% if HookExist("listingsummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("listingsummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("listingsummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("listingsummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['listing'][data.level] -%}
+
+{% set detailURL      = url('listing_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+{% set itemBadges     = ( data.badgeId is not empty ? data.badgeId|split(" ") : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "listing" -%}
+
+{% set reviewTitle = 'Review'|trans ~ ' %s'|format(data.title) %}
+
+{% set flags = 0 -%}
+{% if itemLevelInfo.hasBadges and itemBadges -%} {% set flags = flags + 1 -%} {% endif -%}
+{% if itemLevelInfo.imageCount > 0 and data.thumbnail is defined and data.thumbnail is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+
+{# LISTING #}
+<div class="summary-item" data-type="listing" data-id="{{ item.id }}">
+
+    {{ Utility.shareLinksMobile() }}
+
+    <div class="summary-content">
+        <div class="paragraph p-3 summary-categories-grid {{itemCategories ? '': 'no-categories'}}">
+            {% if itemCategories %}
+                <div class="categories-list">
+                    {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "listing" ) }}
+                </div>
+            {% endif %}
+            <div class="summary-grid-actions">
+                {{ bookmarkLink(item, 'listing') }}
+                {% if itemLevelInfo.hasEmail and item.email is not empty %}
+                    <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="listing" data-modal="contact" class="picture-title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
+                {% endif %}
+                {% if itemLevelInfo.hasURL and data.url is not empty %}
+                    <a href="{{ data.url }}" target="_blank" rel="noopener noreferrer nofollow" class="visit-website title-actions tooltip" data-info="{{ encrypt( {friendlyUrl: data.friendlyUrl} ) }}" data-tooltip="{{'View Website'|trans}}"><i class="fa fa-globe"></i></a>
+                {% endif %}
+
+                {{ Utility.shareLinksResults(item.id) }}
+            </div>
+        </div>
+        <div class="summary-attrs {{ flags < 2 and not HookFire('summary_check_noimage', {}, true) ? 'no-image' : '' }}">
+            {% if not HookFire('listingsummary_before_render_thumbnail', {"data": data, 'itemLevelInfo': itemLevelInfo, 'detailURL': detailURL, 'flags': flags}, true) %}
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="summary-picture">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </a>
+                {% else %}
+                    <div class="summary-picture">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </div>
+                {% endif %}
+
+                <div class="summary-picture-grid">
+                    {% if itemLevelInfo.hasDetail -%}
+                        <a href="{{ detailURL }}" class="summary-picture-link">
+                            {{ tagPicture(data.thumbnail, data.title) }}
+                        </a>
+                    {% else %}
+                        <div class="summary-picture-link">
+                            {{ tagPicture(data.thumbnail, data.title) }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+
+            {% if data.claim -%}
+                {% set claimLabel = getSetting('claim_textlink') %}
+                <a href="{{ path("listing_claim", { "friendlyUrl" : data.friendlyUrl }) }}" class="button button-sm is-outline summary-claim" full-width="true">{{ claimLabel ?: "Is this your listing?"|trans }}</a>
+            {% endif %}
+        </div>
+        <div class="summary-info">
+            {% if itemCategories %}
+                <div class="paragraph p-3 summary-categories">
+                    {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "listing" ) }}
+                </div>
+            {% endif %}
+            <div class="summary-title">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="heading h-4 title">
+                        {{ data.title }}
+                    </a>
+                {% else %}
+                    <div class="heading h-4 title">
+                        {{ data.title }}
+                    </div>
+                {% endif %}
+                <div class="actions">
+                    {{ bookmarkLink(item, 'listing') }}
+                    {% if itemLevelInfo.hasEmail and item.email is not empty %}
+                        <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="listing" data-modal="contact" class="title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
+                    {% endif %}
+                    {% if itemLevelInfo.hasURL and data.url is not empty %}
+                        <a href="{{ data.url }}" target="_blank" rel="noopener noreferrer nofollow" class="visit-website title-actions tooltip" data-info="{{ encrypt( {friendlyUrl: data.friendlyUrl} ) }}" data-tooltip="{{'View Website'|trans}}"><i class="fa fa-globe"></i></a>
+                    {% endif %}
+                    {{ Utility.shareLinksResults(item.id) }}
+                </div>
+            </div>
+            {% if not HookFire('listingsummary_before_render_location', {"data": data, 'itemLocations': itemLocations, 'item': item}, true) %}
+                <address class="summary-address">
+                    {{ Utility.address( null, null, data.address.street, data.address.complement, data.address.zipcode, itemLocations, pageLocations ) }}
+                </address>
+            {% endif %}
+
+            {% if data.distance and data.distance < 40000 %}
+                <div class="summary-distance">
+                    {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
+                </div>
+            {% endif %}
+
+            <div class="summary-contact-grid">
+                {% if itemLevelInfo.hasPhone and data.phone is not empty -%}
+                    <a href="tel:{{ data.phone }}" class="summary-phone">{{ data.phone }}</a>
+                {% endif %}
+                {% if itemLevelInfo.hasAdditionalPhone and data.additionalPhone is not empty %}
+                    <div class="summary-additional-phone">
+                        <a href="tel:{{ data.additionalPhone }}">{{ data.additionalPhone }}</a>
+                        {% if data.labelAdditionalPhone and data.labelAdditionalPhone is not empty -%}
+                            <small>({{ data.labelAdditionalPhone }})</small>
+                        {% endif -%}
+                    </div>
+                {% endif %}
+                {% do HookFire('listingsummary_after_additional_phone', {"search_item": item, "result_data": data, "level": itemLevelInfo}, true) %}
+            </div>
+            {% if itemLevelInfo.hasSummaryDescription and data.description is not empty -%}
+                <div class="summary-description">{{ data.description }}</div>
+            {% endif %}
+
+            {% if data.claim -%}
+                {% set claimLabel = getSetting('claim_textlink') %}
+                <a href="{{ path("listing_claim", { "friendlyUrl" : data.friendlyUrl }) }}" class="button button-sm is-outline summary-claim-noimage">{{ claimLabel ?: "Is this your listing?"|trans }}</a>
+            {% endif %}
+        </div>
+    </div>
+    <div class="summary-additional">
+        {% if not HookFire('listingsummary_after_render_email', {"data": data,'itemLevelInfo': itemLevelInfo, 'item': item}, true) %}
+            {% if itemLevelInfo.hasReview and getSetting("review_listing_enabled") -%}
+                <div class="summary-rating">
+                    <span class="rate rate-{{ data.averageReview }}"></span>
+                    <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-modal="review" class="button button-sm is-outline" full-width="true">{{ 'Review this'|trans }}</a>
+                </div>
+            {% endif %}
+        {% endif %}
+        <div class="summary-contact">
+            {% if itemLevelInfo.hasPhone and ((data.phone is not empty) or HookFire('summary_overwrite_phone')) -%}
+                <a href="tel:{{ data.phone }}" class="summary-phone">{{ data.phone }}</a>
+            {% endif %}
+            {% if itemLevelInfo.hasAdditionalPhone and data.additionalPhone is not empty %}
+                <div class="summary-additional-phone">
+                    <a href="tel:{{ data.additionalPhone }}">{{ data.additionalPhone }}</a>
+                    {% if data.labelAdditionalPhone and data.labelAdditionalPhone is not empty -%}
+                        <small>({{ data.labelAdditionalPhone }})</small>
+                    {% endif -%}
+                </div>
+            {% endif %}
+            {% do HookFire('listingsummary_after_additional_phone', {"search_item": item, "result_data": data, "level": itemLevelInfo}, true) %}
+        </div>
+        {% if flags b-and 1 -%}
+            <div class="summary-badges">
+                {{ Utility.badges( itemBadges, pageBadges ) }}
+            </div>
+        {% endif %}
+    </div>
+</div>

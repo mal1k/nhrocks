@@ -1,0 +1,178 @@
+.contactus-block{
+    @include block-padding;
+
+    .wrapper{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .contactus-content{
+            width: 100%;
+
+            @media screen and (min-width: 768px){
+                width: 45%;
+            }
+            
+            @media screen and (min-width: 992px){
+                width: 485px;
+            }
+
+            .paragraph{
+                font-weight: 300;
+                color: customColor(neutral, transp-75);
+            }
+
+            .contactus-info{
+                margin-top: 32px;
+
+                .info-item{
+                    display: flex;
+                    flex-flow: row wrap;
+                    align-items: center;
+
+                    &:not(:first-child){
+                        margin-top: 8px;
+                    }
+
+                    .icon{
+                        margin-right: 8px;
+                        color: customColor(brand, base);
+                        font-size: 18px;
+                    }
+
+                    a{
+                        color: customColor(neutral, base);
+                        text-decoration: none;
+                    }
+                }
+            }
+
+            .contactus-social{
+                display: flex;
+                margin-top: 24px;
+
+                .social-item{
+                    width: 36px;
+                    height: 36px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    color: customColor(brand, base);
+                    border: 1px solid customColor(brand, base);
+                    border-radius: 9999px;
+                    text-decoration: none;
+
+                    &:not(:first-child){
+                        margin-left: 16px;
+                    }
+                }
+            }
+        }
+
+        .contactus-form{
+            width: 100%;
+            margin-top: 24px;
+
+            @media screen and (min-width: 768px){
+                width: 300px;
+                margin-top: 0;
+            }
+            
+            @media screen and (min-width: 992px){
+                width: 375px;
+            }
+
+            .input{
+                width: 100%;
+
+                &:not(:first-child){
+                    margin-top: 8px;
+                }
+            }
+
+            textarea{
+                padding-top: 8px;
+            }
+
+            .button{
+                width: 100%;
+                display: block;
+                margin-top: 8px;
+            }
+
+            .input-group{
+                flex-wrap: nowrap;
+                align-items: flex-start;
+                margin-left: 0;
+                display: flex;
+                margin-top: 8px;
+
+                .input-group-addon{
+                    height: 50px;
+                    line-height: 50px;
+                    border: 1px solid var(--neutral-transp-25, rgba(62, 69, 94, 0.25));
+                    border-top-left-radius: 3px;
+                    border-bottom-left-radius: 3px;
+                    border-right: none;
+                }
+
+                .input{
+                    margin-top: 0;
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                }
+
+                & + .alert{
+                    margin-top: 8px;
+
+                    ul{
+                        margin: 0;
+                        padding: 0;
+                        list-style: none;
+                    }
+                }
+            }
+
+            [data-type="radio"],
+            [data-type="checkbox"]{
+                margin-top: 8px;
+
+                .radio,
+                .checkbox{
+                    display: block;
+
+                    input{
+                        margin-right: 4px;
+                    }
+                }
+            }
+
+            .select2{
+                margin-top: 8px;
+            }
+
+            .select2-selection{
+                height: 50px;
+                outline: none;
+
+                .select2-selection__rendered,
+                .select2-selection__arrow{
+                    height: 50px;
+                }
+
+                .select2-selection__rendered{
+                    line-height: 50px;
+                }
+            }
+        }
+    }
+
+    .contactus-map{
+        margin-top: 32px;
+
+        #map_canvas{
+            width: 100% !important;
+        }
+    }
+}

@@ -1,0 +1,45 @@
+// Brand Color
+$brand-color: #294481 !default;
+
+// Highlight Color
+$highlight-color: #294481 !default;
+
+// Neutral Color
+$neutral-color: #4b4b4b !default;
+
+// Badges Color
+$badge-color: #294481 !default;
+
+// Links Color
+$link-color: #23d5ae !default;
+
+// Background Color
+$background-color: white !default;
+
+// Success Color
+$success-color: #6cbf13 !default;
+
+// Warning Color
+$warning-color: #fc5353 !default;
+
+// Attention Color
+$attention-color: #ffae00 !default;
+
+// Border Radius
+$border-radius: var(--border-radius, 3px) !default;
+$border-radius-input: var(--border-radius-input, 3px) !default;
+$border-radius-button: var(--border-radius-button, 3px) !default;
+$border-radius-icon: var(--border-radius-icon, 3px) !default;
+
+// Font Family Base
+$font-family-base: var(--font-family-base, 'Rubik') !default;
+
+// Heading Font Family
+$heading-font: var(--heading-font, 'Poppins') !default;
+
+// Paragraph Font Family
+$paragraph-font: var(--paragraph-font, 'Rubik') !default;
+
+// Font Size Base
+$font-size-base-value: 18;
+$font-size-base: var(--font-size-base, #{$font-size-base-value}px) !default;

@@ -1,0 +1,85 @@
+.pd-t{
+    #smartbanner{
+        margin-top: 40px;
+    }
+}
+
+#smartbanner{
+    position: absolute;
+    width: 100%;
+    background: #e9e9e9;
+    padding: 16px 8px;
+
+    @media screen and (min-width: 425px){
+        padding: 16px;
+    }
+
+    .sb-container{
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sb-close{
+        font-size: 34px;
+        font-weight: 300;
+        color:customColor(brand, base);
+        line-height: 1;
+        display: inline-block;
+    }
+
+    .sb-icon{
+        width: 55px;
+        height: 55px;
+        display: block;
+        background-size: cover;
+        background-position: top center;
+        background-repeat: no-repeat;
+        border-radius: 3px;
+        border: 1px solid #979797;
+        margin-left: 16px;
+    }
+
+    .sb-info{
+        margin-left: 8px;
+        max-width: calc(100% - 98px);
+
+        @media screen and (min-width: 375px){
+            max-width: 152px;
+        }
+
+        strong{
+            font-size: 18px;
+            color:customColor(neutral, base);
+            display: block;
+        }
+
+        span{
+            display: block;
+            font-size: 14px;
+            line-height: 1.1;
+            font-weight: 300
+        }
+    }
+
+    .sb-button{
+        display: inline-block;
+        padding: 8px;
+        color: white;
+        background:customColor(highlight, base);
+        border-radius: 3px;
+        font-size: 14px;
+        width: 60px;
+        text-align: center;
+        width: 100%;
+        text-align: center;
+        margin-top: 16px;
+
+        @media screen and (min-width: 375px){
+            width: 100px;
+            margin-left: 16px;
+            margin-top: 0;
+        }
+    }
+}

@@ -1,0 +1,221 @@
+.cards-default{
+    .centralized-highglighted-card{
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-between;
+        
+        > .card-wrapper{
+            width: 100%;
+            margin-bottom: 32px;
+
+            @media screen and (min-width: 992px){
+                width: 45%;
+                margin-bottom: 0;
+            }
+
+            &:nth-child(1){
+                order: 2;
+
+                @media screen and (min-width: 992px){
+                    order: 1;
+                }
+            }
+
+            &:nth-child(2){
+                order: 1;
+
+                @media screen and (min-width: 992px){
+                    order: 2;
+                }
+            }
+
+            &:nth-child(3){
+                order: 3;
+
+                @media screen and (min-width: 992px){
+                    order: 3;
+                }
+            }
+
+            &:nth-child(1), &:nth-child(3){
+                width: 100%;
+
+                @media screen and (min-width: 768px){
+                    width: 48%;
+                }
+                
+                @media screen and (min-width: 992px){
+                    width: 25%;
+                }
+
+                .card-centralized{
+                    height: 200px;
+                    margin-bottom: 32px;
+                }
+            }
+
+            .cards-list{
+                margin: 0;
+            }
+
+            .card-centralized{
+                width: 100%;
+                height: 332px;
+                overflow: hidden;
+                position: relative;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: top center;
+                border-radius: $border-radius;
+
+                @media screen and (min-width: 768px){
+                    height: 432px;
+                }
+
+                &:before{
+                    content: "";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    top: 0;
+                    left: 0;
+                    background: black;
+                    opacity: 0;
+                    transition: all .2s ease-in-out;
+                }
+
+                &:hover{
+                    &:before{
+                        opacity: .5;
+                    }
+
+                    .content{
+                        bottom: 0 !important;
+                    }
+                }
+
+                .categories-dropdown{
+                    position: relative;
+                    display: inline-block;
+                    
+                    .categories-dropdown-toggle{
+                        text-decoration: none;
+                        border-bottom: none;
+                        cursor: pointer;
+                    }
+
+                    .categories-dropdown-content{
+                        display: none;
+                    }
+                }
+
+                .content{
+                    position: absolute;
+                    width: 100%;
+                    padding: 16px;
+                    background: customColor(brand, transp-50);
+                    transition: .2s ease-in-out;
+
+                    .title{
+                        color: customColor(color-white, base);
+                        text-decoration: none;
+                        margin-bottom: 8px;
+                        display: block;
+                    }
+
+                    .categories{
+                        color: customColor(color-white, base);
+                    }
+
+                    .description{
+                        p{
+                            color: customColor(color-white, base);  
+                        }
+                    }
+
+                    .reviews-stars{
+                        color: customColor(color-white, base);
+                    }
+
+                    .price, .price-off, .valid-time{
+                        color: customColor(color-white, base);
+                    }
+
+                    .recurring-event, .location{
+                        color: customColor(color-white, base);
+                    }
+
+                    .price, .price-off{
+                        &:before{
+                            content: attr(data-prefix);
+                            margin-right: 4px;
+                        }
+                    }
+
+                    .price-off{
+                        text-decoration: line-through;
+                    }
+
+                    .author{
+                        display: flex;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        margin-top: 16px;
+                        
+                        .author-picture{
+                            width: 48px;
+                            height: 48px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            border-radius: 9999px;
+                            overflow: hidden;
+                            border: 1px solid customColor(color-white, transp-75);
+
+                            .fa{
+                                color: customColor(color-white, transp-75);
+                            }
+
+                            img{
+                                max-width: 100%;
+                                height: auto;
+                                display: block;
+                                object-fit: cover;
+                            }
+                        }
+
+                        .author-name{
+                            color: customColor(color-white, transp-75);
+                            font-weight: 300;
+                            margin-left: 16px;
+                            max-width: calc(100% - 64px);
+                        }
+                    }
+                }
+
+                .calendar-sm{
+                    cursor: default;
+                    border: none;
+                    top: 8px;
+                    position: absolute;
+                    left: 8px;
+                }
+
+                .badge{
+                    cursor: default;
+                    position: absolute;
+                    background: customColor(color-white, transp-85);
+                    border-radius: $border-radius-icon;
+                    top: 16px;
+                    left: 16px;
+                    line-height: 1;
+                    padding: 8px;
+                    color: customColor(neutral, base);
+                    z-index: 5;
+                    font-weight: bold;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

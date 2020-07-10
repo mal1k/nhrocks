@@ -1,0 +1,21 @@
+<!-- Popular Posts -->
+{% set recent_post = recentPost(3, '', '', 'vertical-big') -%}
+
+
+{% if recent_post is not empty %}
+    <div class="details-default details-blog blog-widget" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="detail-body">
+            <div class="container">
+                <div class="detail-body-content">
+                    <div class="blog-content">
+                        {% if recent_post is not empty -%}
+                            {{ recent_post|raw }}
+                        {% endif -%}
+                    </div>
+
+                    {% include 'blocks/blog/blog-sidebar.html.twig' %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}

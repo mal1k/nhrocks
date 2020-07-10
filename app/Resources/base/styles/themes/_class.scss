@@ -1,0 +1,19 @@
+.img-responsive{
+    @include img-responsive();
+}
+
+.hide{
+    display: none !important;
+}
+
+.text-center{
+    text-align: center;
+}
+
+[data-bg="neutral"]{
+    background: customColor(neutral, transp-5);
+}
+
+[data-bg="brand"]{
+    background: customColor(brand, base);
+}

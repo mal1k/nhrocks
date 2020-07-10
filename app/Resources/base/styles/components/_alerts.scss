@@ -1,0 +1,64 @@
+.alert-message{
+    line-height: 1.15;
+    padding: 16px;
+    border-radius: $border-radius;
+    border: 1px solid transparent;
+    margin-bottom: 16px;
+    display: block;
+    font-size: fontsize(size-16);
+    position: relative;
+    width: 100%;
+
+    &[data-type="success"]{
+        border-color: customColor(success, base);
+        background: customColor(success, light);
+        color: customColor(success, dark);
+    }
+    
+    &[data-type="error"]{
+        border-color: customColor(warning, base);
+        background: customColor(warning, light);
+        color: customColor(warning, dark);
+    }
+    
+    &[data-type="attention"]{
+        border-color: customColor(attention, base);
+        background: customColor(attention, light);
+        color: customColor(attention, dark);
+    }
+    
+    &[data-type="information"]{
+        border-color: customColor(highlight, base);
+        background: customColor(highlight, light);
+        color: customColor(color-white, transp-75);
+    }
+
+    &[is-dismissible="true"]{
+        padding-right: 32px;
+
+        &:after{
+            content: "X";
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            transform: translateY(-50%);
+            cursor: pointer;
+        }
+    }
+
+    &[is-visible="false"]{
+        display: none;
+    }
+
+    span{
+        display: block;
+
+        &:not(:first-child){
+            margin-top: 4px;
+        }
+
+        strong{
+            text-transform: capitalize;
+        }
+    }
+}

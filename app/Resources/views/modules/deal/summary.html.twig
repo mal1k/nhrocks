@@ -1,0 +1,140 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               -#}
+{# This page renders the Deal summary block which appears during searches          -#}
+
+{#      Resources:                                                                 -#}
+
+{# item \Elastica\Result                                                           -#}
+{#      The elastica result object                                                 -#}
+
+{# levelFeatures \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{#      Contains information about every level of a certain module                 -#}
+
+{# ModStores Hooks #}
+{% if HookExist("dealsummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("dealsummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("dealsummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("dealsummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{# itemLevelInfo \ArcaSolutions\ListingBundle\Entity\Internal\ListingLevelFeatures -#}
+{% set itemLevelInfo  = levelFeatures['listing'][data.level] -%}
+
+{% set detailURL      = url('deal_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+{% set listingURL     = url('listing_detail', {'friendlyUrl': data.listing.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+{% set listinglink    = itemLevelInfo.hasDetail ? '<a href="'~listingURL|escape~'" class="link">'~data.listing.title|escape~'</a>' : data.listing.title|escape -%}
+
+{% set flags = 0 -%}
+{% if itemLevelInfo.imageCount > 0 and data.thumbnail is defined and data.thumbnail is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+
+{# DEALS #}
+<div class="summary-item" data-type="deal" data-id="{{ item.id }}">
+    {{ Utility.shareLinksMobile() }}
+
+    <div class="summary-content">
+        <div class="paragraph p-3 summary-categories-grid {{listinglink ? '': 'no-categories'}}">
+            {% if listinglink is not empty -%}
+                <div class="categories-list">
+                    {{ "Offered by"|trans }} {{ listinglink|raw }}
+                </div>
+            {% endif %}
+            <div class="summary-grid-actions">
+                {{ Utility.shareLinksResults(item.id) }}
+            </div>
+        </div>
+
+        <div class="summary-attrs {{flags < 2 ? 'no-image' : ''}}">
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}" class="summary-picture">
+                    {{ tagPicture(data.thumbnail, data.title) }}
+                </a>
+            {% else %}
+                <div class="summary-picture">
+                    {{ tagPicture(data.thumbnail, data.title) }}
+                </div>
+            {% endif %}
+            <div class="summary-picture-grid">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="summary-picture-link">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </a>
+                {% else %}
+                    <div class="summary-picture-link">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="summary-info">
+            {% if listinglink is not empty -%}
+                <div class="paragraph p-3 summary-categories">{{ "Offered by"|trans }} {{ listinglink|raw }}</div>
+            {% endif %}
+            <div class="summary-title">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="heading h-4 title">
+                        {{ data.title }}
+                    </a>
+                {% else %}
+                    <div class="heading h-4 title">
+                        {{ data.title }}
+                    </div>
+                {% endif %}
+                <div class="actions">
+                    {{ Utility.shareLinksResults(item.id) }}
+                </div>
+            </div>
+            {% if itemLevelInfo.hasSummaryDescription and data.description is not empty -%}
+                <div class="summary-description">{{ data.description }}</div>
+            {% endif %}
+
+            {% if data.distance and data.distance < 40000 %}
+                <div class="summary-distance">
+                    {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="summary-additional">
+
+        {% set priceFlags = 0  %}
+        {% if data.value.real > 0 %}{% set priceFlags = priceFlags + 1 %}{% endif %}
+        {% if data.value.deal > 0 %}{% set priceFlags = priceFlags + 2 %}{% endif %}
+
+        {% if priceFlags == 0 %}
+            <div class="summary-price">
+                <span class="price-value">{{ 'Free'|trans }}</span>
+            </div>
+        {% else %}
+            {% if priceFlags b-and 1 %}
+                <div class="summary-off-price">
+                    <span class="price-value">{{ data.value.real|localized_currency }}</span>
+                </div>
+            {% endif %}
+            {% if priceFlags b-and 2 %}
+
+                <div class="summary-price">
+                    <span class="price-value">{{ data.value.deal|localized_currency }}</span>
+                </div>
+            {% else %}
+                <div class="summary-price">
+                    <span class="price-value">{{ 'Free'|trans }}</span>
+                </div>
+            {% endif %}
+         {% endif %}
+    </div>
+</div>

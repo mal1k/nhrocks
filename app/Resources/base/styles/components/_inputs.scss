@@ -1,0 +1,44 @@
+%input-extend{
+    // Input Resets
+    padding: 0 16px;
+    border-radius: $border-radius-input;
+    box-shadow: none;
+    border: 1px solid customColor(neutral, transp-25);
+    color: customColor(neutral, base);
+    outline: none;
+    min-height: 50px;
+    appearance: none;
+    font-size: fontsize(size-16);
+
+    &::-webkit-input-placeholder{
+        color: customColor(neutral, transp-50);
+    }
+
+    &::-moz-placeholder{
+        color: customColor(neutral, transp-50);
+    }
+
+    &:-ms-input-placeholder{
+        color: customColor(neutral, transp-50);
+    }
+
+    &:-moz-placeholder{
+        color: customColor(neutral, transp-50);
+    }
+}
+
+.input{
+    @extend %input-extend;
+}
+
+[placeholder]{
+    text-overflow: ellipsis;
+}
+
+select.input{
+    height: 50px;
+    -webkit-appearance: none;
+    background: transparent;
+    padding: 0 32px;
+    color: customColor(neutral, base);
+}

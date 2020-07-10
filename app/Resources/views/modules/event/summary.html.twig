@@ -1,0 +1,200 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                               #}
+{# This page renders the Event summary block which appears during searches         #}
+
+{#      Resources:                                                                 #}
+
+{# item \Elastica\Result                                                           #}
+{#      The elastica result object                                                 #}
+
+{# levelFeatures \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures     #}
+{#      Contains information about every level of a certain module                 #}
+
+{# ModStores Hooks #}
+{% if HookExist("eventsummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("eventsummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("eventsummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("eventsummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{# itemLevelInfo \ArcaSolutions\EventBundle\Entity\Internal\EventLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['event'][data.level] -%}
+
+{% set detailURL      = url('event_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "event" -%}
+
+{% set showStartDate = true -%}
+
+{% set flags = 0 -%}
+
+{% if itemLevelInfo.imageCount > 0 and data.thumbnail is defined and data.thumbnail is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+
+{# EVENTS #}
+<div class="summary-item" data-type="event" data-id="{{ item.id }}">
+    {{ Utility.shareLinksMobile() }}
+
+    <div class="summary-content">
+        <div class="paragraph p-3 summary-categories-grid {{itemCategories ? '': 'no-categories'}}">
+            {% if itemCategories %}
+                <div class="categories-list">
+                    {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "event" ) }}
+                </div>
+            {% endif %}
+            <div class="summary-grid-actions">
+                {{ bookmarkLink(item, 'event') }}
+                {% if itemLevelInfo.hasEmail and item.email is not empty %}
+                    <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="event" data-modal="contact" class="picture-title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
+                {% endif %}
+                {% if itemLevelInfo.hasURL and data.url is not empty %}
+                    <a href="{{ data.url }}" class="title-actions tooltip" data-tooltip="{{'View Website'|trans}}"><i class="fa fa-globe"></i></a>
+                {% endif %}
+                {{ Utility.shareLinksResults(item.id) }}
+            </div>
+        </div>
+        <div class="summary-attrs {{flags < 2 ? 'no-image' : ''}}">
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}" class="summary-picture">
+                    {{ tagPicture(data.thumbnail, data.title) }}
+                </a>
+            {% else %}
+                <div class="summary-picture">
+                    {{ tagPicture(data.thumbnail, data.title) }}
+                </div>
+            {% endif %}
+
+            <div class="summary-picture-grid">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="summary-picture-link">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </a>
+                {% else %}
+                    <div class="summary-picture-link">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="summary-info">
+            {% if itemCategories %}
+            <div class="paragraph p-3 summary-categories">
+                {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "event" ) }}
+            </div>
+            {% endif %}
+            <div class="summary-title">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="heading h-4 title">
+                        {{ data.title }}
+                    </a>
+                {% else %}
+                    <div class="heading h-4 title">
+                        {{ data.title }}
+                    </div>
+                {% endif %}
+                <div class="actions">
+                    {{ bookmarkLink(item, 'event') }}
+                    {% if itemLevelInfo.hasEmail and item.email is not empty %}
+                        <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="event" data-modal="contact" class="picture-title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
+                    {% endif %}
+                    {% if itemLevelInfo.hasURL and data.url is not empty %}
+                        <a href="{{ data.url }}" class="title-actions tooltip" data-tooltip="{{'View Website'|trans}}"><i class="fa fa-globe"></i></a>
+                    {% endif %}
+                    {{ Utility.shareLinksResults(item.id) }}
+                </div>
+            </div>
+            <address class="summary-address">
+                {{ Utility.address( null, null, data.address.street, data.address.complement, data.address.zipcode, itemLocations, pageLocations ) }}
+            </address>
+
+            {% if data.distance and data.distance < 40000 %}
+                <div class="summary-distance">
+                    {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
+                </div>
+            {% endif %}
+
+            <div class="summary-contact-grid">
+                {% if itemLevelInfo.hasPhone and data.phone is not empty -%}
+                    <a href="tel:{{ data.phone }}" class="summary-phone">{{ data.phone }}</a>
+                {% endif %}
+            </div>
+            {% if itemLevelInfo.hasSummaryDescription and data.description is not empty -%}
+                <div class="summary-description">{{ data.description }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="summary-additional">
+        {% if data.date.start is not null -%}
+            {% set start_date = date(data.date.start) -%}
+            {% set end_date = 'Y' == data.recurring.enabled ? data.recurring.until : data.date.end -%}
+
+            <div class="summary-date">
+                <span class="label-when">{{ "When"|trans }} </span>
+                {% if data.recurring.enabled -%}
+                    <span class="date-recurring">{{ recurringPhraseByFriendlyUrl(data.friendlyUrl) }}</span>
+                {% else %}
+                    <span class="date-now">
+                        {% if date() >= start_date %}
+                            {{ "Today"|trans }}
+                            {% set showStartDate = false -%}
+                        {% else %}
+                            {{ start_date|localized_date('EEE') }}
+                        {% endif %}
+                    </span>
+                {% endif %}
+
+                {% if showStartDate -%}
+                    {% if end_date is not null %}
+                        <span class="date-interval">{{ "From "|trans }} <strong>{{ data.date.start|date(getDateFormat()) }}</strong></span>
+                    {% elseif start_date > date() -%}
+                        <span class="date-interval">{{ "Starts on "|trans }} <strong>{{ data.date.start|date(getDateFormat()) }}</strong></span>
+                    {% endif %}
+                {% endif %}
+
+                {% if end_date is not null %}
+                    <span class="date-interval">
+                        {% if showStartDate -%}
+                            {{ 'to'|trans }}
+                        {% else %}
+                            {{ 'Ends on '|trans }}
+                        {% endif %}
+                        <strong>
+                            {{ end_date|date(getDateFormat()) }}
+                        </strong>
+                    </span>
+                {% endif %}
+                {% if itemLevelInfo.hasEventTime %}
+                    {% if data.time.start or data.time.end %}
+                        <span class="date-hours">
+                            {{ data.time.start|date(getTimeFormat()) }}
+                            {% if data.time.end is not null -%}
+                                {{ " - "|trans }}
+                                {{ data.time.end|date(getTimeFormat()) }}
+                            {% endif -%}
+                        </span>
+                    {% endif %}
+                {% endif %}
+            </div>
+        {% endif %}
+        <div class="summary-contact">
+            {% if itemLevelInfo.hasPhone and data.phone is not empty -%}
+                <a href="tel:{{ data.phone }}" class="summary-phone">{{ data.phone }}</a>
+            {% endif %}
+        </div>
+    </div>
+</div>
+

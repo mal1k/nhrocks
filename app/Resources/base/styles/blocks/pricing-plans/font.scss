@@ -1,0 +1,35 @@
+.pricing-plans{
+    .pricing-table{
+        .pricing-wrapper{
+            .pricing-list{
+                .pricing-item{
+                    &.is-highlighted{
+                        &:before{
+                            font-size: fontsize(size-24);
+
+                            @media screen and (min-width: 992px){
+                                font-size: fontsize(size-16);
+                            }
+                        }
+                    }
+
+                    .pricing-collapse{
+                        .price-description{
+                            p{
+                                font-size: fontsize(size-15);
+                            }
+                        }
+
+                        .price-advantages{
+                            .price-advantages-item{
+                                .item-name{
+                                    font-size: fontsize(size-16);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

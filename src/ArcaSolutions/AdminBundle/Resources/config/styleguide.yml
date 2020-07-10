@@ -1,0 +1,59 @@
+arca_solutions_sitemgr_homepage:
+    path:     /
+    defaults:
+      _controller: FrameworkBundle:Template:template
+      template: AdminBundle:components:index.html.twig
+
+arca_solutions_sitemgr_buttons:
+    path:     /buttons
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:buttons.html.twig
+
+arca_solutions_sitemgr_colors:
+    path:     /colors
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:colors.html.twig
+
+arca_solutions_sitemgr_containers:
+    path:     /containers
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:containers.html.twig
+
+arca_solutions_sitemgr_elements:
+    path:     /elements
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:elements.html.twig
+
+arca_solutions_sitemgr_forms:
+    path:     /forms
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:forms.html.twig
+
+arca_solutions_sitemgr_interative:
+    path:     /interative
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:interative.html.twig
+
+arca_solutions_sitemgr_island:
+    path:     /island
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:island.html.twig
+
+arca_solutions_sitemgr_navigation:
+    path:     /navigation
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:navigation.html.twig
+
+arca_solutions_sitemgr_type:
+    path:     /type
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: AdminBundle:components:type.html.twig

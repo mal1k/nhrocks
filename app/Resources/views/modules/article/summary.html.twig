@@ -1,0 +1,97 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            -#}
+{# This page renders the Article summary block which appears during searches    -#}
+
+{#      Resources:                                                              -#}
+
+{# item \Elastica\Result                                                        -#}
+{#      The elastica result object                                              -#}
+
+{# levelFeatures array                                                          -#}
+{#      Contains information about every level of a certain module              -#}
+
+{# ModStores Hooks #}
+{% if HookExist("articlesummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("articlesummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("articlesummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("articlesummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set detailURL      = path('article_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+
+{# ARTICLE #}
+<div class="summary-item" data-type="article" data-id="{{ item.id }}">
+
+    {{ Utility.shareLinksMobile() }}
+
+    <div class="summary-content">
+        <div class="paragraph p-3 summary-categories-grid {{itemCategories ? '': 'no-categories'}}">
+            <div class="summary-grid-actions">
+                {{ bookmarkLink(item, 'article') }}
+
+                {{ Utility.shareLinksResults(item.id) }}
+            </div>
+        </div>
+        {% if data.thumbnail or (data.author.name or data.author.url) -%}
+            <div class="summary-attrs">
+                <div class="paragraph p-3 summary-categories">
+                    {% if data.author.name or data.author.url -%}
+                        {{"by"|trans}}
+                        {% if data.author.url -%}
+                            <a href="{{ data.author.url }}" class="link">{{ data.author.name ? data.author.name : "View author's website"|trans }}</a>
+                        {% elseif data.author.name -%}
+                            {{ data.author.name }}
+                        {% endif -%}
+                    {% endif -%}
+                    <strong>{{ 'on'|trans }}</strong> {{ date(data.publicationDate)|localized_date('MMMM dd, yyyy') }}
+                </div>
+                {% if data.thumbnail -%}
+                    <a href="{{ detailURL }}" class="summary-picture">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </a>
+                    <div class="summary-picture-grid">
+                        <a href="{{ detailURL }}" class="summary-picture-link">
+                            {{ tagPicture(data.thumbnail, data.title) }}
+                        </a>
+                    </div>
+                {% endif -%}
+            </div>
+        {% endif %}
+        <div class="summary-info">
+            <div class="paragraph p-3 summary-categories">
+                {% if data.author.name or data.author.url -%}
+                    {{"by"|trans}}
+                    {% if data.author.url -%}
+                        <a href="{{ data.author.url }}" class="link">{{ data.author.name ? data.author.name : "View author's website"|trans }}</a>
+                    {% elseif data.author.name -%}
+                        {{ data.author.name }}
+                    {% endif -%}
+                {% endif -%}
+                <strong>{{ 'on'|trans }}</strong> {{ date(data.publicationDate)|localized_date('MMMM dd, yyyy') }}
+            </div>
+            <div class="summary-title">
+                <a href="{{ detailURL }}" class="heading h-4 title">{{ data.title }}</a>
+
+                <div class="actions">
+                    {{ bookmarkLink(item, 'article') }}
+                    {{ Utility.shareLinksResults(item.id) }}
+                </div>
+            </div>
+            <div class="summary-description">{{data.abstract}}... <a href="{{ detailURL }}" class="link">{{ "Read full article"|trans }}</a></div>
+        </div>
+    </div>
+</div>

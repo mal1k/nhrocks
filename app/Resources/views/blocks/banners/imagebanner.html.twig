@@ -1,0 +1,8 @@
+{# banner \ArcaSolutions\BannersBundle\Entity\Banner #}
+{% if banner.showType == 1 %}
+    {{ banner.script|raw }}
+{% elseif banner.status|upper == "A" %}
+    <a href="{{ url }}" {{ target }} class="banner-link">
+        {{ tagPicture(asset(image, 'domain_images'), banner.caption , {'desktop': bannerType, 'laptop': bannerType, 'tablet': bannerType, 'mobile': bannerType}) }}
+    </a>
+{% endif %}

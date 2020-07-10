@@ -1,0 +1,31 @@
+.cards-default{
+    &[data-bg="brand"]{
+        .card-two-columns-horizontal{
+            .cards-list{
+                .card{
+                    .content{
+                        .title{
+                            color: customColor(color-white, base);
+                        }
+
+                        .categories{
+                            color: customColor(color-white, transp-75);
+                        }
+
+                        .reviews{
+                            .reviews-stars{
+                                .fa-star-o{
+                                    color: customColor(color-white, transp-75);
+                                }
+                            }
+
+                            .reviews-count{
+                                color: customColor(color-white, transp-75);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

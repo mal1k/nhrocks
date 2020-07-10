@@ -1,0 +1,59 @@
+{% set slider = contentSlider(content, 'lead-form', 'lead-form') %}
+
+<div class="hero-leadgen" data-align="{{ content.dataAlignment }}">
+    <div class="leadgen-content">
+        <div class="leadgen-header">
+            <h3 class="heading h-3" data-trans="{{ 'Do you want to talk?'|trans({}, 'widgets') }}">
+                {{ content.labelContactUs|trans({}, 'widgets') }}
+            </h3>
+            <p class="paragraph p-1" data-trans="{{ "Drop us a line and we'll get back as soon as we can."|trans({}, 'widgets') }}">
+                {{ content.labelNeedHelp|trans({}, 'widgets') }}
+            </p>
+        </div>
+
+        {% set form = json_form_builder_get_form(widget_id) %}
+        {% form_theme form '::blocks/form-layout.html.twig' %}
+
+        {{ form_start(form, { 'action': path('web_leadgen_post'), 'attr': {id: 'leadgenslider-form', class: 'leadgen-form'} }) }}
+        <input type="hidden" name="widgetPageId" value="{{ widget_id }}">
+        {{ form_widget(form.children._token) }}
+
+        <div class="alert alert-success hide" role="alert">
+            <strong>{{ 'Success!'|trans }}</strong> {{ 'Thank you, we will be in touch shortly.' | trans }}
+        </div>
+
+        <div class="alert alert-danger hide" role="alert">
+            <strong>{{ 'Error' | trans }}</strong>
+            {{ "We couldn't deliver your message, please contact the administrator. Sorry for the inconvenience." | trans }}
+        </div>
+
+        {% for field in form.children if not field.rendered %}
+
+            {% if field.vars.attr['data-type'] not in ['input_text', 'textarea'] %}
+                {{ form_label(field) }}
+            {% endif %}
+            {{ form_widget(field) }}
+
+        {% endfor %}
+
+        <button type="submit" class="button button-bg is-primary" data-size="" data-content=""
+                data-loading="<i class='fa fa-spinner fa-spin'></i> {{ "Please, wait..."|trans }}"
+                data-trans="{{ 'Submit'|trans({}, 'widgets') }}">
+            {{ content.labelSubmitButton|trans({}, 'widgets') }}
+        </button>
+
+        {{ form_end(form) }}
+    </div>
+    {% if slider is not empty %}
+        {{ slider.sliderBlock|raw }}
+    {% else %}
+        <div class="hero-default" data-type="3">
+            <div class="hero-slider hero-lead-form" active-slider="false">
+                <div class="carousel-cell active empty-hero"></div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+{{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+{{ addJSFile("assets/js/widgets/hero/lead-form.js") -}}

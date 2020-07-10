@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Listing Title</source>
+                <target>İlan başlığı</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Listing SEO Title</source>
+                <target>SEO başlığını listelemek</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Listing Email</source>
+                <target>İlan e-postası</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Listing Url</source>
+                <target>Listeleme URL'si</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Listing Address</source>
+                <target>İlan adresi</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Listing Address2</source>
+                <target>İlan adresi 2</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Listing Country</source>
+                <target>İlan ülkesi</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Listing Country Abbreviation</source>
+                <target>Liste ülke kısaltması</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Listing Region</source>
+                <target>Listeleme bölgesi</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Listing Region Abbreviation</source>
+                <target>Listeleme bölgesi kısaltması</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Listing State</source>
+                <target>Listeleme durumu</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Listing State Abbreviation</source>
+                <target>Liste devlet kısaltması</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Listing City</source>
+                <target>İlan veren şehir</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Listing City Abbreviation</source>
+                <target>Şehir kısaltmasını listelemek</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Listing Neighborhood</source>
+                <target>Listeleme mahalle</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Listing Neighborhood Abbreviation</source>
+                <target>Komşuluk kısaltmasını listeleme</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Listing Postal Code</source>
+                <target>Posta kodunu listeleme</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>Listing Latitude</source>
+                <target>Enlemi listelemek</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>Listing Longitude</source>
+                <target>Boylamı listelemek</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>Listing Phone</source>
+                <target>Telefon listeleme</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>Listing Short Description</source>
+                <target>Kısa açıklama listeleme</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>Listing Long Description</source>
+                <target>Uzun açıklamayı listelemek</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>Listing Seo Description</source>
+                <target>Seo açıklamasını listelemek</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>Listing Keywords</source>
+                <target>Anahtar kelime listelemek</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>Listing Renewal Date</source>
+                <target>Listeleme yenileme tarihi</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Listing Status</source>
+                <target>Listeleme durumu</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>Listing Level</source>
+                <target>Listeleme seviyesi</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>Listing Category 1</source>
+                <target>İlan kategorisi </target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>Listing Category 2</source>
+                <target>İlan kategorisi 2</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>Listing Category 3</source>
+                <target>İlan kategorisi 3</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>Listing Category 4</source>
+                <target>İlan kategorisi 4</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>Listing Category 5</source>
+                <target>İlan kategorisi 5</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>Listing Category 6</source>
+                <target>İlan kategorisi 6</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>Listing Category 7</source>
+                <target>İlan kategorisi 7</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>Listing Category 8</source>
+                <target>İlan kategorisi 8</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>Listing Category 9</source>
+                <target>İlan kategorisi 9</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>Listing Category 10</source>
+                <target>İlan kategorisi 10</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>Listing Category 11</source>
+                <target>İlan kategorisi 11</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>Listing Category 12</source>
+                <target>İlan kategorisi 12</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>Listing Category 13</source>
+                <target>İlan kategorisi 13</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>Listing Category 14</source>
+                <target>İlan kategorisi 14</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>Listing Category 15</source>
+                <target>İlan kategorisi 15</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>Listing Category 16</source>
+                <target>İlan kategorisi 16</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>Listing Category 17</source>
+                <target>İlan kategorisi 17</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>Listing Category 18</source>
+                <target>İlan kategorisi 18</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>Listing Category 19</source>
+                <target>İlan kategorisi 19</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Listing Category 20</source>
+                <target>İlan kategorisi 20</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>Listing Template</source>
+                <target>İlan şablonu</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Listing DB Id</source>
+                <target>Liste veritabanı Id</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>Listing Custom Id</source>
+                <target>Özel Kimliği listeleme</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>Account Username</source>
+                <target>Hesap kullanıcı adı</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>Account Password</source>
+                <target>Hesap şifresi</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>Account Contact First Name</source>
+                <target>Hesap iletişiminin ilk adı</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>Account Contact Last Name</source>
+                <target>Hesap iletişim soyadı</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>Account Contact Company</source>
+                <target>Hesap iletişim şirketi</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>Account Contact Address</source>
+                <target>Hesap iletişim adresi</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>Account Contact Address2</source>
+                <target>Hesap iletişim adresi2</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>Account Contact Country</source>
+                <target>Hesap iletişim ülkesi</target>
+            </trans-unit>
+            <trans-unit id="60">
+                <source>Account Contact State</source>
+                <target>Hesap iletişim durumu</target>
+            </trans-unit>
+            <trans-unit id="61">
+                <source>Account Contact City</source>
+                <target>Hesap iletişim şehri şehir</target>
+            </trans-unit>
+            <trans-unit id="62">
+                <source>Account Contact Postal Code</source>
+                <target>Hesap iletişim posta kodu</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>Account Contact Phone</source>
+                <target>Hesap iletişim telefonu</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>Account Contact Email</source>
+                <target>Hesap iletişim e-postası</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>Account Contact URL</source>
+                <target>Hesap iletişim URL'si</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>Event Title</source>
+                <target>Olay başlığı</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>Event SEO Title</source>
+                <target>Etkinlik SEO başlığı</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>Event Email</source>
+                <target>Etkinlik e-postası</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>Event Url</source>
+                <target>Etkinlik URL'si</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>Event Address</source>
+                <target>Etkinlik adresi</target>
+            </trans-unit>
+            <trans-unit id="72">
+                <source>Event Venue</source>
+                <target>Etkinlik mekanı</target>
+            </trans-unit>
+            <trans-unit id="73">
+                <source>Event Contact Name</source>
+                <target>Olayla ilgili kişi adı</target>
+            </trans-unit>
+            <trans-unit id="74">
+                <source>Event Start Date</source>
+                <target>Etkinlik başlangıç tarihi</target>
+            </trans-unit>
+            <trans-unit id="75">
+                <source>Event End Date</source>
+                <target>Etkinlik bitiş tarihi</target>
+            </trans-unit>
+            <trans-unit id="76">
+                <source>Event Start Time</source>
+                <target>Olay başlangıç saati</target>
+            </trans-unit>
+            <trans-unit id="77">
+                <source>Event End Time</source>
+                <target>Etkinlik bitiş zamanı</target>
+            </trans-unit>
+            <trans-unit id="78">
+                <source>Event Country</source>
+                <target>Etkinlik ülkesi</target>
+            </trans-unit>
+            <trans-unit id="79">
+                <source>Event Country Abbreviation</source>
+                <target>Etkinlik ülke kısaltması</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>Event Region</source>
+                <target>Etkinlik bölgesi</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>Event Region Abbreviation</source>
+                <target>Etkinlik bölgesi kısaltması</target>
+            </trans-unit>
+            <trans-unit id="82">
+                <source>Event State</source>
+                <target>Etkinlik durumu</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>Event State Abbreviation</source>
+                <target>Etkinlik durumu kısaltması</target>
+            </trans-unit>
+            <trans-unit id="84">
+                <source>Event City</source>
+                <target>Etkinlik şehri</target>
+            </trans-unit>
+            <trans-unit id="85">
+                <source>Event City Abbreviation</source>
+                <target>Etkinlik şehrinin kısaltması</target>
+            </trans-unit>
+            <trans-unit id="86">
+                <source>Event Neighborhood</source>
+                <target>Etkinlik mahalle</target>
+            </trans-unit>
+            <trans-unit id="87">
+                <source>Event Neighborhood Abbreviation</source>
+                <target>Etkinlik mahalle kısaltması</target>
+            </trans-unit>
+            <trans-unit id="88">
+                <source>Event Postal Code</source>
+                <target>Olay posta kodu</target>
+            </trans-unit>
+            <trans-unit id="89">
+                <source>Event Latitude</source>
+                <target>Etkinlik enlemi</target>
+            </trans-unit>
+            <trans-unit id="90">
+                <source>Event Longitude</source>
+                <target>Olay boylam</target>
+            </trans-unit>
+            <trans-unit id="91">
+                <source>Event Phone</source>
+                <target>Olay telefonu</target>
+            </trans-unit>
+            <trans-unit id="92">
+                <source>Event Short Description</source>
+                <target>Etkinlik kısa açıklaması</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>Event Long Description</source>
+                <target>Etkinlik uzun açıklaması</target>
+            </trans-unit>
+            <trans-unit id="94">
+                <source>Event Seo Description</source>
+                <target>Etkinlik SEO açıklaması</target>
+            </trans-unit>
+            <trans-unit id="95">
+                <source>Event Keywords</source>
+                <target>Etkinlik anahtar kelimeleri</target>
+            </trans-unit>
+            <trans-unit id="96">
+                <source>Event Renewal Date</source>
+                <target>Etkinlik yenileme tarihi</target>
+            </trans-unit>
+            <trans-unit id="97">
+                <source>Event Status</source>
+                <target>Olay durumu</target>
+            </trans-unit>
+            <trans-unit id="98">
+                <source>Event Level</source>
+                <target>Etkinlik seviyesi</target>
+            </trans-unit>
+            <trans-unit id="99">
+                <source>Event Category 1</source>
+                <target>Etkinlik kategorisi 1</target>
+            </trans-unit>
+            <trans-unit id="100">
+                <source>Event Category 2</source>
+                <target>Etkinlik kategorisi 2</target>
+            </trans-unit>
+            <trans-unit id="101">
+                <source>Event Category 3</source>
+                <target>Etkinlik kategorisi 3</target>
+            </trans-unit>
+            <trans-unit id="102">
+                <source>Event Category 4</source>
+                <target>Etkinlik kategorisi 4</target>
+            </trans-unit>
+            <trans-unit id="103">
+                <source>Event Category 5</source>
+                <target>Etkinlik kategorisi 5</target>
+            </trans-unit>
+            <trans-unit id="104">
+                <source>Event DB Id</source>
+                <target>Etkinlik veritabanı No</target>
+            </trans-unit>
+            <trans-unit id="105">
+                <source>Event Custom Id</source>
+                <target>Etkinlik özel kimliği</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

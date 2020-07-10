@@ -1,0 +1,7 @@
+{% if linkiOS is not empty -%}
+    <meta name="apple-itunes-app" content="app-id={{ linkiOS }}">
+{% endif -%}
+
+{% if linkAndroid is not empty -%}
+    <meta name="google-play-app" content="app-id={{ linkAndroid }}">
+{% endif -%}

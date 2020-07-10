@@ -1,0 +1,17 @@
+{% if locations|length > 0 %}
+    <h2 class="theme-title theme-title-inverse" data-trans="{{ 'Browse by location'|trans({},'widgets') }}">
+        {{ content.labelBrowseByLocation|trans({},'widgets') }}
+        <a href="{{ url(route) }}" data-trans="{{ 'Explore all locations'|trans({}, 'widgets') }}" class="view-more">
+            {{ content.labelExploreAllLocations|trans({}, 'widgets') }}</a>
+    </h2>
+    <div class="list-columns list-columns-3">
+        <ul class="list-unstyled">
+            {% for location in locations -%}
+                {% set link = utility_generateSearchUrl(null, null, null, location.friendlyUrl) -%}
+                <li>
+                    <a href="{{ link }}">{{ location.name }}</a>
+                </li>
+            {% endfor -%}
+        </ul>
+    </div>
+{% endif %}

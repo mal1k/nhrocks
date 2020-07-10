@@ -1,0 +1,54 @@
+{# dateFilter \ArcaSolutions\SearchBundle\Entity\Filters\DateFilter #}
+{% set dateFilter = Search.Filters.dateFilter %}
+<script>
+    $(document).ready(function () {
+        var urlDateFormat = "{{ dateFilter.bootstrapDatepickerUrlDateFormat|raw  }}";
+
+        var startDate = $("#startDateInput");
+        var startDateObj;
+        var endDateObj;
+        if (startDate.length > 0) {
+            startDate.datepicker({
+                language:       "{{ dateFilter.bootstrapDatepickerLanguage }}",
+                autoclose:      true,
+                todayHighlight: true,
+                format:         "{{ dateFilter.bootstrapDatepickerDateFormat|raw }}",
+            });
+        }
+        var endDate = $("#endDateInput");
+        if (endDate.length > 0) {
+            endDate.datepicker({
+                language:       "{{ dateFilter.bootstrapDatepickerLanguage }}",
+                autoclose:      true,
+                todayHighlight: true,
+                format:         "{{ dateFilter.bootstrapDatepickerDateFormat|raw }}"
+            });
+
+            if(endDate.val() !== '' && startDate.val() !== '') {
+                startDateObj = new Date(startDate.datepicker('getDate'));
+                endDateObj = new Date(endDate.datepicker('getDate'));
+
+                if (endDateObj.getTime() < startDateObj.getTime()) {
+                    endDate.datepicker('setDate', startDate.val());
+                }
+            }
+        }
+
+        $(document).on('change', '#startDateInput,#endDateInput', function () {
+            if(endDate.val() !== '' && startDate.val() !== '') {
+                startDateObj = new Date(startDate.datepicker('getDate'));
+                endDateObj = new Date(endDate.datepicker('getDate'));
+
+                if (endDateObj.getTime() < startDateObj.getTime()) {
+                    endDate.datepicker('setDate', startDate.val());
+                }
+            }
+        });
+
+        $(document).on('click', '#dateFilterRefreshButton', function () {
+            var startDateValue = startDate.data('datepicker').getFormattedDate(urlDateFormat);
+            var endDateValue = endDate.data('datepicker').getFormattedDate(urlDateFormat);
+            window.location = $(this).data("urlformat").replace('/STARTDATE', startDateValue).replace("/ENDDATE", endDateValue);
+        });
+    });
+</script>

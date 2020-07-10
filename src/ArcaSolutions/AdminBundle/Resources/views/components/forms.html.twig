@@ -1,0 +1,177 @@
+{% extends 'AdminBundle:components:index.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <style>
+        body { margin: 0 20px; }
+        h2 { font-weight: 300; }
+    </style>
+{% endblock -%}
+
+{% block content %}
+    <h2>Input + label</h2>
+    <hr><br>
+    <form action="">
+        <div class="form-group">
+            <label for="exampleInput">Label (normal)</label>
+            <input type="name" class="form-control" id="exampleInput" aria-describedby="exampleInput" placeholder="Placeholder text">
+        </div>
+        <br>
+        <div class="form-group form-group--success">
+            <label for="exampleInput">Label (success)</label>
+            <input type="name" class="form-control" id="exampleInput" aria-describedby="exampleInput" placeholder="Placeholder text">
+        </div>
+        <br>
+        <div class="form-group form-group--error">
+            <label for="exampleInput">Label (error)</label>
+            <input type="name" class="form-control" id="exampleInput" aria-describedby="exampleInput" placeholder="Placeholder text">
+            <small class="form-control-feedback">Error message</small>
+        </div>
+        <br>
+        <div class="form-group form-group--disabled">
+            <label for="exampleInput">Label (disabled)</label>
+            <input type="name" class="form-control" id="exampleInput" aria-describedby="exampleInput" placeholder="Placeholder text" disabled>
+        </div>
+    </form>
+    <br><br>
+    <h2>Select + label</h2>
+    <hr><br>
+    <form action="">
+        <div class="form-group">
+            <label for="exampleInput">Label (normal)</label>
+            <select class="form-control form-control--select" id="">
+                <option value="">Select a option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+            </select>
+        </div>
+        <br>
+        <div class="form-group form-group--disabled">
+            <label for="exampleInput">Label (disabled)</label>
+            <select class="form-control form-control--select" id="" disabled>
+                <option value="">Select a option</option>
+                <option value="1">Option 1</option>
+                <option value="2">Option 2</option>
+                <option value="3">Option 3</option>
+                <option value="4">Option 4</option>
+            </select>
+        </div>
+    </form>
+    <br><br>
+    <h2>Input number + label</h2>
+    <hr><br>
+    <form action="">
+        <div class="form-group">
+            <label for="exampleInput">Number</label>
+                <input class="form-control form-control--number" type="number" value="1" id="">
+            </div>
+        </div>
+        <br>
+        <div class="form-group form-group--disabled">
+            <label for="exampleInput">Number disabled</label>
+            <input class="form-control form-control--number" type="number" value="1" id="" disabled>
+        </div>
+        </div>
+    </form>
+    <br><br>
+    <h2>Checkbox + label</h2>
+    <hr><br>
+    <form action="">
+        <div class="form-group form-group--check-radio">
+            <input type="checkbox" name="" id="checkbox1" disabled checked>
+            <label for="checkbox1">
+                <span class="checkbox">Checkbox checked and disabled</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio">
+            <input type="checkbox" name="" id="checkbox2" disabled>
+            <label for="checkbox2">
+                <span class="checkbox">Checkbox disabled</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio form-group--error">
+            <input type="checkbox" name="" id="checkbox3">
+            <label for="checkbox3">
+                <span class="checkbox">Checkbox with error</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio">
+            <input type="checkbox" name="" id="checkbox4">
+            <label for="checkbox4">
+                <span class="checkbox">Checkbox</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio">
+            <input type="checkbox" name="" id="checkbox5" checked>
+            <label for="checkbox5">
+                <span class="checkbox">Checkbox checked</span>
+            </label>
+        </div>
+    </form>
+    <br><br>
+    <h2>Radio button + label</h2>
+    <hr><br>
+    <form action="">
+        <div class="form-group form-group--check-radio">
+            <input type="radio" name="" id="radio1" disabled checked>
+            <label for="radio1">
+                <span class="radio">Radio button checked and disabled</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio">
+            <input type="radio" name="" id="radio2" disabled>
+            <label for="radio2">
+                <span class="radio">Radio button disabled</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio form-group--error">
+            <input type="radio" name="" id="radio3">
+            <label for="radio3">
+                <span class="radio">Radio button with error</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio">
+            <input type="radio" name="" id="radio4">
+            <label for="radio4">
+                <span class="radio">Radio button</span>
+            </label>
+        </div>
+        <br>
+        <div class="form-group form-group--check-radio">
+            <input type="radio" name="" id="radio5" checked>
+            <label for="radio5">
+                <span class="radio">Radio button checked</span>
+            </label>
+        </div>
+    </form>
+    <br><br>
+
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    {% javascripts
+        '@AdminBundle/Resources/public/styleguide/js/jquery-3.2.1.slim.min.js'
+        '@AdminBundle/Resources/public/styleguide/js/selectize.min.js'
+    %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script>
+        $('.form-control--select').selectize({
+            create: false,
+            sortField: ''
+        });
+    </script>
+{% endblock %}

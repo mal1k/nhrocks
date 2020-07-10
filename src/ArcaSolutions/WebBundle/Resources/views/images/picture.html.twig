@@ -1,0 +1,7 @@
+<picture {{ class is defined ? 'class=' ~ class : '' }}>
+    {% for source in sources %}
+        <source media="{{ source.media }}" data-srcset="{{ source.url }}" data-flickity-lazyload-srcset="{{ source.url }}" {{ source.type is defined ? 'type=' ~ source.type : '' }}>
+    {% endfor %}
+
+    <img data-src="{{ imgFallback }}" data-flickity-lazyload-src="{{ imgFallback }}" alt="{{ title }}" class="lazy">
+</picture>

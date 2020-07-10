@@ -1,0 +1,15 @@
+<style scoped>
+    {% for source in sources %}
+        @media screen and {{ source.media }}{
+            {% if webPSupport %}
+                {{ source.type == 'image/webp' ? '.webp' : '.no-webp' }} #{{itemId}}{
+                    background-image: url({{ source.url }});
+                }
+            {% else %}
+                #{{itemId}}{
+                    background-image: url({{ source.url }});
+                }
+            {% endif %}
+        }
+    {% endfor %}
+</style>

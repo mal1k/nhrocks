@@ -1,0 +1,45 @@
+// Brand Color
+$brand-color: #29272e !default;
+
+// Highlight Color
+$highlight-color: #f15f2a !default;
+
+// Neutral Color
+$neutral-color: #29272e !default;
+
+// Badges Color
+$badge-color: #f15f2a !default;
+
+// Links Color
+$link-color: #f15f2a !default;
+
+// Background Color
+$background-color: white !default;
+
+// Success Color
+$success-color: #6cbf13 !default;
+
+// Warning Color
+$warning-color: #fc5353 !default;
+
+// Attention Color
+$attention-color: #ffae00 !default;
+
+// Border Radius
+$border-radius: var(--border-radius, 6px) !default;
+$border-radius-input: var(--border-radius-input, 6px) !default;
+$border-radius-button: var(--border-radius-button, 6px) !default;
+$border-radius-icon: var(--border-radius-icon, 6px) !default;
+
+// Font Family Base
+$font-family-base: var(--font-family-base, 'Merriweather Sans') !default;
+
+// Heading Font Family
+$heading-font: var(--heading-font, 'Titillium Web') !default;
+
+// Paragraph Font Family
+$paragraph-font: var(--paragraph-font, 'Merriweather Sans') !default;
+
+// Font Size Base
+$font-size-base-value: 18;
+$font-size-base: var(--font-size-base, #{$font-size-base-value}px) !default;

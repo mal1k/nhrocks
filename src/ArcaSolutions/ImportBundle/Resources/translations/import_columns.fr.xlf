@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Listing Title</source>
+                <target>Titre de la Liste</target>
+            </trans-unit>
+            <trans-unit id="2">
+                <source>Listing SEO Title</source>
+                <target>Titre de Référencement</target>
+            </trans-unit>
+            <trans-unit id="3">
+                <source>Listing Email</source>
+                <target>Email de la Liste</target>
+            </trans-unit>
+            <trans-unit id="4">
+                <source>Listing Url</source>
+                <target>URL de la Liste</target>
+            </trans-unit>
+            <trans-unit id="5">
+                <source>Listing Address</source>
+                <target>Adresse de Liste</target>
+            </trans-unit>
+            <trans-unit id="6">
+                <source>Listing Address2</source>
+                <target>Adresse de Liste 2</target>
+            </trans-unit>
+            <trans-unit id="7">
+                <source>Listing Country</source>
+                <target>Pays de la Liste</target>
+            </trans-unit>
+            <trans-unit id="8">
+                <source>Listing Country Abbreviation</source>
+                <target>Abréviation du Pays de la Liste</target>
+            </trans-unit>
+            <trans-unit id="9">
+                <source>Listing Region</source>
+                <target>Région de la Liste</target>
+            </trans-unit>
+            <trans-unit id="10">
+                <source>Listing Region Abbreviation</source>
+                <target>Abréviation de la Région de la Liste</target>
+            </trans-unit>
+            <trans-unit id="11">
+                <source>Listing State</source>
+                <target>État de la Liste</target>
+            </trans-unit>
+            <trans-unit id="12">
+                <source>Listing State Abbreviation</source>
+                <target>Abréviation d'état de la Liste</target>
+            </trans-unit>
+            <trans-unit id="13">
+                <source>Listing City</source>
+                <target>Ville de la Liste</target>
+            </trans-unit>
+            <trans-unit id="14">
+                <source>Listing City Abbreviation</source>
+                <target>Abréviation de la Ville de la Liste</target>
+            </trans-unit>
+            <trans-unit id="15">
+                <source>Listing Neighborhood</source>
+                <target>Quartier de la Liste</target>
+            </trans-unit>
+            <trans-unit id="16">
+                <source>Listing Neighborhood Abbreviation</source>
+                <target>Abréviation du Quartier de la Liste</target>
+            </trans-unit>
+            <trans-unit id="17">
+                <source>Listing Postal Code</source>
+                <target>Code Postal de la Liste</target>
+            </trans-unit>
+            <trans-unit id="18">
+                <source>Listing Latitude</source>
+                <target>Latitude de la Liste</target>
+            </trans-unit>
+            <trans-unit id="19">
+                <source>Listing Longitude</source>
+                <target>Longitude de la Liste</target>
+            </trans-unit>
+            <trans-unit id="20">
+                <source>Listing Phone</source>
+                <target>Téléphone de la Liste</target>
+            </trans-unit>
+            <trans-unit id="22">
+                <source>Listing Short Description</source>
+                <target>Courte Description de la Liste</target>
+            </trans-unit>
+            <trans-unit id="23">
+                <source>Listing Long Description</source>
+                <target>Longue Description de la Liste</target>
+            </trans-unit>
+            <trans-unit id="24">
+                <source>Listing Seo Description</source>
+                <target>Description SEO de la Liste</target>
+            </trans-unit>
+            <trans-unit id="25">
+                <source>Listing Keywords</source>
+                <target>Mots-clés</target>
+            </trans-unit>
+            <trans-unit id="26">
+                <source>Listing Renewal Date</source>
+                <target>Date de Renouvellement de la Liste</target>
+            </trans-unit>
+            <trans-unit id="27">
+                <source>Listing Status</source>
+                <target>Statut de la Liste</target>
+            </trans-unit>
+            <trans-unit id="28">
+                <source>Listing Level</source>
+                <target>Niveau de la Liste</target>
+            </trans-unit>
+            <trans-unit id="29">
+                <source>Listing Category 1</source>
+                <target>Catégorie de la Liste 1</target>
+            </trans-unit>
+            <trans-unit id="30">
+                <source>Listing Category 2</source>
+                <target>Catégorie de la Liste 2</target>
+            </trans-unit>
+            <trans-unit id="31">
+                <source>Listing Category 3</source>
+                <target>Catégorie de la Liste 3</target>
+            </trans-unit>
+            <trans-unit id="32">
+                <source>Listing Category 4</source>
+                <target>Catégorie de la Liste 4</target>
+            </trans-unit>
+            <trans-unit id="33">
+                <source>Listing Category 5</source>
+                <target>Catégorie de la Liste 5</target>
+            </trans-unit>
+            <trans-unit id="34">
+                <source>Listing Category 6</source>
+                <target>Catégorie de la Liste 6</target>
+            </trans-unit>
+            <trans-unit id="35">
+                <source>Listing Category 7</source>
+                <target>Catégorie de la Liste 7</target>
+            </trans-unit>
+            <trans-unit id="36">
+                <source>Listing Category 8</source>
+                <target>Catégorie de la Liste 8</target>
+            </trans-unit>
+            <trans-unit id="37">
+                <source>Listing Category 9</source>
+                <target>Catégorie de la Liste 9</target>
+            </trans-unit>
+            <trans-unit id="38">
+                <source>Listing Category 10</source>
+                <target>Catégorie de la Liste 10</target>
+            </trans-unit>
+            <trans-unit id="39">
+                <source>Listing Category 11</source>
+                <target>Catégorie de la Liste 11</target>
+            </trans-unit>
+            <trans-unit id="40">
+                <source>Listing Category 12</source>
+                <target>Catégorie de la Liste 12</target>
+            </trans-unit>
+            <trans-unit id="41">
+                <source>Listing Category 13</source>
+                <target>Catégorie de la Liste 13</target>
+            </trans-unit>
+            <trans-unit id="42">
+                <source>Listing Category 14</source>
+                <target>Catégorie de la Liste 14</target>
+            </trans-unit>
+            <trans-unit id="43">
+                <source>Listing Category 15</source>
+                <target>Catégorie de la Liste 15</target>
+            </trans-unit>
+            <trans-unit id="44">
+                <source>Listing Category 16</source>
+                <target>Catégorie de la Liste 16</target>
+            </trans-unit>
+            <trans-unit id="45">
+                <source>Listing Category 17</source>
+                <target>Catégorie de la Liste 17</target>
+            </trans-unit>
+            <trans-unit id="46">
+                <source>Listing Category 18</source>
+                <target>Catégorie de la Liste 18</target>
+            </trans-unit>
+            <trans-unit id="47">
+                <source>Listing Category 19</source>
+                <target>Catégorie de la Liste 19</target>
+            </trans-unit>
+            <trans-unit id="48">
+                <source>Listing Category 20</source>
+                <target>Catégorie de la Liste 20</target>
+            </trans-unit>
+            <trans-unit id="49">
+                <source>Listing Template</source>
+                <target>Modèle de Liste</target>
+            </trans-unit>
+            <trans-unit id="50">
+                <source>Listing DB Id</source>
+                <target>Identifiant DB</target>
+            </trans-unit>
+            <trans-unit id="51">
+                <source>Listing Custom Id</source>
+                <target>Identifiant Personnalisé</target>
+            </trans-unit>
+            <trans-unit id="52">
+                <source>Account Username</source>
+                <target>Nom d'utilisateur du Compte</target>
+            </trans-unit>
+            <trans-unit id="53">
+                <source>Account Password</source>
+                <target>Mot de passe du Compte</target>
+            </trans-unit>
+            <trans-unit id="54">
+                <source>Account Contact First Name</source>
+                <target>Prénom du contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="55">
+                <source>Account Contact Last Name</source>
+                <target>Nom du contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="56">
+                <source>Account Contact Company</source>
+                <target>Société de contact avec le Compte</target>
+            </trans-unit>
+            <trans-unit id="57">
+                <source>Account Contact Address</source>
+                <target>Adresse de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="58">
+                <source>Account Contact Address2</source>
+                <target>Adresse de contact du Compte 2</target>
+            </trans-unit>
+            <trans-unit id="59">
+                <source>Account Contact Country</source>
+                <target>Pays du contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="60">
+                <source>Account Contact State</source>
+                <target>État de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="61">
+                <source>Account Contact City</source>
+                <target>Ville de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="62">
+                <source>Account Contact Postal Code</source>
+                <target>Code Postal de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="63">
+                <source>Account Contact Phone</source>
+                <target>Téléphone de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="65">
+                <source>Account Contact Email</source>
+                <target>Email de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="66">
+                <source>Account Contact URL</source>
+                <target>URL de contact du Compte</target>
+            </trans-unit>
+            <trans-unit id="67">
+                <source>Event Title</source>
+                <target>Titre de l'événement</target>
+            </trans-unit>
+            <trans-unit id="68">
+                <source>Event SEO Title</source>
+                <target>SEO Titre de l'événement</target>
+            </trans-unit>
+            <trans-unit id="69">
+                <source>Event Email</source>
+                <target>Email d'événement</target>
+            </trans-unit>
+            <trans-unit id="70">
+                <source>Event Url</source>
+                <target>URL de l'événement</target>
+            </trans-unit>
+            <trans-unit id="71">
+                <source>Event Address</source>
+                <target>Adresse de l'événement</target>
+            </trans-unit>
+            <trans-unit id="72">
+                <source>Event Venue</source>
+                <target>Lieu de l'événement</target>
+            </trans-unit>
+            <trans-unit id="73">
+                <source>Event Contact Name</source>
+                <target>Nom de contact de l'événement</target>
+            </trans-unit>
+            <trans-unit id="74">
+                <source>Event Start Date</source>
+                <target>Date de début de l'événement</target>
+            </trans-unit>
+            <trans-unit id="75">
+                <source>Event End Date</source>
+                <target>Date de fin de l'événement</target>
+            </trans-unit>
+            <trans-unit id="76">
+                <source>Event Start Time</source>
+                <target>Heure de début de l'événement</target>
+            </trans-unit>
+            <trans-unit id="77">
+                <source>Event End Time</source>
+                <target>Heure de fin de l'événement</target>
+            </trans-unit>
+            <trans-unit id="78">
+                <source>Event Country</source>
+                <target>Pays de l'événement</target>
+            </trans-unit>
+            <trans-unit id="79">
+                <source>Event Country Abbreviation</source>
+                <target>Abréviation du Pays de l'événement</target>
+            </trans-unit>
+            <trans-unit id="80">
+                <source>Event Region</source>
+                <target>Région de l'événement</target>
+            </trans-unit>
+            <trans-unit id="81">
+                <source>Event Region Abbreviation</source>
+                <target>Abréviation de Région de l'événement</target>
+            </trans-unit>
+            <trans-unit id="82">
+                <source>Event State</source>
+                <target>Etat de l'événement</target>
+            </trans-unit>
+            <trans-unit id="83">
+                <source>Event State Abbreviation</source>
+                <target>Abréviation de Etat de l'événement</target>
+            </trans-unit>
+            <trans-unit id="84">
+                <source>Event City</source>
+                <target>Ville de l'événement</target>
+            </trans-unit>
+            <trans-unit id="85">
+                <source>Event City Abbreviation</source>
+                <target>Abréviation de Ville de l'événement</target>
+            </trans-unit>
+            <trans-unit id="86">
+                <source>Event Neighborhood</source>
+                <target>Quartier de l'événement</target>
+            </trans-unit>
+            <trans-unit id="87">
+                <source>Event Neighborhood Abbreviation</source>
+                <target>Abréviation de Quartier de l'événement</target>
+            </trans-unit>
+            <trans-unit id="88">
+                <source>Event Postal Code</source>
+                <target>Code Postal de l'événement</target>
+            </trans-unit>
+            <trans-unit id="89">
+                <source>Event Latitude</source>
+                <target>Latitude de l'événement</target>
+            </trans-unit>
+            <trans-unit id="90">
+                <source>Event Longitude</source>
+                <target>Longitude de l'événement</target>
+            </trans-unit>
+            <trans-unit id="91">
+                <source>Event Phone</source>
+                <target>Téléphone de l'événement</target>
+            </trans-unit>
+            <trans-unit id="92">
+                <source>Event Short Description</source>
+                <target>Courte Description de l'événement</target>
+            </trans-unit>
+            <trans-unit id="93">
+                <source>Event Long Description</source>
+                <target>Description Longue de l'événement</target>
+            </trans-unit>
+            <trans-unit id="94">
+                <source>Event Seo Description</source>
+                <target>SEO Description de l'événement</target>
+            </trans-unit>
+            <trans-unit id="95">
+                <source>Event Keywords</source>
+                <target>Mots-clés</target>
+            </trans-unit>
+            <trans-unit id="96">
+                <source>Event Renewal Date</source>
+                <target>Date de Renouvellement de l'événement</target>
+            </trans-unit>
+            <trans-unit id="97">
+                <source>Event Status</source>
+                <target>Statut do Evento</target>
+            </trans-unit>
+            <trans-unit id="98">
+                <source>Event Level</source>
+                <target>Niveau do Evento</target>
+            </trans-unit>
+            <trans-unit id="99">
+                <source>Event Category 1</source>
+                <target>Catégorie d'evénement 1</target>
+            </trans-unit>
+            <trans-unit id="100">
+                <source>Event Category 2</source>
+                <target>Catégorie d'evénement 2</target>
+            </trans-unit>
+            <trans-unit id="101">
+                <source>Event Category 3</source>
+                <target>Catégorie d'evénement 3</target>
+            </trans-unit>
+            <trans-unit id="102">
+                <source>Event Category 4</source>
+                <target>Catégorie d'evénement 4</target>
+            </trans-unit>
+            <trans-unit id="103">
+                <source>Event Category 5</source>
+                <target>Catégorie d'evénement 5</target>
+            </trans-unit>
+            <trans-unit id="104">
+                <source>Event DB Id</source>
+                <target>Identifiant de la base</target>
+            </trans-unit>
+            <trans-unit id="105">
+                <source>Event Custom Id</source>
+                <target>Identifiant personnalisé d'évenement</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

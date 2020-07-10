@@ -1,0 +1,17 @@
+arcraft_homepage:
+    path:     /
+    defaults: { _controller: ArcraftBundle:Default:index }
+
+arcraft_widgets:
+    path:     /widgets/{widgetName}/{type}/{module}
+    defaults: { _controller: ArcraftBundle:Default:renderWidget, module: ~  }
+    requirements:
+        type: \d+
+
+arcraft_cards:
+    path:     /cards/{cardName}/{columnQuantity}
+    defaults: { _controller: ArcraftBundle:Default:renderCard, columnQuantity: null }
+
+arcraft_dictionary:
+    path:     /dictionary
+    defaults: { _controller: ArcraftBundle:Default:dictionary}

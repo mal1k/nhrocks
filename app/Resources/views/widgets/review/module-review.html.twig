@@ -1,0 +1,159 @@
+{% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+{% if (level.hasReview and reviews_active) and reviewsPaginated.reviews is not empty -%}
+
+    {% if review.coverImage.unsplash is not empty -%}
+        {% set coverImage = review.coverImage.unsplash|raw -%}
+    {% elseif review.coverImage is not empty -%}
+        {% set coverImage = asset(imagePath(review.coverImage), 'domain_images') -%}
+    {% endif -%}
+
+    {% if review.logoImage -%}
+        {% set logoImage = {
+            '80x80': asset(imagePath(review.logoImage), 'domain_images')|imagine_filter('logo_icon_2'),
+            '96x96': asset(imagePath(review.logoImage), 'domain_images')|imagine_filter('logo_icon_3')
+        } -%}
+    {% endif -%}
+
+    <div class="details-default details-listing">
+
+        <div class="details-header details-header-desktop" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+            <div class="container">
+                <div class="details-header-content">
+                    <div class="details-general">
+                        {% if level.hasLogoImage and logoImage is not empty %}
+                            <div class="details-picture">
+                                <img src="{{ logoImage['80x80'] }}" alt="{{ review.title }}">
+                            </div>
+                        {% endif %}
+                        <div class="details-info">
+                            <div class="details-title">
+                                <h1 class="heading h-4">{{ review.title }}</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="details-header details-header-mobile">
+            <div class="detail-header-content-mobile" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image="false"' }}>
+                <div class="details-general-mobile">
+                    {% if level.hasLogoImage and logoImage is not empty %}
+                        <div class="details-picture">
+                            <img src="{{ logoImage['96x96'] }}" alt="{{ review.title }}">
+                        </div>
+                    {% endif %}
+                    <div class="details-info">
+                        <div class="details-title">
+                            <div class="heading h-4">{{ review.title }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="detail-body">
+            <div class="detail-body-content">
+                <div class="container">
+                    <div class="tab-content has-sidebar is-active" id="reviews">
+                        <div class="tab-left">
+                            <div class="tab-item tab-item-reviews">
+                                <div class="tab-item-content">
+                                    <div class="reviews-header">
+                                        <div class="reviews-vote">
+                                            <div class="reviews-rating">{{ review.avgReview }}</div>
+                                            <div class="reviews-stars">
+                                                {% for i in 0..4 %}
+                                                    <i class="fa fa-star{{ i < review.avgReview ? '' : '-o' }}"></i>
+                                                {% endfor %}
+                                            </div>
+                                            {% if reviews_total[1] > 0 -%}
+                                                <div class="reviews-count">{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviews_total[1], {"%count%":reviews_total[1]}) }}</div>
+                                            {% endif %}
+                                            <a href="#" class="button button-md is-primary" data-modal="review" data-id="{{ review.id }}">{{ 'Write a review'|trans }}</a>
+                                        </div>
+                                    </div>
+                                    <div id="review-content">
+                                        <div class="reviews-list">
+                                            {% for review in reviewsPaginated.reviews -%}
+                                                <div class="reviews-item">
+                                                    <div class="review-picture">
+                                                        {{ Profile.photo(review.profile) }}
+                                                    </div>
+                                                    <div class="review-content">
+                                                        <div class="review-author">
+                                                            {% if review.profile.accountId != 0 %}
+                                                                {% if review.profile.hasProfile == 'y' and getSetting('socialnetwork_feature') == 'on' %}
+                                                                    <a rel="nofollow" href="{{ Profile.friendlyUrl(review.profile) }}">
+                                                                        {{ review.profile.firstName }} {{ review.profile.lastName }}
+                                                                    </a>
+                                                                {% else %}
+                                                                    {{ review.profile.firstName }} {{ review.profile.lastName }}
+                                                                {% endif %}
+                                                            {% else %}
+                                                                {{ review.reviewerName }}
+                                                            {% endif %}
+                                                        </div>
+                                                        <div class="review-date">
+                                                            {{ date(review.added)|localized_date('MMMM dd, yyyy') }}
+                                                            <div class="reviews-stars">
+                                                                {% for i in 0..4 %}
+                                                                    <i class="fa fa-star{{ i < review.rating ? '' : '-o' }}"></i>
+                                                                {% endfor %}
+                                                            </div>
+                                                        </div>
+                                                        <div class="review-description">
+                                                            <b>{{ review.reviewTitle }}</b><br>
+                                                            {{ review.review }}
+                                                        </div>
+
+                                                        {% do HookFire('reviewdetail_after_review', {'review': review}) %}
+
+                                                        <div class="review-helpfull">
+                                                            {{ 'Did you find this review helpful?'|trans }}
+                                                            <div class="review-helpfull-vote">
+                                                                <div class="like vote-good" data-id="{{ review.id }}" data-type="like">
+                                                                    <i class="fa fa-thumbs-up"></i>
+                                                                    <div class="up-vote-count">
+                                                                        {{ review.like }}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="like vote-bad" data-id="{{ review.id }}" data-type="dislike">
+                                                                    <i class="fa fa-thumbs-down"></i>
+                                                                    <div class="down-vote-count">
+                                                                        {{ review.dislike }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        {% if review.response is not empty and review.responseapproved -%}
+                                                            <div class="review-reply">
+                                                                <div class="reply-content">
+                                                                    <div class="review-description">
+                                                                        {{ review.response }}
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        {% endif -%}
+                                                    </div>
+                                                </div>
+                                            {% endfor %}
+                                        </div>
+
+                                        {% include 'blocks/pagination/review-pagination.html.twig' with {pageCount: reviewsPaginated.pageCount, friendlyUrl: review.friendlyUrl, current: 1} %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if formReview %}
+            {% include '@Web/modal-review.html.twig' with {form: formReview, item: review, level: level} %}
+        {% endif %}
+    </div>
+{% endif %}
+
+{{ addJSFile("assets/js/review/review.js") }}

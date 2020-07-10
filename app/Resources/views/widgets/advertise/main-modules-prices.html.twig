@@ -1,0 +1,153 @@
+{% if is_module_active(content.module) %}
+
+    {% set modulePlans = getPlansByModule(content.module) %}
+    {% set planFrequency = getPlanFrequency(modulePlans) %}
+    {% set nonFeatures = getNonFeatures() %}
+
+    <div class="pricing-plans" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="pricing-header">
+                <h2 class="heading h-2"
+                    data-trans-listing="{{ 'Listing Options'|trans({},'widgets') }}"
+                    data-trans-event="{{ 'Event Options'|trans({},'widgets') }}"
+                    data-trans-classified="{{ 'Classified Options'|trans({},'widgets') }}">
+                    {{ content.labelModuleOptions|trans({}, 'widgets') }}
+                </h2>
+                {% if content.labelDescription is not empty %}
+                    <span class="paragraph p-1">{{ content.labelDescription|trans({}, 'widgets') }}</span>
+                {% endif %}
+            </div>
+            <div class="pricing-table" id="widget-{{ widget_id }}">
+                {% if planFrequency.monthly or ( not planFrequency.monthly and not planFrequency.yearly ) %}
+                    {% if planFrequency.monthly and planFrequency.yearly %}
+                        <div class="pricing-nav">
+                            <button class="button button-md is-outline is-active" data-widget-id="{{ widget_id }}" data-period="monthly">{{ 'Monthly'|trans }}</button>
+                            <button class="button button-md is-outline" data-widget-id="{{ widget_id }}" data-period="yearly">{{ 'Yearly'|trans }}</button>
+                        </div>
+                    {% endif %}
+                    <div class="pricing-wrapper is-active {{ planFrequency.monthly > 3 ? 'has-scroll' : '' }}" id="monthly-{{ widget_id }}">
+                        <div class="pricing-list {{ not planFrequency.monthly or  not planFrequency.yearly ? 'no-margin' : '' }}">
+                            {% for plan in modulePlans %}
+                                {% set pricing = advertisePrice(plan, true, content) %}
+                                {% if pricing.monthly.value or pricing.monthly.value == pricing.yearly.value %}
+                                    <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }}"
+                                        {% if plan.isPopular %}
+                                            data-highlighted="{{ 'Most Popular'|trans }}"
+                                        {% endif %}
+                                        >
+                                        <div class="paragraph p-3 pricing-plan">{{ plan.name }}</div>
+                                        <div class="pricing-price">
+                                            <div class="heading h-3 pricing-value">{{ pricing.monthly.value ? pricing.main.symbol ~ pricing.monthly.value : 'Free'|trans }}</div>
+                                            <div class="paragraph p-4 pricing-period">{{ pricing.monthly.value ? 'per month'|trans : '' }}</div>
+                                        </div>
+                                        <div class="pricing-action">
+                                            <a href="/advertise/{{ content.module }}/{{ plan.level }}" onclick="advertiseChoice('monthly')" class="button button-bg {{ plan.isPopular ? 'is-primary' : 'is-secondary'}}">
+                                                {% if plan.trial and pricing.monthly.value %}
+                                                    {{ "{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial"|transchoice(plan.trial, {"%trial_days%":plan.trial}) }}
+                                                {% else %}
+                                                    {{ 'Start today!'|trans }}
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        <div class="pricing-collapse is-open">
+                                            <ul class="price-advantages">
+                                                {% if pricing.description is not empty %}
+                                                    <div class="price-description">
+                                                        <p class="pragraph p-2">{{ pricing.description|nl2br }}</p>
+                                                    </div>
+                                                {% else %}
+                                                    {% for feature, value in plan|cast_to_array %}
+                                                        {% if feature not in nonFeatures and value is not null %}
+                                                            <li class="price-advantages-item {{ value ? 'has-advantages' : '' }}">
+                                                                <div class="icon icon-md"><i class="fa"></i></div>
+                                                                {% if feature == 'hasDetail' and value %}
+                                                                    <a href="{{ url( content.module ~ '_sample', {'friendlyUrl': 'sample', 'level': plan.level, '_format': 'html'}) }}"
+                                                                       target="_blank" rel="noopener noreferrer nofollow"
+                                                                       title="{{ 'View Sample'|trans }}"
+                                                                       class="link item-name">{{ feature|transchoice(value, [], 'advertise') }}</a>
+                                                                {% else %}
+                                                                    <div class="item-name">{{ feature|transchoice(value, [], 'advertise') }}</div>
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="pricing-buttons">
+                            <button class="button is-primary previous"><i class="fa fa-angle-left"></i></button>
+                            <button class="button is-primary next"><i class="fa fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if planFrequency.yearly %}
+                    <div class="pricing-wrapper {{ not planFrequency.monthly ? 'is-active' : '' }} {{ planFrequency.yearly > 3 ? 'has-scroll' : '' }}" id="yearly-{{ widget_id }}">
+                        <div class="pricing-list">
+                            {% for plan in modulePlans %}
+                                {% set pricing = advertisePrice(plan, true, content) %}
+                                {% if pricing.yearly.value or pricing.monthly.value == pricing.yearly.value %}
+                                    <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }}"
+                                        {% if plan.isPopular %}
+                                            data-highlighted="{{ 'Most Popular'|trans }}"
+                                        {% endif %}
+                                        >
+                                        <div class="paragraph p-3 pricing-plan">{{ plan.name }}</div>
+                                        <div class="pricing-price">
+                                            <div class="heading h-3 pricing-value">{{ pricing.yearly.value ? pricing.main.symbol ~ pricing.yearly.value : 'Free'|trans }}</div>
+                                            <div class="paragraph p-4 pricing-period">{{ pricing.yearly.value ? 'per year'|trans : '' }}</div>
+                                        </div>
+                                        <div class="pricing-action">
+                                            <a href="/advertise/{{ content.module }}/{{ plan.level }}" onclick="advertiseChoice('yearly')" class="button button-bg {{ plan.isPopular ? 'is-primary' : 'is-secondary'}}">
+                                                {% if plan.trial and pricing.yearly.value %}
+                                                    {{ "{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial"|transchoice(plan.trial, {"%trial_days%":plan.trial}) }}
+                                                {% else %}
+                                                    {{ 'Start today!'|trans }}
+                                                {% endif %}
+                                            </a>
+                                        </div>
+                                        <div class="pricing-collapse is-open">
+                                            <ul class="price-advantages">
+                                                {% if pricing.description is not empty %}
+                                                    <div class="price-description">
+                                                        <p class="pragraph p-2">{{ pricing.description|nl2br }}</p>
+                                                    </div>
+                                                {% else %}
+                                                    {% for feature, value in plan|cast_to_array %}
+                                                        {% if feature not in nonFeatures and value is not null %}
+                                                            <li class="price-advantages-item {{ value ? 'has-advantages' : '' }}">
+                                                                <div class="icon icon-md"><i class="fa"></i></div>
+                                                                {% if feature == 'hasDetail' and value %}
+                                                                    <a href="{{ url( content.module ~ '_sample', {'friendlyUrl': 'sample', 'level': plan.level, '_format': 'html'}) }}"
+                                                                       target="_blank" rel="noopener noreferrer nofollow"
+                                                                       title="{{ 'View Sample'|trans }}"
+                                                                       class="item-name">{{ feature|transchoice(value, [], 'advertise') }}</a>
+                                                                {% else %}
+                                                                    <div class="item-name">{{ feature|transchoice(value, [], 'advertise') }}</div>
+                                                                {% endif %}
+                                                            </li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                {% endif %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="pricing-buttons">
+                            <button class="button is-primary previous"><i class="fa fa-angle-left"></i></button>
+                            <button class="button is-primary next"><i class="fa fa-angle-right"></i></button>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {{ addJSFile("assets/js/widgets/plans/main-modules-prices.js") -}}
+
+{% endif %}

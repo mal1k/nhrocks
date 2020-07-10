@@ -1,0 +1,82 @@
+{% if items|length > 0 %}
+    {% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+    
+    <div class="cards-default" card-type="{{ cardType }}" card-module="{{ module }}" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            {% if content.widgetTitle is not empty -%}
+                <div class="cards-header">
+                    <h4 class="heading h-4">{{ content.widgetTitle|trans({}, 'widgets') }}</h4>
+                    {% if widgetLink is not empty %}
+                        <a href="{{ widgetLink }}" class="link" data-trans="{{ 'more articles'|trans({},'widgets') }}">
+                            {{ content.widgetLink.label|trans({}, 'widgets') }}
+                        </a>
+                    {% endif %}
+                </div>
+            {% endif -%}
+
+            <div class="cards-wrapper" has-ads="{{ banner is not empty ? 'true' : 'false' }}" banner-type="{{ content.banner }}">
+                <div class="cards-list no-margin cards-betweens" data-align="left">
+                    {% for item in items -%}
+                        {% set itemData = getCardData(item, 'article') %}
+
+                        <div class="card card-horizontal card-horizontal-full list-horizontal">
+                            <div class="content">
+                                {% if item.categories -%}
+                                    {{UtilityCards.categories(item.categories, content.module)}}
+                                {% endif %}
+
+                                <a href="{{ itemData.detailLink }}" class="title heading">{{ item.title }}</a>
+
+                                {% if item.abstract is not empty -%}
+                                    {% set description = item.abstract -%}
+                                {% endif -%}
+
+                                {% if description is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{ description|length > 180 ? description|slice(0,179) ~ '...' : description }}</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if item.author.name %}
+                                    <div class="author">
+                                        <div class="author-picture">
+                                            {% if item.authorImageId != 0 %}
+                                                <img src="{{ itemData.authorImage }}" alt="{{ item.author.name }}">
+                                            {% else %}
+                                                <i class="fa fa-user"></i>
+                                            {% endif %}
+                                        </div>
+                                        <div class="author-name">{{ 'By'|trans }}
+                                            {% if item.author.url %}
+                                                <a href="{{ item.author.url }}" class="link">
+                                                    {{ item.author.name }}
+                                                </a>
+                                            {% else %}
+                                                {{ item.author.name }}
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+
+                            <a href="{{ itemData.detailLink }}" class="picture">
+                                <div class="badge">{{ date(item.publicationDate)|localized_date('MMMM dd, yyyy') }}</div>
+                                {% if item.thumbnail is defined and item.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(item.thumbnail, 'domain_images'), item.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(title) }}
+                                {% endif -%}
+                            </a>
+                        </div>
+                    {% endfor -%}
+                </div>
+
+                {% if banner is not empty %}
+                    <div class="cards-ads">
+                        {{ banner | raw }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

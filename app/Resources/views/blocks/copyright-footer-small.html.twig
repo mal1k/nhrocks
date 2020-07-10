@@ -1,0 +1,15 @@
+<div class="footer-bar">
+    <div class="container">
+        <div class="wrapper">
+            {% if branded == 'on' -%}
+            <div class="footer-powered">
+                {{ 'Powered by'|trans }}
+                <a href="{{ url_edirectory }}" class="edirectory-link">
+                    <img src="{{ asset('assets/images/'~ (content.backgroundColor == 'base' ? 'edirectory-logo-inverse' : 'edirectory-logo') ~'.svg') }}"
+                         alt="{{ 'eDirectory Cloud Service'|trans }} &trade;">
+                </a>
+            </div>
+            {% endif -%}
+        </div>
+    </div>
+</div>

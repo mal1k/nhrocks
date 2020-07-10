@@ -1,0 +1,12 @@
+{% set module = getModule() -%}
+{% set moduleSearch = getModuleSearch() -%}
+{{ addJSTwigParameter("searchBoxModule", moduleSearch) }}
+
+{# Top Search -#}
+<div class="thin-strip-base" id="thin-strip-search" data-type="4" data-bg="{{content.backgroundColor}}" {{ content.lastItem ? 'last-item' : '' }} has-gap>
+    <div class="container">
+        <div class="wrapper">
+            {% include("::blocks/search/search-fields.html.twig") with {'module': moduleSearch} %}
+        </div>
+    </div>
+</div>

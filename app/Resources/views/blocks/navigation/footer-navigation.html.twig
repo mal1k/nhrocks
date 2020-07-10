@@ -1,0 +1,14 @@
+{% if items|length > 0 %}
+    <div class="footer-item" data-content="site-content">
+        <div class="heading footer-item-title" data-trans="{{ 'Site Content'|trans({}, 'widgets') }}">
+            {{ content.labelSiteContent|trans({}, 'widgets') }}
+        </div>
+        <div class="footer-item-content">
+            {% for item in items -%}
+                <a href="{{ item['pageUrl'] }}" class="link-footer">
+                    {{ item['label']|trans }}
+                </a>
+            {% endfor -%}
+        </div>
+    </div>
+{% endif %}

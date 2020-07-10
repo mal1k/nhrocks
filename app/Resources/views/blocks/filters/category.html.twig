@@ -1,0 +1,89 @@
+{#      Description:                                                                                  -#}
+{# Macro for category menu generation during searches                                                 -#}
+
+{#      Resources:                                                                                    -#}
+
+{# category \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                     -#}
+{#      An instance of the FilterMenuTreeNode class containing data for a specific category           -#}
+{#      {                                                                                             -#}
+{#          parent        :(FilterMenuTreeNode) The Parent node                                       -#}
+{#          parentId      :(string) The Parent node Id                                                -#}
+{#          children      :(FilterMenuTreeNode[]) An array of children                                -#}
+{#          childrenId    :(string[]) An array of all children Ids                                    -#}
+{#          title         :(string) The category title                                                -#}
+{#          friendlyUrl   :(string) The category friendly url token                                   -#}
+{#          module        :(string) The module name                                                   -#}
+{#          id            :(string) The category Id                                                   -#}
+{#          isSelected    :(bool) Whether or not this category was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                            -#}
+{#          resultCount   :(int) The amount of results within this category                           -#}
+{#      }                                                                                             -#}
+
+
+{% macro createCategoryMenuEntry(category) -%}
+    {% set subCategoryCount = category.children|length -%}
+    {% set categoryClass = category.isSelected ? "true" : "false" -%}
+
+    {% if subCategoryCount == 0 -%}
+        <div class="category-item" is-selected="{{ categoryClass }}" has-subcategory="false">
+            <div class="category-header">
+                <a href="{{ category.searchPageUrl }}" class="category-link" rel="nofollow">{{ category.title }}</a>
+                
+                {% if category.resultCount > 0 -%}
+                    <span class="category-count">{{ category.resultCount }}</span>
+                {% endif %}
+            </div>
+        </div>
+    {% else %}
+        <div class="category-item" is-selected="{{ categoryClass }}" has-subcategory="true">
+            <div class="category-header">
+                <button class="button subcategory-toggler"><i class="fa {{ category.isParentOfSelected or category.isSelected ? 'fa-minus' : 'fa-plus' }}"></i></button>
+                <a href="{{ category.searchPageUrl }}" class="category-link" rel="nofollow">{{ category.title }}</a>
+
+                {% if category.resultCount > 0 -%}
+                    <span class="category-count">{{ category.resultCount }}</span>
+                {% endif %}
+            </div>
+            <div class="category-subcategory" {{ category.isParentOfSelected or category.isSelected ? 'style="display: block;"' }}>
+                {% for subCategory in category.children -%}
+                    {{ _self.createCategoryMenuEntry(subCategory) }}
+                {% endfor -%}
+            </div>
+        </div>
+    {% endif %}
+{% endmacro -%}
+
+{#      Description:                                                                                  -#}
+{# This page represents the Category Filter HTML on Search pages                                      -#}
+
+{#      Resources:                                                                                    -#}
+
+{# categoryTree \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode                                 -#}
+{#      An array containing FilterMenuTreeNode items                                                  -#}
+{#      {                                                                                             -#}
+{#          parent        :(FilterMenuTreeNode) The Parent node                                       -#}
+{#          parentId      :(string) The Parent node Id                                                -#}
+{#          children      :(FilterMenuTreeNode[]) An array of children                                -#}
+{#          childrenId    :(string[]) An array of all children Ids                                    -#}
+{#          title         :(string) The category title                                                -#}
+{#          friendlyUrl   :(string) The category friendly url token                                   -#}
+{#          module        :(string) The module name                                                   -#}
+{#          id            :(string) The category Id                                                   -#}
+{#          isSelected    :(bool) Whether or not this category was selected and is actively filtering -#}
+{#          searchPageUrl :(string) The relative URL to toggle this filter                            -#}
+{#          resultCount   :(int) The amount of results within this category                           -#}
+{#      }                                                                                             -#}
+
+<div class="sidebar-item">
+    <div class="item-header sidebar-toggler">
+        <span class="paragraph p-2 item-title">
+            {{ "Categories"|trans }}
+        </span>
+        <i class="fa fa-minus"></i>
+    </div>
+    <div class="item-body">
+        {% for category in categoryTree -%}
+            {{ _self.createCategoryMenuEntry(category) }}
+        {% endfor -%}
+    </div>
+</div>

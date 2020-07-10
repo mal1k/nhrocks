@@ -1,0 +1,42 @@
+{% macro categories(categories, module, class = '') -%}
+    {% if categories is not empty -%}
+        <div class="categories">
+            {{ 'in'|trans }}
+            {% for category in categories -%}
+                {% if category.category is not empty %}
+                    {# the last validation checks if it is rendered by elastic data or DB #}
+                    {# we have to do this because de relation N-1 and 1-N #}
+                    {% set category = category.category %}
+                {% endif %}
+                {# if it is redered by a DB data, checks category #}
+                {% if category.enabled is not defined or category.enabled == 'y' %}
+
+                    {% if loop.index < 6 %}
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" class="link">{{ category.title }}</a> {%- if not loop.last -%}, {% endif -%}
+                    {% endif -%}
+
+                    {% if loop.index == 6 -%}
+                        <div class="categories-dropdown">
+                            <div class="categories-dropdown-toggle {{class != '' ? class : ''}} link">(+{{categories|length - 5}})</div>
+                            <div class="categories-dropdown-content">
+                                <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" class="link">{{ category.title }}</a>
+                                {%- if not loop.last -%},
+                                {% else -%}
+                            </div>
+                        </div>
+                                {% endif -%}
+                    {% endif -%}
+                    {% if loop.index > 6 -%}
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" class="link">{{ category.title }}</a>
+                        {%- if not loop.last -%},
+                                {% else -%}
+                            </div>
+                        </div>
+                        {% endif -%}
+                    {% endif -%}
+
+                {% endif %}
+            {% endfor -%}
+        </div>
+    {% endif %}
+{% endmacro -%}

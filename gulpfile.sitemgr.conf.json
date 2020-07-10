@@ -1,0 +1,35 @@
+{
+    "paths": {
+      "styles": {
+        "dist": "web/sitemgr/assets/style",
+        "src": "web/sitemgr/assets/dist"
+      }
+    },
+    "src": {
+      "styles": {
+        "paths": [
+          "web/sitemgr/assets/style/less/adminpanel.less",
+          "src/ArcaSolutions/AdminBundle/Resources/public/styleguide/less/base.less"
+        ],
+        "watch": [
+          "web/sitemgr/assets/style/less/**/*.less",
+          "src/ArcaSolutions/AdminBundle/Resources/public/styleguide/less/*.less"
+        ]
+      }
+    },
+    "dist": {
+      "styles": {
+        "paths": [
+          "web/sitemgr/assets/dist/build.css"
+        ],
+        "watch": [
+          "web/sitemgr/assets/style/styles.min.css"
+        ]
+      }
+    },
+    "watch": [
+      "web/includes/**/*.{php,js}",
+      "web/lang/*.{php,js}",
+      "web/sitemgr/**/*.{php,js}"
+    ]
+  }

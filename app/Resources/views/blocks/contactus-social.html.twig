@@ -1,0 +1,58 @@
+{% set flags = 0 %}
+
+{% set flags = 0 +
+    ( facebook ? 64  : 0 ) +
+    ( linkedin ? 128 : 0 ) +
+    ( twitter  ? 256 : 0 ) +
+    ( instagram ? 512 : 0 ) +
+    ( pinterest  ? 1024 : 0 ) %}
+
+{% if flags b-and 1984 %}
+    <div class="footer-item" data-content="social-content">
+        <div class="heading footer-item-title" data-trans="{{ 'Follow Us'|trans({}, 'widgets') }}">
+            {{ content.labelFollowUs|trans({}, 'widgets') }}
+        </div>
+        <div class="footer-item-content">
+            {% if flags b-and 64 -%}
+                <a href="{{ facebook }}" rel="noopener noreferrer" target="_blank" class="link-footer">
+                    <div class="icon icon-md">
+                        <i class="fa fa-facebook"></i>
+                    </div>
+                    <span>Facebook</span>
+                </a>
+            {%- endif %}
+            {% if flags b-and 128 -%}
+                <a href="{{ linkedin }}" rel="noopener noreferrer" target="_blank" class="link-footer">
+                    <div class="icon icon-md">
+                        <i class="fa fa-linkedin"></i>
+                    </div>
+                    <span>LinkedIn</span>
+                </a>
+            {%- endif %}
+            {% if flags b-and 256 -%}
+                <a href="{{ twitter }}" rel="noopener noreferrer" target="_blank" class="link-footer">
+                    <div class="icon icon-md">
+                        <i class="fa fa-twitter"></i>
+                    </div>
+                    <span>Twitter</span>
+                </a>
+            {%- endif %}
+            {% if flags b-and 512 -%}
+                <a href="{{ instagram }}" rel="noopener noreferrer" target="_blank" class="link-footer">
+                    <div class="icon icon-md">
+                        <i class="fa fa-instagram"></i>
+                    </div>
+                    <span>Instagram</span>
+                </a>
+            {%- endif %}
+            {% if flags b-and 1024 -%}
+                <a href="{{ pinterest }}" rel="noopener noreferrer" target="_blank" class="link-footer">
+                    <div class="icon icon-md">
+                        <i class="fa fa-pinterest"></i>
+                    </div>
+                    <span>Pinterest</span>
+                </a>
+            {%- endif %}
+        </div>
+    </div>
+{% endif %}

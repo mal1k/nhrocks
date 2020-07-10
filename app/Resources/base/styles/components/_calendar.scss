@@ -1,0 +1,36 @@
+// Structure
+.calendar-sm{
+    width: 50px;
+    min-width: 50px;
+    border-radius: 3px;
+    border: 1px solid customColor(neutral, transp-25);
+    background: white;
+    overflow: hidden;
+    z-index: 5;
+
+    .month{
+        background: customColor(highlight, base);
+        font-weight: bold;
+        text-transform: uppercase;
+        color: customColor(color-white, base);
+        line-height: 1;
+        text-align: center;
+        padding: 3px 0;
+        font-size: fontsize(size-14);
+    }
+
+    .day{
+        line-height: 1;
+        text-align: center;
+        padding: 3px 0;
+        font-size: fontsize(size-24);
+    }
+
+    .day-abbr{
+        line-height: 1;
+        color: customColor(neutral, transp-75);
+        text-align: center;
+        padding-bottom: 3px;
+        font-size: fontsize(size-12);
+    }
+}

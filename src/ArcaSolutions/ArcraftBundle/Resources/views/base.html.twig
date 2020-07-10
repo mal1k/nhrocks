@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="no-js" lang="pt-br">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>ArCraft | Documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+        <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+
+        {% stylesheets '@ArcraftBundle/Resources/assets/plugins/elegant_font/css/style.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        {% stylesheets '@ArcraftBundle/Resources/assets/plugins/bootstrap/css/bootstrap.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        {% stylesheets '@ArcraftBundle/Resources/assets/plugins/prism/prism.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        {% stylesheets '@ArcraftBundle/Resources/assets/plugins/lightbox/dist/ekko-lightbox.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+        {# WIDGETS STYLE #}
+        <link rel="stylesheet" href="">
+
+        {% stylesheets '@ArcraftBundle/Resources/assets/css/styles.css' %}
+            <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+        {% endstylesheets %}
+
+        {#<link rel="stylesheet" href="assets/css/styles.css">#}
+
+        {% javascripts '@ArcraftBundle/Resources/assets/js/jquery.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+    </head>
+
+    <body>
+
+        {% block body -%} {# Main Content -#} {% endblock -%}
+
+        <footer class="footer text-center">
+            <div class="container">
+                <small class="copyright">Build with <i class="fas fa-heart"></i></small>
+            </div>
+        </footer>
+
+        {% javascripts '@ArcraftBundle/Resources/assets/plugins/bootstrap/js/bootstrap.min.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@ArcraftBundle/Resources/assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@ArcraftBundle/Resources/assets/plugins/stickyfill/dist/stickyfill.min.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@ArcraftBundle/Resources/assets/plugins/prism/prism.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {% javascripts '@ArcraftBundle/Resources/assets/plugins/lightbox/dist/ekko-lightbox.min.js' %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+        {#<script type="text/javascript" src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>#}
+        {#<script type="text/javascript" src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>#}
+        {#<script type="text/javascript" src="assets/plugins/stickyfill/dist/stickyfill.min.js"></script>#}
+        {#<script type="text/javascript" src="assets/plugins/prism/prism.js"></script>#}
+        {#<script type="text/javascript" src="assets/plugins/lightbox/dist/ekko-lightbox.min.js"></script>#}
+        {#<script src=""></script>#}
+        {#<script type="text/javascript" src="assets/js/main.js"></script>#}
+    </body>
+</html>

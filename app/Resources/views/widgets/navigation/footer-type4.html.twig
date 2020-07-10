@@ -1,0 +1,51 @@
+<footer class="footer" data-type="4" is-inverse="{{ content.backgroundColor == 'base' ? 'true' : 'false' }}">
+    <div class="footer-content">
+        <div class="container">
+            <div class="wrapper">
+                <div class="footer-wrapper">
+                    <div class="footer-logo">
+                        <a href="{{ path('web_homepage') }}" class="logo-link" target="_parent" title="{{ title }}">
+                            <img src="{{ utility_getLogoImage()|imagine_filter('logo') }}?{{ 'now' | date('U') }}" class="img-responsive" alt="{{ title }}">
+                        </a>
+                    </div>
+                    {{ socialMedia() }}
+                </div>
+                <div class="footer-actions">
+                    {{ contactUs(content) }}
+
+                    {% set newsletter = getSetting('arcamailer_customer_listid') -%}
+                    {% if newsletter -%}
+                        <div class="footer-item" data-content="newsletter-content">
+                            <div class="heading footer-item-title footer-newsletter-toggler" data-trans="{{ 'Sign up for our newsletter'|trans({}, 'widgets') }}">
+                                {{ content.datainfoSignupFor|trans({}, 'widgets') }}
+                            </div>
+                            <div class="footer-item-content">
+                                <div class="paragraph p-2 footer-item-subtitle"
+                                     data-trans="{{ 'Sign up for our monthly newsletter. No spams, just product updates.'|trans({}, 'widgets') }}">
+                                    {{ content.datainfoNewsletterDesc|trans({}, 'widgets') }}
+                                </div>
+                                <form id="formNewsletterFooter" class="form-newsletter">
+                                    <div class="alert-message" data-type="success" is-dismissible="false" is-visible="false"></div>
+                                    <div class="form-newsletter-wrapper">
+                                        <input type="text" class="input" placeholder="{{ 'Name'|trans }}" name="name" required>
+                                        <input type="email" class="input" placeholder="{{ 'E-mail'|trans }}" name="email" required>
+                                        <button class="button button-md is-primary" data-size="" data-content=""
+                                                data-loading="{{ 'Please, wait...'|trans }}">
+                                            {{ "Sign Up"|trans }}
+                                        </button>
+                                    </div>
+                                </form>
+                                <div class="privacy-text-footer">
+                                    {{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a class="link" href="/'~getParameter('alias_terms_url_divisor')~'">', '%end_terms%' : '</a>', '%start_privacy%' : '<a class="link" href="/'~getParameter('alias_privacy_url_divisor')~'">', '%end_privacy%' : '</a>'}, 'account') | raw }}
+                                </div>
+                            </div>
+                        </div>
+
+                        {{ addJSFile("assets/js/widgets/newsletter/newsletter.js") }}
+                    {% endif %}
+                </div>
+            </div>
+            {{ copyright(content, null, true) }}
+        </div>
+    </div>
+</footer>

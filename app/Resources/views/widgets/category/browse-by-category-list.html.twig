@@ -1,0 +1,27 @@
+{% set module = getModule() -%}
+{% set categories = getCategoriesByModule(module, content.limit, 'featured') -%}
+
+{% if categories.featured %}
+
+    <div class="categories-base" data-type="6" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="categories-content">
+                <button class="categories-nav" data-direction="prev"><i class="fa fa-angle-left"></i></button>
+                <button class="categories-nav" data-direction="next"><i class="fa fa-angle-right"></i></button>
+                <div class="heading trending-label" data-trans="{{ 'Trending Topics'|trans({}, 'widgets') }}">{{ content.placeholderTitle.value|trans({}, 'widgets') }}:</div>
+                <div class="trending-list">
+                    {% for category in categories.featured -%}
+                        <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" class="trending-item">
+                            {{ category.title }}
+                            {% if content.enableCounter %}
+                                <span class="count">({{ category.count }})</span>
+                            {% endif %}
+                        </a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ addJSTwig("::js/blocks/browse-by-category-list.html.twig") }}
+{% endif %}

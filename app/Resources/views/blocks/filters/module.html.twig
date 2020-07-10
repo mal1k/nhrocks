@@ -1,0 +1,32 @@
+{#      Description:                                                      -#}
+{# This page represents the Module Filter HTML on Search pages            -#}
+
+{#      Resources:                                                        -#}
+
+{# availableModules \ArcaSolutions\SearchBundle\Entity\FilterMenuTreeNode -#}
+{# selectedModules array                                                  -#}
+
+<div class="sidebar-item">
+    <div class="item-header sidebar-toggler">
+        <span class="paragraph p-2 item-title">
+            {{ "Type"|trans }}
+        </span>
+        <i class="fa fa-minus"></i>
+    </div>
+    <div class="item-body">
+        {% for module in availableModules -%}
+            {% set moduleClass = module.isSelected ? "true" : "false" -%}
+            <div class="category-item" is-selected="{{ moduleClass }}" has-subcategory="false">
+                <div class="category-header">
+                    <a href="{{ module.searchPageUrl }}" class="category-link" rel="nofollow">
+                        {{ module.title|capitalize }}
+                    </a>
+                    
+                    {% if module.resultCount > 0 -%}
+                        <span class="category-count">{{ module.resultCount }}</span>
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor -%}
+    </div>
+</div>

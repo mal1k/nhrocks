@@ -1,0 +1,132 @@
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{% if contact.address
+    or contact.company
+    or contact.city
+    or contact.state
+    or contact.country
+    or contact.zipcode
+    or contact.email
+    or contact.phone
+    or map %}
+
+    {% set boxContact = 'y' -%}
+    {% set colBox = '8' -%}
+
+{% else -%}
+
+    {% set boxContact = 'n' -%}
+    {% set colBox = '12' -%}
+
+{% endif -%}
+
+<div class="contactus-block">
+    <div class="container">
+        <div class="wrapper">
+            <div class="contactus-content">
+                <h1 class="heading h-2" data-trans="{{ 'Contact Us'|trans({}, 'widgets') }}">
+                    {{ content.labelContactUs|trans({}, 'widgets') }}
+                </h1>
+                <p class="paragraph p-1" data-trans="{{ 'Need help with something? Get in touch with us and we\'ll do our best to answer your question as soon as possible.'|trans({}, 'widgets') }}">
+                    {{ content.labelNeedHelp|trans({}, 'widgets') }}
+                </p>
+
+                {% if boxContact == 'y' %}
+                    <div class="contactus-info">
+                        {% if contact.address or contact.city or contact.state or contact.zipcode or contact.country or contact.company %}
+                            <div class="info-item">
+                                <div class="icon icon-md">
+                                    <span class="fa fa-map-marker"></span>
+                                </div>
+                                {{ contact.company }}{{ contact.company ? "<br>" }}{{ contact.address }}{{ contact.address ? "<br>" }}{{ contact.city }}{{ contact.city and contact.state ? "," }} {{ contact.state }} {{ contact.zipcode }}
+                                <br>{{ contact.country }}
+                            </div>
+                        {% endif -%}
+                        {% if contact.phone %}
+                            <div class="info-item">
+                                <div class="icon icon-md">
+                                    <span class="fa fa-phone"></span>
+                                </div>
+                                <a href="tel:{{ contact.phone }}">{{ contact.phone }}</a>
+                            </div>
+                        {% endif -%}
+                        {% do HookFire('contact_form_after_phone_rendering', {'content':content}, true) %}
+                        {% if contact.email %}
+                            <div class="info-item">
+                                <div class="icon icon-md">
+                                    <span class="fa fa-envelope-o"></span>
+                                </div>
+                                {{ contact.email }}
+                            </div>
+                        {% endif -%}
+                    </div>
+                {% endif -%}
+                {{ socialMedia('contactus') }}
+            </div>
+
+            <form role="form" action="{{ path('web_contactus') }}" method="POST" {{ form_enctype(form) }} class="contactus-form">
+                {% if app.session.flashbag.has('notice') -%}
+                    {% include '::blocks/alert.html.twig' -%}
+                {% endif -%}
+
+                {{ form_row(form._token) }}
+
+                {{ form_widget(form.firstname) }}
+                {{ form_errors(form.firstname) }}
+
+                {{ form_widget(form.lastname) }}
+                {{ form_errors(form.lastname) }}
+
+                {{ form_widget(form.email) }}
+                {{ form_errors(form.email) }}
+
+                {{ form_widget(form.phone) }}
+                {{ form_errors(form.phone) }}
+
+                {{ form_widget(form.subject) }}
+                {{ form_errors(form.subject) }}
+
+                {{ form_widget(form.message, { 'attr': {'rows': 5} }) }}
+                {{ form_errors(form.message) }}
+
+                {{- block('form_custom') -}}
+
+                {% if form.captcha is defined %}
+                    <br>
+                    {% block edirectory_captcha_widget -%}
+                        {% spaceless -%}
+                            {{ form_widget(form.captcha) }}
+                            {{ form_errors(form.captcha) }}
+                        {% endspaceless -%}
+                    {% endblock -%}
+                {% endif %}
+
+                <button type="submit" class="button button-bg is-primary">
+                    {{ "Send"|trans }}
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="contactus-map">
+        {% if map is not null -%} {{ googleMaps(map) }} {% endif -%}
+    </div>
+</div>
+
+{%- block form_custom -%}
+    {% for field in form.children if field.rendered == false -%}
+        {% set prefix = field.vars.block_prefixes|length > 3 ? field.vars.block_prefixes.3 : field.vars.block_prefixes.2 -%}
+        {% if 'custom' in prefix -%}
+            {% set attr_field = {'class': 'input'} -%}
+            {% if field.children|length > 0 -%}
+                {% set attr_field = {} -%}
+            {% endif -%}
+
+            {% if field.vars.attr['data-type'] not in ['input_text', 'textarea'] %}
+                {{ form_label(field) }}
+            {% endif %}
+            {{ form_widget(field, { 'attr': attr_field }) }}
+            {{ form_errors(field) }}
+
+        {% endif -%}
+    {% endfor -%}
+{%- endblock -%}

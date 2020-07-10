@@ -1,0 +1,15 @@
+img.lazy{
+    opacity: 0;
+
+    &.initial, &.loaded, &.error{
+        opacity: 1;
+    }
+
+    &:not(.initial){
+        transition: opacity .3s;
+    }
+
+    &:not([src]) {
+        visibility: hidden;
+    }
+}

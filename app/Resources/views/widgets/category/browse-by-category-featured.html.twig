@@ -1,0 +1,54 @@
+{% import '::blocks/utility/utility.html.twig' as Utility %}
+{% import '::blocks/utility/cards.html.twig' as UtilityCards %}
+
+{% set module = getModule() -%}
+{% set categories = getCategoriesByModule(module, content.limit, 'featured') -%}
+
+{% if categories.featured %}
+
+    {% set all = module ~ '_allcategories' -%}
+
+    <div class="cards-default" data-type="categories" scrollable="false" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="cards-header">
+                <h2 class="heading h-4"
+                data-trans="{{ 'Featured Categories'|trans }}">{{ content.labelFeaturedCategories|trans }}</h2>
+                <a href="{{ url(all) }}" class="link"
+                data-trans="{{ 'All Categories'|trans }}">{{ content.labelAllCategories|trans }}</a>
+            </div>
+            <div class="cards-list">
+                {% for category in categories.featured -%}
+                    {% if category.thumbnail -%}
+                        {% set image = asset(category.thumbnail, 'domain_images') | imagine_filter('card') -%}
+                    {% else -%}
+                        {% set image = utility_getNoImagePath(title)|imagine_filter('noimage') -%}
+                    {% endif -%}
+
+                    {% if category.thumbnail is not empty -%}
+                        {% if category.thumbnail matches '{^http(s)?:\/\/}' %}
+                            {% set image = category.thumbnail -%}
+                        {% else %}
+                            {% set image = asset(category.thumbnail, 'domain_images') -%}
+                        {% endif %}
+                    {% else -%}
+                        {% set image = utility_getNoImagePath(category.title)|imagine_filter('noImage_small') %}
+                    {% endif %}
+
+                    {{ tagPicture(image, category.title, {'tablet': 'medium'}, 'background', 'category-' ~ category.id|replace(':', '-')) }}
+
+                    <a href="{{ utility_generateSearchUrl(null, [module], category.friendlyUrl) }}" id="category-{{ category.id|replace(':', '-') }}" class="card has-bg" data-columns="4">
+                        <div class="content">
+                            <div class="categories">
+                                {{ category.title }}
+                                {% if content.enableCounter %}
+                                    <span class="count">({{ category.count }})</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% endif %}

@@ -1,0 +1,20 @@
+.link{
+    line-height: 1.25;
+    color: customColor(link, base);
+    transition: $transitions;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    font-size: fontsize(size-14);
+
+    &:hover{
+        color: customColor(link, base);
+        border-color: customColor(link, base);
+        text-decoration: none;
+    }
+
+    &:focus, &:active{
+        color: customColor(link, dark);
+        border-color: customColor(link, dark);
+        text-decoration: none;
+    }
+}

@@ -1,0 +1,17 @@
+.categories-base{
+    .categories-header{
+        > .link{
+            font-size: fontsize(size-16);
+        }
+    }
+
+    .categories-content{
+        > .categories-list{
+            .info{
+                .title{
+                    font-size: fontsize(size-16);
+                }
+            }
+        }
+    }
+}

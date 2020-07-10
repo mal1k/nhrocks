@@ -1,0 +1,149 @@
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+
+{#      Description:                                                            #}
+{# This page renders the Classified summary block which appears during searches #}
+
+{#      Resources:                                                              #}
+
+{# item \Elastica\Result                                                        #}
+{#      The elastica result object                                              #}
+
+{# levelFeatures array                                                          #}
+{#      Contains information about every level of a certain module              #}
+
+{# ModStores Hooks #}
+{% if HookExist("classifiedsummary_before_extract_data") -%}
+    {% set extensionReturn = HookFire("classifiedsummary_before_extract_data", {"item": item}, true) %}
+    {% if extensionReturn %}
+        {% set item = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{% set data           = extractDataFromResult(item) -%}
+
+{# ModStores Hooks #}
+{% if HookExist("classifiedsummary_after_extract_data") -%}
+    {% set extensionReturn = HookFire("classifiedsummary_after_extract_data", {"data": data}, true) %}
+    {% if extensionReturn %}
+        {% set data = extensionReturn %}
+    {% endif %}
+{% endif -%}
+
+{# itemLevelInfo \ArcaSolutions\ClassifiedBundle\Entity\Internal\ClassifiedLevelFeatures #}
+{% set itemLevelInfo  = levelFeatures['classified'][data.level] -%}
+
+{% set detailURL      = url('classified_detail', {'friendlyUrl': data.friendlyUrl, "_format" : "html"}) -%}
+
+{% set itemCategories = ( data.categoryId is not empty ? data.categoryId|split(" ") : null ) -%}
+{% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
+
+{% set sectionAnchor  = ( data.friendlyUrl ? data.friendlyUrl  : item.id ) ~ "classified" -%}
+
+{% set flags = 0 -%}
+{% if itemLevelInfo.imageCount > 0 and data.thumbnail is defined and data.thumbnail is not empty -%} {% set flags = flags + 2 -%} {% endif -%}
+
+{# CLASSIFIEDS #}
+<div class="summary-item" data-type="classified" data-id="{{ item.id }}">
+    {{ Utility.shareLinksMobile() }}
+
+    <div class="summary-content">
+        <div class="paragraph p-3 summary-categories-grid {{itemCategories ? '': 'no-categories'}}">
+            {% if itemCategories %}
+                <div class="categories-list">
+                    {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "classified" ) }}
+                </div>
+            {% endif %}
+            <div class="summary-grid-actions">
+                {{ bookmarkLink(item, 'classified') }}
+                {% if itemLevelInfo.hasEmail and item.email is not empty %}
+                    <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="classified" data-modal="contact" class="picture-title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
+                {% endif %}
+                {% if itemLevelInfo.hasURL and data.url is not empty %}
+                    <a href="{{ data.url }}" class="title-actions tooltip" data-tooltip="{{'View Website'|trans}}"><i class="fa fa-globe"></i></a>
+                {% endif %}
+                {{ Utility.shareLinksResults(item.id) }}
+            </div>
+        </div>
+
+        <div class="summary-attrs {{flags < 2 ? 'no-image' : ''}}">
+            {% if itemLevelInfo.hasDetail -%}
+                <a href="{{ detailURL }}" class="summary-picture">
+                    {{ tagPicture(data.thumbnail, data.title) }}
+                </a>
+            {% else %}
+                <div class="summary-picture">
+                    {{ tagPicture(data.thumbnail, data.title) }}
+                </div>
+            {% endif %}
+
+            <div class="summary-picture-grid">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="summary-picture-link">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </a>
+                {% else %}
+                    <div class="summary-picture-link">
+                        {{ tagPicture(data.thumbnail, data.title) }}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        <div class="summary-info">
+            {% if itemCategories %}
+                <div class="paragraph p-3 summary-categories">
+                    {{ "in"|trans }} {{ Utility.categories( itemCategories, pageCategories, "classified" ) }}
+                </div>
+            {% endif %}
+            <div class="summary-title">
+                {% if itemLevelInfo.hasDetail -%}
+                    <a href="{{ detailURL }}" class="heading h-4 title">
+                        {{ data.title }}
+                    </a>
+                {% else %}
+                    <div class="heading h-4 title">
+                        {{ data.title }}
+                    </div>
+                {% endif %}
+                <div class="actions">
+                    {{ bookmarkLink(item, 'classified') }}
+                    {% if itemLevelInfo.hasEmail and item.email is not empty %}
+                        <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="classified" data-modal="contact" class="picture-title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
+                    {% endif %}
+                    {% if itemLevelInfo.hasURL and data.url is not empty %}
+                        <a href="{{ data.url }}" class="title-actions tooltip" data-tooltip="{{'View Website'|trans}}"><i class="fa fa-globe"></i></a>
+                    {% endif %}
+                    {{ Utility.shareLinksResults(item.id) }}
+                </div>
+            </div>
+            <address class="summary-address">
+                {{ Utility.address( null, null, data.address.street, data.address.complement, data.address.zipcode, itemLocations, pageLocations ) }}
+            </address>
+
+            {% if data.distance and data.distance < 40000 %}
+                <div class="summary-distance">
+                    {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
+                </div>
+            {% endif %}
+            <div class="summary-contact-grid">
+                {% if itemLevelInfo.hasPhone and data.phone is not empty -%}
+                    <a href="tel:{{ data.phone }}" class="summary-phone">{{ data.phone }}</a>
+                {% endif %}
+            </div>
+            {% if itemLevelInfo.hasSummaryDescription and data.description is not empty -%}
+                <div class="summary-description">{{ data.description }}</div>
+            {% endif %}
+        </div>
+    </div>
+    <div class="summary-additional">
+        {% if itemLevelInfo.hasClassifiedPrice and data.price is not empty %}
+            <div class="summary-price">
+                <span class="price-value">{{ data.price|localized_currency }}</span>
+            </div>
+        {% endif %}
+        {% if itemLevelInfo.hasPhone and data.phone is not empty -%}
+            <div class="summary-contact">
+                <a href="tel:{{ data.phone }}" class="summary-phone">{{ data.phone }}</a>
+            </div>
+        {% endif %}
+    </div>
+</div>

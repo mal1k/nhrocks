@@ -1,0 +1,46 @@
+{% set module = getModule() -%}
+{% set moduleSearch = getModuleSearch() -%}
+{% set slider = contentSlider(content, 'default', 'slider-searchbox') %}
+{% set sliderHeading = content.labelStartYourSearch|trans({}, 'widgets') %}
+{% set headingTablet = sliderHeading|length < 61 ? sliderHeading : sliderHeading|slice(0,58) ~ '...' %}
+{% set headingMobile = sliderHeading|length < 35 ? sliderHeading : sliderHeading|slice(0,32) ~ '...' %}
+
+{{ addJSTwigParameter("searchBoxModule", moduleSearch) }}
+
+{# Main Search -#}
+<div class="hero-wrapper hero-with-slider">
+    <div class="hero-default" data-type="4" data-align="{{ content.dataAlignment }}">
+        <div class="container">
+            <div class="wrapper">
+                <div class="hero-header">
+                    <h1 class="heading h-1 heading-desktop" data-trans="{{ 'Start your search here'|trans({}, 'widgets') }}">
+                        {{ sliderHeading }}
+                    </h1>
+                    <h1 class="heading h-1 heading-tablet" data-trans="{{ 'Start your search here'|trans({}, 'widgets') }}">
+                        {{ headingTablet }}
+                    </h1>
+                    <h1 class="heading h-1 heading-mobile" data-trans="{{ 'Start your search here'|trans({}, 'widgets') }}">
+                        {{ headingMobile }}
+                    </h1>
+                    <p class="paragraph p-1" data-trans="{{ 'What are you looking for?'|trans({}, 'widgets') }}">
+                        {{ content.labelWhatLookingFor|trans({}, 'widgets') }}
+                    </p>
+                </div>
+                {% include("::blocks/search/search-fields.html.twig") with {'module': moduleSearch} %}
+            </div>
+        </div>
+    </div>
+    {# Render slider images #}
+    {% if slider is not empty %}
+        {{ slider.sliderBlock|raw }}
+    {% else %}
+        <div class="hero-default" data-type="3">
+            <div class="hero-slider hero-slider-searchbox" active-slider="false">
+                <div class="carousel-cell active empty-hero"></div>
+            </div>
+        </div>
+    {% endif %}
+</div>
+
+{{ addJSFile("assets/js/lib/flickity.pkgd.min.js") -}}
+{{ addJSFile("assets/js/widgets/hero/slider-searchbox.js") -}}

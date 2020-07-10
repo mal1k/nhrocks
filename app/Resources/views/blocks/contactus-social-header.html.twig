@@ -1,0 +1,18 @@
+{% set flags = 0 %}
+
+{% set flags = 0 +
+( facebook ? 64  : 0 ) +
+( linkedin ? 128 : 0 ) +
+( twitter  ? 256 : 0 ) +
+( instagram ? 512 : 0 ) +
+( pinterest  ? 1024 : 0 ) %}
+
+{% if flags b-and 1984 %}
+    <div class="header-social">
+        {% if flags b-and 64 -%}<a target="_blank" rel="noopener noreferrer" href="{{ facebook }}" class="social-links"><i class="fa fa-facebook"></i></a>{%- endif %}
+        {% if flags b-and 128 -%}<a target="_blank" rel="noopener noreferrer" href="{{ linkedin }}" class="social-links"><i class="fa fa-linkedin"></i></a>{%- endif %}
+        {% if flags b-and 256 -%}<a target="_blank" rel="noopener noreferrer" href="{{ twitter }}" class="social-links"><i class="fa fa-twitter"></i></a>{%- endif %}
+        {% if flags b-and 512 -%}<a target="_blank" rel="noopener noreferrer" href="{{ instagram }}" class="social-links"><i class="fa fa-instagram"></i></a>{%- endif %}
+        {% if flags b-and 1024 -%}<a target="_blank" rel="noopener noreferrer" href="{{ pinterest }}" class="social-links"><i class="fa fa-pinterest"></i></a>{%- endif %}
+    </div>
+{% endif %}

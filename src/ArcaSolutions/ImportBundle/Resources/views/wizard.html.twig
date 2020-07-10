@@ -1,0 +1,425 @@
+{% extends "@Import/layout.html.twig" -%}
+
+{% set importType = app.request.get('type') %}
+
+{% if importType == 'listing' %}
+    {% set template = '/sitemgr/content/import/edirectory_sample.csv' %}
+    {% set headerTitle = 'Import Listings' | trans({}, 'administrator') %}
+    {% set newImportMsg = 'New listing import' | trans({}, 'administrator') %}
+{% elseif importType == 'event' %}
+    {% set template = '/sitemgr/content/import/edirectory_sample_event.csv' %}
+    {% set headerTitle = 'Import Events' | trans({}, 'administrator') %}
+    {% set newImportMsg = 'New event import' | trans({}, 'administrator') %}
+{% endif %}
+
+{% block javascripts %}
+    <script src="{{ asset('assets/js/lib/EventEmitter.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/papaparse.min.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/xlsx/shim.js') }}"></script>
+    <script src="{{ asset('assets/js/lib/xlsx/xlsx.full.min.js') }}"></script>
+
+    {{ parent() }}
+
+    {% javascripts '@ImportBundle/Resources/public/js/wizard/*.js' %}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+    <script>
+        eDirectory.Import.Config = JSON.parse('{{ config|json_encode|raw }}');
+        eDirectory.Import.Options.type = '{{ app.request.get('type') }}';
+        eDirectory.Import.Mapping.Fields = {};
+        eDirectory.Import.Mapping.FieldsTrans = {};
+        eDirectory.Import.Mapping.Required = {};
+
+        {% for key,field in requiredMappings %}
+            eDirectory.Import.Mapping.Required ["{{ key }}"] = "{{ field | trans({}, 'import_columns') }}";
+        {% endfor %}
+
+        {% for key,header in headers %}
+            eDirectory.Import.Mapping.Fields["{{ key }}"] = "{{ header }}";
+            eDirectory.Import.Mapping.FieldsTrans["{{ key }}"] = "{{ header | trans({}, 'import_columns') }}";
+        {% endfor %}
+    </script>
+{% endblock %}
+
+{% block body %}
+    <div id="styleguide">
+        <div class="loader" data-main-loader style="margin-top: 25%;"></div>
+        <div id="styleguide-wrapper" class="container-fluid" style="display: none;">
+            <div class="row header">
+                <div class="col-md-4">
+                    <h2>{{ headerTitle }}</h2>
+                </div>
+                <div id="download-template" class="col-md-4 text-center">
+                    <a href="{{ template }}" download>
+                        {{ 'Download Template File' | trans({}, 'administrator') }}
+                    </a>
+                </div>
+                <div id="cancel-import" class="col-md-4 text-right">
+                    <a href="/sitemgr/content/import">{{ 'Cancel import' | trans({}, 'administrator') }}</a>
+                </div>
+            </div>
+            <div class="main island">
+                <div class="row">
+                    <div class="navigation">
+                        <div class="col-md-2">
+                            <button class="btn btn--medium btn--secondary" style="display: none;"
+                                    data-back>{{ 'Back' | trans({}, 'administrator') }}</button>
+                        </div>
+                        <div class="col-md-8 step text-center">
+                            <nav class="step">
+                                <ol id="step-counter" class="multi-steps count">
+                                    <li class="current" data-step-counter="1">
+                                        <a href="#">
+                                            <span>{{ 'Choose your file' | trans({}, 'administrator') }}</span>
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </a>
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true" data-step-warning
+                                           style="display: none;"></i>
+                                    </li>
+                                    <li data-step-counter="2">
+                                        <a href="#">
+                                            <span>{{ 'Content Mapping' | trans({}, 'administrator') }}</span>
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </a>
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true" data-step-warning="3"
+                                           style="display: none;"></i>
+                                    </li>
+                                    <li data-step-counter="4">
+                                        <a href="#">
+                                            <span>{{ 'Preferences' | trans({}, 'administrator') }}</span>
+                                            <i class="fa fa-check-circle" aria-hidden="true"></i>
+                                        </a>
+                                        <i class="fa fa-exclamation-circle" aria-hidden="true" data-step-warning
+                                           style="display: none;"></i>
+                                    </li>
+                                </ol>
+                            </nav>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="btn btn--medium btn--primary btn--disabled right"
+                                    data-next>{{ 'Next' | trans({}, 'administrator') }}</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="row content text-center">
+                    <div class="col-md-12">
+                        <div id="alerts" class="alert-group" style="display: none;"></div>
+                    </div>
+                    <div class="col-md-12">
+                        <section class="step" data-step="1">
+                            {#<div class="loader"></div>#}
+                            <div id="dd-zone" class="dd-zone">
+                                <div id="drag-and-drop-zone" class="uploader col-md-6 col-md-offset-3">
+                                    <div id="file-loader" class="white-papper" style="display: none">
+                                        <div class="loader"></div>
+                                    </div>
+                                    <div id="file-thumb"></div>
+                                    <small id="file-name"></small>
+                                    <div class="dd-hover-file wrapper" style="visibility: hidden;">
+                                        <h3><i class="fa fa-share"
+                                               aria-hidden="true"></i>{{ 'Drop to Upload' | trans({}, 'administrator') }}
+                                        </h3>
+                                    </div>
+                                    <div class="remove-on-file-select">
+                                        <h3 id="drag-message">{{ 'Drag your file here' | trans({}, 'administrator') }}
+                                            <br>
+                                            <small>{{ 'or' | trans({}, 'administrator') }}</small>
+                                        </h3>
+                                        <div class="browser">
+                                            <button id="file-picker" class="btn btn--medium btn--primary">
+                                                <span class="state-file-empty">{{ 'Choose your file' | trans({}, 'administrator') }}</span>
+                                                <span class="state-file-picked"
+                                                      style="display: none;">{{ 'Change File' | trans({}, 'administrator') }}</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <small>{{ 'Supported files: CSV or XLS. Maximum file size: ' | trans({}, 'administrator') }} {{ config.size }}
+                                        MB
+                                    </small>
+                                    <input type="file" id="import-file" style="display: none;">
+                                </div>
+                            </div>
+                            <br>
+                            <div id="csv-options" style="display: none;">
+                                <div class="row">
+                                    <div class="form-group col-md-offset-4 col-md-4 selectize">
+                                        <select class="form-control form-control--select" id="csv-delimiter">
+                                            <option value="">{{ 'Select the csv separator' | trans({}, 'administrator') }}</option>
+                                            <option value=","
+                                                    selected>{{ 'Comma' | trans({}, 'administrator') }}</option>
+                                            <option value=";">{{ 'Semicolon' | trans({}, 'administrator') }}</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group form-group--check-radio">
+                                <input type="checkbox" id="header-checkbox" checked>
+                                <label for="header-checkbox">
+                                    <span class="checkbox">{{ 'The first line is the header' | trans({}, 'administrator') }}</span>
+                                </label>
+                            </div>
+
+                            <button class="btn btn--medium btn--secondary" data-toggle="modal"
+                                    data-target="#LargeModal">
+                                {{ 'Browse FTP'|trans({}, 'administrator') }}
+                            </button>
+                        </section>
+                        <section class="step" data-step="2" style="display: none;">
+                            <div class="row content">
+                                <div class="col-md-12">
+                                    <p class="text-left">
+                                        {{ 'For each column of your imported data, select a field that it corresponds to.'|trans({}, 'administrator') }}
+                                    </p>
+                                </div>
+                                <div id="mapping-container" class="text-center"></div>
+                            </div>
+                        </section>
+                        <section class="step" data-step="3" style="display: none;">
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <div id="mapping-resume" class="alert-group"></div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button id="reupload-button" class="btn btn--medium btn--primary right">
+                                        {{ 'Upload corrected file'|trans({}, 'administrator') }}
+                                    </button>
+                                </div>
+                            </div>
+                            <div id="alert-container" class="row-fluid content alert-group"></div>
+                        </section>
+                        <section class="step" data-step="4" style="display: none;">
+                            <div class="row content">
+                                <div class="col-md-6 col-md-offset-3 text-center">
+                                    <h3>{{ 'Import Preferences'|trans({}, 'administrator') }}</h3>
+                                </div>
+                                <br><br>
+                                <div class="col-md-6 col-md-offset-3">
+                                    <form action="" class="text-left">
+                                        <div class="form-group selectize">
+                                            <select class="form-control form-control--select" id="select-level">
+                                                <option value="">{{ 'Default level for items without level specified'|trans({}, 'administrator') }}</option>
+                                                {% for level in levels %}
+                                                    <option value="{{ level.value }}">{{ level.name | capitalize | trans }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="form-group form-group--check-radio">
+                                            <input type="checkbox" id="checkbox-active">
+                                            <label for="checkbox-active">
+                                                <span class="checkbox">{{ 'Set all imported items as active'|trans({}, 'administrator') }}</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group form-group--check-radio">
+                                            <input type="checkbox" name="" id="checkbox-featured">
+                                            <label for="checkbox-featured">
+                                                <span class="checkbox">{{ 'Import all new categories as featured'|trans({}, 'administrator') }}</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group form-group--check-radio">
+                                            <input type="checkbox" name="" id="checkbox-overwrite">
+                                            <label for="checkbox-overwrite">
+                                                <span class="checkbox">{{ 'Overwrite matching items'|trans({}, 'administrator') }}</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group form-group--check-radio">
+                                            <input type="checkbox" name="" id="checkbox-update-url">
+                                            <label for="checkbox-update-url">
+                                                <span class="checkbox">{{ 'Update friendly URLs for matching items'|trans({}, 'administrator') }}</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group form-group--check-radio">
+                                            <input type="checkbox" name="" id="checkbox-same-account">
+                                            <label for="checkbox-same-account">
+                                                <span class="checkbox">{{ 'Import all items to the same user account'|trans({}, 'administrator') }}</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-group selectize">
+                                            <select class="form-control form-control--select" id="select-account"
+                                                    disabled>
+                                                <option value="">{{ 'Select an account'|trans({}, 'administrator') }}</option>
+                                                {% for account in accounts %}
+                                                    <option value="{{ account.id }}">{{ account.username }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </section>
+                        <section class="step" data-step="5" style="display: none;">
+                            <div class="row content">
+                                <div class="col-md-6 col-md-offset-3 text-center" data-import style="display: none;">
+                                    <div class="content-empty success-empty">
+                                        <div data-import-pending style="display: none;">
+                                            <div class="img-empty img-empty--coffe"></div>
+                                            <h3>{{ 'All right! Your import was added to the queue to be processed.'|trans({}, 'administrator') }}</h3>
+                                            <p>
+                                                {{ 'Depending on your data and how busy the system is, the import may take a few minutes to finish.'|trans({}, 'administrator') }}
+                                            </p>
+                                        </div>
+                                        <div data-import-completed style="display: none;">
+                                            <div class="img-empty img-empty--like"></div>
+                                            <h3>{{ 'All right! Your import has been completed.'|trans({}, 'administrator') }}</h3>
+                                        </div>
+                                    </div>
+                                    <div class="row content">
+                                        <div class="col-md-6">
+                                            <a href="/sitemgr/content/import" class="btn btn--medium btn--secondary">
+                                                {{ 'View import log'|trans({}, 'administrator') }}
+                                            </a>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <a href="/sitemgr/content/import/{{ importType }}"
+                                               class="btn btn--medium btn--secondary">
+                                                {{ newImportMsg }}
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# LOADER #}
+        <div class="white-papper" style="display:none;">
+            <div class="loader"></div>
+        </div>
+        <div class="loader" style="display: none;" data-step-loader></div>
+
+        <!-- Modal -->
+        <div class="modal modal--neo fade" id="LargeModal" tabindex="-1" role="dialog"
+             aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg vertical-scroll">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h3 class="modal-title"
+                            id="myLargeModalLabel">{{ 'Select via FTP'|trans({}, 'administrator') }}</h3>
+                        {#@TODO Implements search #}
+                        {#<form action="">#}
+                        {#<div class="form-group form-group--seach">#}
+                        {#<i class="fa fa-search" aria-hidden="true"></i>#}
+                        {#<input type="name" class="form-control" id="exampleInput"#}
+                        {#aria-describedby="exampleInput" placeholder="Search file">#}
+                        {#</div>#}
+                        {#</form>#}
+                    </div>
+                    <div class="modal-body">
+                        {% if files | length > 0 %}
+                            <table>
+                                <tr>
+                                    <th></th>
+                                    <th>{{ 'File name'|trans({}, 'administrator') }}</th>
+                                    <th>{{ 'File size'|trans({}, 'administrator') }}</th>
+                                    <th>{{ 'Modification date'|trans({}, 'administrator') }}</th>
+                                </tr>
+                                {% for file in files %}
+                                    <tr data-radio="{{ loop.index }}">
+                                        <td class="td-radio">
+                                            <div class="form-group--check-radio">
+                                                <input type="radio"
+                                                       id="ftp_filename_{{ loop.index }}"
+                                                       name="ftp_filename"
+                                                       value="{{ file.path }}"
+                                                       data-file-name="{{ file.name }}"
+                                                       data-file-size="{{ file.size }}">
+                                                <label for="ftp_filename_{{ loop.index }}">
+                                                    <span class="radio"></span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>{{ file.name }}</td>
+                                        <td>{{ (file.size/1000)|round(1) }} kb</td>
+                                        <td>{{ file.date }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+
+                            {# @TODO Implements pagination #}
+                            {#<div class="center">#}
+                            {#<div class="pagination">#}
+                            {#<a href="#">❮</a>#}
+                            {#<a href="#">1</a>#}
+                            {#<a href="#" class="active">2</a>#}
+                            {#<a href="#">3</a>#}
+                            {#<a href="#">4</a>#}
+                            {#<a href="#">5</a>#}
+                            {#<a href="#">6</a>#}
+                            {#<a href="#">...</a>#}
+                            {#<a href="#">16</a>#}
+                            {#<a href="#">❯</a>#}
+                            {#</div>#}
+                            {#</div>#}
+                        {% else %}
+                            <div class="content-empty">
+                                <div class="img-empty img-empty--browse-ftp"></div>
+                                <p>{{ 'You don\'t have any files in your FTP folder.'|trans({}, 'administrator') }}</p>
+                                <a href="http://support.edirectory.com/customer/portal/articles/2909298-how-to-select-files-via-ftp-on-the-import-tool?b_id=7909"
+                                   rel="noopener noreferrer" target="_blank">{{ 'How to upload files via FTP?'|trans({}, 'administrator') }}</a>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="modal-footer">
+                        {% if files | length > 0 %}
+                            <span class="left">{{ 'The selected file will be deleted from FTP after use.'|trans({}, 'administrator') }}</span>
+                            <button type="button" class="btn btn--medium btn--secondary"
+                                    data-dismiss="modal">{{ 'Close'|trans({}, 'administrator') }}</button>
+                            <button id="ftp-file-picker" type="button" class="btn btn--medium btn--primary"
+                                    data-dismiss="modal">
+                                {{ 'Choose your file'|trans({}, 'administrator') }}
+                            </button>
+
+                        {% else %}
+                            <button type="button" class="btn btn--medium btn--secondary"
+                                    data-dismiss="modal">{{ 'Close'|trans({}, 'administrator') }}</button>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {# Mapping Template #}
+        <div class="mapping-template import-mapping" style="display: none;">
+            <div class="col-md-6 col-sm-6 col-xs-6 text-left">
+                <ul data-mapping-sample>
+                    <li class="title" data-mapping-title></li>
+                </ul>
+            </div>
+
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="form-group text-left" data-mapping-belongsto>
+                    <p>{{ 'Belongs to'|trans({}, 'administrator') }}</p>
+                    <select class="form-control form-control--select">
+                        <option value="">{{ 'Nothing (skip)' | trans({}, 'administrator') }}</option>
+                        {% for key,header in headers %}
+                            <option value="{{ key }}">{{ header | trans({}, 'import_columns') }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        {# Messages Template #}
+        <div class="alert text-left" data-mapping-alert style="display: none;">
+            <div class="alert-heading">
+                <a data-toggle="collapse" href="#submessages" class="collapse alert-title" data-alert-trigger>
+                    <i class="fa fa-times-circle" aria-hidden="true" data-alert-icon></i>
+                    <span data-alert-message></span>
+                    <i class="fa fa-caret-down right" aria-hidden="true" style="display: none;"></i>
+                </a>
+            </div>
+            <div id="submessages" class="alert-collapse collapse in">
+                <ul class="list-group" data-alert-list></ul>
+            </div>
+        </div>
+
+        <div class="alert col-md-12 text-left" data-alert style="display: none;"></div>
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+parameters:
+
+    # services
+    modstore.class: ArcaSolutions\ModStoresBundle\ModStoresBundle
+    modstore.storage.service.class: ArcaSolutions\ModStoresBundle\Services\Storage
+    modstore.autoloader.cache.service.class: ArcaSolutions\ModStoresBundle\Services\AutoloaderCache
+    modstore.versioncontrol.service.class: ArcaSolutions\ModStoresBundle\Services\VersionControl
+    modstore.routing.loader.plugins.class: ArcaSolutions\ModStoresBundle\Kernel\Routing
+
+    # twig extension
+    modstore.hooks.twig.extension: ArcaSolutions\ModStoresBundle\Twig\Extension\HooksExtension
+
+services:
+
+    # services
+    kernel.modstore:
+        class: '%modstore.class%'
+
+    modstore.storage.service:
+        class: '%modstore.storage.service.class%'
+
+    modstore.autoloader.cache.service:
+        class: '%modstore.autoloader.cache.service.class%'
+        arguments:
+           - '@kernel.modstore'
+
+    modstore.versioncontrol.service:
+        class: '%modstore.versioncontrol.service.class%'
+        arguments:
+            - '@kernel'
+            - '@kernel.modstore'
+
+    modstore.routing.loader.plugins:
+        class: '%modstore.routing.loader.plugins.class%'
+        arguments:
+            - '@kernel.modstore'
+            - '@monolog.logger'
+        tags:
+            - { name: routing.loader }
+
+    # twig extension
+    modstore.hooks.twig:
+        class: '%modstore.hooks.twig.extension%'
+        arguments:
+            - '@service_container'
+        tags:
+            - { name: twig.extension }

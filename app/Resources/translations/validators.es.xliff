@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2019-05-21T17:33:16Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="2e0b707f36e9655b9a9a18292f70d4dc110bc4aa" resname="Account First Name cannot be empty if an Account Username is provided.">
+        <source>Account First Name cannot be empty if an Account Username is provided.</source>
+        <target>El primer nombre de la cuenta no puede estar vacío si se proporciona un nombre de usuario de la cuenta.</target>
+      </trans-unit>
+      <trans-unit id="9a7ff748596bbe47d2899e5d578d0461f887f691" resname="Account Last Name cannot be empty if an Account Username is provided.">
+        <source>Account Last Name cannot be empty if an Account Username is provided.</source>
+        <target>El apellido de la cuenta no puede estar vacío si se proporciona un nombre de usuario de la cuenta.</target>
+      </trans-unit>
+      <trans-unit id="878ede0ce8e1a9408dd5ecd25cf7910c5c94ade6" resname="Account Password cannot be empty and must between 4 and 50 characters if an Account Username is provided.">
+        <source>Account Password cannot be empty and must between 4 and 50 characters if an Account Username is provided.</source>
+        <target>La contraseña de la cuenta no puede estar vacía y debe tener entre 4 y 50 caracteres si se proporciona un nombre de usuario de la cuenta.</target>
+      </trans-unit>
+      <trans-unit id="9272136a1ac1cbaf66ad3251a035860db485e95c" resname="End date should be a date greater than the start date.">
+        <source>End date should be a date greater than the start date.</source>
+        <target>La fecha de finalización debe ser una fecha mayor que la fecha de inicio.</target>
+      </trans-unit>
+      <trans-unit id="f97dc16b823460435e290f664506cf26dea548f1" resname="End date should be a valid date format and cannot be empty.">
+        <source>End date should be a valid date format and cannot be empty.</source>
+        <target>La fecha de finalización debe ser un formato de fecha válido y no puede estar vacía.</target>
+      </trans-unit>
+      <trans-unit id="06644e49fd1c76301efaa1a0613e3089ef4e288f" resname="End date should be a valid date in the future.">
+        <source>End date should be a valid date in the future.</source>
+        <target>La fecha de finalización debe ser una fecha válida en el futuro.</target>
+      </trans-unit>
+      <trans-unit id="8d83cc9beb5488192d423641eb28b55f536cf910" resname="Latitude should be a number between -90 and 90.">
+        <source>Latitude should be a number between -90 and 90.</source>
+        <target>Latitude debe ser un número entre -90 y 90.</target>
+      </trans-unit>
+      <trans-unit id="5690f5da8a5415a299e5bae676fe05f5190840e3" resname="Limit of {{ maxNumberOfLevels }} categories in the category hierarchy has been exceeded.">
+        <source>Limit of {{ maxNumberOfLevels }} categories in the category hierarchy has been exceeded.</source>
+        <target>Se ha excedido el límite de las categorías de {{ maxNumberOfLevels }} en la jerarquía de categorías.</target>
+      </trans-unit>
+      <trans-unit id="276b6e700ee33116775339211178c37943774d73" resname="Location hierarchy doesn't match the system settings. One or more locations are missing (for instance, city without state).">
+        <source>Location hierarchy doesn't match the system settings. One or more locations are missing (for instance, city without state).</source>
+        <target>La jerarquía de ubicación no coincide con la configuración del sistema. Faltan uno o más lugares (por ejemplo, ciudad sin estado).</target>
+      </trans-unit>
+      <trans-unit id="bb3a260f61301eb5fff55bf025193277da2d95c9" resname="Longitude should be a number between -180 and 180.">
+        <source>Longitude should be a number between -180 and 180.</source>
+        <target>La longitud debe ser un número entre -180 y 180.</target>
+      </trans-unit>
+      <trans-unit id="24c04a1a70274dfe2cd8a9d5145fe39b86e6c657" resname="Maximum of {{ maxNumberOfWords }} keywords allowed. Keywords should be separated by {{ separator }} and can have up to {{ maxNumberOfCharsPerWord }} characters.">
+        <source>Maximum of {{ maxNumberOfWords }} keywords allowed. Keywords should be separated by {{ separator }} and can have up to {{ maxNumberOfCharsPerWord }} characters.</source>
+        <target>Máximo de {{ maxNumberOfWords }} palabras clave permitidas. Las palabras clave deben estar separadas por {{ separator }} y pueden tener hasta {{ maxNumberOfCharsPerWord }} caracteres.</target>
+      </trans-unit>
+      <trans-unit id="bcba2ac0dbc46914fe92850a84beff1db1fc3863" resname="Renewal date should be a valid date in the future.">
+        <source>Renewal date should be a valid date in the future.</source>
+        <target>La fecha de renovación debe ser una fecha válida en el futuro.</target>
+      </trans-unit>
+      <trans-unit id="0d29aa8bcf02ffb5886aa0abe9697e82fa2d1812" resname="Renewal date should be a valid date.">
+        <source>Renewal date should be a valid date.</source>
+        <target>La fecha de renovación debe ser una fecha válida.</target>
+      </trans-unit>
+      <trans-unit id="63e348c84c3bd50fddec283b37dbfa2337c03da8" resname="Start date should be a valid date format and cannot be empty.">
+        <source>Start date should be a valid date format and cannot be empty.</source>
+        <target>La fecha de inicio debe ser un formato de fecha válido y no puede estar vacía.</target>
+      </trans-unit>
+      <trans-unit id="07176153e76904346b61e5fe17f8b35a56ab8a8c" resname="The account email must be a valid email address">
+        <source>The account email must be a valid email address</source>
+        <target>El correo electrónico de la cuenta debe ser una dirección de correo electrónico válida</target>
+      </trans-unit>
+      <trans-unit id="48e0a2f442ab67f6166a6bd7ce05e19183fa2e36" resname="The event email must be a valid email address">
+        <source>The event email must be a valid email address</source>
+        <target>El correo electrónico del evento debe ser una dirección de correo electrónico válida</target>
+      </trans-unit>
+      <trans-unit id="a8a55df92127715c8f0c09b528a89e69ab60be3a" resname="The listing email must be a valid email address">
+        <source>The listing email must be a valid email address</source>
+        <target>El correo electrónico de la lista debe ser una dirección de correo electrónico válida</target>
+      </trans-unit>
+      <trans-unit id="625f5a99fb5dd27e2a0ce1bf3fe29065ff3f012e" resname="The username must be a valid email address">
+        <source>The username must be a valid email address</source>
+        <target>El nombre de usuario debe ser una dirección de correo electrónico válida</target>
+      </trans-unit>
+      <trans-unit id="bbe90c09bf0dfd805c97a83fe8ab92fdcf286f62" resname="Time format must be the same as your domain configuration.">
+        <source>Time format must be the same as your domain configuration.</source>
+        <target>El formato de tiempo debe ser el mismo que su configuración de dominio.</target>
+      </trans-unit>
+      <trans-unit id="e1dd271868589191ca2dcc4522bd3f558e6c39fc" resname="Title cannot be empty.">
+        <source>Title cannot be empty.</source>
+        <target>El título no puede estar vacío.</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

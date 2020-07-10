@@ -1,0 +1,676 @@
+{# use it to shows address -#}
+{% import "::blocks/utility/summary.html.twig" as Utility -%}
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+{% import "::blocks/utility/review.html.twig" as Review -%}
+
+{% set locationsTitle = '' %}
+{% set reviewTitle = 'Review'|trans ~ ' %s %s'|format(item.title, locationsTitle) %}
+
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash|raw -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+{% if isSample -%}
+    {% set logoImage = {
+        '80x80': asset('assets/images/placeholders/80x80.jpg'),
+        '96x96': asset('assets/images/placeholders/96x96.jpg')
+    } -%}
+{% elseif item.logoImage -%}
+    {% set logoImage = {
+        '80x80': asset(imagePath(item.logoImage), 'domain_images')|imagine_filter('logo_icon_2'),
+        '96x96': asset(imagePath(item.logoImage), 'domain_images')|imagine_filter('logo_icon_3')
+    } -%}
+{% endif -%}
+
+{% set address = Utility.address(null, null, item.address, item.address2, item.zipCode, locationsIDs, locationsObjs) %}
+
+{% set squareBanner = getBanner('square') %}
+{% set wideSkyscraperBanner = getBanner('skyscraper') %}
+
+{% set hasContent = listingContent(item, level, reviewsPaginated, address, map, gallery, deals, classifieds, isSample) %}
+
+<div class="details-default details-listing">
+    <div class="details-header details-header-desktop" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image=false' }}>
+        <div class="container">
+            <div class="details-header-content">
+                <div class="details-general">
+                    {% if level.hasLogoImage and logoImage is not empty %}
+                        <div class="details-picture">
+                            <img src="{{ logoImage['80x80'] }}" alt="{{ item.title }}">
+                        </div>
+                    {% endif %}
+                    <div class="details-info">
+                        <div class="details-title">
+                            <h1 class="heading h-4" id="listing-title">{{ item.title }}</h1>
+                            <div class="details-share">
+                                {{ bookmarkButton(item, 'listing') }}
+
+                                {{ Utility.shareLinks() }}
+                            </div>
+                        </div>
+                        {{ UtilityDetail.categories(item.categories, 'listing') }}
+                        {% if (level.hasReview and reviews_active) and reviewsPaginated is not empty -%}
+                            <div class="details-reviews">
+                                <div class="reviews-stars">
+                                    {% for i in 0..4 %}
+                                        {% if (i < (item.avgReview b-or 0)) %}
+                                            {% set star = 'fa-star' %}
+                                        {% elseif ((item.avgReview - i) > 0 and (item.avgReview - i) < 1) %}
+                                            {% set star = 'fa-star-half-o' %}
+                                        {% else %}
+                                            {% set star = 'fa-star-o' %}
+                                        {% endif %}
+                                        <i class="fa {{star}}"></i>
+                                    {% endfor %}
+                                </div>
+                                <div class="reviews-value">{{ item.avgReview }}</div>
+                                <div class="reviews-first">
+                                    {% if not HookFire('detailcontent_overwrite_allreviewslink', {'reviewsPaginated': reviewsPaginated}, true) %}
+                                        {% if reviewsPaginated.total > 0 -%}
+                                            <a href="#reviews" class="link all-reviews">
+                                                {{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviewsPaginated.total, {"%count%":reviewsPaginated.total}) }}
+                                            </a>
+                                        {% else %}
+                                            {{ 'Be the first to'|trans }} <a href="#" class="link" data-modal="review" data-id="{{ item.id }}">{{ 'write a review'|trans }}</a>
+                                        {% endif -%}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        {% endif %}
+                        <div class="details-actions">
+                            {% if level.hasReview and reviews_active -%}
+                                <a href="#" class="button button-bg is-primary" data-modal="review" data-id="{{ item.id }}">{{ 'Write a review'|trans }}</a>
+                            {% endif %}
+
+                            {% if level.hasEmail and item.email is not empty -%}
+                                <a href="#" class="button button-bg is-inverse" data-module="listing" data-modal="contact" data-id="{{ item.id }}">{{ 'Send a message'|trans }}</a>
+                            {% endif %}
+                        </div>
+                        {% if item.claimDisable == 'n' and item.account is null -%}
+                            {% set claimLabel = getSetting('claim_textlink') %}
+                            <div class="details-claim">
+                                <span class="icon icon-md"><i class="fa fa-flag"></i></span>
+                                {{ claimLabel ?: 'is this your business?'|trans }}
+                                <a href="{{ path('listing_claim',{friendlyUrl: item.friendlyUrl}) }}" class="link">{{ 'Claim it here!'|trans }}</a>
+                            </div>
+                        {% endif %}
+                        {% if level.hasBadges and badges is not empty -%}
+                            <div class="details-certified">
+                                {% for badge in badges -%}
+                                    <div class="item-certified">
+                                        <div class="picture">
+                                            <img src="{{ asset(imagePath(badge.image), 'domain_images') }}" alt="{{ badge.name }}" data-toggle="tooltip" data-placement="top">
+                                        </div>
+                                        <div class="title">{{ badge.name }}</div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                {{ UtilityDetail.detailsContact(item, level, address) }}
+            </div>
+
+            {% if hasContent.content %}
+                <div class="details-header-navbar">
+                    <div class="container">
+                        {% if hasContent.overview %}
+                            <a href="#overview" class="tab-navbar is-selected">{{ 'Overview'|trans }}</a>
+                        {% endif %}
+                        {% if gallery is not empty -%}
+                            <a href="#photos" class="tab-navbar {{ hasContent.activeTab == 2 ? 'is-selected' : '' }}">{{ 'Photos'|trans }}</a>
+                        {% endif %}
+                        {% if (level.hasReview and reviews_active) and (reviewsPaginated.reviews is not empty) -%}
+                            <a href="#reviews" class="tab-navbar {{ hasContent.activeTab == 3 ? 'is-selected' : '' }}">{{ 'Reviews'|trans }}</a>
+                        {% endif %}
+                        {% if (deals is not empty) and isSample is null -%}
+                            <a href="#deals" class="tab-navbar {{ hasContent.activeTab == 4 ? 'is-selected' : '' }}">{{ 'Deals'|trans }}</a>
+                        {% endif %}
+                        {% if (classifieds is not empty) and isSample is null -%}
+                            <a href="#classifieds" class="tab-navbar {{ hasContent.activeTab == 5 ? 'is-selected' : '' }}">{{ 'Classifieds'|trans }}</a>
+                        {% endif %}
+                        {% do HookFire("listingdetail_after_render_articletab", {"activeTab": hasContent.activeTab}) %}
+                        {% do HookFire("listingdetail_after_render_eventtab", {"activeTab": hasContent.activeTab}) %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="details-header details-header-mobile">
+        <div class="detail-header-content-mobile" {{ level.hasCoverImage and coverImage ? 'style=background-image:url(' ~ coverImage ~ ')' : 'cover-image="false"' }}>
+            <div class="details-general-mobile">
+                {% if level.hasLogoImage and logoImage is not empty %}
+                    <div class="details-picture">
+                        <img src="{{ logoImage['96x96'] }}" alt="{{ item.title }}">
+                    </div>
+                {% endif %}
+                <div class="details-info">
+                    <div class="details-title">
+                        <div class="heading h-4">{{ item.title }}</div>
+                        <div class="details-share">
+                            {{ bookmarkButton(item, 'listing') }}
+
+                            {# ModStores Hooks #}
+                            {% do HookFire("listingdetail_after_render_bookmark", {"item": item, "level": level }) %}
+
+                            {{ Utility.shareLinks() }}
+                        </div>
+                    </div>
+                    {{ UtilityDetail.categories(item.categories, 'listing') }}
+                    {% if item.claimDisable == 'n' and item.account is null -%}
+                        {% set claimLabel = getSetting('claim_textlink') %}
+                        <div class="details-claim">
+                            <span class="icon icon-md"><i class="fa fa-flag"></i></span>
+                            {{ claimLabel ?: 'is this your business?'|trans }}
+                            <a href="{{ path('listing_claim',{friendlyUrl: item.friendlyUrl}) }}" class="link">{{ 'Claim it here!'|trans }}</a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            {{ Utility.shareLinksMobile() }}
+
+            {% if (level.hasReview and reviews_active) and reviewsPaginated is not empty -%}
+                <div class="details-reviews">
+                    <div class="reviews-stars">
+                        {% for i in 0..4 %}
+                            {% if (i < (item.avgReview b-or 0)) %}
+                                {% set star = 'fa-star' %}
+                            {% elseif ((item.avgReview - i) > 0 and (item.avgReview - i) < 1) %}
+                                {% set star = 'fa-star-half-o' %}
+                            {% else %}
+                                {% set star = 'fa-star-o' %}
+                            {% endif %}
+                            <i class="fa {{star}}"></i>
+                        {% endfor %}
+                    </div>
+                    <div class="reviews-first">
+                        {% if reviewsPaginated.total > 0 -%}
+                            <a href="#reviews" class="link all-reviews">
+                                {{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviewsPaginated.total, {"%count%":reviewsPaginated.total}) }}
+                            </a>
+                        {% else -%}
+                            {{ 'Be the first to'|trans }} <a href="#" class="link" data-modal="review" data-id="{{ item.id }}">{{ 'write a review'|trans }}</a>
+                        {% endif -%}
+                    </div>
+                </div>
+            {% endif %}
+            <div class="details-actions">
+                {% if level.hasReview and reviews_active -%}
+                    <a href="#" class="button button-md is-primary" data-modal="review" data-id="{{ item.id }}">{{ 'Write a review'|trans }}</a>
+                {% endif %}
+
+                {% if level.hasEmail and item.email is not empty -%}
+                    <a href="#" class="button button-md is-inverse" data-module="listing" data-modal="contact" data-id="{{ item.id }}">{{ 'Send a message'|trans }}</a>
+                {% endif %}
+            </div>
+        </div>
+
+        {% if hasContent.content %}
+            <div class="details-header-navbar-mobile">
+                {% if hasContent.overview %}
+                    <a href="#overview" class="tab-navbar is-selected">{{ 'Overview'|trans }}</a>
+                {% endif %}
+                {% if gallery is not empty -%}
+                    <a href="#photos" class="tab-navbar {{ hasContent.activeTab == 2 ? 'is-selected' : '' }}">{{ 'Photos'|trans }}</a>
+                {% endif %}
+                {% if (level.hasReview and reviews_active) and (reviewsPaginated.reviews is not empty) -%}
+                    <a href="#reviews" class="tab-navbar {{ hasContent.activeTab == 3 ? 'is-selected' : '' }}">{{ 'Reviews'|trans }}</a>
+                {% endif %}
+                {% if (deals is not empty) and isSample is null -%}
+                    <a href="#deals" class="tab-navbar {{ hasContent.activeTab == 4 ? 'is-selected' : '' }}">{{ 'Deals'|trans }}</a>
+                {% endif %}
+                {% if (classifieds is not empty) and isSample is null -%}
+                    <a href="#classifieds" class="tab-navbar {{ hasContent.activeTab == 5 ? 'is-selected' : '' }}">{{ 'Classifieds'|trans }}</a>
+                {% endif %}
+                {% do HookFire("listingdetail_after_render_articletab", {"activeTab": hasContent.activeTab}) %}
+                {% do HookFire("listingdetail_after_render_eventtab", {"activeTab": hasContent.activeTab}) %}
+            </div>
+        {% endif %}
+        <div class="detail-info-mobile">
+            <div class="details-title">
+                <h1 class="heading h-3">{{ item.title }}</h1>
+                <div class="details-share">
+                    {{ bookmarkButton(item, 'listing') }}
+                    {{ Utility.shareLinks() }}
+                </div>
+            </div>
+            {{ UtilityDetail.categories(item.categories, 'listing') }}
+            {% if level.hasBadges and badges is not empty -%}
+                <div class="details-certified">
+                    {% for badge in badges -%}
+                        <div class="item-certified">
+                            <div class="picture">
+                                <img src="{{ asset(imagePath(badge.image), 'domain_images') }}" alt="{{ badge.name }}" data-toggle="tooltip" data-placement="top">
+                            </div>
+                            <div class="title">{{ badge.name }}</div>
+                        </div>
+                    {% endfor -%}
+                </div>
+            {% endif -%}
+
+            {{ UtilityDetail.detailsContact(item, level, address) }}
+        </div>
+    </div>
+
+    {% if hasContent.content %}
+        <div class="detail-body" id="detail-body">
+            <div class="detail-body-content">
+                <div class="container">
+                    <div class="tab-content has-sidebar" id="overview">
+                        <div class="tab-left">
+                            {% if (gallery is not empty and 'y' == gallery[0].imageDefault or HookExist("listingdetail_before_render_gallery"))
+                                or (level.hasSummaryDescription and item.description)
+                                or (level.hasLongDescription and item.longDescription) -%}
+                                <div class="tab-item tab-item-about">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'About'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+
+                                        {# ModStores Hooks #}
+                                        {% do HookFire("listingdetail_before_render_gallery", {"item":item, "gallery": gallery, "level": level}) -%}
+
+                                        {% if gallery is not empty and 'y' == gallery[0].imageDefault -%}
+                                            {% if isSample -%}
+                                                {% set url = gallery[0].image.url -%}
+                                            {% else -%}
+                                                {% set url = asset(imagePath(gallery[0].image), 'domain_images') -%}
+                                            {% endif -%}
+
+                                            <div class="picture">
+                                                <a href="{{ url }}" class="fancybox">
+                                                {% if isSample -%}
+                                                    <img data-src="{{ url }}" alt="{{ item.title }}" class="lazy">
+                                                {% else -%}
+                                                    {{ tagPicture(url, item.title, {'tablet': 'medium'}) }}
+                                                {% endif -%}
+                                                </a>
+                                                <a href="#photos" id="view-photos" class="button button-md">{{ 'View all photos'|trans }}</a>
+                                            </div>
+                                        {% endif %}
+                                        {% if level.hasSummaryDescription and item.description -%}
+                                            <div class="description">
+                                                <p class="summary-description">{{ item.description|nl2br }}</p>
+                                                {% if level.hasLongDescription and item.longDescription -%}
+                                                    <button type="button" class="button button-md is-secondary" id="view-about">{{ 'Read More'|trans }}</button>
+                                                {% endif %}
+                                            </div>
+                                        {% elseif (gallery is not empty and 'y' == gallery[0].imageDefault) and level.hasLongDescription and item.longDescription %}
+                                            <div class="description">
+                                                {% if not HookFire("listingdetail_overwrite_longdescription", {"item": item}) -%}
+                                                    {% if item.longDescription|length > 520 %}
+                                                        <p>{{ item.longDescription|slice(0,519) ~ '...'|nl2br }}</p>
+                                                        <button type="button" class="button button-md is-secondary" id="view-about">{{ 'Read More'|trans }}</button>
+                                                    {% else %}
+                                                        <p>{{ item.longDescription|nl2br }}</p>
+                                                    {% endif %}
+                                                {% endif %}
+                                            </div>
+                                        {% endif -%}
+                                    </div>
+                                    {% if level.hasLongDescription and item.longDescription -%}
+                                        <div class="tab-item-content{{ gallery is empty and (item.description is empty or not level.hasSummaryDescription) ? ' display' : '' }}" id="long-description">
+                                            {% if not HookFire("listingdetail_overwrite_longdescription", {"item": item}) -%}
+                                                <p>{{ item.longDescription|nl2br }}</p>
+                                            {% endif -%}
+                                        </div>
+                                    {% endif -%}
+                                </div>
+                            {% endif %}
+                            {% if level.hasFeatureInformation and features is not empty %}
+                                <div class="tab-item tab-item-features">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Features'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% for feature in features -%}
+                                            {% if feature.title is not empty %}
+                                                <div class="item-features">
+                                                    <span class="icon icon-md"><i class="fa {{ feature.icon }}"></i></span>
+                                                    {{ feature.title }}
+                                                </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if hasContent.listingTemplateValue or (level.hasAdditionalFiles and item.attachmentFile is not empty) -%}
+                                <div class="tab-item tab-item-additional tab-item-others">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Additional information'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% for extra in extra_fields if 'custom_' in extra.field -%}
+                                            {# @var extra \ArcaSolutions\ListingBundle\Entity\ListingtemplateField -#}
+                                            {% set value = attribute(item, camelize(extra.field)) -%}
+                                            {% if value is not empty -%}
+                                                <div class="additional-item">
+                                                    <strong>{{ extra.label }}</strong>
+                                                    <span class="paragraph p-2">
+                                                        {% if value == 'y' or value == 'n' -%}
+                                                            {{ value == 'y' ? 'Yes'|trans : 'No'|trans }}
+                                                        {% else -%}
+                                                            {{ value }}
+                                                        {% endif -%}
+                                                    </span>
+                                                </div>
+                                            {% endif -%}
+                                        {% endfor -%}
+                                        {% if level.hasAdditionalFiles and item.attachmentFile is not empty -%}
+                                            {% if isSample -%}
+                                                {% set link = 'javascript:void(0);' -%}
+                                            {% else -%}
+                                                {% set link = asset(item.attachmentFile, 'domain_extrafiles') -%}
+                                            {% endif -%}
+                                            <div class="additional-item">
+                                                <a href="{{ link ~ '?' ~  'now' | date('U') }}" class="other-name" download><i class="fa fa-file"></i>{{ item.attachmentCaption ? item.attachmentCaption : 'Click here to see more info!'|trans }}</a>
+                                            </div>
+                                        {% endif -%}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {# ModStores Hooks #}
+                            {% if not HookFire("listingdetail_overwrite_video", {"item": item, "level": level}) -%}
+                                {% if level.hasVideo and item.videoSnippet -%}
+                                    <div class="tab-item tab-item-video">
+                                        <div class="tab-item-heading">
+                                            <h4 class="heading h-4">{{ 'Video'|trans }}</h4>
+                                        </div>
+                                        <div class="tab-item-content">
+                                            {% if isSample -%}
+                                                <img src="{{ asset("assets/images/preview-video.png") }}" alt="{{ 'Preview Video'|trans }}">
+                                            {% else -%}
+                                                {{ item.videoSnippet|replace({"http://": "https://"})|raw }}
+                                            {% endif -%}
+                                            {% if item.videoDescription -%}
+                                                <div class="description">
+                                                    {{ item.videoDescription }}
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            {% endif -%}
+
+                            {% if (level.hasReview and reviews_active) and (reviewsPaginated.reviews is not empty or HookFire('detailcontent_validate_review', {}, true)) -%}
+                                <div class="tab-item tab-item-reviews" id="overview-reviews">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Reviews'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        <div class="reviews-header">
+                                            {# ModStores Hooks #}
+                                            {% if not HookFire("listingdetail_overwrite_ratestars", {"item": item, "level": level}, true) -%}
+                                                <div class="reviews-vote">
+                                                    <div class="reviews-rating">{{ item.avgReview|number_format(1, 'decimal.separator'|trans({},'units')) }}</div>
+                                                    <div class="reviews-stars">
+                                                        {% for i in 0..4 %}
+                                                            {% if (i < (item.avgReview b-or 0)) %}
+                                                                {% set star = 'fa-star' %}
+                                                            {% elseif ((item.avgReview - i) > 0 and (item.avgReview - i) < 1) %}
+                                                                {% set star = 'fa-star-half-o' %}
+                                                            {% else %}
+                                                                {% set star = 'fa-star-o' %}
+                                                            {% endif %}
+                                                            <i class="fa {{star}}"></i>
+                                                        {% endfor %}
+                                                    </div>
+                                                    {% if reviewsPaginated.total > 0 -%}
+                                                        <div class="reviews-count">{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviewsPaginated.total, {"%count%":reviewsPaginated.total}) }}</div>
+                                                    {% endif -%}
+                                                </div>
+                                            {% endif %}
+                                            <div class="reviews-action">
+                                                {% if not HookFire('detailcontent_overwrite_reviewbutton', {}, true) %}
+                                                    <a href="#" class="button button-md is-primary" data-modal="review" data-id="{{ item.id }}">{{ 'Write a review'|trans }}</a>
+                                                    <a href="#reviews" class="button button-md is-secondary all-reviews">{{ 'View all reviews'|trans }}</a>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="reviews-list">
+                                            {{ UtilityDetail.reviews(reviewsPaginated.reviews|slice(0, 3), 'true') }}
+                                            {% do HookFire('detailcontent_after_renderreview', {'review': reviewsPaginated.reviews|slice(0, 3), 'overview': 'true'}) %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="tab-right">
+
+                            {% if (level.hasHoursOfWork and hoursWork is not empty) %}
+                                <div class="tab-item tab-item-hours">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Hours'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% set statusTime = statusTimeText(hoursWork) %}
+                                        <div class="hours-heading first-hours" data-status-time="{{ statusTime['class'] }}">
+                                            <i class="fa fa-clock-o"></i>{{ statusTime['text']|raw }}
+                                            <i class="fa fa-angle-down"></i>
+                                        </div>
+                                        <div class="hours-content">
+                                            <div class="hours-more">
+                                                {% for dayWeek, hourWork in hoursWork %}
+                                                    <div class="hours-item">
+                                                        <strong>{{ 'week.days'|transchoice((dayWeek + 1), [], 'units')|capitalize }}:</strong>
+                                                        {% if hourWork is not empty %}
+                                                            {% for hour in hourWork %}
+                                                                {% if hour.hours_start == hour.hours_end %}
+                                                                    {{ 'Open 24h'|trans }}
+                                                                {% else %}
+                                                                    {% if not loop.first -%} / {% endif -%}
+                                                                    {{ hour.hours_start|date(getTimeFormat()) }} - {{ hour.hours_end|date(getTimeFormat()) }}
+                                                                {% endif %}
+                                                            {% endfor %}
+                                                        {% else %}
+                                                            {{ 'Closed'|trans }}
+                                                        {% endif -%}
+                                                    </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if address|trim is not empty or map is not null -%}
+                                <div class="tab-item tab-item-location">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Location'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if map is not null -%}
+                                            {{ googleMaps(map) }}
+                                        {% endif %}
+
+                                        {# ModStores Hooks #}
+                                        {% do HookFire("listingdetail_before_render_location", {"item": item, "level": level }) -%}
+
+                                        {% if (address|trim is not empty) or (level.hasLocationReference and item.locations is not empty) -%}
+                                            <div class="location-address">
+                                                {% if address|trim is not empty %}
+                                                    {{ address }}
+                                                {% endif %}
+
+                                                {% if level.hasLocationReference and item.locations is not empty %}
+                                                    {% if address|trim is not empty %}
+                                                        <br>
+                                                    {% endif %}
+
+                                                    {{ item.locations }}
+                                                {% endif %}
+                                            </div>
+                                        {% endif %}
+
+                                        {% if item.latitude and item.longitude %}
+                                            <a href="{{ getDirectionsLink(item) }}" target="_blank" rel="noopener noreferrer" class="button is-primary"><i class="fa fa-location-arrow"></i> {{ 'Get directions'|trans }}</a>
+                                        {% endif %}
+
+                                        {# ModStores Hooks #}
+                                        {% do HookFire("listing_detail_multiplelocations") %}
+                                    </div>
+                                </div>
+                            {% endif %}
+
+                            {% if level.hasSocialNetworking and item.socialNetwork is not empty -%}
+                                <div class="tab-item tab-item-social">
+                                    <div class="tab-item-heading">
+                                        <h4 class="heading h-4">{{ 'Follow Us'|trans }}</h4>
+                                    </div>
+                                    <div class="tab-item-content">
+                                        {% if item.socialNetwork.facebook is not empty -%}
+                                            <a href="{{ item.socialNetwork.facebook }}" class="social-item"><i class="fa fa-facebook"></i></a>
+                                        {% endif -%}
+                                        {% if item.socialNetwork.instagram is not empty -%}
+                                            <a href="{{ item.socialNetwork.instagram }}" class="social-item"><i class="fa fa-instagram"></i></a>
+                                        {% endif -%}
+                                        {% if item.socialNetwork.twitter is not empty -%}
+                                            <a href="{{ item.socialNetwork.twitter }}" class="social-item"><i class="fa fa-twitter"></i></a>
+                                        {% endif -%}
+                                    </div>
+                                </div>
+                            {% endif -%}
+
+                            {# ModStores Hooks #}
+                            {% if not HookFire("listingdetail_overwrite_socialnetworking", {"listing": item, "level": level }) -%}
+                                {% if level.hasSocialNetworking -%}
+                                    <div class="tab-item tab-item-facebook">
+                                        <div class="tab-item-content">
+                                            {% if isSample -%}
+                                                <img src="{{ asset("assets/images/preview-facebook.png") }}" alt="{{ 'Preview Facebook'|trans }}">
+                                            {% else -%}
+                                                {{ facebookFanPage(item.socialNetwork.facebook) }}
+                                            {% endif -%}
+                                        </div>
+                                    </div>
+                                {% endif -%}
+                            {% endif -%}
+
+                            {% if squareBanner is not empty %}
+                                {{ squareBanner|raw }}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% if gallery is not empty -%}
+                        <div class="tab-content" id="photos">
+                            <div class="tab-item tab-item-photos">
+                                <div class="tab-item-heading">
+                                    <h4 class="heading h-4">{{ 'Photos'|trans }}</h4>
+                                </div>
+                                <div class="tab-item-content">
+                                    <div class="photos-list">
+                                        {% for photo in gallery %}
+
+                                            {% if isSample -%}
+                                                {% set url = photo.image.url -%}
+                                            {% else -%}
+                                                {% set url = asset(imagePath(photo.image), 'domain_images') -%}
+                                            {% endif -%}
+
+                                            <a href="{{ url }}" class="photos-item fancybox" data-fancybox="details-photos" data-options='{"caption" : "{{photo.imageCaption}}"}'>
+
+                                            {% if isSample -%}
+                                                <img data-src="{{ url }}" alt="{{ photo.imageCaption ? 'Photos'|trans : item.title }}" class="lazy">
+                                            {% else -%}
+                                                {{ tagPicture(url, photo.imageCaption ? photo.imageCaption : item.title) }}
+                                            {% endif -%}
+
+                                            {% if isSample or file_exists(url[1:]) -%}
+                                                <div class="photos-caption">
+                                                    <i class="fa fa-camera"></i>
+                                                    {{ 'View photo'|trans }}
+                                                </div>
+                                            {% endif -%}
+                                            </a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    {% if (level.hasReview and reviews_active) and reviewsPaginated.reviews is not empty -%}
+                        <div class="tab-content has-sidebar" id="reviews">
+                            <div class="tab-left">
+                                <div class="tab-item tab-item-reviews">
+                                    <div class="tab-item-content">
+                                        <div class="reviews-header">
+                                            <div class="reviews-vote">
+                                                <div class="reviews-rating">{{ item.avgReview|number_format(1, 'decimal.separator'|trans({},'units')) }}</div>
+                                                <div class="reviews-stars">
+                                                    {% for i in 0..4 %}
+                                                        {% if (i < (item.avgReview b-or 0)) %}
+                                                            {% set star = 'fa-star' %}
+                                                        {% elseif ((item.avgReview - i) > 0 and (item.avgReview - i) < 1) %}
+                                                            {% set star = 'fa-star-half-o' %}
+                                                        {% else %}
+                                                            {% set star = 'fa-star-o' %}
+                                                        {% endif %}
+                                                        <i class="fa {{star}}"></i>
+                                                    {% endfor %}
+                                                </div>
+                                                {% if reviewsPaginated.total > 0 -%}
+                                                    <div class="reviews-count">{{ "{0}No Reviews|{1}%count% Review|]1,Inf[%count% Reviews"|transchoice(reviewsPaginated.total, {"%count%":reviewsPaginated.total}) }}</div>
+                                                {% endif %}
+                                                <a href="#" class="button button-md is-primary" data-modal="review" data-id="{{ item.id }}">{{ 'Write a review'|trans }}</a>
+                                            </div>
+                                        </div>
+                                        <div id="review-content">
+                                            <div class="reviews-list">
+                                                {{ UtilityDetail.reviews(reviewsPaginated.reviews, 'true') }}
+                                            </div>
+                                            {% include 'blocks/pagination/review-pagination.html.twig' with {pageCount: reviewsPaginated.pageCount, friendlyUrl: item.friendlyUrl, current: 1} %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% if wideSkyscraperBanner is not empty %}
+                                {{ wideSkyscraperBanner|raw }}
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="tab-content" id="deals">
+                    {% if deals is not empty and isSample is null-%}
+                        {% include '::/modules/deal/blocks/vertical-cards.html.twig' with {items: deals, itemsPerRow : 3} -%}
+                    {% endif -%}
+                </div>
+                {# ModStores Hooks #}
+                <div class="tab-content" id="classifieds">
+                    {% if classifieds is not empty and isSample is null %}
+                        {% include '::/modules/classified/blocks/vertical-cards.html.twig' with {items: classifieds, itemsPerRow : 3} -%}
+                    {% endif -%}
+                </div>
+                {% do HookFire("listingdetail_after_render_article") %}
+                {% do HookFire("listingdetail_after_render_event") %}
+            </div>
+        </div>
+    {% endif %}
+    {% if not isSample and formSendMail -%}
+        {% include ':blocks/modals:modal-send-email.html.twig' with {form: formSendMail, item: item, level: level} %}
+    {% endif -%}
+    {% if not isSample and formReview -%}
+        {% include '@Web/modal-review.html.twig' with {form: formReview, item: item, level: level} %}
+    {% endif -%}
+</div>
+
+{# Adding requirements #}
+{{ addJSFile("assets/js/lib/jquery.fancybox.min.js") }}
+{{ addJSFile("assets/js/lib/social-likes.min.js") }}
+{{ addJSTwig("::modules/listing/js/summary.js.twig") }}
+{{ addJSFile("assets/js/search/report.click.js") }}
+{{ addJSFile("assets/js/widgets/details/listing.js") }}
+{% if not HookFire("listingdetail_overwrite_reviewjs") -%}
+    {{ addJSFile("assets/js/review/review.js") }}
+{% endif %}
+{{ addJSFile("assets/js/modules/socialbuttons.js") }}

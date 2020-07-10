@@ -1,0 +1,44 @@
+.section-headers{
+    @include block-padding;
+    text-align: center;
+
+    .wrapper{
+        > .heading,
+        > .paragraph{
+            color: color(color-white, base);
+            font-weight: 300;
+            position: relative;
+            z-index: 5;
+        }
+    }
+
+    &[data-align="left"]{
+        text-align: left;
+    }
+    
+    &[data-align="right"]{
+        text-align: right;
+    }
+
+    &[data-bg="brand"]{
+        background: customColor(brand, base);
+    }
+    
+    &[data-bg="neutral"]{
+        background: customColor(neutral, transp-5);
+    }
+    
+    &[data-bg="base"]{
+        background: customColor(color-white, base);
+    }
+
+    &[data-bg="neutral"],
+    &[data-bg="base"]{
+        .wrapper{
+            > .heading,
+            > .paragraph{
+                color: customColor(neutral, base);
+            }
+        }
+    }
+}

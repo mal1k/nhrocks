@@ -1,0 +1,27 @@
+.modal-default{
+    .modal-content{
+        .modal-nav{
+            .modal-nav-link{
+                font-size: fontsize(size-18);
+            }
+        }
+
+        .modal-body{
+            .form-actions{
+                .form-remember{
+                    font-size: fontsize(size-14);
+                }
+            }
+
+            .privacy-policy{
+                font-size: fontsize(size-12);
+            }
+
+            .not-member{
+                .link{
+                    font-size: fontsize(size-16);
+                }
+            }
+        }
+    }
+}

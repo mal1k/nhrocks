@@ -1,0 +1,41 @@
+<script>
+var element = document.querySelector('.trending-list');
+var prev    = document.querySelector('.categories-nav[data-direction="prev"]');
+var next    = document.querySelector('.categories-nav[data-direction="next"]');
+
+var elWidth = $('.trending-list').width();
+var items   = $('.trending-item');
+var count   = 0;
+
+$('.trending-item').each(function(){
+    count += $(this).outerWidth(true);
+});
+
+if(elWidth > count){
+    prev.style.display = 'none';
+    next.style.display = 'none';
+}
+
+prev.onclick = function () {
+    sideScroll('prev');
+};
+
+next.onclick = function () {
+    sideScroll('next');
+};
+
+function sideScroll(direction){
+    scrollAmount = 0;
+    var slideTimer = setInterval(function(){
+        if(direction == 'prev'){
+            element.scrollLeft -= 10;
+        } else {
+            element.scrollLeft += 10;
+        }
+        scrollAmount += 10;
+        if(scrollAmount >= 100){
+            window.clearInterval(slideTimer);
+        }
+    }, 15);
+}
+</script>

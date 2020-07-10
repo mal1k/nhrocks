@@ -1,0 +1,95 @@
+{% form_theme form with ['::blocks/form-layout.html.twig'] -%}
+
+{% if isSample -%}
+    {% set coverImage = asset('assets/images/placeholders/1024x768.jpg') -%}
+{% elseif item.coverImage.unsplash is not empty -%}
+    {% set coverImage = item.coverImage.unsplash -%}
+{% elseif item.coverImage is not empty -%}
+    {% set coverImage = asset(imagePath(item.coverImage), 'domain_images') -%}
+{% endif -%}
+
+{% if isSample -%}
+    {% set logoImage = asset('assets/images/placeholders/96x96.jpg') -%}
+{% elseif item.logoImage -%}
+    {% set logoImage = asset(imagePath(item.logoImage), 'domain_images')|imagine_filter('logo_icon_3') -%}
+{% endif -%}
+
+{% set module = getModule() %}
+
+<div class="details-modal modal-review">
+    <div class="modal-default message-modal {{ level.hasCoverImage and coverImage ? 'has-coverimage' : '' }} {{(level.hasLogoImage and logoImage) and (not coverImage or not level.hasCoverImage) ? 'custom-close-color' : '' }}">
+        <div class="modal-return">
+            <i class="fa fa-check"></i>
+            {{ 'Review successfully sent'|trans }}
+        </div>
+        <div class="modal-return-error">
+            <i class="fa fa-warning"></i>
+            {{ 'An error occurred, try again'|trans }}
+        </div>
+        <div class="modal-header" style="{{ level.hasCoverImage and coverImage ? 'background-image: url(' ~ coverImage ~ ');' : (level.hasLogoImage and logoImage ? '' : 'display: none;') }}">
+            <div class="modal-picture" {{ not level.hasLogoImage or logoImage is empty ? 'style="display: none;"' : '' }}>
+                <img id="review-logo" src="{{ not level.hasLogoImage or logoImage is empty ? '' : logoImage }}" alt="{{ item ? item.title : '' }}">
+            </div>
+        </div>
+        <span class="modal-close" data-modal="close"><i class="fa fa-times"></i></span>
+        <div class="modal-info {{ level.hasLogoImage and logoImage is not empty ? 'has-picture' : '' }}">
+            <h3 class="heading h-3" id="review-title">{{ item ? item.title : ''}}</h3>
+        </div>
+        {# ModStores Hooks #}
+        {% if not HookFire("modalwritereview_overwrite_ratestars", {module: module, 'id': item.id, 'form': form}, true) -%}
+        <div class="modal-rate">
+            <div class="paragraph">{{ "Rate It"|trans }}</div>
+            <div class="rate select-rating">
+                {% for rate in range(-5,-1) %}
+                    <span data-rating="{{ -rate }}"></span>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+        <div class="modal-form">
+            <form {{ form_enctype(form) }} action="{{ item ? path('web_add_review', {id: item.id}) : '' }}" id="review" class="content-form" data-search-title="Search">
+
+                {{ form_row(form._token) }}
+
+                {% if not form.vars.has_member %}
+                    {{ form_widget(form.name, { 'attr': { 'placeholder': 'Name'} }) }}
+                    {{ form_errors(form.name) }}
+
+                    {{ form_widget(form.email, { 'attr': { 'placeholder': 'Email'} }) }}
+                    {{ form_errors(form.email) }}
+
+                    {{ form_widget(form.location, { 'attr': { 'placeholder': 'Location' } }) }}
+                    {{ form_errors(form.location) }}
+                {% endif %}
+
+                {{ form_widget(form.title, { 'attr': { 'placeholder': 'Title' } }) }}
+                {{ form_errors(form.title) }}
+
+                {{ form_widget(form.message, { 'attr': { 'placeholder': 'Message', 'rows': '5' } }) }}
+                {{ form_errors(form.message) }}
+
+                {{ form_widget(form.rating, {id: 'formRating', 'attr': { 'class': 'review-rating'}}) }}
+
+                {# ModStores Hooks #}
+                {% do HookFire("modalwritereview_after_render_fields", {module: module, 'id': item.id, 'form': form}, true) -%}
+
+                <div class="modalError"></div>
+                
+                {% if form.reviewCaptcha is defined %}
+                    {% block edirectory_captcha_widget -%}
+                        {% spaceless -%}
+                            {{ form_widget(form.reviewCaptcha) }}
+                            {{ form_errors(form.reviewCaptcha) }}
+                        {% endspaceless -%}
+                    {% endblock -%}
+                {% endif %}
+
+
+                <div class="form-actions">
+                    <button type="submit" id="sendReviewButton" data-size="" data-content="" data-loading="<i class='fa fa-spinner fa-spin'></i> {{ "Please, wait..."|trans }}" class="button button-bg is-primary">{{ 'Send message'|trans }}</button>
+                    <button type="button" class="button button-bg is-outline" data-modal="close">{{ 'Cancel'|trans }}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

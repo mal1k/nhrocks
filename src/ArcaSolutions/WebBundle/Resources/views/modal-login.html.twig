@@ -1,0 +1,91 @@
+{% set data = getLoginData(app.request.uri) %}
+
+{% form_theme data.captcha with ['::blocks/form-layout.html.twig'] -%}
+
+<div class="modal-default modal-sign">
+    <div class="modal-content">
+        <div class="modal-nav">
+            {% if (data.socialnetworkFeature == 'on') %}
+                <a href="javascript:void(0);" class="heading modal-nav-link active" data-tab="sign-in">{{ "Sign In"|trans }}</a>
+                <a href="javascript:void(0);" class="heading modal-nav-link" data-tab="sign-up">{{ "Register"|trans }}</a>
+                <div class="selected-arrow"></div>
+            {% endif %}
+            <a href="javascript:void(0);" class="modal-close-button" data-modal="close"><i class="fa fa-close"></i></a>
+        </div>
+        <div class="modal-body">
+            <div class="content-tab content-sign-in active" id="sign-in">
+                {% if data.facebookLoginUrl is not empty or data.googleLoginUrl is not empty %}
+                    <div class="modal-social">
+                        {% if data.facebookLoginUrl is not empty %}
+                            <a href="{{ data.facebookLoginUrl }}" class="social-modal-button facebook-button"><i class="fa fa-facebook-official"></i> {{ "Facebook"|trans }}</a>
+                        {% endif %}
+                        {% if data.googleLoginUrl is not empty %}
+                            <a href="{{ data.googleLoginUrl }}" class="social-modal-button google-button"><img src="{{ asset('assets/images/g-icon.png') }}" alt="Sign In with Google"> {{ "Google"|trans }}</a>
+                        {% endif %}
+                    </div>
+                    <span class="heading or-label">{{ "or"|trans }}</span>
+                {% endif %}
+                <form action="{{ data.loginUrl }}" class="modal-form" method="post">
+                    <input type="email" name="username" class="input" placeholder="{{ "Email"|trans }}">
+                    <input type="password" name="password" class="input" placeholder="{{ "Password"|trans }}">
+                    <input type="hidden" name="action" value="">
+                    <input type="hidden" name="item_id" value="">
+                    <div class="form-actions">
+                        <label class="form-remember">
+                            <input type="checkbox" name="remember">
+                            {{ "Remember me"|trans }}
+                        </label>
+                        <div class="form-lost-password">
+                            <a href="{{ data.forgotUrl }}" class="link">{{ "Forgot your password?"|trans }}</a>
+                        </div>
+                    </div>
+                    <div class="form-button">
+                        <button type="submit" id="login_submit" class="button button-bg is-primary">{{ "Log In"|trans }}</button>
+                    </div>
+                </form>
+                <small class="privacy-policy">{{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a href="/'~getParameter('alias_terms_url_divisor')~'" class="link">', '%end_terms%' : '</a>', '%start_privacy%' : '<a href="/'~getParameter('alias_privacy_url_divisor')~'" class="link">', '%end_privacy%' : '</a>'}, 'account') | raw }}</small>
+                {# <div class="not-member">{{ "Not a member?"|trans }} <a href="javascript:void(0);" class="link modal-nav-link" data-tab="sign-up">{{ "Sign Up"|trans }}</a></div> #}
+            </div>
+            {% if (data.socialnetworkFeature == 'on') %}
+                <div class="content-tab content-sign-up" id="sign-up">
+                    {% if data.facebookLoginUrl is not empty or data.googleClientId is not empty %}
+                        <div class="modal-social">
+                            {% if data.facebookLoginUrl is not empty %}
+                                <a href="{{ data.facebookLoginUrl }}" class="social-modal-button facebook-button"><i class="fa fa-facebook-official"></i> {{ "Facebook"|trans }}
+                                </a>
+                            {% endif %}
+                            {% if data.googleLoginUrl is not empty %}
+                                <a href="{{ data.googleLoginUrl }}" class="social-modal-button google-button"><img src="{{ asset('assets/images/g-icon.png') }}" alt="Register with google"> {{ "Google"|trans }}
+                                </a>
+                            {% endif %}
+                        </div>
+                        <span class="heading or-label">{{ "or"|trans }}</span>
+                    {% endif %}
+                    <form action="{{ data.addUrl }}" class="modal-form" method="post">
+                        <input type="text" name="first_name" class="input" placeholder="{{ "Name"|trans }}">
+                        <input type="text" name="last_name" class="input" placeholder="{{ "Last Name"|trans }}">
+                        <input type="email" name="username" class="input" placeholder="{{ "Email"|trans }}">
+                        {{ honeyPot() }}
+                        <input type="password" name="password" class="input" placeholder="{{ "Password"|trans }}">
+                        <input type="hidden" name="referer" value="{{ app.request.uri }}">
+                        <input type="hidden" name="action" value="">
+                        <input type="hidden" name="item_id" value="">
+                        {% if data.captcha is defined %}
+                            {% block edirectory_captcha_widget -%}
+                                {% spaceless -%}
+                                    {{ form_widget(data.captcha) }}
+                                    {{ form_errors(data.captcha) }}
+                                {% endspaceless -%}
+                            {% endblock -%}
+                        {% endif %}
+                        <div class="form-button">
+                            <button id="register_submit" type="submit" class="button button-bg is-primary">{{ "Sign Up"|trans }}</button>
+                        </div>
+                    </form>
+                    <small class="privacy-policy">{{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a href="/'~getParameter('alias_terms_url_divisor')~'" class="link">', '%end_terms%' : '</a>', '%start_privacy%' : '<a href="/'~getParameter('alias_privacy_url_divisor')~'" class="link">', '%end_privacy%' : '</a>'}, 'account') | raw }}</small>
+                    {# <div class="not-member">{{ "Already a member?"|trans }} <a href="javascript:void(0);" class="link modal-nav-link" data-tab="sign-in">{{ "Sign In"|trans }}</a></div> #}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

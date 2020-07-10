@@ -1,0 +1,101 @@
+$colors: (
+    brand: (
+        base: $brand-color,
+        dark: mix(black, $brand-color, 30%),
+        light: mix(white, $brand-color, 15%),
+        transp-50: transparentize($brand-color, .50),
+        transp-40: transparentize($brand-color, .40),
+        transp-20: transparentize($brand-color, .20)
+    ),
+    
+    highlight: (
+        base: $highlight-color,
+        dark: mix(black, $highlight-color, 15%),
+        dark-2: mix(black, $highlight-color, 30%),
+        light: mix(white, $highlight-color, 15%),
+        light-2: mix(white, $highlight-color, 30%),
+        transp-10: transparentize($highlight-color, .90),
+        transp-50: transparentize($highlight-color, .50),
+    ),
+    
+    neutral: (
+        base: $neutral-color,
+        transp-80: transparentize($neutral-color, .20),
+        transp-75: transparentize($neutral-color, .25),
+        transp-50: transparentize($neutral-color, .50),
+        transp-25: transparentize($neutral-color, .75),
+        transp-20: transparentize($neutral-color, .80),
+        transp-15: transparentize($neutral-color, .85),
+        transp-10: transparentize($neutral-color, .90),
+        transp-5: transparentize($neutral-color, .95),
+    ),
+
+    badge: (
+        base: $badge-color,
+        light: mix(white, $badge-color, 30%)
+    ),
+    
+    link: (
+        base: $link-color,
+        dark: mix(black, $link-color, 30%)
+    ),
+    
+    background: (
+        base: $background-color,
+    ),
+    
+    success: (
+        base: $success-color,
+        dark: mix(black, $success-color, 30%),
+        dark-2: mix(black, $success-color, 60%),
+        light: mix(white, $success-color, 60%),
+        light-2: mix(white, $success-color, 90%),
+        transp-25: transparentize($success-color, .25),
+        transp-15: transparentize($success-color, .15),
+        transp-10: transparentize($success-color, .10),
+    ),
+    
+    warning: (
+        base: $warning-color,
+        dark: mix(black, $warning-color, 30%),
+        dark-2: mix(black, $warning-color, 60%),
+        light: mix(white, $warning-color, 60%),
+        light-2: mix(white, $warning-color, 90%),
+        transp-25: transparentize($warning-color, .25),
+        transp-15: transparentize($warning-color, .15),
+        transp-10: transparentize($warning-color, .10),
+    ),
+    
+    attention: (
+        base: $attention-color,
+        dark: mix(black, $attention-color, 30%),
+        dark-2: mix(black, $attention-color, 60%),
+        light: mix(white, $attention-color, 60%),
+        light-2: mix(white, $attention-color, 90%),
+        transp-25: transparentize($attention-color, .25),
+        transp-15: transparentize($attention-color, .15),
+        transp-10: transparentize($attention-color, .10),
+    ),
+
+    color-black: (
+        base: black,
+        transp-90: transparentize(black, .10),
+        transp-75: transparentize(black, .25),
+        transp-65: transparentize(black, .35),
+        transp-55: transparentize(black, .45),
+        transp-50: transparentize(black, .50),
+        transp-25: transparentize(black, .75),
+        transp-10: transparentize(black, .90),
+        transp-5: transparentize(black, .95),
+    ),
+    
+    color-white: (
+        base: white,
+        transp-85: transparentize(white, .15),
+        transp-75: transparentize(white, .25),
+        transp-50: transparentize(white, .50),
+        transp-25: transparentize(white, .75),
+        dark-10: darken(white, 10%),
+        dark-5: darken(white, 5%)
+    ),
+);

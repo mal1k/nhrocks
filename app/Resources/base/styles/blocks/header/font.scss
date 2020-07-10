@@ -1,0 +1,23 @@
+.header{
+    > .header-bar{
+        .bar-link{
+            font-size: fontsize(size-14);
+        }
+    }
+
+    .header-navbar{
+        .navbar-link{
+            font-size: fontsize(size-16);
+        }
+
+        .navbar-more{
+            .more-label{
+                font-size: fontsize(size-16);
+            }
+
+            .more-link{
+                font-size: fontsize(size-16);
+            }
+        }
+    }
+}

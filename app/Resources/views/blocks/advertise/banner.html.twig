@@ -1,0 +1,59 @@
+{% set planFrequency = getPlanFrequency(plans) %}
+
+{% if planFrequency %}
+    <div class="pricing-wrapper {{ planFrequency.total_plan > 3 ? 'has-scroll' : '' }}" id="banner">
+        <div class="pricing-list">
+            {% for plan in plans %}
+                {% set pricing = advertisePrice(plan, true, content) %}
+                <div class="pricing-item {{ plan.isPopular ? 'is-highlighted' : '' }}"
+                    {% if plan.isPopular %}
+                        data-highlighted="{{ 'Most Popular'|trans }}"
+                    {% endif %}
+                    >
+                    <div class="paragraph p-2 pricing-type">{{ plan.name }}</div>
+                    <div class="paragraph p-3 pricing-size">{{ plan.width }}x{{ plan.height }}</div>
+                    <div class="pricing-price">
+                        {% if pricing.monthly.value %}
+                            <div class="heading h-3 pricing-value">{{ pricing.main.symbol ~ pricing.monthly.value ~ '/' ~ 'Month'|trans }}</div>
+                            {% if pricing.yearly.value %}
+                                <div class="paragraph p-4 pricing-period">{{ 'or'|trans ~ ' ' ~ pricing.main.symbol ~ pricing.yearly.value ~ '/' ~ 'year'|trans }}</div>
+                            {% endif %}
+                        {% elseif pricing.yearly.value %}
+                            <div class="heading h-3 pricing-value">{{ pricing.main.symbol ~ pricing.yearly.value ~ '/' ~ 'Year'|trans }}</div>
+                        {% else %}
+                            <div class="heading h-3 pricing-value">{{ 'Free'|trans }}</div>
+                        {% endif %}
+                    </div>
+                    <div class="pricing-action">
+                        <a href="/advertise/banner/{{ plan.level }}" class="button button-bg {{ plan.isPopular ? 'is-primary' : 'is-secondary'}}">
+                            {% if plan.trial and (pricing.monthly.value or pricing.yearly.value) %}
+                                {{ "{1}%trial_days% day free trial|]1,Inf[%trial_days% days free trial"|transchoice(plan.trial, {"%trial_days%":plan.trial}) }}
+                            {% else %}
+                                {{ 'Start today!'|trans }}
+                            {% endif %}
+                        </a>
+                        <a href="javascript:void(0);" class="link pricing-example" data-modal="banner-{{ plan.level }}">{{ 'view example'|trans }}</a>
+                        {% if pricing.description is not empty %}
+                            <div class="price-description">
+                                <p class="pragraph p-2">{{ pricing.description }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="details-default">
+                        <div class="details-modal modal-preview modal-banner-{{ plan.level }}">
+                            <div class="modal-default">
+                                <span class="modal-close" data-modal="close"><i class="fa fa-times"></i></span>
+                                <img src="{{ asset('assets/images/preview-banner-'~ plan.level ~'.png') }}">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="pricing-buttons">
+            <button class="button is-primary previous"><i class="fa fa-angle-left"></i></button>
+            <button class="button is-primary next"><i class="fa fa-angle-right"></i></button>
+        </div>
+    </div>
+{% endif %}

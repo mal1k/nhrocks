@@ -1,0 +1,60 @@
+{% extends "@Arcraft/base.html.twig" -%}
+
+{% block body -%}
+
+<div class="page-wrapper">
+    <header class="header text-center">
+        <div class="container">
+            <div class="branding">
+                <h1 class="logo">
+                    <span aria-hidden="true" class="icon_documents_alt icon"></span>
+                    <span class="text-highlight">ArCraft</span><span class="text-bold">Docs</span>
+                </h1>
+            </div>
+            <div class="tagline">
+                <p>ArCraft Styleguide documentation</p>
+            </div>
+        </div>
+    </header>
+
+    <section class="cards-section text-center">
+        <div class="container">
+            <div id="cards-wrapper" class="cards-wrapper row">
+                <div class="item item-green col-6">
+                    <div class="item-inner">
+                        <div class="icon-holder"><span aria-hidden="true" class="icon fa fa-paper-plane"></span></div>
+                        <h3 class="title">Quick Start</h3>
+                        <p class="intro">Demo example, consectetuer adipiscing elit</p>
+                        <a class="link" href="quick-start"><span></span></a>
+                    </div>
+                </div>
+                <div class="item item-pink col-6">
+                    <div class="item-inner">
+                        <div class="icon-holder"><span aria-hidden="true" class="icon icon_puzzle_alt"></span></div>
+                        <h3 class="title">Components</h3>
+                        <p class="intro">Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                        <a class="link" href="components"><span></span></a>
+                    </div>
+                </div>
+                <div class="item item-purple col-6">
+                    <div class="item-inner">
+                        <div class="icon-holder"><span aria-hidden="true" class="icon icon_lifesaver"></span></div>
+                        <h3 class="title">FAQs</h3>
+                        <p class="intro">Layout for FAQ page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                        <a class="link" href="faqs"><span></span></a>
+                    </div>
+                </div>
+                <div class="item item-primary col-6">
+                    <div class="item-inner">
+                        <div class="icon-holder"><span aria-hidden="true" class="icon icon_genius"></span></div>
+                        <h3 class="title">Themes</h3>
+                        <p class="intro">Layout for showcase page. Lorem ipsum dolor sit amet, consectetuer adipiscing elit </p>
+                        <a class="link" href="themes"><span></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% endblock -%}

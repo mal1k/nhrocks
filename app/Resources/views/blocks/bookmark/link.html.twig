@@ -1,0 +1,6 @@
+{% spaceless %}
+    {% set class = marked ? 'fa-bookmark' : 'fa-bookmark-o' %}
+    <a href="javascript:void(0);" data-id="{{ id }}" data-module="{{ module }}" data-modal="bookmark" class="picture-title-actions bookmark tooltip" data-tooltip="{{ 'Add this item to favorites'|trans }}">
+        <i class="fa {{ class }}"></i>
+    </a>
+{% endspaceless %}

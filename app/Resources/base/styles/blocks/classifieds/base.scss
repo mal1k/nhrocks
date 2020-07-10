@@ -1,0 +1,56 @@
+.cards-default{
+    &[data-type="classifieds"]{
+        &[data-bg="brand"]{
+            .cards-list{
+                .card{
+                    .content{
+                        .title{
+                            color: customColor(color-white, base);
+                        }
+
+                        .categories{
+                            color: customColor(color-white, transp-75);
+
+                            .share{
+                                color: customColor(color-white, transp-75);
+                            }
+                        }
+
+                        .description{
+                            .paragraph{
+                                color: customColor(color-white, transp-75);
+                            }
+                        }
+
+                        .price{
+                            color: customColor(color-white, base);
+                        }
+                    }
+                }
+            }
+        }
+
+        &[scrollable=""],
+        &[scrollable="false"]{
+            &[mobile-columns="true"]{
+                .cards-list{
+                    .card{
+                        @media screen and (max-width: 425px){
+                            .content{
+                                margin-top: 16px;
+
+                                .title{
+                                    font-size: fontsize(size-16);
+                                }
+
+                                .price{
+                                    font-size: fontsize(size-20);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,16 @@
+{# members array #}
+
+{% import "::blocks/utility/profile.html.twig" as Profile -%}
+
+<div class="members-list">
+    {% for member in members %}
+        <a href="{{ Profile.friendlyUrl(member.profile) }}" class="members-item">
+            <div class="picture">
+                {{ Profile.photo(member.profile) }}
+            </div>
+            <div class="content">
+                <h3 class="heading h-5">{{ member.contact.firstName }} {{ member.contact.LastName }}</h3>
+            </div>
+        </a>
+    {% endfor %}
+</div>

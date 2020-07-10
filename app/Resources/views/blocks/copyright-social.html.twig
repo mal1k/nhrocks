@@ -1,0 +1,19 @@
+{# Branded Copy of eDirectory -#}
+<div class="footer-bottom">
+    {% if branded == 'on' -%}
+        <p>
+            {{ 'Powered by'|trans }}
+            <a href="{{ url_edirectory }}" target="_blank" rel="noopener noreferrer nofollow">
+                <img src="{{ asset('assets/images/'~ (content.backgroundColor == 'base' ? 'edirectory-logo-inverse' : 'edirectory-logo') ~'.svg') }}"
+                     alt="{{ 'eDirectory Cloud Service'|trans }} &trade;">
+            </a>
+        </p>
+    {% endif -%}
+
+    {% if content.labelCopyrightText -%}
+        <p>
+            {# Custom text for copyrights -#}
+            {{ content.labelCopyrightText }}
+        </p>
+    {% endif -%}
+</div>

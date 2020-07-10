@@ -1,0 +1,68 @@
+{% set phone = getSetting('contact_phone') %}
+{% set email = getSetting('contact_email') %}
+
+{% set facebook = getSetting('setting_facebook_link') %}
+{% set linkedin = getSetting('setting_linkedin_link') %}
+{% set twitter = getSetting('twitter_account') %}
+{% set instagram = getSetting('setting_instagram_link') %}
+{% set pinterest = getSetting('setting_pinterest_link') %}
+
+
+{% set flags = 0 %}
+
+{% set flags = 0 +
+    ( facebook ? 64  : 0 ) +
+    ( linkedin ? 128 : 0 ) +
+    ( twitter  ? 256 : 0 ) +
+    ( instagram ? 512 : 0 ) +
+    ( pinterest  ? 1024 : 0 ) %}
+
+{% if flags b-and 1984 or phone  or email %}
+    <div class="thin-strip-base" data-type="5" data-bg="{{content.backgroundColor}}" {{ content.lastItem ? 'last-item' : '' }}>
+        <div class="container">
+            <div class="wrapper">
+                {% if phone  or email %}
+                    <div class="content-contact">
+                        <div class="paragraph p-2"><span class="icon icon-md">
+                            <i class="fa fa-phone"></i></span> 
+                            <a href="tel:{{ phone }}">{{ phone }}</a>
+                        </div>
+                        <div class="paragraph p-2"><span class="icon icon-md">
+                            <i class="fa fa-envelope"></i></span>
+                            <a href="mailto:{{ email }}">{{ email }}</a>
+                        </div>
+                    </div>
+                {% endif %}
+                {% if flags b-and 1984 %}
+                    <div class="content-social">
+                        {% if flags b-and 64 -%}
+                            <a href="{{ facebook }}" class="social-icon has-border">
+                                <div class="icon icon-md"><i class="fa fa-facebook"></i></div>
+                            </a>
+                        {%- endif %}
+                        {% if flags b-and 128 -%}
+                            <a href="{{ linkedin }}" class="social-icon has-border">
+                                <div class="icon icon-md"><i class="fa fa-linkedin"></i></div>
+                            </a>
+                        {%- endif %}
+                        {% if flags b-and 256 -%}
+                            <a href="{{ twitter }}" class="social-icon has-border">
+                                <div class="icon icon-md"><i class="fa fa-twitter"></i></div>
+                            </a>
+                        {%- endif %}
+                        {% if flags b-and 512 -%}
+                            <a href="{{ instagram }}" class="social-icon has-border">
+                                <div class="icon icon-md"><i class="fa fa-instagram"></i></div>
+                            </a>
+                        {%- endif %}
+                        {% if flags b-and 1024 -%}
+                            <a href="{{ pinterest }}" class="social-icon has-border">
+                                <div class="icon icon-md"><i class="fa fa-pinterest-p"></i></div>
+                            </a>
+                        {%- endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endif %}

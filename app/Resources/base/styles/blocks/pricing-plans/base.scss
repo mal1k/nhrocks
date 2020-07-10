@@ -1,0 +1,507 @@
+.pricing-plans{
+    @include block-padding;
+
+    .pricing-header{
+        text-align: center;
+
+        .paragraph{
+            margin-top: 16px;
+            display: block;
+            opacity: .75;
+        }
+    }
+
+    .pricing-table{
+        margin-top: 48px;
+
+        .pricing-nav{
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: center;
+
+            &.multiple-navs{
+                flex-flow: row nowrap;
+                overflow: auto;
+                justify-content: flex-start;
+
+                @media screen and (min-width: 992px){
+                    flex-flow: row wrap;
+                    justify-content: center;
+                }
+            }
+
+            .button{
+                &:first-child{
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                    border-right: none;
+                }
+
+                &:last-child{
+                    border-top-left-radius: 0;
+                    border-bottom-left-radius: 0;
+                    border-left: none;
+                }
+
+                &:not(:first-child):not(:last-child){
+                    border-radius: 0;
+                    border-left: none;
+                    border-right: none;
+                }
+
+                &.is-active{
+                    background: customColor(highlight, base);
+                    color: white;
+                    opacity: 1;
+                    border: none;
+
+                    &:focus, &:visited, &:active{
+                        background: customColor(highlight, dark);
+                    }
+
+                    &:hover{
+                        background: customColor(highlight, light-2);
+                    }
+                }
+            }
+        }
+
+        .pricing-wrapper{
+            display: none;
+
+            &.is-active{
+                display: block;
+
+                &.has-scroll{
+                    &:before, &:after{
+                        opacity: 1;
+                    }
+                }
+            }
+
+            .pricing-buttons{
+                display: none;
+            }
+            
+            &.has-scroll{      
+                position: relative;
+
+                @media screen and (min-width: 1200px){
+                    position: relative;
+
+                    .pricing-list{
+                        justify-content: flex-start;
+                        overflow-x: scroll;
+                        padding: 64px 0 24px;
+                        margin-top: 40px;
+                        position: relative;
+                        -ms-overflow-style: none;
+                        overflow: -moz-scrollbars-none;
+                        scrollbar-width: none;
+
+                        &::-webkit-scrollbar {
+                            width: 0px;
+                            background: transparent;
+                            display: none;
+                        }
+                    }
+
+                    .pricing-buttons{
+                        position: absolute;
+                        display: block;
+                        width: 100%;
+                        top: calc(50% + 16px);
+                        left: 0;
+                        transform: translateY(calc(-50% + 16px));
+                        height: 40px;
+    
+                        .button{
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 9999px;
+                            position: absolute;
+                            top: 0;
+                            font-size: 28px;
+    
+                            &.previous{
+                                left: -10px;
+                                display: none;
+                            }
+                            
+                            &.next{
+                                right: -10px;
+                            }
+                        }
+                    }
+                }
+                
+                @media screen and (min-width: 1300px){
+                    .pricing-buttons{
+                        .button{
+                            &.previous{
+                                left: -50px;
+                            }
+                            
+                            &.next{
+                                right: -50px;
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .pricing-list{
+                margin-top: 32px;
+                display: flex;
+                justify-content: flex-start;
+                flex-flow: row wrap;
+
+                @media screen and (min-width: 768px){
+                    margin-top: 40px;
+                }
+                
+                @media screen and (min-width: 1200px){
+                    flex-flow: row nowrap;
+                    justify-content: center;
+                    padding: 64px 0 24px;
+
+                    &.no-margin{
+                        padding: 24px 0;
+                    }
+                }
+
+                &.pricing-articles{
+                    justify-content: center;
+                }
+
+                &.no-margin{
+                    & + .pricing-buttons{
+                        top: calc(50% + 4px);
+                        transform: translateY(calc(-50% + 4px));
+                    }
+                }
+
+                .pricing-item{
+                    background: customColor(color-white, base);
+                    padding: 32px;
+                    border-radius: $border-radius;
+                    border: 1px solid customColor(neutral, transp-25);
+                    position: relative;
+                    flex-grow: 1;
+                    flex-shrink: 0;
+                    max-width: 100%;
+                    width: 100%;
+                    margin-top: 16px;
+
+                    @media screen and (min-width: 768px){
+                        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                            max-width: calc((100% / 2) - 16px);
+                        }
+
+                        max-width: calc(calc(100% / 2) - 16px);
+                        margin-left: 8px;
+                        margin-right: 8px;
+                    }
+                    
+                    @media screen and (min-width: 992px){
+                        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                            max-width: calc((100% / 3) - 16px);
+                        }
+                        
+                        max-width: calc(calc(100% / 3) - 16px);
+                    }
+                    
+                    @media screen and (min-width: 1200px){
+                        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+                            max-width: calc((100% / 4) - 16px);
+                        }
+
+                        max-width: calc(calc(100% / 4) - 16px);
+                    }
+
+                    &.is-highlighted{
+                        margin-bottom: 16px;
+                        border-top: 8px solid customColor(highlight, base);
+                        border-bottom: 8px solid customColor(highlight, base);
+                        
+                        @media screen and (min-width: 768px){
+                            margin-bottom: 0;
+                        }
+                        
+                        @media screen and (min-width: 992px){
+                            margin-top: 56px;
+                        }
+                        
+                        @media screen and (min-width: 1200px){
+                            padding: 48px 32px;
+                            margin-top: -24px;
+                            margin-bottom: -24px;
+                        }
+
+                        &:before{
+                            content: attr(data-highlighted);
+                            position: absolute;
+                            left: 50%;
+                            transform: translateX(-50%);
+                            width: 100%;
+                            text-align: center;
+                            transform: translateX(-50%);
+                            font-family: $heading-font;
+                            text-transform: uppercase;
+                            font-weight: bold;
+                            opacity: .75;
+                            
+                            @media screen and (min-width: 992px){
+                                top: -48px;
+                            }
+                        }
+
+                        .pricing-plan, .pricing-type{
+                            margin-top: 48px;
+                            
+                            @media screen and (min-width: 992px){
+                                margin-top: 0;
+                            }
+                        }
+                    }
+
+                    &.is-collapsed{
+                        .price-toggler{
+                            display: block;
+                        }
+
+                        .price-advantages{
+                            overflow: hidden;
+                            height: 0;
+                        }
+                    }
+                    
+                    &:not(.is-collapsed){
+                        .price-toggler{
+                            display: block;
+                        }
+
+                        .price-advantages{
+                            overflow: hidden;
+                            height: 0;
+                        }
+                        
+                        @media screen and (min-width: 1200px){
+                            .price-toggler{
+                                display: none;
+                            }
+    
+                            .price-advantages{
+                                overflow: initial;
+                                height: auto;
+                            }
+                        }
+                    }
+
+                    .pricing-plan{
+                        text-transform: uppercase;
+                        opacity: .5;
+                        text-align: center;
+                    }
+
+                    .pricing-type{
+                        text-transform: uppercase;
+                        font-weight: bold;
+                        text-align: center;
+                        opacity: .75;
+                    }
+
+                    .pricing-size{
+                        text-align: center;
+                        opacity: .5;
+                    }
+
+                    .pricing-price{
+                        text-align: center;
+                        margin-top: 16px;
+
+                        .pricing-value{
+                            font-weight: bold;
+                            line-height: 1.25;
+                            word-break: break-word;
+
+                            .pricing-month{
+                                font-size: 70%;
+                            }
+                        }
+
+                        .pricing-period{
+                            opacity: .75;
+                        }
+                    }
+
+                    .pricing-action{
+                        margin-top: 24px;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        flex-flow: column wrap;
+
+                        .button + .pricing-example{
+                            margin-top: 16px;
+                        }
+
+                        .pricing-example{
+                            display: inline-block;
+                        }
+
+                        .button{
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            max-width: 100%;
+                        }
+                    }
+                    
+                    .pricing-collapse{
+                        margin-top: 24px;
+
+                        &.is-open{
+                            display: flex;
+                            flex-flow: column wrap;
+
+                            .price-advantages{
+                                order: 2;
+                                height: 100%;
+                                margin-top: 32px;
+                                padding-top: 24px;
+                                border-top: 1px solid customColor(neutral, transp-25);
+                            }
+
+                            .price-toggler{
+                                order: 3;
+
+                                .icon{
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+
+                        .price-description{
+                            p{
+                                line-height: 1.5;
+                                color: customColor(neutral, base);
+
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+                            }
+
+                            & + .price-toggler{
+                                margin-top: 32px;
+                            }
+                        }
+
+                        .price-toggler{
+                            text-align: center;
+                            color: customColor(link, base);
+                            text-decoration: none;
+                            margin-top: 24px;
+
+                            .icon{
+                                margin: 0 auto;
+                                color: customColor(link, base);
+                                font-size: 16px;
+                            }
+                        }
+
+                        .price-advantages{
+                            margin: 0;
+                            padding: 0;
+                            list-style: none;
+                            transition: $transitions;
+
+                            .price-advantages-item{
+                                display: flex;
+                                flex-flow: row wrap;
+                                align-items: center;
+                                margin-bottom: 16px;
+
+                                &:last-child{
+                                    margin-bottom: 0;
+                                }
+
+                                &:not(.has-advantages){
+                                    opacity: .5;
+
+                                    .icon{
+                                        .fa{
+                                            &:before{
+                                                content: "\f05c";
+                                            }
+                                        }
+                                    }
+                                }
+
+                                .icon{
+                                    color: customColor(brand, base);
+                                    font-size: 20px;
+
+                                    .fa{
+                                        &:before{
+                                            content: "\f05d";
+                                        }
+                                    }
+                                }
+
+                                .item-name{
+                                    margin-left: 8px;
+                                    max-width: calc(100% - 32px);
+                                    word-break: break-word;
+
+                                    &:not(.link){
+                                        color: customColor(neutral, base);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    &[data-bg="brand"]{
+        .pricing-header{
+            .heading{
+                color: customColor(color-white, base);
+            }
+
+            .paragraph{
+                color: customColor(color-white, base);
+            }
+        }
+
+        .pricing-table{
+            .pricing-nav{
+                .button{
+                    &.is-outline{
+                        border-color: customColor(color-white, transp-75);
+                        color: customColor(color-white, transp-75);
+                    }
+                }
+            }
+
+            .pricing-wrapper{
+                .pricing-list{
+                    .pricing-item{
+                        &.is-highlighted{
+                            &:before{
+                                color: customColor(neutral, base);
+
+                                @media screen and (min-width: 992px){
+                                    color: customColor(color-white, base);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,42 @@
+{{ addJSFile("assets/js/widgets/faq/faq.js") }}
+
+<div class="faq-page">
+    <div class="faq-header" data-bg="neutral" has-gap>
+        <div class="container wrapper">
+            <div class="faq-info">
+                <h1 class="heading h-2" data-trans="{{ 'How can we help you?'|trans({}, 'widgets') }}">
+                    {{ content.labelHowCanIHelp|trans({}, 'widgets') }}
+                </h1>
+            </div>
+            <form class="faq-search" action="{{ path('web_faq') }}" method="get">
+                <input name="keyword" type="text" class="input" placeholder="{{ 'Enter a question, keyword, topic...'|trans }}" value="{{ keyword }}">
+                <button type="submit" class="button button-bg is-primary">{{ "Search"|trans }}</button>
+            </form>
+        </div>
+    </div>
+    <div class="faq-content">
+        {# Questions -#}
+        {% if questions|length > 0 -%}
+            {% for question in questions -%}
+                <div class="toggle-item" data-bg="neutral">
+                    <div class="toggle-header">
+                        <h3 class="heading h-3 toggle-title">{{ question.question }}</h3>
+                        <button class="button button-toggle-title"><span class="fa fa-minus"></span></button>
+                    </div>
+                    <div class="toggle-content">
+                        <p class="paragraph">{{ question.answer }}</p>
+                    </div>
+                </div>
+            {% endfor -%}
+        {% endif -%}
+
+        <span class="contact-us">
+            {{ '{0}No records found |{1} <b>One</b> record found |]1,Inf]Found <b>%count%</b> records'
+            |transchoice(questions|length, {'%count%': questions|length})
+            |raw }}.
+            <a href="{{ path('web_contactus') }}" title="{{ "Contact Us"|trans }} " data-trans="{{ 'Did you not find your answer? Contact us.'|trans({}, 'widgets') }}" class="link">
+                {{ content.labelDidYouNotFind|trans({}, 'widgets') }}
+            </a>
+        </span>
+    </div>
+</div>

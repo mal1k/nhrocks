@@ -1,0 +1,209 @@
+.horizontal-deal{
+    .cards-list{
+        .card-deals{
+            width: 100%;
+
+            @media screen and (min-width: 768px){
+                width: calc(calc(100% / 2) - 32px);
+                margin-left: 16px;
+                margin-right: 16px;
+            }
+            
+            @media screen and (min-width: 992px){
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+                background: white;
+                border: 1px solid customColor(neutral, transp-25);
+                border-radius: $border-radius;
+            }
+
+            .picture{
+                width: 100%;
+                max-height: 160px;
+                
+                @media screen and (min-width: 992px){
+                    width: 245px;
+                    border-top-right-radius: 0;
+                    border-bottom-right-radius: 0;
+                }
+            }
+
+            .content{
+                @media screen and (min-width: 992px){
+                    width: calc(100% - 285px);
+                    margin-top: 0 !important;
+                    padding-right: 32px;
+                    display: flex;
+                    flex-flow: row wrap;
+                    justify-content: space-between;
+                    align-items: center;
+                }
+
+                .deals-info{
+                    @media screen and (min-width: 992px){
+                        width: 300px;
+                    }
+                    
+                    @media screen and (min-width: 1200px){
+                        width: 340px;
+                    }
+                }
+
+                .deals-price{
+                    width: 260px;
+
+                    @media screen and (min-width: 992px){
+                        width: 196px;
+                    }
+                    
+                    @media screen and (min-width: 1200px){
+                        width: 260px;
+                    }
+
+                    .valid-time{
+                        margin-top: 8px;
+                    }
+                }
+
+                .deals-action{
+                    display: none;
+
+                    @media screen and (min-width: 992px){
+                        display: block;
+                    }
+
+                    .button{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.cards-default{
+    &[data-type="deals"]{
+        &[data-bg="brand"]{
+            &:not(.horizontal-deal){
+                .cards-list{
+                    .card{
+                        .content{
+                            .title{
+                                color: customColor(color-white, base);
+                            }
+
+                            .categories{
+                                color: customColor(color-white, transp-75);
+
+                                .share{
+                                    color: customColor(color-white, transp-75);
+                                }
+                            }
+
+                            .description{
+                                .paragraph{
+                                    color: customColor(color-white, transp-75);
+                                }
+                            }
+
+                            .price-off{
+                                color: customColor(color-white, transp-50);
+                            }
+
+                            .price{
+                                color: customColor(color-white, base);
+                            }
+
+                            .valid-time{
+                                color: customColor(color-white, base);
+                            }
+                        }
+                    }
+                }
+            }
+
+            &.horizontal-deal{
+                .cards-list{
+                    .card{
+                        border: none;
+
+                        @media screen and (max-width: 768px){
+                            .content{
+                                .title{
+                                    color: customColor(color-white, base);
+                                }
+
+                                .categories{
+                                    color: customColor(color-white, transp-75);
+
+                                    .share{
+                                        color: customColor(color-white, transp-75);
+                                    }
+                                }
+
+                                .description{
+                                    .paragraph{
+                                        color: customColor(color-white, transp-75);
+                                    }
+                                }
+
+                                .price-off{
+                                    color: customColor(color-white, transp-50);
+                                }
+
+                                .price{
+                                    color: customColor(color-white, base);
+                                }
+
+                                .valid-time{
+                                    color: customColor(color-white, base);
+                                }
+                            }
+                        }
+                    }
+
+                    &.has-slider{
+                        .flickity-page-dots{
+                            .dot{
+                                border-color: customColor(color-white, base);
+
+                                &:hover{
+                                    border-color: customColor(color-white, base);
+                                    background: customColor(color-white, base);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &[scrollable=""],
+        &[scrollable="false"]{
+            &[mobile-columns="true"]{
+                &:not(.horizontal-deal){
+                    .cards-list{
+                        .card{
+                            @media screen and (max-width: 425px){
+                                .content{
+                                    margin-top: 16px;
+
+                                    .title{
+                                        font-size: fontsize(size-16);
+                                    }
+
+                                    .price{
+                                        font-size: fontsize(size-20);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

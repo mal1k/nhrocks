@@ -1,0 +1,44 @@
+{#      Description:                    -#}
+{# This macro renders the profile image -#}
+
+{# profile Object                       -#}
+{#      Accountprofilecontact           -#}
+
+{% macro photo(profile) %}
+    <div class="author-picture">
+        {% if profile and profile.imageId != 0 -%}
+            <img src="{{ asset(imageProfile(profile), 'profile_images') }}"
+                 alt="{{ profile.firstName }} {{ profile.lastName }}">
+        {% elseif profile.imageId == 0 and profile.facebookImage != "" -%}
+            <img src="{{ profile.facebookImage }}"
+                 alt="{{ profile.firstName }} {{ profile.lastName }}">
+        {% else -%}
+            <i class="fa fa-user"></i>
+        {% endif -%}
+    </div>
+{% endmacro %}
+
+{#      Description:                  -#}
+{# This macro renders the profile url -#}
+
+{# profile Object                     -#}
+{#      Accountprofilecontact         -#}
+
+{% macro friendlyUrl(profile) %}
+    {% if profile %}
+        {{ absolute_url('/profile/') ~ profile.friendlyUrl }}
+    {% endif %}
+{% endmacro %}
+
+
+{% macro profileImageUrl(profile) %}
+    {% if profile and profile.imageId != 0 -%}
+        <a href="{{ profile.friendlyUrl ? profile.friendlyUrl : '#' }}" class="author-picture" style="background-image: url({{ asset(imageProfile(profile), 'profile_images') }})"></a>
+    {% elseif profile.imageId == 0 and profile.facebookImage != "" -%}
+        <a href="{{ profile.friendlyUrl ? profile.friendlyUrl : '#' }}" class="author-picture" style="background-image: url({{ profile.facebookImage }})"></a>
+    {% else -%}
+        <div class="author-picture">
+            <i class="fa fa-user"></i>
+        </div>
+    {% endif -%}
+{% endmacro %}

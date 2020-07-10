@@ -1,0 +1,23 @@
+{% set flags = 0 + ( (content.linkPlayStore and content.playStoreLabel) ? 64  : 0 ) + ( (content.linkAppleStore and content.AppStoreLabel) ? 128 : 0 ) %}
+
+{% if flags b-and 192 %}
+    <div class="footer-item" data-content="apps-content">
+        {% if flags b-and 64 %}
+            <a href="{{ content.linkPlayStore }}" rel="noopener noreferrer" target="_blank" class="link-store">
+                <div class="app-icon"><i class="fa fa-android"></i></div>
+                <div class="app-info">
+                    <span>{{ content.playStoreLabel }}</span>
+                </div>
+            </a>
+        {% endif %}
+
+        {% if flags b-and 128 %}
+            <a href="{{ content.linkAppleStore }}" rel="noopener noreferrer" target="_blank" class="link-store">
+                <div class="app-icon"><i class="fa fa-apple"></i></div>
+                <div class="app-info">
+                    <span>{{ content.AppStoreLabel }}</span>
+                </div>
+            </a>
+        {% endif %}
+    </div>
+{% endif %}

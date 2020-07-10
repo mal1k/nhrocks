@@ -1,0 +1,79 @@
+<!-- Recent Articles -->
+{% set recent_article = recentArticle() -%}
+{% set popular_article = popularArticle() -%}
+
+{% import '::blocks/utility/utility.html.twig' as Utility %}
+{% import "::blocks/utility/cards.html.twig" as UtilityCards -%}
+
+<div class="cards-default" data-type="articles" data-bg="{{ content.backgroundColor }}" has-gap>
+    <div class="container">
+        <div class="card-wrapper-quarter">
+            <div class="cards-list no-margin cards-list-quarter" data-align="">
+                {% if recent_article is not empty -%}
+                    {% for article in recent_article -%}
+
+                        {% set link = path('article_detail', {friendlyUrl: article.friendlyUrl, _format: 'html'}) -%}
+
+                        <div class="card card-horizontal card-horizontal-full">
+                            <div class="content">
+                                {% if article.categories %}
+                                    <div class="categories">
+                                        {{ 'in'|trans({}, 'widgets') }}
+                                        {% for category in article.categories -%}
+                                            <a href="{{ utility_generateSearchUrl(null, "article", category.friendlyUrl) }}" class="link">{{ category.title }}</a>{{ (not loop.last ? ', ' : '') }}
+                                        {% endfor -%}
+                                    </div>
+                                {% endif %}
+                                <a href="{{ link }}" class="title heading">{{ article.title }}</a>
+                                {% if article.abstract is not empty -%}
+                                    <div class="description">
+                                        <p class="paragraph">{{ (article.abstract[:120]|striptags|raw) }}...</p>
+                                    </div>
+                                {% endif %}
+
+                                {% if article.profile is not empty -%}
+                                    {{ Utility.accountLink(article.profile) }}
+                                {% elseif article.author.name -%}
+                                    {{ Utility.authorLink(article) }}
+                                {% endif -%}
+                            </div>
+                            <a href="{{ link }}" class="picture">
+                                <div class="badge">{{ date(article.publicationDate)|localized_date('MMMM dd, yyyy') }}</div>
+                                {% if article.thumbnail is defined and article.thumbnail is not empty -%}
+                                    {{ tagPicture(asset(article.thumbnail, 'domain_images'), article.title) }}
+                                {% else -%}
+                                    {{ utility_getNoImage(article.title) }}
+                                {% endif -%}
+                            </a>
+                        </div>
+                    {% endfor -%}
+                {% endif -%}
+            </div>
+
+            {% if popular_article %}
+                <div class="cards-popular">
+                    <h3 class="heading h-3" data-trans="{{ 'Popular Articles'|trans({}, 'widgets') }}">{{ content.labelPopularPosts|trans({}, 'widgets') }}</h3>
+                    <div class="list-popular-articles">
+                        {% for article in popular_article -%}
+                            <div class="item-popular-articles">
+                                <div class="content-left">
+                                    <div class="number heading h-1">{{ loop.index }}</div>
+                                </div>
+                                <div class="content-right">
+                                    <a href="{{ path('article_detail', {'friendlyUrl': article.friendlyUrl, "_format" : "html"}) }}" class="title heading">
+                                        {{ article.title }}
+                                    </a>
+                                    {% if article.profile is not empty -%}
+                                        {{ Utility.accountLink(article.profile) }}
+                                    {% elseif article.author.name -%}
+                                        {{ Utility.authorLink(article) }}
+                                    {% endif -%}
+                                </div>
+                            </div>
+                        {% endfor -%}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>

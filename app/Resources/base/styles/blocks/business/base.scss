@@ -1,0 +1,124 @@
+.cards-default{
+    &[data-type="business"]{
+        &[data-bg="brand"]{
+            .cards-list{
+                .card{
+                    &:not(.no-image){
+                        .content{
+                            .title{
+                                color: customColor(color-white, base);
+                            }
+
+                            .categories{
+                                color: customColor(color-white, transp-75);
+
+                                .share{
+                                    color: customColor(color-white, transp-75);
+                                }
+                            }
+
+                            .description{
+                                .paragraph{
+                                    color: customColor(color-white, transp-75);
+                                }
+                            }
+
+                            .price-off{
+                                color: customColor(color-white, transp-50);
+                            }
+
+                            .price{
+                                color: customColor(color-white, base);
+                            }
+
+                            .reviews{
+                                .reviews-stars{
+                                    .fa-star-o{
+                                        color: customColor(color-white, transp-75);
+                                    }
+                                }
+
+                                .reviews-count{
+                                    color: customColor(color-white, transp-75);
+                                }
+                            }
+                        }
+                    }
+
+                    &.no-image{
+                        background: customColor(color-white, base);
+
+                        &:hover{
+                            background: customColor(color-white, dark-10);
+                        }
+
+                        .content{
+                            .title{
+                                color: customColor(neutral, base);
+                            }
+
+                            .categories{
+                                color: customColor(neutral, transp-75);
+
+                                .share{
+                                    color: customColor(neutral, transp-75);
+                                }
+                            }
+
+                            .description{
+                                .paragraph{
+                                    color: customColor(neutral, transp-75);
+                                }
+                            }
+
+                            .reviews{
+                                .reviews-stars{
+                                    .fa-star-o{
+                                        color: customColor(neutral, transp-75);
+                                    }
+                                }
+
+                                .reviews-count{
+                                    color: customColor(neutral, transp-75);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &[scrollable=""],
+        &[scrollable="false"]{
+            &[mobile-columns="true"]{
+                .cards-list{
+                    .card{
+                        &:not(.no-image){
+                            @media screen and (max-width: 425px){
+                                .content{
+                                    margin-top: 16px;
+
+                                    .title{
+                                        font-size: fontsize(size-16);
+                                    }
+
+                                    .description{
+                                        display: none;
+                                    }
+
+                                    .reviews{
+                                        margin-top: 8px;
+
+                                        .reviews-count{
+                                            display: none;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

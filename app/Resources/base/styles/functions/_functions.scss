@@ -1,0 +1,206 @@
+/**
+ * Função para retornar as cores
+ * @Params $color Cor que deseja usar
+ * @Params $type Variação da cor escolhida
+ * @Return Cor escolhida
+**/
+
+@function color($color, $type) {
+    @return map-get(map-get($colors, #{$color}), $type);
+}
+
+/**
+ * Função para retornar os espaçamentos dos botões
+ * @Params $size tamanho do botão
+ * @Params $direction eixo que deseja
+ * @Return Tamanho escolhido
+**/
+
+@function button($size, $direction) {
+    @return map-get(map-get($buttons, $size), $direction);
+}
+
+/**
+ * Função para retornar os espaçamentos dos botões
+ * @Params $size tamanho do botão
+ * @Params $type propriedade que deseja
+ * @Return Tamanho escolhido
+**/
+
+@function icons($size, $type) {
+    @return map-get(map-get($icons, $size), $type);
+}
+
+/**
+ * Função para retornar todos os tipos de font
+ * @Params $family familia da font usada
+ * @Params $type qual variação (h -> heading | p -> paragraph)
+ * @Params $size tamanho da font
+ * @Return Tamanho da font escolhida
+**/
+
+@function fontsize($size) {
+    $returnType: unquote("--font-" + $size);
+    $returnValue: map-get($fonts, $size);
+
+    @return var($returnType, $returnValue);
+}
+
+/**
+ * Função para retornar todos os tipos de banners
+ * @Params $type tipo do banner
+ * @Params $size qual variação (w -> width | h -> height)
+ * @Return Tamanho do banner
+**/
+
+@function banner-sizes($type, $size) {
+    @return map-get(map-get($banner-sizes, $type), $size);
+}
+
+/**
+ * Função para retornar o próximo breakpoint
+ * @Params $name Nome do breackpoint que deseja retornar
+ * @Return o breakpoint escolhido
+**/
+
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+  
+/**
+ * Função para retornar o menor breakpoint
+ * @Params $name qual breakpoint você deseja verificar
+ * @Return Valor do menor breakpoint possivel
+**/
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min != 0, $min, null);
+}
+  
+/**
+ * Função para retornar o maior breakpoint
+ * @Params $name qual breakpoint você deseja verificar
+ * @Return Valor do maior breakpoint possivel
+**/
+
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+    $next: breakpoint-next($name, $breakpoints);
+    @return if($next, breakpoint-min($next, $breakpoints) - .02px, null);
+}
+  
+/**
+ * Função para adicionar um prefixo ao nome da classe
+ * @Params $name qual breakpoint você deseja adicionar o prefixo
+ * @Return Classe com o prefixo
+**/
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+    @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+/**
+ * Função para converter string em int
+ * @Params $value string ou numero
+ * @Return valor convertido para int
+**/
+@function to-number($value) {
+    @if type-of($value) == 'number' {
+        @return $value;
+    }
+
+    $result: 0;
+    $digits: 0;
+    $minus: str-slice($value, 1, 1) == '-';
+    $numbers: ('0': 0, '1': 1, '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8, '9': 9);
+
+    @for $i from if($minus, 2, 1) through str-length($value) {
+        $character: str-slice($value, $i, $i);
+
+        @if not (index(map-keys($numbers), $character) or $character == '.') {
+            @return to-length(if($minus, -$result, $result), str-slice($value, $i))
+        }
+
+        @if $character == '.' {
+            $digits: 1; 
+        } @else if $digits == 0 {
+            $result: $result * 10 + map-get($numbers, $character);  
+        } @else {
+            $digits: $digits * 10;
+            $result: $result + map-get($numbers, $character) / $digits;
+        }
+    }
+
+    @return if($minus, -$result, $result);
+}
+
+@function to-length($value, $unit) {
+    $units: ('px': 1px, 'cm': 1cm, 'mm': 1mm, '%': 1%, 'ch': 1ch, 'pc': 1pc, 'in': 1in, 'em': 1em, 'rem': 1rem, 'pt': 1pt, 'ex': 1ex, 'vw': 1vw, 'vh': 1vh, 'vmin': 1vmin, 'vmax': 1vmax);
+
+    @if not index(map-keys($units), $unit) {
+        $_: log('Invalid unit `#{$unit}`.');
+    }
+
+    @return $value * map-get($units, $unit);
+}
+
+/**
+ * Função para retornar cor com variavel css
+ * @Params $color cor desejada {Brand}
+ * @Params $type variação da cor desejada {dark}
+ * @Return valor usando variaveis nativas {var(--brand-dark, #000000)}
+**/
+@function customColor($color, $type){
+    $returnType: unquote("--" + $color + "-" + $type);
+    $returnColor: color($color, $type);
+
+    @return var($returnType, $returnColor);
+}
+
+/**
+ * Função para retornar mix de vor com variavel css
+ * @Params $color cor desejada {Brand}
+ * @Params $type variação da cor desejada {dark}
+ * @Params $colorVariation sobre qual cor deseja misturar {preto || branco}
+ * @Return valor usando variaveis nativas {var(--brand-dark, #000000)}
+**/
+@function customMix($color, $type, $colorVariation, $amount){
+    $returnType: unquote("--" + $color + "-" + $type);
+    $returnColor: color($color, $type);
+    $value: mix($colorVariation, $returnColor, to-number($amount));
+
+    @return var($returnType, $value);
+}
+
+/*
+@function customFunctions($color, $type, $function, $amount, $attr: black){
+    $returnType: unquote("--" + $color + "-" + $type);
+    $returnColor: color($color, $type);
+
+    $switchFunction: map-get((
+        transparentize: transparentize($returnColor, to-number($amount)),
+        darken: darken($returnColor, to-number($amount)),
+        lighten: lighten($returnColor, to-number($amount)),
+        mix: mix($attr, $returnColor, to-number($amount))
+    ), $function);
+
+    @return var($returnType, $switchFunction);
+}
+
+@function customTransparentize($color, $type, $amount){
+    $returnType: unquote("--" + $color + "-" + $type);
+    $returnColor: color($color, $type);
+    $value: transparentize($returnColor, to-number($amount));
+    
+    @return var($returnType, $value);
+}
+
+@function customDarken($color, $type, $amount){
+    $returnType: unquote("--" + $color + "-" + $type);
+    $returnColor: color($color, $type);
+    $value: darken($returnColor, to-number($amount));
+
+    @return var($returnType, $value);
+}
+*/

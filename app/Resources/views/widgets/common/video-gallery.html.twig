@@ -1,0 +1,29 @@
+{% if content.videos %}
+    <div class="video-gallery" data-columns="{{ content.dataColumn }}" data-bg="{{ content.backgroundColor }}" has-gap>
+        <div class="container">
+            <div class="video-header">
+                <h2 class="heading h-4" data-trans="{{ 'Video Gallery'|trans({}, 'widgets') }}">{{ content.labelVideoGallery|trans({}, 'widgets') }}</h2>
+            </div>
+            <div class="video-list">
+                {% for video in content.videos -%}
+                    <div class="video-item">
+                        {% if video.imageUrl is not empty %}
+                            {% set imageUrl = video.imageUrl %}
+                        {% else %}
+                            {% set imageUrl = getVideoImageUrl(video.url) %}
+                        {% endif %}
+                        <a href="{{ video.url }}" class="video-picture" data-fancybox="video-gallery" style="background-image: url({{ imageUrl }})"></a>
+                        {% if video.description %}
+                            <div class="video-description">
+                                {{ video.description }}
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endfor -%}
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+{# Adding requirements #}
+{{ addJSFile("assets/js/lib/jquery.fancybox.min.js") }}

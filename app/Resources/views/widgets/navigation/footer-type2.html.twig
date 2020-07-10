@@ -1,0 +1,21 @@
+<footer class="footer" data-type="2" is-inverse="{{ content.backgroundColor == 'base' ? 'true' : 'false' }}">
+    <div class="footer-content">
+        <div class="container">
+            <div class="wrapper">
+                <div class="footer-wrapper">
+                    <div class="footer-logo">
+                        <a href="{{ path('web_homepage') }}" class="logo-link">
+                            <img src="{{ utility_getLogoImage()|imagine_filter('logo') }}?{{ 'now' | date('U') }}" class="img-responsive" alt="{{ title }}">
+                        </a>
+                    </div>
+                    {{ socialMedia() }}
+                </div>
+                <div class="footer-actions">
+                    {{ navigationFooter(content) }}
+                    {{ contactUs(content) }}
+                </div>
+            </div>
+        </div>
+    </div>
+    {{ copyright(content) }}
+</footer>

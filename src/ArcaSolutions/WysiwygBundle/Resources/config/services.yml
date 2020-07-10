@@ -1,0 +1,53 @@
+parameters:
+    # services
+    widget.service.class: ArcaSolutions\WysiwygBundle\Services\WidgetService
+    page.service.class: ArcaSolutions\WysiwygBundle\Services\PageService
+    pagetype.service.class: ArcaSolutions\WysiwygBundle\Services\PageTypeService
+    pagewidget.service.class: ArcaSolutions\WysiwygBundle\Services\PageWidgetService
+    theme.service.class: ArcaSolutions\WysiwygBundle\Services\ThemeService
+
+     # twig extensions
+    wysiwyg.twig.extension.class: ArcaSolutions\WysiwygBundle\Twig\Extension\WysiwygExtension
+
+services:
+    # services
+    widget.service:
+        class: '%widget.service.class%'
+        arguments:
+            - '@service_container'
+
+    page.service:
+        class: '%page.service.class%'
+        arguments:
+        - '@service_container'
+
+    pagetype.service:
+        class: '%pagetype.service.class%'
+        arguments:
+        - '@service_container'
+
+    pagewidget.service:
+        class: '%pagewidget.service.class%'
+        arguments:
+        - '@service_container'
+
+    theme.service:
+        class: '%theme.service.class%'
+        arguments:
+        - '@service_container'
+
+    # twig extensions
+    wysiwyg.twig_extension:
+            class: '%wysiwyg.twig.extension.class%'
+            public: false
+            arguments:
+                - '@service_container'
+            tags:
+                - { name: twig.extension }
+
+    wysiwyg.card_service:
+        class: ArcaSolutions\WysiwygBundle\Services\CardService
+        arguments:
+            - "@doctrine"
+            - "@helper.module"
+            - "@translator"

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="">
+
+    {% block stylesheets %}
+        {% stylesheets
+        filter='cssrewrite'
+        output='assets/default/css/sitemgr.css'
+        '@AdminBundle/Resources/public/styleguide/less/base.less'
+        %}
+        <link href="{{ asset_url }}" rel="stylesheet"/>
+        {% endstylesheets %}
+    {% endblock -%}
+
+</head>
+<body>
+
+<div>
+    <p>Primary button</p>
+
+    <code>a</code>
+
+    {# {{ a_btn_samll_primary() }} #}
+    {% block a_btn_small_primary -%}
+        <a href="#" class="btn btn--small btn--primary">Small button</a>
+    {% endblock %}
+
+    <a href="#" class="btn btn--medium btn--primary">Medium button</a>
+
+    <a href="#" class="btn btn--large btn--primary">Large button</a>
+
+    <br><br>
+
+    <code>button</code>
+
+    {# {{ button_btn_small_primary() }} #}
+    {% block button_btn_small_primary -%}
+        <button class="btn btn--small btn--primary">Small button</button>
+    {% endblock %}
+
+    <button class="btn btn--medium btn--primary">Medium button</button>
+
+    <button class="btn btn--large btn--primary">Large button</button>
+
+</div>
+
+<br>
+
+<div>
+    <p>Secondary button</p>
+
+    <code>a</code>
+
+    <a href="#" class="btn btn--small btn--secondary">Small button</a>
+
+    <a href="#" class="btn btn--medium btn--secondary">Medium button</a>
+
+    <a href="#" class="btn btn--large btn--secondary">Large button</a>
+
+    <br><br>
+
+    <code>button</code>
+
+    <button class="btn btn--small btn--secondary">Small button</button>
+
+    <button class="btn btn--medium btn--secondary">Medium button</button>
+
+    <button class="btn btn--large btn--secondary">Large button</button>
+</div>
+
+<br>
+
+<div>
+    <p>Disabled button</p>
+
+    <code>a</code>
+
+    <a href="#" class="btn btn--small btn--disabled">Small button</a>
+
+    <a href="#" class="btn btn--medium btn--disabled">Medium button</a>
+
+    <a href="#" class="btn btn--large btn--disabled">Large button</a>
+
+    <br><br>
+
+    <code>button</code>
+
+    <button class="btn btn--small btn--disabled" disabled>Small button</button>
+
+    <button class="btn btn--medium btn--disabled" disabled>Medium button</button>
+
+    <button class="btn btn--large btn--disabled" disabled>Large button</button>
+</div>
+
+</body>
+</html>

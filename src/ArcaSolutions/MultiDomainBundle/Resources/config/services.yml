@@ -1,0 +1,47 @@
+parameters:
+    doctrine.class: ArcaSolutions\MultiDomainBundle\Doctrine\DoctrineRegistry
+    domain.listener.class: ArcaSolutions\MultiDomainBundle\EventListener\DomainListener
+    domain.information.class: ArcaSolutions\MultiDomainBundle\Services\Settings
+    domain.database.class: ArcaSolutions\MultiDomainBundle\EventListener\DatabaseListener
+    consolecommand.class: ArcaSolutions\MultiDomainBundle\EventListener\ConsoleCommandListener
+
+
+services:
+    multi_domain.domain_listener:
+        class: "%domain.listener.class%"
+        arguments: ["@multi_domain.information", "@liip_theme.active_theme"]
+        public: true
+        tags:
+            - {name: kernel.event_listener, event: kernel.controller, method: onKernelController, priority: 1000 }
+
+    database.domain_listener:
+        class: "%domain.database.class%"
+        arguments:
+            - "@multi_domain.information"
+            - "@doctrine.dbal.domain_connection"
+            - "@translator"
+            - "@logger"
+            - "%locale%"
+        scope: request
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+        lazy: true
+
+    multi_domain.information:
+        class: "%domain.information.class%"
+        arguments: ["@kernel", "%multi_domain.config%", "@logger", "@doctrine.dbal.domain_connection"]
+
+
+    console.command.listener:
+        class: '%consolecommand.class%'
+        arguments:
+            - '@service_container'
+            - '@multi_domain.information'
+        tags:
+            - { name: kernel.event_listener, event: console.command, method: setTranslatorLocale }
+
+    multi_domain.parameter:
+        class: ArcaSolutions\MultiDomainBundle\Services\Parameter
+        arguments:
+            - '@multi_domain.information'
+            - '%kernel.root_dir%'
