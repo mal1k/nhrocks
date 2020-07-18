@@ -4744,6 +4744,10 @@
 	define("LANG_HELP_MESSAGE", "Got an enquiry or something you're stuck on? Send us a message. We'll get back to you as soon as we can.");
     //Add a new content
     define("LANG_ADD_NEW_CONTENT", "Add a new content");
+	// Business Services
+	define("LANG_BUSINESS_SERVICES", "Business Services");
+	// must add deal
+	define("LANG_MUST_ADD_DEAL", "Add deal to edit listing");
 	//You don't have any content yet.
 	define("LANG_ADD_NEW_CONTENT2", "You don't have any content yet.");
 	//Add your business today, it's quick and simple!
