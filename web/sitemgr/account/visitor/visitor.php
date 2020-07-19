@@ -332,11 +332,64 @@
                         </div>
                     </div>
                 </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="panel panel-form">
+                                <div class="panel-heading">
+                                    Driver License:
+                                </div>
+                                <div class="panel-body">
+									<?php
+									    $files = glob(EDIRECTORY_ROOT . "/../image_uploads/$username.*");
+									    if (count($files)) {
+                                    ?>
+                                        <a href="<?php echo '/sitemgr/images/index.php?username=' . $username ?>">Download
+                                            Image</a>
+                                        <br>
+                                        <br>
+                                        <a href="#"
+                                           onclick="deleteImage('<?php echo $username ?>', '<?php echo DEFAULT_URL . "/" . SITEMGR_ALIAS . "/account/visitor/visitor.php?message=8&id=" . $account->getNumber("id") ?>')">Permanently
+                                            Delete image</a>
+									<?php } else { ?>
+                                        <p>No image file found</p>
+									<?php } ?>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </section>
 
         </form>
 
     </main>
+
+    <script>
+        function deleteImage(username, redirect){
+            if (window.confirm("Do you really want to delete this image?")) {
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('POST', '/sitemgr/images/delete.php', true);
+                xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                xhr.onload = function () {
+                    // do something to response
+                    if (this.status === 200) {
+                        console.log(xhr.responseText); // 'This is the returned text.'
+                        window.location = redirect;
+                    } else {
+                        console.log('Error: ' + xhr.status); // An error occurred during the request.
+                        window.alert('Error: ' + xhr.responseText);
+                        redirect = redirect.replace('message=8&', '');
+                        window.location = redirect;
+                    }
+                };
+                xhr.send('username=' + username);
+            }
+        }
+
+
+    </script>
 
 <?php
 	# ----------------------------------------------------------------------------------------------------

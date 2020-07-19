@@ -4748,6 +4748,8 @@
 	define("LANG_BUSINESS_SERVICES", "Business Services");
 	// must add deal
 	define("LANG_MUST_ADD_DEAL", "Add deal to edit listing");
+	// must add deal
+	define("LANG_DRIVERS_LICENSE_IMAGE_DELETED", "Drivers License deleted");
 	//You don't have any content yet.
 	define("LANG_ADD_NEW_CONTENT2", "You don't have any content yet.");
 	//Add your business today, it's quick and simple!

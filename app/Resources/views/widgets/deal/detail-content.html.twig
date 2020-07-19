@@ -41,8 +41,25 @@
                         {% endif %}
                         <div class="details-actions">
                             {% if item.amount > 0 and newEndDate > date('now') -%}
-                                <a href="#" class="button button-bg is-primary" data-id="{{ item.id }}" data-modal="deal" data-loading="<i class='fa fa-spinner fa-spin'></i> {{ "Please, wait..."|trans }}"
-                            data-size="" data-content="">{{ 'Redeem'|trans }}</a>
+                                {% if isUser and not canRedeem -%}
+                                    <a href="#" class="button button-bg is-warning">{{ 'Wait for approval'|trans }}</a>
+                                {% endif %}
+
+                                {% if not isUser -%}
+                                    <a href="/profile/add.php" class="button button-bg is-primary"
+                                    >
+                                        {{ 'Sign up to redeem'|trans }}
+                                    </a>
+                                {% endif %}
+
+                                {% if canRedeem -%}
+                                    <a href="#" class="button button-bg is-primary" data-id="{{ item.id }}"
+                                       data-modal="deal"
+                                       data-loading="<i class='fa fa-spinner fa-spin'></i> {{ "Please, wait..."|trans }}"
+                                       data-size="" data-content="">
+                                        {{ 'Redeem'|trans }}
+                                    </a>
+                                {% endif %}
                             {% endif %}
                             {% if listingLevel.hasEmail and item.listing.email is not empty -%}
                                 <a href="#" class="button button-bg is-inverse" data-module="listing" data-modal="contact" data-id="{{ item.listing.id }}">{{ 'Send a message'|trans }}</a>
@@ -75,8 +92,24 @@
 
             <div class="details-actions" style="margin-top: 24px;">
                 {% if item.amount > 0 and newEndDate > date('now') -%}
-                    <a href="#" class="button button-md is-primary" data-id="{{ item.id }}" data-modal="deal">{{ 'Redeem'|trans }}</a>
+                    {% if isUser and not canRedeem -%}
+                        <a href="#" class="button button-bg is-warning">{{ 'Wait for approval'|trans }}</a>
+                    {% endif %}
+
+                    {% if not isUser -%}
+                        <a href="/profile/add.php" class="button button-bg is-primary"
+                        >
+                            {{ 'Sign up to redeem'|trans }}
+                        </a>
+                    {% endif %}
+
+                    {% if canRedeem -%}
+                        <a href="#" class="button button-md is-primary" data-id="{{ item.id }}" data-modal="deal">
+                            {{ 'Redeem'|trans }}
+                        </a>
+                    {% endif %}
                 {% endif %}
+
                 {% if listingLevel.hasEmail and item.listing.email is not empty -%}
                     <a href="#" class="button button-md is-inverse" data-module="listing" data-modal="contact" data-id="{{ item.listing.id }}">{{ 'Send a message'|trans }}</a>
                 {% endif %}

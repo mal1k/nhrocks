@@ -225,7 +225,8 @@
     /* 4 */ system_showText(LANG_SITEMGR_SMACCOUNT_SITEMGRACCOUNTDELETED),
     /* 5 */ system_showText(LANG_SITEMGR_SMACCOUNT_SUCCESSUPDATED),
     /* 6 */ system_showText(LANG_SITEMGR_SMACCOUNT_SUCCESSADDED),
-    /* 7 */ system_showText(LANG_MSG_EMAIL_WAS_SENT_TO_ACCOUNT_HOLDER)
+    /* 7 */ system_showText(LANG_MSG_EMAIL_WAS_SENT_TO_ACCOUNT_HOLDER),
+    /* 8 */ system_showText(LANG_DRIVERS_LICENSE_IMAGE_DELETED)
 
     );
 

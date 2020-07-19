@@ -2,6 +2,7 @@
 
 namespace ArcaSolutions\DealBundle\Controller;
 
+use ArcaSolutions\CoreBundle\Entity\Account;
 use ArcaSolutions\CoreBundle\Entity\Contact;
 use ArcaSolutions\CoreBundle\Exception\ItemNotFoundException;
 use ArcaSolutions\CoreBundle\Exception\UnavailableItemException;
@@ -67,6 +68,15 @@ final class DefaultController extends Controller
          */
         /* @var $item Promotion For phpstorm get properties of entity Listing */
         $item = $this->get('search.engine')->itemFriendlyURL($friendlyUrl, 'deal', 'DealBundle:Promotion');
+		$account = $this->container->get('user')->getAccount();
+		$isUser = false;
+		$canRedeem = false;
+		if($account instanceof Account) {
+			$isActive = $account->getActive() === 'y';
+			$isSponsor = $account->getIsSponsor() === 'y';
+			$isUser = !$isSponsor;
+			$canRedeem = $isActive and !$isSponsor;
+		}
         /* event not found by friendlyURL */
         if (is_null($item)) {
             throw new ItemNotFoundException();
@@ -236,6 +246,8 @@ final class DefaultController extends Controller
         !empty($reviewTotal) and $twig->addGlobal('listingReviewsTotal', $reviewTotal['total']);
         $twig->addGlobal('locationsIDs', $locations_ids);
         $twig->addGlobal('locationsObjs', $locations_rows);
+        $twig->addGlobal('isUser', $isUser);
+        $twig->addGlobal('canRedeem', $canRedeem);
         $formSendMail and $twig->addGlobal('formSendMail', $formSendMail->createView());
 
         $page = $this->container->get('doctrine')->getRepository('WysiwygBundle:Page')->getPageByType(PageType::DEAL_DETAIL_PAGE);

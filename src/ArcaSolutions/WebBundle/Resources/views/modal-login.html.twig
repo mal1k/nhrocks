@@ -61,28 +61,32 @@
                         </div>
                         <span class="heading or-label">{{ "or"|trans }}</span>
                     {% endif %}
-                    <form action="{{ data.addUrl }}" class="modal-form" method="post">
-                        <input type="text" name="first_name" class="input" placeholder="{{ "Name"|trans }}">
-                        <input type="text" name="last_name" class="input" placeholder="{{ "Last Name"|trans }}">
-                        <input type="email" name="username" class="input" placeholder="{{ "Email"|trans }}">
-                        {{ honeyPot() }}
-                        <input type="password" name="password" class="input" placeholder="{{ "Password"|trans }}">
-                        <input type="hidden" name="referer" value="{{ app.request.uri }}">
-                        <input type="hidden" name="action" value="">
-                        <input type="hidden" name="item_id" value="">
-                        {% if data.captcha is defined %}
-                            {% block edirectory_captcha_widget -%}
-                                {% spaceless -%}
-                                    {{ form_widget(data.captcha) }}
-                                    {{ form_errors(data.captcha) }}
-                                {% endspaceless -%}
-                            {% endblock -%}
-                        {% endif %}
-                        <div class="form-button">
-                            <button id="register_submit" type="submit" class="button button-bg is-primary">{{ "Sign Up"|trans }}</button>
-                        </div>
-                    </form>
-                    <small class="privacy-policy">{{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a href="/'~getParameter('alias_terms_url_divisor')~'" class="link">', '%end_terms%' : '</a>', '%start_privacy%' : '<a href="/'~getParameter('alias_privacy_url_divisor')~'" class="link">', '%end_privacy%' : '</a>'}, 'account') | raw }}</small>
+
+                    <div style="margin: auto; text-align: center;">
+                        <a href="/profile/add.php" type="submit" class="button button-bg is-primary">{{ "Sign up"|trans }}</a>
+                    </div>
+                    {#<form action="{{ data.addUrl }}" class="modal-form" method="post">#}
+                    {#    <input type="text" name="first_name" class="input" placeholder="{{ "Name"|trans }}">#}
+                    {#    <input type="text" name="last_name" class="input" placeholder="{{ "Last Name"|trans }}">#}
+                    {#    <input type="email" name="username" class="input" placeholder="{{ "Email"|trans }}">#}
+                    {#    {{ honeyPot() }}#}
+                    {#    <input type="password" name="password" class="input" placeholder="{{ "Password"|trans }}">#}
+                    {#    <input type="hidden" name="referer" value="{{ app.request.uri }}">#}
+                    {#    <input type="hidden" name="action" value="">#}
+                    {#    <input type="hidden" name="item_id" value="">#}
+                    {#    {% if data.captcha is defined %}#}
+                    {#        {% block edirectory_captcha_widget -%}#}
+                    {#            {% spaceless -%}#}
+                    {#                {{ form_widget(data.captcha) }}#}
+                    {#                {{ form_errors(data.captcha) }}#}
+                    {#            {% endspaceless -%}#}
+                    {#        {% endblock -%}#}
+                    {#    {% endif %}#}
+                    {#    <div class="form-button">#}
+                    {#        <button id="register_submit" type="submit" class="button button-bg is-primary">{{ "Sign Up"|trans }}</button>#}
+                    {#    </div>#}
+                    {#</form>#}
+                    {#<small class="privacy-policy">{{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a href="/'~getParameter('alias_terms_url_divisor')~'" class="link">', '%end_terms%' : '</a>', '%start_privacy%' : '<a href="/'~getParameter('alias_privacy_url_divisor')~'" class="link">', '%end_privacy%' : '</a>'}, 'account') | raw }}</small>#}
                     {# <div class="not-member">{{ "Already a member?"|trans }} <a href="javascript:void(0);" class="link modal-nav-link" data-tab="sign-in">{{ "Sign In"|trans }}</a></div> #}
                 </div>
             {% endif %}

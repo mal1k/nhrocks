@@ -113,7 +113,7 @@
                         </div>
                         <span class="heading or-label"><?= system_showText(LANG_OR); ?></span>
                     <?php } ?>
-                    <form role="form" class="modal-form" name="add_account" action="<?=system_getFormAction($_SERVER["PHP_SELF"])?><?=sprintf('?%s%s%s', $bookmarkQueryString, $redeemQueryString, $userpermQueryString)?>" method="post" autocomplete="off">
+                    <form role="form" class="modal-form" name="add_account" action="<?=system_getFormAction($_SERVER["PHP_SELF"])?><?=sprintf('?%s%s%s', $bookmarkQueryString, $redeemQueryString, $userpermQueryString)?>" method="post" autocomplete="off" enctype="multipart/form-data">
 
                         <?php include(INCLUDES_DIR."/forms/form_addaccount.php"); ?>
 
