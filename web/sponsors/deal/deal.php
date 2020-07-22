@@ -103,15 +103,54 @@
                             </div>
                         </form>
 
+                        <p class="alert alert-warning hidden" id="validation"></p>
+
                         <form action="<?=DEFAULT_URL?>/<?=MEMBERS_ALIAS?>/" method="get" class="form-action-sponsors">
                             <button class="button button-md is-outline" type="submit"><?=system_showText(LANG_BUTTON_CANCEL)?></button>
-                            <button class="button button-md is-primary" type="button" onclick="document.promotion.submit();"><?=system_showText(LANG_MSG_SAVE_CHANGES)?></button>
+                            <button class="button button-md is-primary" type="button" onclick="validate();"><?=system_showText(LANG_MSG_SAVE_CHANGES)?></button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <script>
+        function validate() {
+            var startDate = new Date(document.promotion.start_date.value);
+            var endDate = new Date(document.promotion.end_date.value);
+            var differenceInMs = endDate - startDate;
+            var differenceInDays = differenceInMs / (1000 * 3600 * 24);
+            var errors = [];
+
+            if(differenceInDays >= 365){
+                document.promotion.submit();
+                return;
+            }else{
+                errors.push('Duration of deal ust be 365 days or greater.');
+            }
+
+            if(errors.length > 0){
+                event.preventDefault();
+                validation.classList.remove("hidden");
+
+                var existing_validations = document.querySelectorAll('.validation_item');
+                var existing_validations_br = document.querySelectorAll('#validation br');
+                for (var x = 0; x < existing_validations.length; x++) {
+                    existing_validations[x].parentNode.removeChild(existing_validations[x]);
+                    existing_validations_br[x].parentNode.removeChild(existing_validations_br[x]);
+                }
+
+                for (var i = 0; i < errors.length; i++) {
+                    var item = document.createElement('span');
+                    item.classList.add('validation_item');
+                    item.innerText = (errors[i]);
+                    validation.appendChild(item);
+                    validation.appendChild(document.createElement('br'));
+                }
+            }
+        }
+    </script>
 
     <?php
     include(INCLUDES_DIR."/modals/modal-crop.php");
