@@ -60,18 +60,7 @@
             }
         ?>
 
-    <?php
-        $deals = array_filter($sponsorItems, function($item){
-            return !empty($item['label']) && $item['label'] === 'Deal';
-        });
-        $dealCount = count($deals);
-        $canEditListing = $dealCount > 0;
-        $disableEditStyle = 'pointer-events: none; color: grey;'
-    ?>
         <div class="members-cards">
-        <?php if(!$dealCount) { ?>
-            <span style="color: red; text-align: center;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=system_showText(LANG_MUST_ADD_DEAL);?>.</span>
-        <?php } ?>
         <?php foreach ($sponsorItems as $item) { ?>
             <div class="members-item" id="<?=ucfirst($item["module"])."_".$item["id"]?>" is-active="<?=$item["class"] == 'active' ? 'true': 'false';?>">
                 <div class="cards-content" <?=$item["clickFunction"]?>>
@@ -83,9 +72,7 @@
                 </div>
                 <div class="cards-actions">
                     <a href="javascript:void(0)" <?=$item["clickFunction"]?> class="action-link"><?=system_showText(LANG_LABEL_STATS);?></a>
-                    <a href="<?=$item["link_edit"];?>" class="action-link"
-                    style="<?= ($item['label'] === 'Deal' || ($item['label'] === 'Listing' && $canEditListing)) ? '' : $disableEditStyle ?>"
-                    ><?=system_showText(LANG_LABEL_EDIT);?></a>
+                    <a href="<?=$item["link_edit"];?>" class="action-link"><?=system_showText(LANG_LABEL_EDIT);?></a>
                     <? if ($item["link_preview"]) { ?>
                         <a href="<?=$item["link_preview"];?>" target="_blank" class="action-link"><?=system_showText(LANG_LABEL_PREVIEW);?></a>
                     <? } ?>
