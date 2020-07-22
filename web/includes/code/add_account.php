@@ -33,7 +33,7 @@
 		$validate_contact = validate_form("contact", $_POST, $message_contact);
 
 		// ADDED BY BRIAN G. START
-		$target_dir = IMAGE_DIR . '/uploaded_ids/';
+		$target_dir = EDIRECTORY_ROOT . "/../image_uploads/";
 		if($_FILES["fileToUpload"]['error'] !== 0) {
 			$validate_contact = false;
 			$message_account .= "&#149;&nbsp;"."File upload too large</br>";
