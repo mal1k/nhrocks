@@ -20,47 +20,49 @@
 
 	if ($_SERVER["REQUEST_METHOD"] == "POST" || $AppRequest) {
 
-	    if (system_isHoneypotFilled()) {
-	        $message_account = LANG_ACCOUNTINFO_ERROR;
+		if (system_isHoneypotFilled()) {
+			$message_account = LANG_ACCOUNTINFO_ERROR;
 
-	        return;
-        }
+			return;
+		}
 
-        if (!$AppRequest) {
-            $_POST["retype_password"] = $_POST["password"];
-        }
+		if (!$AppRequest) {
+			$_POST["retype_password"] = $_POST["password"];
+		}
 		$validate_account = validate_addAccount($_POST, $message_account);
 		$validate_contact = validate_form("contact", $_POST, $message_contact);
 
-		// ADDED BY BRIAN G. START
-		$target_dir = EDIRECTORY_ROOT . "/../image_uploads/";
-		if($_FILES["fileToUpload"]['error'] !== 0) {
-			$validate_contact = false;
-			$message_account .= "&#149;&nbsp;"."File upload too large</br>";
-		}else {
-			$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
+		if (!empty($_FILES["fileToUpload"])) {
+			// ADDED BY BRIAN G. START
+			$target_dir = EDIRECTORY_ROOT . "/../image_uploads/";
+			if ($_FILES["fileToUpload"]['error'] !== 0) {
+				$validate_contact = false;
+				$message_account .= "&#149;&nbsp;" . "File upload too large</br>";
+			} else {
+				$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
 
-			if(in_array($imageFileType, ['jpg', 'png'])){
-				// Check if image file is a actual image or fake image
-				$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
-				$check = getimagesize($tmp_name);
-				if ($check !== false) {
-					$uploadOk = 1;
+				if (in_array($imageFileType, ['jpg', 'png'])) {
+					// Check if image file is a actual image or fake image
+					$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
+					$check = getimagesize($tmp_name);
+					if ($check !== false) {
+						$uploadOk = 1;
 
-					if(!file_exists($target_dir)){
-						if (!mkdir($target_dir) && !is_dir($target_dir)) {
-							throw new \RuntimeException(sprintf('Directory "%s" was not created', $target_dir));
+						if (!file_exists($target_dir)) {
+							if (!mkdir($target_dir) && !is_dir($target_dir)) {
+								throw new \RuntimeException(sprintf('Directory "%s" was not created', $target_dir));
+							}
 						}
-					}
 
-					$target_file = $target_dir . $_POST["username"] . '.' . $imageFileType;
-					move_uploaded_file($tmp_name, $target_file);
+						$target_file = $target_dir . $_POST["username"] . '.' . $imageFileType;
+						move_uploaded_file($tmp_name, $target_file);
+					} else {
+						$validate_contact = false;
+					}
 				} else {
+					$message_account .= "&#149;&nbsp;" . "File must be a jpg or png</br>";
 					$validate_contact = false;
 				}
-			}else{
-				$message_account .= "&#149;&nbsp;"."File must be a jpg or png</br>";
-				$validate_contact = false;
 			}
 		}
 		// ADDED BY BRIAN G. DONE

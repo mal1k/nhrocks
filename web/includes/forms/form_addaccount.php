@@ -43,10 +43,12 @@
         <input type="hidden" name="email" id="email" value="<?=$email?>" />
         <input class="input custom-input-size" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
 
-        <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
-            <span>Required: Upload photo of NH drivers license</span>
-            <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload">
-        </div>
+        <?php if (!$advertise_section) { ?>
+            <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
+                <span>Required: Upload photo of NH drivers license</span>
+                <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload">
+            </div>
+        <?php } ?>
     </div>
 
     <?php if ($showNewsletter) { ?>
@@ -87,6 +89,7 @@
         );?>
     </small>
 
+    <?php if (!$advertise_section) { ?>
     <script>
         var errors = [];
         var validation = document.getElementById('validation');
@@ -146,3 +149,4 @@
             }
         });
     </script>
+    <?php } ?>
