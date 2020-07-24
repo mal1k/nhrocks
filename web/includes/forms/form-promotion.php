@@ -374,10 +374,13 @@ if (!$members) {
 
             <div class="form-group">
                 <label for="amount"><?= system_showText(LANG_LABEL_DEALS_OFFER); ?></label>
+                <p class="help-block small">Unlimited deals must be offered during life of deal.</p>
                 <div class="row">
                     <div class="col-sm-4">
+                        <div class="hidden">
                         <input type="number" class="form-control" name="amount" id="amount" maxlength="10"
-                               value="<?= (int)$amount ?>">
+                               value="<?= 9999999999  ?>">
+                        </div>
                     </div>
                 </div>
                 <?php if ($dealInfo['sold']) { ?>

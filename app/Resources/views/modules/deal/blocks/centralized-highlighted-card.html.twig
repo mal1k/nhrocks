@@ -28,12 +28,12 @@
                                         {{UtilityCards.categories(item.categories, content.module, 'centralized-dropdown-toggle')}}
                                     {% endif %}
 
-                                    <div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>
-                                    {% if itemData.dealvalue > 0 %}
-                                        <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>
-                                    {% else %}
-                                        <div class="heading h-3 price">{{ 'Free'|trans }}</div>
-                                    {% endif %}                                </div>
+                                    {#<div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>#}
+                                    {#{% if itemData.dealvalue > 0 %}#}
+                                    {#    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>#}
+                                    {#{% else %}#}
+                                    {#    <div class="heading h-3 price">{{ 'Free'|trans }}</div>#}
+                                    {#{% endif %}                                </div>#}
                                 {% if itemData.percentage %}
                                     <div class="badge">{{ '%percentage%% OFF'|trans({'%percentage%': itemData.percentage|number_format}) }}</div>
                                 {% endif %}
@@ -63,12 +63,12 @@
                                     </div>
                                 {% endif %}
 
-                                <div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>
-                                {% if itemData.dealvalue > 0 %}
-                                    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>
-                                {% else %}
-                                    <div class="heading h-3 price">{{ 'Free'|trans }}</div>
-                                {% endif %}
+                                {#<div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>#}
+                                {#{% if itemData.dealvalue > 0 %}#}
+                                {#    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>#}
+                                {#{% else %}#}
+                                {#    <div class="heading h-3 price">{{ 'Free'|trans }}</div>#}
+                                {#{% endif %}#}
                                 {# shows until date -#}
                                 {# if endDate does not exist the data it from elasticsearch -#}
                                 {% if item.endDate is defined %}

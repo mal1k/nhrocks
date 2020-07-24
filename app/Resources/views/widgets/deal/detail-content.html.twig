@@ -33,12 +33,12 @@
                             </div>
                         </div>
                         {{ UtilityDetail.categories(item.listing.categories, 'deal') }}
-                        <div class="details-old-price">{{ item.realvalue|localized_currency|raw }}</div>
-                        {% if item.dealvalue > 0 %}
-                            <h2 class="heading h-2 details-price">{{ item.dealvalue|localized_currency|raw }}</h2>
-                        {% else %}
-                            <h2 class="heading h-2 details-price">{{ 'Free'|trans }}</h2>
-                        {% endif %}
+                        {#<div class="details-old-price">{{ item.realvalue|localized_currency|raw }}</div>#}
+                        {#{% if item.dealvalue > 0 %}#}
+                        {#    <h2 class="heading h-2 details-price">{{ item.dealvalue|localized_currency|raw }}</h2>#}
+                        {#{% else %}#}
+                        {#    <h2 class="heading h-2 details-price">{{ 'Free'|trans }}</h2>#}
+                        {#{% endif %}#}
                         <div class="details-actions">
                             {% if item.amount > 0 and newEndDate > date('now') -%}
                                 {% if isUser and not canRedeem -%}
@@ -124,12 +124,12 @@
                 </div>
             </div>
             {{ UtilityDetail.categories(categories, 'listing') }}
-            <div class="details-old-price">{{ item.realvalue|localized_currency }}</div>
-            {% if item.dealvalue > 0 %}
-                <h2 class="heading h-2 details-price">{{ item.dealvalue|localized_currency }}</h2>
-            {% else %}
-                <h2 class="heading h-2 details-price">{{ 'Free'|trans }}</h2>
-            {% endif %}
+            {#<div class="details-old-price">{{ item.realvalue|localized_currency }}</div>#}
+            {#{% if item.dealvalue > 0 %}#}
+            {#    <h2 class="heading h-2 details-price">{{ item.dealvalue|localized_currency }}</h2>#}
+            {#{% else %}#}
+            {#    <h2 class="heading h-2 details-price">{{ 'Free'|trans }}</h2>#}
+            {#{% endif %}#}
 
             {{ UtilityDetail.detailsContact(item.listing, listingLevel, address) }}
 
@@ -188,10 +188,10 @@
                                     <h4 class="heading h-4">{{ 'Time left to redeem'|trans }}</h4>
                                 </div>
                                 <div class="tab-item-content" id="countdown" data-date="{{ newEndDate|date('Y-m-d') }}"></div>
-                                <br>
-                                <div class="paragraph p-1">
-                                    {% transchoice item.amount with {'%deals%': item.amount} from "messages"  %}{0}SOLD OUT |{1} There is one deal left|]1,Inf[ There are %deals% deals left{% endtranschoice %}
-                                </div>
+                                {#<br>#}
+                                {#<div class="paragraph p-1">#}
+                                {#    {% transchoice item.amount with {'%deals%': item.amount} from "messages"  %}{0}SOLD OUT |{1} There is one deal left|]1,Inf[ There are %deals% deals left{% endtranschoice %}#}
+                                {#</div>#}
                             </div>
                         {% else -%}
                             <div class="tab-item-content">

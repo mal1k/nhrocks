@@ -36,12 +36,12 @@
                                     </div>
                                 {% endif %}
 
-                                <div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>
-                                {% if itemData.dealvalue > 0 %}
-                                    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>
-                                {% else %}
-                                    <div class="heading h-3 price">{{ 'Free'|trans }}</div>
-                                {% endif %}
+                                {#<div class="paragraph p-2 price-off">{{ itemData.realvalue|localized_currency }}</div>#}
+                                {#{% if itemData.dealvalue > 0 %}#}
+                                {#    <div class="heading h-3 price">{{ itemData.dealvalue|localized_currency }}</div>#}
+                                {#{% else %}#}
+                                {#    <div class="heading h-3 price">{{ 'Free'|trans }}</div>#}
+                                {#{% endif %}#}
                                 {# shows until date -#}
                                 {# if endDate does not exist the data it from elasticsearch -#}
                                 {% if itemData.endDate is defined %}
