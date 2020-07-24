@@ -65,19 +65,31 @@
                             <div class="steps-title">
                                 <?= system_showText(LANG_LABEL_GAMEFY_TIP); ?>
                             </div>
-                            <div class="steps-list">
-                                <? if (is_numeric($arrayCompletion["desc"]) && $arrayCompletion["desc"] < 100) { ?>
-                                    <a href="<?= $item_link ?>&highlight=description" class="link steps-item"><?= system_showText(LANG_LABEL_GAMEFY_DESC); ?></a>
-                                <? } ?>
+							<?php
 
-                                <? if (is_numeric($arrayCompletion["media"]) && $arrayCompletion["media"] < 100) { ?>
-                                    <a href="<?= $item_link ?>&highlight=media" class="link steps-item"><?= system_showText(LANG_LABEL_GAMEFY_MEDIA); ?></a>
-                                <? } ?>
+							if ($canEditListing) {
+                            ?>
+                                <div class="steps-list">
+									<? if (is_numeric($arrayCompletion["desc"]) && $arrayCompletion["desc"] < 100) { ?>
+                                        <a href="<?= $item_link ?>&highlight=description"
+                                           class="link steps-item"><?= system_showText(LANG_LABEL_GAMEFY_DESC); ?></a>
+									<? } ?>
 
-                                <? if (is_numeric($arrayCompletion["additional"]) && $arrayCompletion["additional"] < 100) { ?>
-                                    <a href="<?= $item_link ?>&highlight=additional" class="link steps-item"><?= system_showText(LANG_LABEL_GAMEFY_ADDITIONAL); ?></a>
-                                <? } ?>
-                            </div>
+									<? if (is_numeric($arrayCompletion["media"]) && $arrayCompletion["media"] < 100) { ?>
+                                        <a href="<?= $item_link ?>&highlight=media"
+                                           class="link steps-item"><?= system_showText(LANG_LABEL_GAMEFY_MEDIA); ?></a>
+									<? } ?>
+
+									<? if (is_numeric($arrayCompletion["additional"]) && $arrayCompletion["additional"] < 100) { ?>
+                                        <a href="<?= $item_link ?>&highlight=additional"
+                                           class="link steps-item"><?= system_showText(LANG_LABEL_GAMEFY_ADDITIONAL); ?></a>
+									<? } ?>
+                                </div>
+                            <?php } else { ?>
+                                <div class="steps-list">
+                                    <span class="link steps-item" style="color: red; text-align: center;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=system_showText(LANG_MUST_ADD_DEAL);?>.</span>
+                                </div>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

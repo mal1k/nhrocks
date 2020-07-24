@@ -127,7 +127,7 @@
                 document.promotion.submit();
                 return;
             }else{
-                errors.push('Duration of deal ust be 365 days or greater.');
+                errors.push('Duration of deal must be 365 days or greater.');
             }
 
             if(errors.length > 0){
