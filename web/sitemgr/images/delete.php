@@ -30,19 +30,24 @@ if (empty($_POST['username'])) {
 	return;
 }
 
+$EXTS = [
+	'jpg',
+	'png',
+	'pdf',
+];
+
 $username = $_POST['username'];
 
 $filename = EDIRECTORY_ROOT . '/../image_uploads/' . $username;
-$ext = 'jpg';
+
 $deleted = false;
-if (file_exists($filename . '.' . $ext)) {
-	unlink($filename . '.' . $ext);
-	$deleted = true;
-}
-$ext = 'png';
-if (file_exists($filename . '.' . $ext)) {
-	unlink($filename . '.' . $ext);
-	$deleted = true;
+foreach ($EXTS as $ext){
+	if (file_exists($filename . '.' . $ext)) {
+		@unlink($filename . '.' . $ext);
+		$outName = $username . '.' . $ext;
+		$deleted = true;
+		break;
+	}
 }
 
 if ($deleted) {

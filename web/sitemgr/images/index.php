@@ -25,26 +25,33 @@ if (empty($_GET['username'])) {
 	return;
 }
 
+$EXT_MAP = [
+	'jpg' => 'image/jpeg',
+	'png' => 'image/png',
+	'pdf' => 'application/pdf',
+];
+
 $username = $_GET['username'];
 
 $filename = EDIRECTORY_ROOT . '/../image_uploads/' . $username;
-$ext = 'jpg';
-if (!file_exists($filename . '.' . $ext)) {
-	$ext = 'png';
-	if (!file_exists($filename . '.' . $ext)) {
-		echo 'Error: File not found';
-		return;
+
+$path = null;
+$contentType = null;
+$outName = null;
+foreach (array_keys($EXT_MAP) as $ext){
+	if (file_exists($filename . '.' . $ext)) {
+		$path = $filename . '.' . $ext;
+		$contentType = $EXT_MAP[$ext];
+		$outName = $username . '.' . $ext;
 	}
 }
 
-$outname = $username . '.' . $ext;
-
-$contentType = 'image/jpeg';
-if ($ext === 'png') {
-	$contentType = 'image/png';
+if(!$path){
+	echo 'Error: File not found';
+	return;
 }
 
 header("Content-type: " . $contentType);
 header("Cache-Control: no-store, no-cache");
-header('Content-Disposition: attachment; filename="' . $outname . '"');
-readfile($filename . '.' . $ext);
+header('Content-Disposition: attachment; filename="' . $outName . '"');
+readfile($path);

@@ -41,11 +41,12 @@
 			} else {
 				$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
 
-				if (in_array($imageFileType, ['jpg', 'png'])) {
+				if (in_array($imageFileType, ['jpg', 'png', 'pdf'])) {
 					// Check if image file is a actual image or fake image
 					$tmp_name = $_FILES["fileToUpload"]["tmp_name"];
 					$check = getimagesize($tmp_name);
-					if ($check !== false) {
+					$isPdf = mime_content_type($tmp_name) === 'application/pdf';
+					if ($check !== false || $isPdf) {
 						$uploadOk = 1;
 
 						if (!file_exists($target_dir)) {
@@ -55,12 +56,16 @@
 						}
 
 						$target_file = $target_dir . $_POST["username"] . '.' . $imageFileType;
+						@unlink($target_dir . $_POST["username"] . '.jpg');
+						@unlink($target_dir . $_POST["username"] . '.png');
+						@unlink($target_dir . $_POST["username"] . '.pdf');
 						move_uploaded_file($tmp_name, $target_file);
 					} else {
+						$message_account .= "&#149;&nbsp;" . "File must be a jpg, png or pdf</br>";
 						$validate_contact = false;
 					}
 				} else {
-					$message_account .= "&#149;&nbsp;" . "File must be a jpg or png</br>";
+					$message_account .= "&#149;&nbsp;" . "File must be a jpg, png or pdf</br>";
 					$validate_contact = false;
 				}
 			}
