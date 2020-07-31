@@ -123,7 +123,7 @@
                 errors.push("Drivers license: Required");
             }else{
                 var file = photo_upload.files[0];
-                if(file && file.size > (1024*1000*2)) { // 2 MB (this size is in bytes)
+                if(file && file.size > (1024*1000*5)) { // 2 MB (this size is in bytes)
                     //errors.push("Drivers license: Image too large");
                 }
             }
