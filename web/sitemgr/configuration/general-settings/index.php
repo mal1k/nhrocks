@@ -453,6 +453,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $success = true;
     }
 
+    //productLinks
+    if ($productLinks) {
+
+        if (!setting_set('product_link_one', $product_link_one)) {
+            if (!setting_new('product_link_one', $product_link_one)) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('product_link_two', $product_link_two)) {
+            if (!setting_new('product_link_two', $product_link_two)) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('product_link_three', $product_link_three)) {
+            if (!setting_new('product_link_three', $product_link_three)) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('product_promo_code', $product_promo_code)) {
+            if (!setting_new('product_promo_code', $product_promo_code)) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('product_promo_text', $product_promo_text)) {
+            if (!setting_new('product_promo_text', $product_promo_text)) {
+                $error = true;
+            }
+        }
+    }
+
     /* ModStores Hooks */
     HookFire('generalsettings_after_save', [
         'success'         => &$success,
@@ -722,6 +756,13 @@ if ($review_approve) {
 }
 
 setting_get('listing_login_review', $listing_login_review);
+
+// Sponsor Products
+setting_get('product_link_one', $product_link_one);
+setting_get('product_link_two', $product_link_two);
+setting_get('product_link_three', $product_link_three);
+setting_get('product_promo_code', $product_promo_code);
+setting_get('product_promo_text', $product_promo_text);
 
 //Get maintenance page id
 $sql = "SELECT id FROM Page WHERE pagetype_id = (SELECT id FROM PageType WHERE title = '".\ArcaSolutions\WysiwygBundle\Entity\PageType::MAINTENANCE_PAGE."')";

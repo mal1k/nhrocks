@@ -333,5 +333,47 @@
                         data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Sponsor products</div>
+
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Product Link One</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="product_link_one" value="<?= $product_link_one ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Product Link Two</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="product_link_two" value="<?= $product_link_two ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Product Link Three</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="product_link_three" value="<?= $product_link_three ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Promo Code</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="product_promo_code"
+                               value="<?= $product_promo_code ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Promo Text</label>
+                    <div class="col-sm-7">
+                        <textarea class="form-control" type="text" name="product_promo_text"><?= $product_promo_text ?></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" name="productLinks" value="1" class="btn btn-primary action-save"
+                        data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
+            </div>
+        </div>
     </div>
 </form>

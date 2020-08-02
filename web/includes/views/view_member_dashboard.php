@@ -185,6 +185,48 @@
         <?php } ?>
     </div>
 
+    <div class="row hidden" id="products">
+        <div class="col-md-12">
+            <div class="members-panel">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12 hidden" id="product-promo" style="margin-bottom: 10px; border-bottom: 1px solid black; padding-top: 10px; text-align: center;">
+                            <div>Promo Code: <span class="product-promo-code" style="font-size: 24px; font-weight: 700; border: 1px solid grey; padding: 5px;"></span></div>
+                            <div class="product-promo-text" style="font-size: 16px; font-weight: 700; margin-top: 5px;"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 hidden" id="product-one">
+                            <a href="#" class="product-link" style="text-decoration: none; color: inherit;">
+                                <img class="product-image" id="product-image-one"
+                                     style="max-width: 100%; max-height: 100%;" src=""/>
+                                <div class="product-title" style="font-size: 16px; font-weight: 700;"></div>
+                                <div>$<span class="product-price"></span></div>
+                                <div class="product-excerpt"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 hidden" id="product-two">
+                            <a href="#" class="product-link" style="text-decoration: none; color: inherit;">
+                                <img class="product-image" style="max-width: 100%; max-height: 100%;" src=""/>
+                                <div class="product-title" style="font-size: 16px; font-weight: 700;"></div>
+                                <div>$<span class="product-price"></span></div>
+                                <div class="product-excerpt"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 hidden" id="product-three">
+                            <a href="#" class="product-link" style="text-decoration: none; color: inherit;">
+                                <img class="product-image" style="max-width: 100%; max-height: 100%;" src=""/>
+                                <div class="product-title" style="font-size: 16px; font-weight: 700;"></div>
+                                <div>$<span class="product-price"></span></div>
+                                <div class="product-excerpt"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <br>
 
     <?php
@@ -568,3 +610,66 @@
         <? } ?>
     <?php } ?>
 </div>
+
+
+<script>
+    var products = document.getElementById('products');
+    var product_one = document.getElementById('product-one');
+    var product_two = document.getElementById('product-two');
+    var product_three = document.getElementById('product-three');
+    var product_promo = document.getElementById('product-promo');
+
+    var elements = [
+        product_one,
+        product_two,
+        product_three,
+    ];
+
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (this.readyState === 4 && this.status === 200) {
+            fill(JSON.parse(this.response))
+        }
+        if (this.readyState === 4 && this.status !== 200) {
+            console.log(this.response)
+        }
+    };
+    xhttp.open("GET", "/webservices/products.php", true);
+    xhttp.send();
+
+    function fill(data) {
+        var productDetails = data['products'];
+        var productPromoCode = data['promo_code'];
+        var productPromoText = data['promo_text'];
+
+        if (productDetails.length < 1) {
+            return;
+
+        }
+
+        for (var x = 0; x < productDetails.length; x++) {
+            var imageElem = elements[x].querySelector('.product-image');
+            var titleElem = elements[x].querySelector('.product-title');
+            var excerptElem = elements[x].querySelector('.product-excerpt');
+            var priceElem = elements[x].querySelector('.product-price');
+            var urlElem = elements[x].querySelector('.product-link');
+
+            imageElem.src = productDetails[x]['imageUrl'];
+            titleElem.textContent = productDetails[x]['title'];
+            excerptElem.textContent = productDetails[x]['excerpt'];
+            priceElem.textContent = productDetails[x]['price'];
+            urlElem.href = productDetails[x]['productUrl'];
+
+            elements[x].classList.remove("hidden");
+        }
+
+        products.classList.remove("hidden");
+
+        if(productPromoCode.length > 0){
+            product_promo.classList.remove("hidden");
+
+            product_promo.querySelector('.product-promo-code').textContent = productPromoCode;
+            product_promo.querySelector('.product-promo-text').textContent = productPromoText;
+        }
+    }
+</script>
