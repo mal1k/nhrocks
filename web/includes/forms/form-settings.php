@@ -375,5 +375,46 @@
                         data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Locals Card Stripe Settings</div>
+
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Publishable Key</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="stripe_pub_key" value="<?= $stripe_pub_key ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Locals Card Monthly Price ID</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="locals_price_id" value="<?= $locals_price_id ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Locals Card Monthly Price</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="locals_price_text" value="<?= $locals_price_text ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Locals Card Annual Price ID</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="locals_price_id_2" value="<?= $locals_price_id_2 ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Locals Card Annual Price</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="locals_price_text_2" value="<?= $locals_price_text_2 ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" name="stripLocalsSettings" value="1" class="btn btn-primary action-save"
+                        data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
+            </div>
+        </div>
     </div>
 </form>

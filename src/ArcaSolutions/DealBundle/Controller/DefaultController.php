@@ -17,9 +17,11 @@ use ArcaSolutions\SearchBundle\Entity\Elasticsearch\Category;
 use ArcaSolutions\SearchBundle\Services\ParameterHandler;
 use ArcaSolutions\WebBundle\Form\Type\SendMailType;
 use ArcaSolutions\WysiwygBundle\Entity\PageType;
+use Doctrine\DBAL\Connection;
 use Ivory\GoogleMap\Helper\Builder\ApiHelperBuilder;
 use Ivory\GoogleMap\Helper\Builder\MapHelperBuilder;
 use Ivory\GoogleMap\Overlay\Icon;
+use PDO;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -69,13 +71,26 @@ final class DefaultController extends Controller
         /* @var $item Promotion For phpstorm get properties of entity Listing */
         $item = $this->get('search.engine')->itemFriendlyURL($friendlyUrl, 'deal', 'DealBundle:Promotion');
 		$account = $this->container->get('user')->getAccount();
+
+        /** @var Connection $db */
 		$isUser = false;
 		$canRedeem = false;
+		$hasAccount = false;
+        $hasLocalCard = false;
+        $isActive = false;
+        $isSponsor = false;
 		if($account instanceof Account) {
+            $hasAccount = true;
+            $conn = $this->container->get('doctrine.dbal.main_connection');
+            $stmt = $conn->executeQuery("SELECT * FROM Locals_Card_Holders WHERE account_id = {$account->getId()};");
+            $result = $stmt->fetch(PDO::FETCH_ASSOC);
+            if($result){
+                $hasLocalCard = ($result['active'] ?? '0') === '1';
+            }
 			$isActive = $account->getActive() === 'y';
 			$isSponsor = $account->getIsSponsor() === 'y';
 			$isUser = !$isSponsor;
-			$canRedeem = $isActive and !$isSponsor;
+			$canRedeem = ($isUser && $isActive && $hasLocalCard) || ($isSponsor && $hasLocalCard);
 		}
         /* event not found by friendlyURL */
         if (is_null($item)) {
@@ -246,7 +261,10 @@ final class DefaultController extends Controller
         !empty($reviewTotal) and $twig->addGlobal('listingReviewsTotal', $reviewTotal['total']);
         $twig->addGlobal('locationsIDs', $locations_ids);
         $twig->addGlobal('locationsObjs', $locations_rows);
+        $twig->addGlobal('hasAccount', $hasAccount);
         $twig->addGlobal('isUser', $isUser);
+        $twig->addGlobal('isSponsor', $isSponsor);
+        $twig->addGlobal('hasLocalCard', $hasLocalCard);
         $twig->addGlobal('canRedeem', $canRedeem);
         $formSendMail and $twig->addGlobal('formSendMail', $formSendMail->createView());
 

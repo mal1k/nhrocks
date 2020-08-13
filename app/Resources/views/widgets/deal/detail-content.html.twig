@@ -41,11 +41,14 @@
                         {#{% endif %}#}
                         <div class="details-actions">
                             {% if item.amount > 0 and newEndDate > date('now') -%}
-                                {% if isUser and not canRedeem -%}
-                                    <a href="#" class="button button-bg is-warning">{{ 'Wait for approval'|trans }}</a>
+                                {% if hasAccount and not canRedeem -%}
+                                    <a href="/profile" class="button button-bg is-primary"
+                                    >
+                                        {{ 'Sign up to redeem' |trans }}
+                                    </a>
                                 {% endif %}
 
-                                {% if not isUser -%}
+                                {% if not hasAccount -%}
                                     <a href="/profile/add.php" class="button button-bg is-primary"
                                     >
                                         {{ 'Sign up to redeem'|trans }}

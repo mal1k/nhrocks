@@ -62,6 +62,32 @@
 
                 }
 
+                if ($localsCard == "on") {
+                    $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
+                    $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+
+                    if($isLocalCardHolder){
+                        $localsCardHolderObj->active = true;
+                        $localsCardHolderObj->Update();
+                    }else{
+                        $localsCardHolderObj = new LocalsCardHolder([
+                            'account_id' => $account_id,
+                            'session_id' => 'manual',
+                            'entered' => gmdate("Y-m-d"),
+                            'active' => true,
+                        ]);
+                        $localsCardHolderObj->Save();
+                    }
+                }else{
+                    $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
+                    $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+
+                    if($isLocalCardHolder){
+                        $localsCardHolderObj->active = false;
+                        $localsCardHolderObj->Update();
+                    }
+                }
+
 				if (!$message_account && $validate_contact) {
 
                     $notifyUser = false;
@@ -214,7 +240,10 @@
 			$enType = SYSTEM_VISITOR_ACCOUNT_CREATE;
 		}
 		$notification = system_checkEmail($enType);
-	} else {
+        $localsCardHolderObj = new LocalsCardHolder((int) $id);
+        $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+        $isLocalCardActive = $isLocalCardHolder && (int) $localsCardHolderObj->getNumber('active') === 1;
+    } else {
 		$notification = system_checkEmail(SYSTEM_SPONSOR_ACCOUNT_CREATE);
 		$has_items = false;
 	}

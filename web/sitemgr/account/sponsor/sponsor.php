@@ -120,6 +120,32 @@
 						system_sendPassword($enType, $_POST['email'], $_POST['username'], $_POST['password'], $_POST['first_name']." ".$_POST['last_name']);
 					}
 
+                    if ($localsCard == "on") {
+                        $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
+                        $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+
+                        if($isLocalCardHolder){
+                            $localsCardHolderObj->active = true;
+                            $localsCardHolderObj->Update();
+                        }else{
+                            $localsCardHolderObj = new LocalsCardHolder([
+                                'account_id' => $account_id,
+                                'session_id' => 'manual',
+                                'entered' => gmdate("Y-m-d"),
+                                'active' => true,
+                            ]);
+                            $localsCardHolderObj->Save();
+                        }
+                    }else{
+                        $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
+                        $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+
+                        if($isLocalCardHolder){
+                            $localsCardHolderObj->active = false;
+                            $localsCardHolderObj->Update();
+                        }
+                    }
+
 					$message = 0;
 					header("Location: ".DEFAULT_URL."/".SITEMGR_ALIAS."/account/sponsor/sponsor.php?message=".$message."&id=".$account->getNumber("id"));
 					exit;
@@ -206,6 +232,9 @@
 			$enType = SYSTEM_VISITOR_ACCOUNT_CREATE;
 		}
 		$notification = system_checkEmail($enType);
+        $localsCardHolderObj = new LocalsCardHolder((int) $id);
+        $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+        $isLocalCardActive = $isLocalCardHolder && (int) $localsCardHolderObj->getNumber('active') === 1;
 	} else {
 		$notification = system_checkEmail(SYSTEM_SPONSOR_ACCOUNT_CREATE);
 		$has_items = false;

@@ -485,6 +485,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $error = true;
             }
         }
+
+    }
+
+    if ($stripLocalsSettings) {
+
+        if (!setting_set('stripe_pub_key', trim($stripe_pub_key))) {
+            if (!setting_new('stripe_pub_key', trim($stripe_pub_key))) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('locals_price_id', trim($locals_price_id))) {
+            if (!setting_new('locals_price_id', trim($locals_price_id))) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('locals_price_text', trim($locals_price_text))) {
+            if (!setting_new('locals_price_text', trim($locals_price_text))) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('locals_price_id_2', trim($locals_price_id_2))) {
+            if (!setting_new('locals_price_id_2', trim($locals_price_id_2))) {
+                $error = true;
+            }
+        }
+
+        if (!setting_set('locals_price_text_2', trim($locals_price_text_2))) {
+            if (!setting_new('locals_price_text_2', trim($locals_price_text_2))) {
+                $error = true;
+            }
+        }
     }
 
     /* ModStores Hooks */
@@ -763,6 +797,13 @@ setting_get('product_link_two', $product_link_two);
 setting_get('product_link_three', $product_link_three);
 setting_get('product_promo_code', $product_promo_code);
 setting_get('product_promo_text', $product_promo_text);
+
+// Locals Card Stripe
+setting_get('stripe_pub_key', $stripe_pub_key);
+setting_get('locals_price_id', $locals_price_id);
+setting_get('locals_price_text', $locals_price_text);
+setting_get('locals_price_id_2', $locals_price_id_2);
+setting_get('locals_price_text_2', $locals_price_text_2);
 
 //Get maintenance page id
 $sql = "SELECT id FROM Page WHERE pagetype_id = (SELECT id FROM PageType WHERE title = '".\ArcaSolutions\WysiwygBundle\Entity\PageType::MAINTENANCE_PAGE."')";

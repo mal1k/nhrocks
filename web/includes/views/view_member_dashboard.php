@@ -29,7 +29,6 @@
             <? if ($visibilityButton) { ?>
                 <a href="<?= $item_levellink; ?>" class="button button-sm is-primary"><?= system_showText(LANG_LABEL_INCREASEVISIBILITY); ?></a>
             <? } ?>
-            <a href="https://store.nhrocks.com/collections/nh-means-business-services" class="button button-sm is-attention" style="text-align: center; target="_blank"><?=system_showText(LANG_BUSINESS_SERVICES);?></a>
             <? if ($item_new) { ?>
                 <span class="item-new"><?=system_showText(LANG_LABEL_NEW); ?></span>
             <? } ?>

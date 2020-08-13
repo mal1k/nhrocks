@@ -221,6 +221,16 @@
     array_multisort($ord, SORT_DESC, $userActivity);
     $cover_title = system_showText(LANG_LABEL_PROFILE);
     include(EDIRECTORY_ROOT."/frontend/coverimage.php");
+
+
+    setting_get('stripe_pub_key', $stripe_pub_key);
+    setting_get('locals_price_id', $locals_price_id);
+    setting_get('locals_price_text', $locals_price_text);
+    setting_get('locals_price_id_2', $locals_price_id_2);
+    setting_get('locals_price_text_2', $locals_price_text_2);
+
+    $localsCardHolderObj = new LocalsCardHolder($id);
+    $isLocalCardHolder = $localsCardHolderObj->active === "1";
 ?>
 
     <div class="members-page profile-page">
@@ -344,6 +354,22 @@
                     </div>
                 </div>
                 <div class="profile-content">
+
+                    <div class="members-panel edit-panel">
+                        <div class="panel-header">Locals Card</div>
+                        <div class="panel-body">
+                            <?php if(!$isLocalCardHolder) { ?>
+                                <h3 class="heading h-3 text-center">Redeem deals with locals card!</h3>
+                                <div style="text-align: center;">
+                                    <div style="text-align: center;display: inline-block;"><button href="#" class="button button-md is-primary" onclick="buyLocal(1)"><?=$locals_price_text ?? 'N/A'?></button></div>
+                                    <div style="text-align: center;display: inline-block;"><button href="#" class="button button-md is-primary" onclick="buyLocal(2)"><?=$locals_price_text_2 ?? 'N/A'?></button></div>
+                                    <div id="error-message"></div>
+                                </div>
+                            <?php } else { ?>
+                                <h3 class="heading h-3 text-center">Locals card is Active!</h3>
+                            <?php } ?>
+                        </div>
+                    </div>
                     <div class="members-panel edit-panel">
                         <div class="panel-header">
                             <?=system_showText(LANG_LABEL_PROFILE_RECENT_ACTIVITY)?>
@@ -474,6 +500,54 @@
             echo $container->get('twig')->render('@Deal/modal-redeem.html.twig');
         } ?>
     </div>
+
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
+        var PUBLISHABLE_KEY = '<?php echo $stripe_pub_key ?>';
+
+        // Replace with the domain you want your users to be redirected back to after payment
+        var DOMAIN = window.location.origin;
+
+        var stripe = Stripe(PUBLISHABLE_KEY);
+
+        var SUBSCRIPTION_BASIC_PRICE_ID = '<?php echo $locals_price_id ?>';
+        var SUBSCRIPTION_ANNUAL_PRICE_ID = '<?php echo $locals_price_id_2 ?>';
+
+        // Handle any errors from Checkout
+        var handleResult = function (result) {
+            if (result.error) {
+                var displayError = document.getElementById("error-message");
+                displayError.textContent = result.error.message;
+            }
+        };
+
+        var redirectToCheckout = function (priceId) {
+            // Make the call to Stripe.js to redirect to the checkout page
+            // with the current quantity
+            stripe
+                .redirectToCheckout({
+                    lineItems: [{ price: priceId, quantity: 1 }],
+                    successUrl:
+                        DOMAIN + "/profile/local_success.php?account_id=<?php echo $id?>&stripe_session_id={CHECKOUT_SESSION_ID}",
+                    cancelUrl: DOMAIN + "/profile/",
+                    mode: 'subscription',
+                })
+                .then(handleResult);
+        };
+
+        function buyLocal(type){
+            if(type === 1){
+                redirectToCheckout(SUBSCRIPTION_BASIC_PRICE_ID);
+                return;
+            }
+            if(type === 2){
+                redirectToCheckout(SUBSCRIPTION_ANNUAL_PRICE_ID);
+                return;
+            }
+        }
+
+    </script>
 <?
     # ----------------------------------------------------------------------------------------------------
     # FOOTER

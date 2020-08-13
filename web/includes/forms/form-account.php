@@ -124,6 +124,18 @@
                     </div>
                 </div>
 
+                <div class="form-group row">
+                    <div class="col-sm-6">
+                        <label for="localsCard">Has Locals Card</label>
+                        <input
+                                type="checkbox"
+                                name="localsCard"
+                                id="localsCard"
+                                <?php echo $isLocalCardActive?'checked':''; ?>
+                        >
+                    </div>
+                </div>
+
             </div>
 
         </div>
