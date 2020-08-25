@@ -1,0 +1,11 @@
+eventassociation_getlisting:
+    path:     /plugins/eventassociation/listing/list
+    defaults: { _controller: EventAssociationListingBundle:Default:listListing }
+
+eventassociation_savelisting:
+    path:     /plugins/eventassociation/listing/save
+    defaults: { _controller: EventAssociationListingBundle:Default:saveListing }
+
+eventassociation_getevent:
+    path:     /plugins/eventassociation/event/list
+    defaults: { _controller: EventAssociationListingBundle:Default:listEvent }

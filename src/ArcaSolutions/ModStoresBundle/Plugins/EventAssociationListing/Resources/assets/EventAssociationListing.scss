@@ -1,0 +1,16 @@
+.detail {
+  section {
+    .theme-box {
+      .theme-box-content {
+        .date.float-date {
+          font-size: 1em;
+          width: 50px;
+        }
+      }
+    }
+  }
+}
+
+#events .col-sm-4:nth-child(4n+4) {
+  clear: left;
+}

@@ -1,0 +1,43 @@
+<div class="tab-content">
+    <div class="tab-pane active">
+        <div class="container">
+            <div class="col-md-8">
+                <div class="panel panel-form">
+                    <div class="form-group">
+                        <div class="panel-heading">
+                            {{ "Event"|trans }}
+                        </div>
+                        <div class="panel-body">
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <a href="/{{ getParameter('alias_sitemgr_module') }}/content/event/event.php?listing_attached={{ listing.id }}&account_id={{ listing.accountId }}"
+                                       class="btn btn-primary">
+                                        {{ "Add a new Event"|trans }}
+                                    </a>
+                                    <br>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <label>
+                                        {{ "or"|trans }}
+                                        {{ "Associate an existing Event with this Listing"|trans }}
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12">
+                                    <input type="hidden" name="account_id" value="{{ listing.accountId }}">
+                                    <div id="eventSelectBox"></div>
+                                    <p class="help-block small">
+                                        {{ "Leave it blank to unlink the Event."|trans }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

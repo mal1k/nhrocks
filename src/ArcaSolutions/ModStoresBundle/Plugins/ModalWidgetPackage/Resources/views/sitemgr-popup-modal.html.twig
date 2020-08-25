@@ -1,0 +1,68 @@
+<div class="modal-dialog modal-lg" role="document" id="">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            <h4 class="modal-title" id="myModalLabel">
+                {{ 'Edit Widget'|trans }} - {{ originalWidget.title|trans({}, 'widgets') }}
+            </h4>
+        </div>
+        <div class="modal-body">
+            <form class="form" name="form_customcontent" id="form_customcontent">
+                <div id="labelInputs">
+                    <input type="hidden" name="pageWidgetId" value="{{ pageWidget.id }}"/>
+                    <input type="hidden" name="pageWidgetType" value="{{ originalWidget.content.drawerType }}"/>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="modalTitle" class="control-label">{{ 'Title'|trans }}</label>
+                            <input type="text" class="form-control" name="modalTitle"
+                                   value="{{ pageWidget.content.modalTitle }}" id="modalTitle">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="modalContent" class="control-label">{{ 'Content'|trans }}</label>
+                            <textarea class="form-control" rows="5" name="customHtml"
+                                      id="customHtml">{{ pageWidget.content.customHtml }}</textarea>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                <div class="form-group checkbox">
+                    <label>
+                        <input type="checkbox" class="inputCheck" name="saveWidgetForAllPages" checked="checked">
+                        {{ 'Apply changes to all pages using this widget.'|trans }}
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <div class="row">
+                <div class="col-xs-6 text-left">
+                </div>
+                <div class="col-xs-6 text-right widget-modal-buttons">
+                    <button type="button" class="btn btn-lg" data-dismiss="modal">
+                        {{ 'Cancel'|trans }}
+                    </button>
+                    <button type="button" class="btn btn-primary btn-lg action-save"
+                            data-loading-text="{{ 'Please, wait...'|trans }}"
+                            onclick="saveWidget('customcontent');">
+                        {{ 'Save changes'|trans }}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% set locale = app.request.locale|split('_') %}
+<script type="text/javascript">
+    CKEDITOR.replace('customHtml', {
+        fullPage: true,
+        language: "{{ locale|first|lower }}",
+        customConfig: '/assets/js/lib/ckeditor/base.config.js'
+    });
+</script>

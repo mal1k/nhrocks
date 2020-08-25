@@ -1,0 +1,12 @@
+{
+  "name": "arcasolutions/eventassociationlisting",
+  "description": "Event Association for Listing",
+  "version": "1.5.1",
+  "license": "proprietary",
+  "require": {
+    "arcasolutions/modstore": "^0.5.3"
+  },
+  "extra": {
+    "bundle-name": "EventAssociationListingBundle"
+  }
+}

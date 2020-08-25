@@ -1,0 +1,5 @@
+<div class="tab-content" id="events">
+    {% if eventsAssoc is not empty and isSample is null %}
+        {% include '::/modules/event/blocks/vertical-cards.html.twig' with {items: eventsAssoc, itemsPerRow : 3} -%}
+    {% endif -%}
+</div>

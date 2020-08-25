@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file date="2017-09-25T15:00:00Z" source-language="en" target-language="es" datatype="plaintext" original="not.available">
+        <header>
+            <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+            <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+        </header>
+        <body>
+            <trans-unit id="1" resname="Associate with a Listing">
+                <source>Associate with a Listing</source>
+                <target>Asociar con el Listado</target>
+            </trans-unit>
+            <trans-unit id="2" resname="Leave it blank to unlink the Event.">
+                <source>Leave it blank to unlink the Event.</source>
+                <target>Déjelo en blanco para desvincular el Evento.</target>
+            </trans-unit>
+            <trans-unit id="3" resname="Event Association">
+                <source>Event Association</source>
+                <target>Asociación de Eventos</target>
+            </trans-unit>
+            <trans-unit id="4" resname="Number of Events the listing owner is able to associate">
+                <source>Number of Events the listing owner is able to associate</source>
+                <target>Cantidad de Eventos que el propietario de la lista puede asociar</target>
+            </trans-unit>
+            <trans-unit id="5" resname="Select an Event">
+                <source>Select an Event</source>
+                <target>Seleccione un Evento</target>
+            </trans-unit>
+            <trans-unit id="6" resname="No listings available for association with this Event. In order to be linked to this Event, the Listing should not be associated with more than the permitted number of Events and should belong to the same account.">
+                <source>No listings available for association with this Event. In order to be linked to this Event, the Listing should not be associated with more than the permitted number of Events and should belong to the same account.</source>
+                <target>No hay listas disponibles para asociarse con este evento. Para vincularse a este Evento, el Listado no debe asociarse con más que el número permitido de Eventos y debe pertenecer a la misma cuenta.</target>
+            </trans-unit>
+            <trans-unit id="7" resname="It was selected more Events than it is allowed.">
+                <source>It was selected more Events than it is allowed.</source>
+                <target>Se seleccionaron más Eventos de los que está permitido.</target>
+            </trans-unit>
+            <trans-unit id="8" resname="The association was successfully saved.">
+                <source>The association was successfully saved.</source>
+                <target>La asociación se guardó con éxito.</target>
+            </trans-unit>
+            <trans-unit id="9" resname="Add a new Event">
+                <source>Add a new Event</source>
+                <target>Agregar un nuevo Evento</target>
+            </trans-unit>
+            <trans-unit id="10" resname="Add a new">
+                <source>Add a new</source>
+                <target>Añadir un nuevo</target>
+            </trans-unit>
+            <trans-unit id="11" resname="Associate an existing Event with this Listing">
+                <source>Associate an existing Event with this Listing</source>
+                <target>Asociar un Evento existente con este Listado</target>
+            </trans-unit>
+            <trans-unit id="12" resname="No event available for association with this Listing. In order to be linked to this Listing, the event should not be associated with other Listing and should belong to the same account.">
+                <source>No event available for association with this Listing. In order to be linked to this Listing, the event should not be associated with other Listing and should belong to the same account.</source>
+                <target>Ningún evento disponible para asociarse con este Listado. Para vincularse a este Listado, el evento no debe asociarse con otro Listado y debe pertenecer a la misma cuenta.</target>
+            </trans-unit>
+            <trans-unit id="13" resname="Select a Listing">
+                <source>Select a Listing</source>
+                <target>Seleccione un Listado</target>
+            </trans-unit>
+            <trans-unit id="14" resname="Type the Listing name for suggestions">
+                <source>Type the Listing name for suggestions</source>
+                <target>Escriba el nombre del listado para sugerencias</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

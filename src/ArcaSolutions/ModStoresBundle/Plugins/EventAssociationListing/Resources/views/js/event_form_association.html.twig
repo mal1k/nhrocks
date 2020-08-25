@@ -1,0 +1,120 @@
+<script type="text/javascript">
+        function setListingSelectBox(){
+            $("#helpBlockEmpty").hide();
+            if ($('.listing-select')[0] && $('.listing-select')[0].selectize){
+                $('.listing-select')[0].selectize.destroy();
+            }
+            var options = {
+                allowEmptyOption : true,
+                sortField: null,
+                persist: false,
+                maxItems: 1,
+                openOnFocus: false,
+                loadThrottle: 250,
+                loadingClass: 'is-loading',
+                create: false,
+                options: [],
+                onInitialize: function(){
+                    var $this = this;
+                    var listing_id = $this.$input.data('value');
+                    var account_id = $('#account_id').val();
+                    if (account_id == ''){
+                        $this.clear(true);
+                        $('.listing-select').val('');
+                        return false;
+                    } else {
+                        $.ajax({
+                            url: '{{ path('eventassociation_getlisting') }}',
+                            type: 'GET',
+                            dataType: 'json',
+                            data: {
+                                eventId : '.{{ id }}.',
+                                accountId : account_id,
+                                listingId : listing_id,
+                            },
+                            error: function () {
+                                return false;
+                            },
+                            success: function (data) {
+                                $this.clear(true);
+                                if (Object.keys(data).length > 0) {
+                                    $this.removeOption(listing_id);
+                                    $.each(data, function (key, value) {
+                                        $this.addOption({value:value.id,text:value.title});
+                                    });
+                                    $this.setValue(listing_id, true);
+                                    if($('.listing-select').hasClass('is-loading')){
+                                        $('.listing-select').removeClass('is-loading');
+                                    } else {
+                                        $("#helpBlockEmpty").html( "{{ "Leave it blank to unlink the Event."|trans }}<br/>{{ 'Type the Listing name for suggestions'|trans }}" );
+                                    }
+                                    if($('.listing-select').hasClass('is-loading')){
+                                        $('.listing-select').removeClass('is-loading');
+                                    }
+                                } else {
+                                    $("#helpBlockEmpty").html( "{{ 'No listings available for association with this Event. In order to be linked to this Event, the Listing should not be associated with more than the permitted number of Events and should belong to the same account.'|trans }}" );
+                                }
+                            }
+                        });
+                        $("#helpBlockEmpty").show();
+                    }
+                },
+                load: function (query, callback) {
+                    var $this = this;
+                    var account_id = $('#account_id').val();
+                    if (!query.length) return callback();
+                    $.ajax({
+                        url: '{{ path('eventassociation_getlisting') }}',
+                        type: 'GET',
+                        dataType: 'json',
+                        data: {
+                            eventId : '.{{ id }}.',
+                            accountId :account_id,
+                            query : query,
+                        },
+                        error: function () {
+                            callback();
+                        },
+                        success: function (data) {
+                            $this.clear(true);
+                            if (Object.keys(data).length > 0) {
+                                $.each(data, function (key, value) {
+                                    $this.addOption({value:value.id,text:value.title});
+                                });
+                                $("#helpBlockEmpty").html( "{{ "Leave it blank to unlink the Event."|trans }}" );
+                            } else {
+                                $("#helpBlockEmpty").html( "{{ 'No listings available for association with this Event. In order to be linked to this Event, the Listing should not be associated with more than the permitted number of Events and should belong to the same account.'|trans }}" );
+                            }
+                            if($('.listing-select').hasClass('is-loading')){
+                                $('.listing-select').removeClass('is-loading');
+                            }
+                            $this.open();
+                            $this.focus();
+                        }
+                    });
+                    $("#helpBlockEmpty").show();
+                },
+                onType: function(){
+                    this.focus();
+                },
+            };
+            $('.listing-select').selectize(options);
+        }
+
+        $(document).ready(function () {
+            setListingSelectBox();
+            {% if not members %}
+                $(document).on('change', '.mail-select', function (e) {
+                    var account_id = $(this).val();
+                    $(this).data('value', account_id);
+                    if (!account_id.lenght) {
+                        if ($('.listing-select')[0].selectize){
+                            $('.listing-select')[0].selectize.clear(true);
+                            $('.listing-select').val('');
+                        }
+                    }
+                    setListingSelectBox();
+                });
+            {% endif %}
+        });
+</script>

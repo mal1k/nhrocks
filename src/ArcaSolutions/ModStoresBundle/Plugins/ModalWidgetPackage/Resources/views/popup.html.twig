@@ -1,0 +1,21 @@
+{% if content.modalTitle is not empty or content.customHtml is not empty %}
+
+    <div class="custom-drawer" drawer-type="{{ content.pageWidgetType }}">
+        <div class="drawer-box">
+            <button class="close-drawer"><i class="fa fa-close"></i></button>
+            {% if content.modalTitle is not empty %}
+                <div class="drawer-heading">
+                    <h2 class="heading h-2">{{ content.modalTitle }}</h2>
+                </div>
+            {% endif %}
+            {% if content.customHtml is not empty %}
+                <div class="drawer-content">
+                    {{ content.customHtml|raw }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    {{ addJSFile('/bundles/modalwidgetpackage/js/customwidget.js') }}
+
+{% endif %}

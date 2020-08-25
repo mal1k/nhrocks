@@ -1,0 +1,3 @@
+{% if (eventsAssoc is not empty) and isSample is null -%}
+    <a href="#events" class="tab-navbar {{ activeTab == 6 ? 'is-selected' : '' }}">{{ 'Events'|trans }}</a>
+{% endif %}

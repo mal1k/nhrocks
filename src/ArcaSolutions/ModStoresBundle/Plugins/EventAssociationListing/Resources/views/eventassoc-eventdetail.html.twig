@@ -1,0 +1,12 @@
+{% import "::blocks/utility/detail.html.twig" as UtilityDetail -%}
+
+{% if listing -%}
+    {% set listingDetailURL = url('listing_detail', {'friendlyUrl': listing.friendlyUrl, "_format" : "html"}) -%}
+
+    <div class="tab-item tab-item-offer-owner">
+        {{ UtilityDetail.offerBy(listing,listingLevel,listingReviewsTotal,listingDetailURL) }}
+    </div>
+
+    {{ addJSFile("assets/js/modal/send.email.js") }}
+
+{% endif -%}

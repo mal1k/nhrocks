@@ -1,0 +1,35 @@
+<script type="text/javascript">
+    function setEventSelectBox() {
+        $.get("{{ path('eventassociation_getevent') }}", {
+            accountId: "{{ listing.accountId }}"
+        }).done(function (response) {
+            var events = response.data;
+            if (events) {
+                var select = "";
+                var attached_events = JSON.parse("{{ attached_event|raw }}");
+
+                select += "<select name='event_attached[]' multiple>";
+                for (var i = 0; i < events.length; i++) {
+                    var selected = attached_events.indexOf(events[i].id) > -1 ? "selected='selected'" : '';
+                    select += "<option value='" + events[i].id + "' " + selected + ">" + events[i].label + "</option>";
+                }
+                select += "</select>";
+
+                $("#eventSelectBox").html(select);
+                $("#eventSelectBox select").selectize({
+                    placeholder: "{{ 'Select an Event'|trans }}",
+                    allowEmptyOption: true,
+                    plugins: {{ level.field is not empty and level.field > 1 ? '[\'remove_button\']' : '[]' }},
+                    maxItems: {{ level.field is not empty ? level.field : 0 }}
+                });
+
+            } else {
+                $("#eventSelectBox").html("<p class=\"alert alert-info\">{{ 'No event available for association with this Listing. In order to be linked to this Listing, the event should not be associated with other Listing and should belong to the same account.'|trans }}</p>");
+            }
+        });
+    }
+
+    $(document).ready(function () {
+        setEventSelectBox();
+    });
+</script>
