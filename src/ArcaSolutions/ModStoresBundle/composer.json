@@ -1,7 +1,7 @@
 {
 	"name": "arcasolutions/modstore",
 	"description": "eDirectory ModStore Core",
-	"version": "0.5.3",
+	"version": "1.0.0",
 	"license": "proprietary",
 	"require": {
 		"arcasolutions/edirectory": "^12.0.02"

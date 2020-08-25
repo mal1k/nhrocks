@@ -18,8 +18,7 @@
                     "type": "%language%"
                 }
             },
-            "filter": {
-            }
+            "filter": []
         }
     },
     "mappings": {
@@ -606,7 +605,9 @@
         "event": {
             "dynamic": "strict",
             "properties": {
-                "recurrent_date": {"type": "recurring"},
+                "recurrent_date": {
+                    "type": "recurring"
+                },
                 "address": {
                     "type": "object",
                     "properties": {
@@ -764,6 +765,9 @@
                     "index": "not_analyzed"
                 },
                 "views": {
+                    "type": "integer"
+                },
+                "listingId": {
                     "type": "integer"
                 }
             }

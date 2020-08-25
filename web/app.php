@@ -1,5 +1,4 @@
 <?php
-
 use ArcaSolutions\MultiDomainBundle\HttpFoundation\MultiDomainRequest;
 
 /**
