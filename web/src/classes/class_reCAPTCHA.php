@@ -116,7 +116,7 @@
 
                 $captcha .= '<div class="form-captcha">
                         <img src="/generate-captcha/gcb_accountCaptcha" alt="captcha" title="captcha" width="150" height="50"/>
-                        <input type="text" value="" name="accountCaptcha" class="input" />
+                        <input type="text" value="" name="accountCaptcha" class="input" autocapitalize="off"/>
                     </div>
                     ';
             }

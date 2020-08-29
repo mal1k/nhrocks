@@ -41,6 +41,10 @@
 			} else {
 				$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
 
+				if($imageFileType === 'jpeg'){
+                    $imageFileType = 'jpg';
+                }
+
 				if (in_array($imageFileType, ['jpg', 'png', 'pdf'])) {
 					// Check if image file is a actual image or fake image
 					$tmp_name = $_FILES["fileToUpload"]["tmp_name"];

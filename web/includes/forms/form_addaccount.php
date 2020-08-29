@@ -46,7 +46,7 @@
         <?php if (!$advertise_section) { ?>
             <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
                 <span>Required: Upload photo of NH drivers license</span>
-                <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload">
+                <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
             </div>
         <?php } ?>
     </div>
