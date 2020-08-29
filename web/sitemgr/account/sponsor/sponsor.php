@@ -120,21 +120,35 @@
 						system_sendPassword($enType, $_POST['email'], $_POST['username'], $_POST['password'], $_POST['first_name']." ".$_POST['last_name']);
 					}
 
-                    if ($localsCard == "on") {
+                    if($localsCardDate){
                         $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
                         $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
 
                         if($isLocalCardHolder){
-                            $localsCardHolderObj->active = true;
+                            $localsCardHolderObj->entered = date(DEFAULT_DATE_FORMAT, strtotime($localsCardDate));
                             $localsCardHolderObj->Update();
-                        }else{
-                            $localsCardHolderObj = new LocalsCardHolder([
-                                'account_id' => $account_id,
-                                'session_id' => 'manual',
-                                'entered' => gmdate("Y-m-d"),
-                                'active' => true,
-                            ]);
-                            $localsCardHolderObj->Save();
+                        }
+                    }
+
+                    if ($localsCard == "on") {
+                        $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
+                        $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
+                        $isLocalCardActive = $isLocalCardHolder && (int) $localsCardHolderObj->getNumber('active') === 1;
+
+                        if(!$isLocalCardActive) {
+                            if ($isLocalCardHolder) {
+                                $localsCardHolderObj->active = true;
+                                $localsCardHolderObj->entered = gmdate("Y-m-d");
+                                $localsCardHolderObj->Update();
+                            } else {
+                                $localsCardHolderObj = new LocalsCardHolder([
+                                    'account_id' => $account_id,
+                                    'session_id' => 'manual',
+                                    'entered' => gmdate("Y-m-d"),
+                                    'active' => true,
+                                ]);
+                                $localsCardHolderObj->Save();
+                            }
                         }
                     }else{
                         $localsCardHolderObj = new LocalsCardHolder((int) $account_id);
@@ -235,6 +249,7 @@
         $localsCardHolderObj = new LocalsCardHolder((int) $id);
         $isLocalCardHolder = $localsCardHolderObj->getNumber('account_id') > 0;
         $isLocalCardActive = $isLocalCardHolder && (int) $localsCardHolderObj->getNumber('active') === 1;
+        $localCardEnteredDate = ($isLocalCardHolder)?$localsCardHolderObj->getDate('entered'):'';
 	} else {
 		$notification = system_checkEmail(SYSTEM_SPONSOR_ACCOUNT_CREATE);
 		$has_items = false;

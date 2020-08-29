@@ -190,7 +190,8 @@
 		} elseif (CLOCK_TYPE == '12') {
 			$time_format = "h:i a";
 		}
-		$str_time = new DateTime($startTimeStr[0].':'.$startTimeStr[1]);
+		$str = $startTimeStr[0] . (($startTimeStr[1]) ? ':' . $startTimeStr[1]: ' 00:00');
+		$str_time = new DateTime($str);
 		$str_time->setTimezone(new DateTimeZone(date("e")));
 
 		return $str_time->format($time_format);

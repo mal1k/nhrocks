@@ -55,9 +55,35 @@
                 $previewAccount[$cont]["active"] = $account->getString("active");
                 $previewAccount[$cont]["profile"] = $account->getString("has_profile");
                 $previewAccount[$cont]["sponsor"] = $account->getString("is_sponsor");
+
+                $localsCardHolderObj = new LocalsCardHolder((int) $id);
+                $localCardDate = $localsCardHolderObj->getDate('entered');
+                $localCardActive = $localsCardHolderObj->getBoolean('active');
+                $localCurrent = false;
+
+                if($localCardDate){
+                    $datetime1 = date_create($localCardDate);
+                    $datetime2 = date_create();
+
+                    $interval = date_diff($datetime1, $datetime2);
+
+                    $localCurrent = $interval->days < 366;
+                }
+
+                $bgColor = '#fff';
+
+                if($localCardDate && $localCurrent && $localCardActive) {
+                    $bgColor = '#e1f9e1';
+                }
+
+                if($localCardDate && !$localCardActive) {
+                    //$bgColor = '#ffe2e2';
+                    $bgColor = '#ffce98';
+                }
+
                 ?>
 
-                <li class="content-item" tabindex="" data-id="<?=$account->getNumber("id")?>">
+                <li class="content-item" tabindex="" data-id="<?=$account->getNumber("id")?>" style="background-color: <?= $bgColor ?>">
                     <div class="status text-hide"><?=$status->getStatusWithStyle($account->getString("active") == "n" ? "P" : "A");?></div>
                     <div class="item">
                         <h3 class="item-title"><?=$contactObj->getString("first_name")." ".$contactObj->getString("last_name");?></h3>
@@ -67,7 +93,7 @@
                                 <?=system_showText(LANG_SITEMGR_LOGIN)?> <?=system_showText(LANG_SITEMGR_INTOTHISACCOUNT)?>
                             </a>
                             <span class="pull-right">
-                                <?=system_showText(LANG_SITEMGR_LASTLOGIN)?>: 
+                                <?=system_showText(LANG_SITEMGR_LASTLOGIN)?>:
                                 <?
                                 if ($account->getNumber("lastlogin") != 0) {
                                     $lastLogin_field = format_date($account->getNumber("lastlogin"), DEFAULT_DATE_FORMAT, "datetime")." - ".format_getTimeString($account->getNumber("lastlogin"));

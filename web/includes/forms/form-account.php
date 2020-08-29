@@ -135,6 +135,19 @@
                         >
                     </div>
                 </div>
+                <div class="form-group row <?=($isLocalCardActive)?'':'hidden'?>">
+                    <div class="col-sm-6">
+                        <label for="localsCardDate">Has Locals Card</label>
+                        <input
+                                class="form-control date-input"
+                                autocomplete="off"
+                                type="text"
+                                name="localsCardDate"
+                                id="localsCardDate"
+                                value="<?=$localCardEnteredDate?>"
+                        >
+                    </div>
+                </div>
 
             </div>
 

@@ -81,6 +81,60 @@
     $profileObj = new Profile(sess_getAccountIdFromSession());
     $profileObj->extract();
 
+$target_dir = EDIRECTORY_ROOT . "/../image_uploads/";
+$username = $accObj->username;
+$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
+if ($imageFileType === 'jpeg') {
+    $imageFileType = 'jpg';
+}
+$target_file = $target_dir . $username . '.' . $imageFileType;
+$imageUploaded = false;
+if (file_exists($target_file)) {
+    $imageUploaded = true;
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
+    if ($_FILES["fileToUpload"]['error'] !== 0) {
+        $validate_contact = false;
+        $message_account .= "&#149;&nbsp;" . "File upload too large</br>";
+    } else {
+        $imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
+
+        if ($imageFileType === 'jpeg') {
+            $imageFileType = 'jpg';
+        }
+
+        if (in_array($imageFileType, ['jpg', 'png', 'pdf'])) {
+            // Check if image file is a actual image or fake image
+            $tmp_name = $_FILES["fileToUpload"]["tmp_name"];
+            $check = getimagesize($tmp_name);
+            $isPdf = mime_content_type($tmp_name) === 'application/pdf';
+            if ($check !== false || $isPdf) {
+                $uploadOk = 1;
+
+                if (!file_exists($target_dir)) {
+                    if (!mkdir($target_dir) && !is_dir($target_dir)) {
+                        throw new \RuntimeException(sprintf('Directory "%s" was not created', $target_dir));
+                    }
+                }
+
+                $username = $accObj->username;
+                $target_file = $target_dir . $username . '.' . $imageFileType;
+                @unlink($target_dir . $username . '.jpg');
+                @unlink($target_dir . $username . '.png');
+                @unlink($target_dir . $username . '.pdf');
+                move_uploaded_file($tmp_name, $target_file);
+            } else {
+                $message_account .= "&#149;&nbsp;" . "File must be a jpg, png or pdf</br>";
+                $validate_contact = false;
+            }
+        } else {
+            $message_account .= "&#149;&nbsp;" . "File must be a jpg, png or pdf</br>";
+            $validate_contact = false;
+        }
+    }
+}
+
     //Facebook integration
     $redirectURI_params = [
         "destiny" => "attach_account",
@@ -231,6 +285,17 @@
 
     $localsCardHolderObj = new LocalsCardHolder($id);
     $isLocalCardHolder = $localsCardHolderObj->active === "1";
+    $localCardDate = $localsCardHolderObj->getDate('entered');
+    $localCurrent = false;
+
+    if($localCardDate){
+        $datetime1 = date_create($localCardDate);
+        $datetime2 = date_create();
+
+        $interval = date_diff($datetime1, $datetime2);
+
+        $localCurrent = $interval->days < 366;
+    }
 ?>
 
     <div class="members-page profile-page">
@@ -365,6 +430,20 @@
                                     <div style="text-align: center;display: inline-block;"><button href="#" class="button button-md is-primary" onclick="buyLocal(2)"><?=$locals_price_text_2 ?? 'N/A'?></button></div>
                                     <div id="error-message"></div>
                                 </div>
+
+                                <?php if(!$localCurrent && !$imageUploaded) { ?>
+                                    <div class="form-box" style="padding-top: 20px;">
+                                        <p class="alert alert-warning hidden" id="validation">
+                                        </p>
+                                        <form method="post" autocomplete="off" enctype="multipart/form-data">
+                                            <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
+                                                <span>Required: Upload photo of NH drivers license</span>
+                                                <input class="form-control custom-input-size" type="file" name="fileToUpload" id="fileToUpload">
+                                            </div>
+                                            <button type="submit" class="button button-md is-primary" value="Submit" id="standard_submit">Submit Photo</button>
+                                        </form>
+                                    </div>
+                                <?php } ?>
                             <?php } else { ?>
                                 <h3 class="heading h-3 text-center">Locals card is Active!</h3>
                             <?php } ?>
@@ -547,6 +626,46 @@
             }
         }
 
+    </script>
+
+    <script>
+        var errors = [];
+        var validation = document.getElementById('validation');
+        var photo_upload = document.getElementById('fileToUpload');
+        var submit_button = document.getElementById('standard_submit');
+
+        submit_button.addEventListener("click", function(event){
+            errors = [];
+
+            if( photo_upload.files.length === 0 ){
+                errors.push("Drivers license: Required");
+            }else{
+                var file = photo_upload.files[0];
+                if(file && file.size > (1024*1000*20)) { // 2 MB (this size is in bytes)
+                    errors.push("Drivers license: Image too large");
+                }
+            }
+
+            if(errors.length > 0){
+                event.preventDefault();
+                validation.classList.remove("hidden");
+
+                var existing_validations = document.querySelectorAll('.validation_item');
+                var existing_validations_br = document.querySelectorAll('#validation br');
+                for (var x = 0; x < existing_validations.length; x++) {
+                    existing_validations[x].parentNode.removeChild(existing_validations[x]);
+                    existing_validations_br[x].parentNode.removeChild(existing_validations_br[x]);
+                }
+
+                for (var i = 0; i < errors.length; i++) {
+                    var item = document.createElement('span');
+                    item.classList.add('validation_item');
+                    item.innerText = (errors[i]);
+                    validation.appendChild(item);
+                    validation.appendChild(document.createElement('br'));
+                }
+            }
+        });
     </script>
 <?
     # ----------------------------------------------------------------------------------------------------
