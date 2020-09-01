@@ -124,6 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                 @unlink($target_dir . $username . '.png');
                 @unlink($target_dir . $username . '.pdf');
                 move_uploaded_file($tmp_name, $target_file);
+                $imageUploaded = true;
             } else {
                 $message_account .= "&#149;&nbsp;" . "File must be a jpg, png or pdf</br>";
                 $validate_contact = false;
