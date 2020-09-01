@@ -431,7 +431,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                     <div id="error-message"></div>
                                 </div>
 
-                                <?php if(!$localCurrent && !$imageUploaded) { ?>
+                                <?php if(!$imageUploaded && !$localCurrent) { ?>
                                     <div class="form-box" style="padding-top: 20px;">
                                         <p class="alert alert-warning hidden" id="validation">
                                         </p>
