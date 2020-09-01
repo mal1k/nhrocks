@@ -83,15 +83,15 @@
 
 $target_dir = EDIRECTORY_ROOT . "/../image_uploads/";
 $username = $accObj->username;
-$imageFileType = strtolower(pathinfo($_FILES["fileToUpload"]["name"], PATHINFO_EXTENSION));
-if ($imageFileType === 'jpeg') {
-    $imageFileType = 'jpg';
-}
-$target_file = $target_dir . $username . '.' . $imageFileType;
+$imageFileTypes = ['jpg', 'png', 'pdf'];
 $imageUploaded = false;
-if (file_exists($target_file)) {
-    $imageUploaded = true;
+foreach ($imageFileTypes as $imageFileType) {
+    $target_file = $target_dir . $username . '.' . $imageFileType;
+    if (file_exists($target_file)) {
+        $imageUploaded = true;
+    }
 }
+
 
 if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
     if ($_FILES["fileToUpload"]['error'] !== 0) {
