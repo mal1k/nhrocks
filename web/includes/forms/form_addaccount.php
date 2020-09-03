@@ -39,9 +39,9 @@
     <div class="form-box">
         <input class="input custom-input-size" type="text" name="first_name" id="first_name" value="<?=$first_name?>" placeholder="<?=system_showText(LANG_LABEL_FIRST_NAME);?>" />
         <input class="input custom-input-size" type="text" name="last_name" id="last_name" value="<?=$last_name?>" placeholder="<?=system_showText(LANG_LABEL_LAST_NAME);?>" />
-        <input class="input custom-input-size" type="email" name="username" id="username<?=($claimSection ? "_claim" : "")?>" value="<?=$username?>" maxlength="<?=USERNAME_MAX_LEN?>" onblur="populateField(this.value,'email');" placeholder="<?=system_showText(LANG_LABEL_USERNAME);?>" />
+        <input class="input custom-input-size username" type="email" name="username" id="username<?=($claimSection ? "_claim" : "")?>" value="<?=$username?>" maxlength="<?=USERNAME_MAX_LEN?>" onblur="populateField(this.value,'email');" placeholder="<?=system_showText(LANG_LABEL_USERNAME);?>" />
         <input type="hidden" name="email" id="email" value="<?=$email?>" />
-        <input class="input custom-input-size" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
+        <input class="input custom-input-size password" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
 
         <?php if (!$advertise_section) { ?>
             <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
@@ -95,8 +95,8 @@
         var validation = document.getElementById('validation');
         var first_name = document.getElementById('first_name');
         var last_name = document.getElementById('last_name');
-        var username = document.getElementById('username');
-        var password = document.getElementById('password');
+        var username = document.getElementsByClassName('username')[0];
+        var password = document.getElementsByClassName('password')[0];
         var photo_upload = document.getElementById('fileToUpload');
         var submit_button = document.getElementById('standard_submit');
 
