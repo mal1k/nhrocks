@@ -40,7 +40,12 @@
                             <select name="order" id="searchSorter">
                                 {# sorter \ArcaSolutions\SearchBundle\Entity\Sorters\BaseSorter -#}
                                 {% for sorter in searchEvent.sorters -%}
-                                    <option {{ sorter.selected ? "selected" }} data-needsgeolocation="{{ sorter.needsGeoLocation ? "1" : "0" }}" value="{{ sorter.getSearchPageUrl( ((searchEvent.defaultSorter.name is defined) and (searchEvent.defaultSorter.translatedName == sorter.translatedName)) ) }}">{{ sorter.translatedName|capitalize }}</option>
+                                    <option {{ sorter.selected ? "selected" }}
+                                            data-needsgeolocation="{{ sorter.needsGeoLocation ? "1" : "0" }}"
+                                            value="?sort={{ sorter.translatedName }}"
+                                    >
+                                        {{ sorter.translatedName|capitalize }}
+                                    </option>
                                 {% endfor -%}
                             </select>
                         </div>
