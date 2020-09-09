@@ -18,6 +18,13 @@
 # * FILE: /includes/views/member_dashboard.php
 # ----------------------------------------------------------------------------------------------------
 
+
+$editable = true;
+
+// level 70 = bronze
+if($item_type === 'Listing' && isset($itemObj->level) && $itemObj->level < 70){
+    $editable = !empty($item_deal_count);
+}
 ?>
 <div class="content-dashboard">
     <div class="dashboard-header">
@@ -66,7 +73,7 @@
                             </div>
 							<?php
 
-							if ($canEditListing) {
+							if ($editable) {
                             ?>
                                 <div class="steps-list">
 									<? if (is_numeric($arrayCompletion["desc"]) && $arrayCompletion["desc"] < 100) { ?>
@@ -86,7 +93,7 @@
                                 </div>
                             <?php } else { ?>
                                 <div class="steps-list">
-                                    <span class="link steps-item" style="color: red; text-align: center;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=system_showText(LANG_MUST_ADD_DEAL);?>.</span>
+                                    <span class="steps-item" style="color: red; text-align: center;"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i> <?=system_showText(LANG_MUST_ADD_DEAL);?>.</span>
                                 </div>
                             <?php } ?>
                         </div>

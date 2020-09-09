@@ -149,6 +149,7 @@
                 $item["label"] = system_showText(LANG_PROMOTION_FEATURE_NAME);
                 $item["title"] = $promotion["name"];
                 $item["id"] = $promotion["id"];
+                $item["listing_id"] = $promotion["listing_id"] ?? 0;
                 $item["link_edit"] = DEFAULT_URL."/".MEMBERS_ALIAS."/".PROMOTION_FEATURE_FOLDER."/deal.php?id=".$promotion["id"];
                 $item["link_preview"] = PROMOTION_DEFAULT_URL."/".$promotion["friendly_url"].".html";
                 $item["link_remove"] = "deleteItem('".system_showText(LANG_PROMOTION_DELETE_CONFIRM)."', ".$promotion["id"].", 'delete_promotion');";

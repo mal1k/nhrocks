@@ -64,6 +64,7 @@ switch ($item_type) {
         }
         $reports = retrieveListingReport($itemObj->getNumber("id"));
         $superReports = new ListingReports($itemObj);
+        $item_deal_count = (int)$itemObj->countDeals($itemObj->getNumber("id"));
         break;
     case "Event" :
         $item_link = DEFAULT_URL . "/" . MEMBERS_ALIAS . "/" . EVENT_FEATURE_FOLDER . "/event.php?id=" . $itemObj->getNumber("id");
