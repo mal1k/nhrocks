@@ -6,7 +6,7 @@
         <div class="pricing-list">
             {% for plan in plans %}
                 {% set pricing = advertisePrice(plan, true, content) %}
-                <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }}"
+                <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }} hidden"
                     {% if plan.isPopular %}
                       data-highlighted="{{ 'Most Popular'|trans }}"
                     {% endif %}
