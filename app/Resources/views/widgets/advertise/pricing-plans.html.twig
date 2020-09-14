@@ -30,4 +30,6 @@
     </div>
 </div>
 
-{{ addJSFile("assets/js/widgets/plans/main-modules-prices.js") -}}
+{% set path = "assets/js/widgets/plans/main-modules-prices.js?time=" ~ date().timestamp %}
+
+{{ addJSFile(path) -}}
