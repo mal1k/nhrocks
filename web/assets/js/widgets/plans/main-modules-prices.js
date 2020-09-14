@@ -53,7 +53,7 @@ $(document).ready(function() {
             // Fetch the stored token from localStorage and set in the header
             headers: {"Authorization": "Bearer keyliqKng8eLukP2r"},
             error: function (err) {
-                errorcon.text(e.message);
+                errorcon.text(err.message);
                 console.log(err);
             },
             success: function (data) {
