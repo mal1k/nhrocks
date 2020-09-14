@@ -6,7 +6,7 @@
         <div class="pricing-list">
             {% for plan in plans %}
                 {% set pricing = advertisePrice(plan, true, content) %}
-                <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }} hidden"
+                <div class="pricing-item is-collapsed {{ plan.isPopular ? 'is-highlighted' : '' }}"
                     {% if plan.isPopular %}
                       data-highlighted="{{ 'Most Popular'|trans }}"
                     {% endif %}
@@ -65,5 +65,10 @@
             <button class="button is-primary previous"><i class="fa fa-angle-left"></i></button>
             <button class="button is-primary next"><i class="fa fa-angle-right"></i></button>
         </div>
+    </div>
+    <div >
+        <pre id="error-con">
+
+        </pre>
     </div>
 {% endif %}

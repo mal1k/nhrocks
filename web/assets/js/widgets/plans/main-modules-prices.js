@@ -44,91 +44,98 @@ $(document).ready(function() {
         $endPrev = false;
     });
 
-    $.ajax({
-        url: "https://api.airtable.com/v0/appIIH2bx44AknWhf/listing",
-        type: 'GET',
-        // Fetch the stored token from localStorage and set in the header
-        headers: {"Authorization": "Bearer keyliqKng8eLukP2r"},
-        error: function(err) {
-            console.log(err);
-        },
-        success: function(data) {
-            var records = data.records;
-            var listingDetails = {};
+    var errorcon = $('#error-con');
 
-            records = Object.keys(records).map(function(key){
-                listingDetails[records[key].fields.Name] = records[key].fields;
-               return records[key].fields;
-            });
+    try {
+        $.ajax({
+            url: "https://api.airtable.com/v0/appIIH2bx44AknWhf/listing",
+            type: 'GET',
+            // Fetch the stored token from localStorage and set in the header
+            headers: {"Authorization": "Bearer keyliqKng8eLukP2r"},
+            error: function (err) {
+                errorcon.text(e.message);
+                console.log(err);
+            },
+            success: function (data) {
+                var records = data.records;
+                var listingDetails = {};
 
-
-            var detailNames = Object.keys(listingDetails);
-            var newFeatures = records.filter(function(record){
-                return record.new === 1 || record.new === '1';
-            });
+                records = Object.keys(records).map(function (key) {
+                    listingDetails[records[key].fields.Name] = records[key].fields;
+                    return records[key].fields;
+                });
 
 
-            var template = '<li class="price-advantages-item" data-itemname="Additional Uploads" data-itemorder="13">' +
-                '<div class="icon icon-md"><i class="fa"></i></div>' +
-                '<div class="item-name">Additional Uploads</div>' +
-                '</li>';
+                var detailNames = Object.keys(listingDetails);
+                var newFeatures = records.filter(function (record) {
+                    return record.new === 1 || record.new === '1';
+                });
 
-            function getNewItem(name, order, active){
-                var newTemp = $(template).clone();
-                newTemp.find('.item-name').text(name);
-                newTemp.attr('data-itemname',name);
-                newTemp.attr('data-itemorder',order);
 
-                if(active){
-                    newTemp.addClass('has-advantages');
+                var template = '<li class="price-advantages-item" data-itemname="Additional Uploads" data-itemorder="13">' +
+                    '<div class="icon icon-md"><i class="fa"></i></div>' +
+                    '<div class="item-name">Additional Uploads</div>' +
+                    '</li>';
+
+                function getNewItem(name, order, active) {
+                    var newTemp = $(template).clone();
+                    newTemp.find('.item-name').text(name);
+                    newTemp.attr('data-itemname', name);
+                    newTemp.attr('data-itemorder', order);
+
+                    if (active) {
+                        newTemp.addClass('has-advantages');
+                    }
+
+                    return newTemp;
                 }
 
-                return newTemp;
-            }
 
+                var levels = $('#listing .pricing-item');
 
-            var levels = $('#listing .pricing-item');
+                $.each(levels, function (index, pricingItem) {
+                    var plan = $(pricingItem).find('.pricing-plan').text();
+                    var items = $(pricingItem).find('.price-advantages-item');
+                    $.each(items, function (index, pricingAdvantages) {
+                        var itemNames = $(pricingAdvantages).find('.item-name');
+                        $.each(itemNames, function (index, itemName) {
+                            var name = $(itemName).text();
 
-            $.each(levels, function( index, pricingItem ) {
-                var plan = $(pricingItem).find('.pricing-plan').text();
-                var items = $(pricingItem).find('.price-advantages-item');
-                $.each(items, function( index, pricingAdvantages ) {
-                    var itemNames = $(pricingAdvantages).find('.item-name');
-                    $.each(itemNames, function( index, itemName ) {
-                        var name = $(itemName).text();
+                            var match = detailNames.find(function (dName) {
+                                return name.indexOf(dName) > -1;
+                            });
 
-                        var match = detailNames.find(function(dName){
-                           return name.indexOf(dName) > -1;
+                            var order = (listingDetails[match] || {}).order || 0;
+                            $(itemName).closest('.price-advantages-item').attr('data-itemname', name);
+                            $(itemName).closest('.price-advantages-item').attr('data-itemorder', order);
                         });
+                    });
 
-                        var order = (listingDetails[match] || {}).order || 0;
-                        $(itemName).closest('.price-advantages-item').attr('data-itemname', name);
-                        $(itemName).closest('.price-advantages-item').attr('data-itemorder', order);
+                    $.each(newFeatures, function (index, newFeature) {
+                        var isActive = newFeature[plan] === 1 || newFeature[plan] === '1';
+                        var newItem = getNewItem(newFeature.Name, newFeature.order, isActive);
+                        $(pricingItem).find('.price-advantages').append($(newItem));
                     });
                 });
 
-                $.each(newFeatures, function(index, newFeature){
-                    var isActive = newFeature[plan] === 1 || newFeature[plan] === '1';
-                    var newItem = getNewItem(newFeature.Name, newFeature.order, isActive);
-                    $(pricingItem).find('.price-advantages').append($(newItem));
-                });
-            });
+                function byOrder(a, b) {
+                    return $(a).data('itemorder') - $(b).data('itemorder');
+                }
 
-            function byOrder(a, b) {
-                return $(a).data('itemorder') - $(b).data('itemorder');
+                $.each(levels, function (index, pricingItem) {
+                    var newItems = $(pricingItem).find('.price-advantages-item').sort(byOrder);
+                    $(pricingItem).find('.price-advantages-item').remove();
+                    $.each(newItems, function (index, newItem) {
+                        $(pricingItem).find('.price-advantages').append($(newItem));
+                    });
+                });
+
+                levels.removeClass('hidden');
             }
-
-            $.each(levels, function( index, pricingItem ) {
-                var newItems = $(pricingItem).find('.price-advantages-item').sort(byOrder);
-                $(pricingItem).find('.price-advantages-item').remove();
-                $.each(newItems, function( index, newItem ) {
-                    $(pricingItem).find('.price-advantages').append($(newItem));
-                });
-            });
-
-            levels.removeClass('hidden');
-        }
-    });
+        });
+    }catch (e) {
+        errorcon.text(e.message);
+    }
 });
 
 function advertiseChoice(frequency){
