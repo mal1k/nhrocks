@@ -161,7 +161,8 @@ if (strtolower($item_type) != "banner" && strtolower($item_type) != "promotion" 
         $rowLevel = mysqli_fetch_assoc($dbObj->query($sql));
 
         //Show button if item's level is lower than the highest active level and it's a free or unpaid item
-        if ($rowLevel["value"] > 0 && $rowLevel["value"] < $itemObj->getNumber("level") && (($itemObj->getPrice('monthly') <= 0 && $itemObj->getPrice('yearly') <= 0) || $itemObj->needToCheckOut())) {
+        //if ($rowLevel["value"] > 0 && $rowLevel["value"] < $itemObj->getNumber("level") && (($itemObj->getPrice('monthly') <= 0 && $itemObj->getPrice('yearly') <= 0) || $itemObj->needToCheckOut())) {
+        if ($itemObj->getNumber("level") > 10 ) {
             $visibilityButton = true;
         }
 
