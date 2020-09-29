@@ -26,11 +26,23 @@ const drawerFunction = function(){
         } else {
             return false;
         }
-    }
+    };
 
     this.init = function(){
-        this.openDrawer();
-        this.closeDrawer();
+        var member = Cookies.get('username_members');
+        var mgr = Cookies.get('username_sitemgr');
+
+        if((member || []).length || (mgr || []).length){
+            console.log('logged in users will not see popup');
+            return;
+        }
+
+        var self = this;
+        console.log('Waiting 10 seconds to load popup');
+        setTimeout(function () {
+            self.openDrawer();
+            self.closeDrawer();
+        }, 10000);
     }
 
     this.init();
