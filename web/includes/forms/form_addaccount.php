@@ -48,7 +48,7 @@
                 <span>Required: Upload photo of NH drivers license</span>
                 <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
             </div>
-            <p style="color: #FFAB3E; text-align: center; font-weight: bold;"><small>We use this to verify residency. We delete this data upon verification/payment.</small></p>
+            <p style="color: #FFAB3E; text-align: center; font-weight: bold;"><small>We use this to verify residency. We delete this data upon verification/payment. <br> We promise to never sell or distribute your information to anyone, ever.</small></p>
         <?php } ?>
     </div>
 
