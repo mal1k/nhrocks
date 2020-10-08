@@ -42,7 +42,7 @@
         <input class="input custom-input-size username" type="email" name="username" id="username<?=($claimSection ? "_claim" : "")?>" value="<?=$username?>" maxlength="<?=USERNAME_MAX_LEN?>" onblur="populateField(this.value,'email');" placeholder="<?=system_showText(LANG_LABEL_USERNAME);?>" />
         <input type="hidden" name="email" id="email" value="<?=$email?>" />
 
-        <input class="input custom-input-size password signup_secondary hidden" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
+        <input class="input custom-input-size password signup_secondary <?php if (!$advertise_section){ echo 'hidden'; } ?>" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
 
         <?php if (!$advertise_section) { ?>
             <div id="upload_section" class="signup_secondary hidden">
@@ -55,7 +55,7 @@
         <?php } ?>
     </div>
 
-    <div id="continue_button_section" class="form-button signup_primary">
+    <div id="continue_button_section" class="form-button signup_primary <?php if ($advertise_section){ echo 'hidden'; } ?>">
         <button class="button button-bg is-primary" type="button" id="continue_button">Continue</button>
     </div>
 
@@ -70,11 +70,11 @@
 
     <?php } ?>
 
-    <div id="form_captcha" class="signup_secondary hidden">
+    <div id="form_captcha" class="signup_secondary <?php if (!$advertise_section){ echo 'hidden'; } ?>">
        <?php echo(new \reCAPTCHA())->render(); ?>
     </div>
 
-    <div id="signup_button" class="form-button signup_secondary hidden">
+    <div id="signup_button" class="form-button signup_secondary <?php if (!$advertise_section){ echo 'hidden'; } ?>">
         <?php if ($advertise_section) { ?>
             <?php if (PAYMENT_FEATURE == "on" && ((CREDITCARDPAYMENT_FEATURE == "on") || (PAYMENT_INVOICE_STATUS == "on"))) { ?>
                 <button class="button button-bg is-primary" id="check_out_payment_2" type="submit" name="continue" value=""><?=system_showText(LANG_BUTTON_SUBMIT)?></button>
