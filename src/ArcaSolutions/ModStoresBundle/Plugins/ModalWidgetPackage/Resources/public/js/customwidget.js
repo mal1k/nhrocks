@@ -38,11 +38,11 @@ const drawerFunction = function(){
         }
 
         var self = this;
-        console.log('Waiting 10 seconds to load popup');
+        console.log('Waiting 7 seconds to load popup');
         setTimeout(function () {
             self.openDrawer();
             self.closeDrawer();
-        }, 10000);
+        }, 7000);
     }
 
     this.init();
