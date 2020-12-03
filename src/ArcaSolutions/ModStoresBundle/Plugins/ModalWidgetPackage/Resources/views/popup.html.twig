@@ -2,7 +2,7 @@
 
     <div class="custom-drawer" drawer-type="{{ content.pageWidgetType }}">
         <div class="drawer-box" style="border-radius: var(--border-radius,3px);
-            {% if content.modalTitle is not empty %} width: {{ content.modalWidth }}px; {% endif %}
+            {% if content.modalWidth is not empty %} width: {{ content.modalWidth }}px; {% endif %}
             {% if content.modalHeight is not empty %} max-height: {{ content.modalHeight }}px; {% endif %}
                 min-height: 350px;
         ">
