@@ -29,6 +29,33 @@
                                       id="customHtml">{{ pageWidget.content.customHtml }}</textarea>
                         </div>
                     </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="modalAction" class="control-label">{{ 'Action Button Text'|trans }}</label>
+                            <input type="text" class="form-control" name="modalAction"
+                                   value="{{ pageWidget.content.modalAction }}" id="modalAction">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="modalLink" class="control-label">{{ 'Action Button URL'|trans }}</label>
+                            <input type="text" class="form-control" name="modalLink"
+                                   value="{{ pageWidget.content.modalLink }}" id="modalLink">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="modalLink" class="control-label">{{ 'Modal Width (optional)'|trans }}</label>
+                            <input type="text" class="form-control" name="modalWidth"
+                                   placeholder="350"
+                                   value="{{ pageWidget.content.modalWidth }}" id="modalWidth">
+
+                            <label for="modalHeight" class="control-label">{{ 'Modal Max Height (optional)'|trans }}</label>
+                            <input type="text" class="form-control" name="modalHeight"
+                                   placeholder="450"
+                                   value="{{ pageWidget.content.modalHeight }}" id="modalHeight">
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div class="form-group checkbox">

@@ -1,16 +1,30 @@
 {% if content.modalTitle is not empty or content.customHtml is not empty %}
 
     <div class="custom-drawer" drawer-type="{{ content.pageWidgetType }}">
-        <div class="drawer-box">
+        <div class="drawer-box" style="border-radius: var(--border-radius,3px);
+            {% if content.modalTitle is not empty %} width: {{ content.modalWidth }}px; {% endif %}
+            {% if content.modalHeight is not empty %} max-height: {{ content.modalHeight }}px; {% endif %}
+                min-height: 350px;
+        ">
             <button class="close-drawer"><i class="fa fa-close"></i></button>
             {% if content.modalTitle is not empty %}
                 <div class="drawer-heading">
-                    <h2 class="heading h-2">{{ content.modalTitle }}</h2>
+                    <h2 class="heading h-2" style="text-align: center">{{ content.modalTitle }}</h2>
                 </div>
             {% endif %}
             {% if content.customHtml is not empty %}
                 <div class="drawer-content">
                     {{ content.customHtml|raw }}
+                </div>
+            {% endif %}
+            {% if content.modalAction is not empty %}
+                <div class="drawer-footer" style="text-align: center;">
+                    <a class="button button-md is-primary"
+                       type="button"
+                       href="{{ content.modalLink|raw }}"
+                    >
+                        {{ content.modalAction|raw }}
+                    </a>
                 </div>
             {% endif %}
         </div>
