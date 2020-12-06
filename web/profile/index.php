@@ -611,7 +611,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
         } ?>
     </div>
 
-    <!--<script src="https://js.stripe.com/v3/"></script>
+    <script src="https://js.stripe.com/v3/"></script>
     <script>
         // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
         var PUBLISHABLE_KEY = '<?php echo $stripe_pub_key ?>';
@@ -657,7 +657,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
             }
         }
 
-    </script>-->
+    </script>
 
     <script>
         var errors = [];
