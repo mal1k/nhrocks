@@ -844,6 +844,8 @@ setting_get('add_sponsor_url', $add_sponsor_url);
 setting_get('add_visitor_url', $add_visitor_url);
 setting_get('update_sponsor_url', $update_sponsor_url);
 setting_get('update_visitor_url', $update_visitor_url);
+setting_get('airtable_base_url', $airtable_base_url);
+setting_get('airtable_key', $airtable_key);
 
 //Get maintenance page id
 $sql = "SELECT id FROM Page WHERE pagetype_id = (SELECT id FROM PageType WHERE title = '".\ArcaSolutions\WysiwygBundle\Entity\PageType::MAINTENANCE_PAGE."')";
