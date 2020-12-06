@@ -521,6 +521,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
+    if ($zappierSettings) {
+
+        if (!setting_set('airtable_base_url', trim($airtable_base_url))) {
+            if (!setting_new('airtable_base_url', trim($airtable_base_url))) {
+                $error = true;
+            }
+        }
+        if (!setting_set('airtable_key', trim($airtable_key))) {
+            if (!setting_new('airtable_key', trim($airtable_key))) {
+                $error = true;
+            }
+        }
+        if (!setting_set('add_sponsor_url', trim($add_sponsor_url))) {
+            if (!setting_new('add_sponsor_url', trim($add_sponsor_url))) {
+                $error = true;
+            }
+        }
+        if (!setting_set('add_visitor_url', trim($add_visitor_url))) {
+            if (!setting_new('add_visitor_url', trim($add_visitor_url))) {
+                $error = true;
+            }
+        }
+        if (!setting_set('update_sponsor_url', trim($update_sponsor_url))) {
+            if (!setting_new('update_sponsor_url', trim($update_sponsor_url))) {
+                $error = true;
+            }
+        }
+        if (!setting_set('update_visitor_url', trim($update_visitor_url))) {
+            if (!setting_new('update_visitor_url', trim($update_visitor_url))) {
+                $error = true;
+            }
+        }
+    }
+
     /* ModStores Hooks */
     HookFire('generalsettings_after_save', [
         'success'         => &$success,
@@ -804,6 +838,12 @@ setting_get('locals_price_id', $locals_price_id);
 setting_get('locals_price_text', $locals_price_text);
 setting_get('locals_price_id_2', $locals_price_id_2);
 setting_get('locals_price_text_2', $locals_price_text_2);
+
+// Zappier
+setting_get('add_sponsor_url', $add_sponsor_url);
+setting_get('add_visitor_url', $add_visitor_url);
+setting_get('update_sponsor_url', $update_sponsor_url);
+setting_get('update_visitor_url', $update_visitor_url);
 
 //Get maintenance page id
 $sql = "SELECT id FROM Page WHERE pagetype_id = (SELECT id FROM PageType WHERE title = '".\ArcaSolutions\WysiwygBundle\Entity\PageType::MAINTENANCE_PAGE."')";

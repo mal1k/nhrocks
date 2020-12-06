@@ -416,5 +416,52 @@
                         data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
             </div>
         </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">Zappier Settings</div>
+
+            <div class="panel-body form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Airtable Base Url</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="airtable_base_url" value="<?= $airtable_base_url ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Airtable Key</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="airtable_key" value="<?= $airtable_key ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Add Sponsor URL</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="add_sponsor_url" value="<?= $add_sponsor_url ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Add Visitor URL</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="add_visitor_url" value="<?= $add_visitor_url ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Update Visitor URL</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="update_visitor_url" value="<?= $update_visitor_url ?>">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3">Update Sponsor URL</label>
+                    <div class="col-sm-7">
+                        <input class="form-control" type="text" name="update_sponsor_url" value="<?= $update_sponsor_url ?>">
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <button type="submit" name="zappierSettings" value="1" class="btn btn-primary action-save"
+                        data-loading-text="<?= system_showText(LANG_LABEL_FORM_WAIT); ?>"><?= system_showText(LANG_SITEMGR_SAVE_CHANGES); ?></button>
+            </div>
+        </div>
     </div>
 </form>

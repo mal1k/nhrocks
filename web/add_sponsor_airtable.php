@@ -1,8 +1,8 @@
 <?php
 
-include '../conf/loadconfig.inc.php';
+include 'conf/loadconfig.inc.php';
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "PATCH") {
     $input = json_decode(file_get_contents('php://input'), true);
 
     // SAVE to AirTable
@@ -11,32 +11,32 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'FirstName' => $input['first_name'] ?? '',
             'LastName' => $input['last_name'] ?? '',
             'Email' => $input['email'] ?? '',
+            'Listing' => $input['title'] ?? '',
         ]
     ];
 
+    setting_get('add_sponsor_url', $add_sponsor_url);
 
-    setting_get('add_visitor_url', $add_visitor_url);
-
-    if(empty($add_visitor_url)){
-        echo \json_encode(["success" => false, 'data' => ['error' => 'add_visitor_url not found']]);
+    if(empty($add_sponsor_url)){
+        echo \json_encode(["success" => false, 'data' => ['error' => 'add_sponsor_url not found']]);
         return;
     }
 
-    addVisitor($data, $add_visitor_url);
+    addSponsor($data, $add_sponsor_url);
 
-    echo \json_encode(["success" => true, 'data' => $input]);
+    echo \json_encode(["success" => true, 'data' => $data]);
     return;
 }
 
 /**
  * @param array $data
- * @param string $url
+ * @param string $add_sponsor_url
  */
-function addVisitor($data, $url)
+function addSponsor(array $data, $add_sponsor_url): void
 {
     $data_json = json_encode($data);
 
-    $ch = curl_init($url);
+    $ch = curl_init($add_sponsor_url);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
     curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -47,6 +47,3 @@ function addVisitor($data, $url)
     $result = curl_exec($ch);
     curl_close($ch);
 }
-
-http_response_code(400);
-return \json_encode(["success" => false]);

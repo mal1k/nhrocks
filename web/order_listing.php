@@ -22,6 +22,7 @@
     # LOAD CONFIG
     # ----------------------------------------------------------------------------------------------------
     include("./conf/loadconfig.inc.php");
+    include("./add_sponsor_airtable.php");
 
     # ----------------------------------------------------------------------------------------------------
     # SESSION
@@ -147,18 +148,8 @@
                     'Listing' => $_POST['title'] ?? '',
                 ]
             ];
-            $data_json = json_encode($data);
 
-            $ch = curl_init('https://api.airtable.com/v0/appL7BljlwkiI6zKH/New%20Sponsor%20Signups?api_key=keyliqKng8eLukP2r');
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "POST");
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $data_json);
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type: application/json'
-            ));
-
-            $result = curl_exec($ch);
-            curl_close($ch);
+            addSponsor($data, setting_get('add_sponsor_url', $add_sponsor_url));
 
             unset($_POST["email"]);
             unset($_POST["phone"]);
