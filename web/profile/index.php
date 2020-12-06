@@ -419,9 +419,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                         </div>
                     </div>
                 </div>
+
+                <!--Locals Card-->
+                <!--Locals Card-->
+                <!--Locals Card-->
+
                 <div class="profile-content">
 
-                    <div class="members-panel edit-panel">
+                    <div id="show-local-con"
+
+                            style="
+                    text-align: center;
+                    border: 1px solid #e3ecf0;
+                    border-radius: var(--border-radius,3px);
+                    padding: 5px;
+                    background-color: #e3ecf0;
+                    "
+                    >
+                        <button type="button" class="button button-md is-primary" id="show_locals">Are you a resident?</button>
+
+                    </div>
+
+                    <div id="locals-con" class="members-panel edit-panel hide">
                         <div class="panel-header">Locals Card</div>
                         <div class="panel-body">
                             <?php if(!$isLocalCardHolder) { ?>
@@ -441,7 +460,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                                 <span>Required: Upload photo of Utility bill or NH drivers license</span>
                                                 <input class="form-control custom-input-size" type="file" name="fileToUpload" id="fileToUpload">
                                             </div>
-                                            <button type="submit" class="button button-md is-primary" value="Submit" id="standard_submit">Submit Photo</button>
+                                            <button style="margin-top: 10px;" type="submit" class="button button-md is-primary" value="Submit" id="standard_submit">Submit Photo</button>
                                         </form>
                                     </div>
                                 <?php } ?>
@@ -450,6 +469,45 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                             <?php } ?>
                         </div>
                     </div>
+
+                    <!--FAVORITES-->
+                    <!--FAVORITES-->
+                    <!--FAVORITES-->
+
+                    <?php
+                    if (!$_GET["id"]) {
+                        $id = sess_getAccountIdFromSession();
+                    } else {
+                        $id = $_GET["id"];
+                    }
+                    $favoritesItems = system_getUserActivities("favorites", $id);
+
+                    if (is_array($favoritesItems) && count($favoritesItems)) {
+                        setting_get("review_listing_enabled", $review_enabled);
+                        $levelsWithReview = system_retrieveLevelsWithInfoEnabled("has_review");
+                        ?>
+                        <br>
+                        <div class="members-panel">
+                            <div class="panel-header">
+                                <?=system_showText(LANG_LABEL_FAVORITES);?>
+                            </div>
+                            <div class="panel-body">
+                                <?php foreach ($favoritesItems as $module => $favorites) {
+                                    if (is_array($favorites)) {
+                                        foreach ($favorites as $favorite) {
+                                            include(INCLUDES_DIR."/views/view_favorite.php");
+                                        }
+                                    }
+                                } ?>
+                            </div>
+                        </div>
+                    <?php } ?>
+                    <br>
+
+                    <!--RECENT_ACTIVITY-->
+                    <!--RECENT_ACTIVITY-->
+                    <!--RECENT_ACTIVITY-->
+
                     <div class="members-panel edit-panel">
                         <div class="panel-header">
                             <?=system_showText(LANG_LABEL_PROFILE_RECENT_ACTIVITY)?>
@@ -535,35 +593,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                             </div>
                         </div>
                     </div>
-                    <?php
-                        if (!$_GET["id"]) {
-                            $id = sess_getAccountIdFromSession();
-                        } else {
-                            $id = $_GET["id"];
-                        }
-                        $favoritesItems = system_getUserActivities("favorites", $id);
 
-                        if (is_array($favoritesItems) && count($favoritesItems)) {
-                            setting_get("review_listing_enabled", $review_enabled);
-                            $levelsWithReview = system_retrieveLevelsWithInfoEnabled("has_review");
-                    ?>
-                    <br>
-                    <div class="members-panel">
-                        <div class="panel-header">
-                            <?=system_showText(LANG_LABEL_FAVORITES);?>
-                        </div>
-                        <div class="panel-body">
-                            <?php foreach ($favoritesItems as $module => $favorites) {
-                                if (is_array($favorites)) {
-                                    foreach ($favorites as $favorite) {
-                                        include(INCLUDES_DIR."/views/view_favorite.php");
-                                    }
-                                }
-                            } ?>
-                        </div>
-                    </div>
-                    <?php } ?>
-                    <br>
                     <?php
                         /* ModStores Hooks */
                         HookFire( 'profilehomepage_after_render', [
@@ -581,7 +611,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
         } ?>
     </div>
 
-    <script src="https://js.stripe.com/v3/"></script>
+    <!--<script src="https://js.stripe.com/v3/"></script>
     <script>
         // Replace with your own publishable key: https://dashboard.stripe.com/test/apikeys
         var PUBLISHABLE_KEY = '<?php echo $stripe_pub_key ?>';
@@ -627,13 +657,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
             }
         }
 
-    </script>
+    </script>-->
 
     <script>
         var errors = [];
         var validation = document.getElementById('validation');
         var photo_upload = document.getElementById('fileToUpload');
         var submit_button = document.getElementById('standard_submit');
+        var show_locals_button = document.getElementById('show_locals');
+        var locals_con = document.getElementById('locals-con');
+        var show_local_con = document.getElementById('show-local-con');
+
+        show_locals_button.addEventListener("click", function(event){
+            locals_con.classList.remove('hide');
+            show_local_con.classList.add('hide');
+        });
 
         submit_button.addEventListener("click", function(event){
             errors = [];

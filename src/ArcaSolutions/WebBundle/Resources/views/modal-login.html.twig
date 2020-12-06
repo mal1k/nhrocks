@@ -7,7 +7,7 @@
         <div class="modal-nav">
             {% if (data.socialnetworkFeature == 'on') %}
                 <a href="javascript:void(0);" class="heading modal-nav-link active" data-tab="sign-in">{{ "Sign In"|trans }}</a>
-                <a href="javascript:void(0);" class="heading modal-nav-link" data-tab="sign-up">{{ "Register"|trans }}</a>
+                {#<a href="javascript:void(0);" class="heading modal-nav-link" data-tab="sign-up">{{ "Register"|trans }}</a>#}
                 <div class="selected-arrow"></div>
             {% endif %}
             <a href="javascript:void(0);" class="modal-close-button" data-modal="close"><i class="fa fa-close"></i></a>
@@ -30,6 +30,7 @@
                     <input type="password" name="password" class="input" placeholder="{{ "Password"|trans }}">
                     <input type="hidden" name="action" value="">
                     <input type="hidden" name="item_id" value="">
+                    <input type="hidden" name="redirect_profile" value="true">
                     <div class="form-actions">
                         <label class="form-remember">
                             <input type="checkbox" name="remember">
@@ -43,6 +44,9 @@
                         <button type="submit" id="login_submit" class="button button-bg is-primary">{{ "Log In"|trans }}</button>
                     </div>
                 </form>
+                <div class="form-button">
+                    <a href="/profile/add.php" type="submit" class="button button-bg is-secondary">{{ "Sign up"|trans }}</a>
+                </div>
                 <small class="privacy-policy">{{ 'By signing up, you agree to our %start_terms% Terms of Services %end_terms% and %start_privacy% Privacy Policy %end_privacy%.'| trans({'%start_terms%' : '<a href="/'~getParameter('alias_terms_url_divisor')~'" class="link">', '%end_terms%' : '</a>', '%start_privacy%' : '<a href="/'~getParameter('alias_privacy_url_divisor')~'" class="link">', '%end_privacy%' : '</a>'}, 'account') | raw }}</small>
                 {# <div class="not-member">{{ "Not a member?"|trans }} <a href="javascript:void(0);" class="link modal-nav-link" data-tab="sign-up">{{ "Sign Up"|trans }}</a></div> #}
             </div>

@@ -115,6 +115,9 @@
                     <input type="checkbox" name="automatic_login" value="1" <?=$checked?> class="inputAuto" />
                 </label>
 
+
+                <input type="hidden" name="redirect_profile" value="true">
+
             	<button type="submit" class="stmgr-btn success"><?=system_showText(LANG_BUTTON_LOGIN);?></button>
 			</div>
 

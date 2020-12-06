@@ -152,6 +152,11 @@
             } else {
                 header("Location: ".$url);
             }
+
+            if (($_POST['redirect_profile'] ?? false) === 'true') {
+                header("Location: " . $url);
+            }
+
             exit;
 
         }
