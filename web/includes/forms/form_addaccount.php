@@ -47,7 +47,7 @@
         <?php if (!$advertise_section) { ?>
             <div id="upload_section" class="signup_secondary hidden">
                 <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
-                    <span>Required: Upload photo of NH drivers license</span>
+                    <span>Required: Upload photo of Utility bill or NH drivers license</span>
                     <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
                 </div>
                 <p style="color: #FFAB3E; text-align: center; font-weight: bold;"><small>We use this to verify residency. We delete this data upon verification/payment. <br> We promise to never sell or distribute your information to anyone, ever.</small></p>

@@ -438,7 +438,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                         </p>
                                         <form method="post" autocomplete="off" enctype="multipart/form-data">
                                             <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
-                                                <span>Required: Upload photo of NH drivers license</span>
+                                                <span>Required: Upload photo of Utility bill or NH drivers license</span>
                                                 <input class="form-control custom-input-size" type="file" name="fileToUpload" id="fileToUpload">
                                             </div>
                                             <button type="submit" class="button button-md is-primary" value="Submit" id="standard_submit">Submit Photo</button>
