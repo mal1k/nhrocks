@@ -646,7 +646,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                 .then(handleResult);
         };
 
+        var imageUploaded = <?php print_r( !empty($imageUploaded)?'true':'false'); ?>;
+
         function buyLocal(type){
+            if(!imageUploaded){
+                alert('Photo upload required');
+                return;
+            }
+
             if(type === 1){
                 redirectToCheckout(SUBSCRIPTION_BASIC_PRICE_ID);
                 return;
