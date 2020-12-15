@@ -1,7 +1,5 @@
 <?php
 
-include 'conf/loadconfig.inc.php';
-
 if ($_SERVER["REQUEST_METHOD"] == "PATCH") {
     $input = json_decode(file_get_contents('php://input'), true);
 

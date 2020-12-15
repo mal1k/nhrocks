@@ -45,13 +45,13 @@
         <input class="input custom-input-size password signup_secondary <?php if (!$advertise_section){ echo 'hidden'; } ?>" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
 
         <?php if (!$advertise_section) { ?>
-            <div id="upload_section" class="signup_secondary hidden">
-                <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">
-                    <span>Required: Upload photo of Utility bill or NH drivers license</span>
-                    <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload" accept="image/*">
-                </div>
-                <p style="color: #FFAB3E; text-align: center; font-weight: bold;"><small>We use this to verify residency. We delete this data upon verification/payment. <br> We promise to never sell or distribute your information to anyone, ever.</small></p>
-            </div>
+            <!--<div id="upload_section" class="signup_secondary hidden">-->
+            <!--    <div style="border: 1px solid rgba(62,69,94,.25); padding: 5px; margin-top: 5px; border-radius: 3px;">-->
+            <!--        <span>Required: Upload photo of Utility bill or NH drivers license</span>-->
+            <!--        <input class="custom-input-size" type="file" name="fileToUpload" id="fileToUpload" accept="image/*">-->
+            <!--    </div>-->
+            <!--    <p style="color: #FFAB3E; text-align: center; font-weight: bold;"><small>We use this to verify residency. We delete this data upon verification/payment. <br> We promise to never sell or distribute your information to anyone, ever.</small></p>-->
+            <!--</div>-->
         <?php } ?>
     </div>
 
@@ -192,14 +192,14 @@
                 errors.push("Password: Required");
             }
 
-            if( photo_upload.files.length === 0 ){
-                errors.push("Drivers license: Required");
-            }else{
-                var file = photo_upload.files[0];
-                if(file && file.size > (1024*1000*5)) { // 5 MB (this size is in bytes)
-                    errors.push("Drivers license: Image too large");
-                }
-            }
+            //if( photo_upload.files.length === 0 ){
+            //    errors.push("Drivers license: Required");
+            //}else{
+            //    var file = photo_upload.files[0];
+            //    if(file && file.size > (1024*1000*5)) { // 5 MB (this size is in bytes)
+            //        errors.push("Drivers license: Image too large");
+            //    }
+            //}
 
             if(errors.length > 0){
                 event.preventDefault();

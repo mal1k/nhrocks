@@ -668,9 +668,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
         var locals_con = document.getElementById('locals-con');
         var show_local_con = document.getElementById('show-local-con');
 
-        show_locals_button.addEventListener("click", function(event){
+        var imageUploaded = <?php print_r( !empty($imageUploaded)?'true':'false'); ?>;
+        var localCurrent = <?php print_r( !empty($localCurrent)?'true':'false'); ?>;
+        var isLocalCardHolder = <?php print_r( !empty($isLocalCardHolder)?'true':'false'); ?>;
+
+        function showLocals(){
             locals_con.classList.remove('hide');
             show_local_con.classList.add('hide');
+        }
+
+        if(imageUploaded && (!localCurrent || !isLocalCardHolder)){
+            showLocals();
+        }
+
+        show_locals_button.addEventListener("click", function(event){
+            showLocals();
         });
 
         submit_button.addEventListener("click", function(event){
