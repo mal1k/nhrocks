@@ -3,6 +3,8 @@ Disallow: /custom/domain*
 Disallow: /custom/log
 Disallow: /custom/profile
 Disallow: /custom/tmp
+Disallow: /custom/index.php
+Disallow: /media/index.php
 Disallow: /layout
 Disallow: /includes
 Disallow: /search/map/summary

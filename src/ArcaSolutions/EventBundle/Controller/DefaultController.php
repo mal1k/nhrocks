@@ -213,7 +213,7 @@ class DefaultController extends Controller
             $item->setEndDate(null);
         }
 
-        if ($item->getUntilDate()->format('Y-m-d') === Utility::BAD_DATE_VALUE) {
+        if (is_null($item->getUntilDate()) || $item->getUntilDate()->format('Y-m-d') === Utility::BAD_DATE_VALUE) {
             $item->setUntilDate(null);
         }
 
