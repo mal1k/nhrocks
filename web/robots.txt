@@ -16,3 +16,4 @@ Allow : /custom/domain*/image_files/*
 Allow : /custom/domain*/content_files/*
 Allow: /
 Crawl-delay: 10
+sitemap: https://nhrocks.com/custom/domain_1/sitemap/index.xml
