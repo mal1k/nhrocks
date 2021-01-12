@@ -42,7 +42,14 @@ final class BookmarkExtension extends \Twig_Extension
                 'needs_environment' => true,
                 'is_safe'           => ['html']
             ]),
-
+            new \Twig_SimpleFunction('favLink', [$this, 'favLink'], [
+                'needs_environment' => true,
+                'is_safe'           => ['html']
+            ]),
+            new \Twig_SimpleFunction('favButton', [$this, 'favButton'], [
+                'needs_environment' => true,
+                'is_safe'           => ['html']
+            ]),
         ];
     }
 
@@ -58,6 +65,20 @@ final class BookmarkExtension extends \Twig_Extension
     public function bookmarkLink(\Twig_Environment $twig_Environment, $item = null, $module = '')
     {
         return $this->bookmark($twig_Environment, $item, $module, 'link');
+    }
+
+    /**
+     * @param \Twig_Environment $twig_Environment
+     * @param null              $item
+     *
+     * @param string            $module
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function favLink(\Twig_Environment $twig_Environment, $item = null, $module = '')
+    {
+        return $this->bookmark($twig_Environment, $item, $module, 'fav');
     }
 
     /**
@@ -94,6 +115,20 @@ final class BookmarkExtension extends \Twig_Extension
      * @throws \Exception
      */
     public function bookmarkButton(\Twig_Environment $twig_Environment, $item = null, $module = '')
+    {
+        return $this->bookmark($twig_Environment, $item, $module, 'button');
+    }
+
+    /**
+     * @param \Twig_Environment $twig_Environment
+     * @param null              $item
+     *
+     * @param string            $module
+     *
+     * @return string
+     * @throws \Exception
+     */
+    public function favButton(\Twig_Environment $twig_Environment, $item = null, $module = '')
     {
         return $this->bookmark($twig_Environment, $item, $module, 'button');
     }

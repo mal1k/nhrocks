@@ -51,6 +51,39 @@
 
         $item_title = htmlspecialchars($listing["title"]);
 
+    } elseif ($module == "favs") {
+
+        unset($listing);
+        $listing = new Listing($favorite["id"]);
+        $level = new ListingLevel(true);
+
+        $listingAux = $listing;
+        $listing = $listing->data_in_array;
+
+        //Get fields according to level
+        unset($array_fields);
+        $array_fields = system_getFormFields("Listing", $listing['level']);
+
+        $itemLink = LISTING_DEFAULT_URL."/".htmlspecialchars($listing["friendly_url"]).".html";
+
+        unset($item_phone);
+        if (htmlspecialchars($listing["phone"]) && is_array($array_fields) && in_array("phone", $array_fields)) {
+            $item_phone = $listing["phone"];
+        }
+
+        unset($avgreview);
+        if ($review_enabled == "on") {
+            if ($levelsWithReview) {
+                if (in_array($listing["level"], $levelsWithReview)) {
+                    $avgreview = $listing["avg_review"];
+                }
+            }
+        }
+
+        $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$listing["id"]."', 'favorite');\"";
+
+        $item_title = htmlspecialchars($listing["title"]);
+
     } elseif ($module == "classified") {
 
         $classified = new Classified($favorite["id"]);

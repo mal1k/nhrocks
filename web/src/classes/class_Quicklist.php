@@ -148,7 +148,7 @@
 			if (is_numeric($acc)) {
 				if ($from == "all") {
 					$sql = "SELECT * FROM Quicklist WHERE id = $acc";
-				} else if ($from == "article" || $from == "classified" || $from == "event" || $from == "listing" || $from == "promotion") {
+				} else if ($from == "article" || $from == "classified" || $from == "event" || $from == "listing" || $from == "promotion" || $from == "favorite") {
 					$sql = "SELECT item_id FROM Quicklist WHERE account_id = $acc AND item_type = '".$from."'";
 				}
 

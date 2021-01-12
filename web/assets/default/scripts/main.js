@@ -21643,10 +21643,14 @@ $(document).ready(function () {
                             el.find("input[name='item_id']").val(id);
                             moveSelectedArrow(el);
                             setContentHeight(el);
-                        } else if ('pinned' === response.status) { /* pinned */
-                            $('a[data-modal="bookmark"][data-id=' + bookmark_id +'] i').removeClass('fa-bookmark-o').addClass('fa-bookmark');
-                        } else if ('unpinned' === response.status) { /* unpinned */
-                            $('a[data-modal="bookmark"][data-id=' + bookmark_id +'] i').addClass('fa-bookmark-o').removeClass('fa-bookmark');
+                        } else if ('pinned' === response.status && module === 'listing') { /* pinned */
+                            $('a[data-modal="bookmark"][data-id=' + bookmark_id +'] i.fa-bookmark-o').removeClass('fa-bookmark-o').addClass('fa-bookmark');
+                        } else if ('unpinned' === response.status && module === 'listing') { /* unpinned */
+                            $('a[data-modal="bookmark"][data-id=' + bookmark_id +'] i.fa-bookmark').addClass('fa-bookmark-o').removeClass('fa-bookmark');
+                        } else if ('pinned' === response.status && module === 'favorite') { /* pinned */
+                            $('a[data-modal="bookmark"][data-id=' + bookmark_id +'] i.fa-star-o').removeClass('fa-star-o').addClass('fa-star');
+                        } else if ('unpinned' === response.status && module === 'favorite') { /* unpinned */
+                            $('a[data-modal="bookmark"][data-id=' + bookmark_id +'] i.fa-star').addClass('fa-star-o').removeClass('fa-star');
                         }
                     });
                     break;

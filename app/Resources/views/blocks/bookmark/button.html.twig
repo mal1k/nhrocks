@@ -1,7 +1,8 @@
 {% spaceless %}
     {% set classLink = module == 'article' ? 'icon' : '' %}
-    {% set classIcon = marked ? 'fa-bookmark' : 'fa-bookmark-o' %}
+    {% set prefix = module == 'favorite' ? 'fa-star' : 'fa-bookmark' %}
+    {% set classIcon = marked ? '' : '-o' %}
     <a href="javascript:void(0);" rel="nofollow" class="tooltip {{ classLink }}" data-tooltip="{{ 'Add this item to favorites'|trans }}" data-id="{{ id }}" data-module="{{ module }}" data-modal="bookmark">
-        <span class="icon icon-md"><i class="fa {{ classIcon }}"></i></span>
+        <span class="icon icon-md"><i class="fa {{ "#{prefix}#{classIcon}" }}"></i></span>
     </a>
 {% endspaceless %}

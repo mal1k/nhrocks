@@ -3211,6 +3211,10 @@ function system_writeScalabilityFile($filePath, $domain_id, $values)
 
 function system_getItemAddressString($item = 'Listing', $item_id)
 {
+    if($item == 'Favs'){
+        $item = 'Listing';
+    }
+
     $itemObj = new $item($item_id);
     $locationsToshow = system_retrieveLocationsToShow();
     $item_location = '';
@@ -3292,6 +3296,7 @@ function system_getUserActivities($type, $accId)
         $idsA = $quicklistObj->getQuicklist('article', $accId);
         $idsC = $quicklistObj->getQuicklist('classified', $accId);
         $idsE = $quicklistObj->getQuicklist('event', $accId);
+        $idsF = $quicklistObj->getQuicklist('favorite', $accId);
         $ids = $quicklistObj->getQuicklist('listing', $accId);
 
         //Listing
@@ -3315,6 +3320,13 @@ function system_getUserActivities($type, $accId)
             $events = db_getFromDBBySQL('event', $sql, 'array');
         }
 
+        //Favorite
+        if ($idsF) {
+            $hasItens = true;
+            $sql = 'SELECT id FROM Listing WHERE id IN ('.$idsF.") AND status = 'A' ORDER BY level, title";
+            $favs = db_getFromDBBySQL('listing', $sql, 'array');
+        }
+
         //Article
         if ($idsA && ARTICLE_FEATURE == 'on' && CUSTOM_ARTICLE_FEATURE == 'on') {
             $hasItens = true;
@@ -3328,6 +3340,7 @@ function system_getUserActivities($type, $accId)
                 'event'      => $events,
                 'classified' => $classifieds,
                 'article'    => $articles,
+                'favs'       => $favs
             ];
         }
 

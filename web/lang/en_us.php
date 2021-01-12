@@ -3507,7 +3507,9 @@
     //Deals Redeemed
 	define("LANG_LABEL_ACCOUNT_DEALS", string_ucwords(PROMOTION_FEATURE_NAME_PLURAL)." Redeemed");
 	//Favorites
-	define("LANG_LABEL_FAVORITES", "Bucket List");
+	define("LANG_LABEL_FAVORITES", "Do List");
+	//Favorites/Favs
+	define("LANG_LABEL_FAVS", "Favorites");
 	//You have no permission to access this area.
 	define("LANG_MSG_NO_PERMISSION", "You have no permission to access this area.");
 	//Go to your Profile

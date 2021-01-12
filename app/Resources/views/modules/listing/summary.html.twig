@@ -62,6 +62,7 @@
                 </div>
             {% endif %}
             <div class="summary-grid-actions">
+                {{ favLink(item, 'listing') }}
                 {{ bookmarkLink(item, 'listing') }}
                 {% if itemLevelInfo.hasEmail and item.email is not empty %}
                     <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="listing" data-modal="contact" class="picture-title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>
@@ -120,6 +121,7 @@
                     </div>
                 {% endif %}
                 <div class="actions">
+                    {{ favLink(item, 'favorite') }}
                     {{ bookmarkLink(item, 'listing') }}
                     {% if itemLevelInfo.hasEmail and item.email is not empty %}
                         <a href="javascript:void(0);" data-ajax="true" data-id="{{ item.id }}" data-module="listing" data-modal="contact" class="title-actions tooltip" data-tooltip="{{ 'Send a message'|trans }}"><i class="fa fa-envelope-o"></i></a>

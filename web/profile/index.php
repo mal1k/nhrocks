@@ -418,6 +418,96 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                             </div>
                         </div>
                     </div>
+
+                    <!--RECENT_ACTIVITY-->
+                    <!--RECENT_ACTIVITY-->
+                    <!--RECENT_ACTIVITY-->
+
+                    <div class="members-panel edit-panel">
+                        <div class="panel-header">
+                            <?=system_showText(LANG_LABEL_PROFILE_RECENT_ACTIVITY)?>
+                        </div>
+                        <div class="panel-body">
+                            <?php if ($id == sess_getAccountIdFromSession()) { ?>
+                                <h3 class="heading h-3 text-center"><?=system_showText(LANG_LABEL_WELCOME);?>, <?=htmlspecialchars($info["nickname"]);?>!</h3>
+                                <div class="paragraph p-2 text-center"><?=system_showText(LANG_LABEL_PROFILE_TIP1);?></div>
+                            <? } ?>
+
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                <?php
+                                if (count($userActivity)) {
+                                    foreach ($userActivity as $key => $activity) { ?>
+                                        <br>
+                                        <div class="members-panel">
+                                            <div class="panel-header" role="tab" id="<?=$key?>">
+                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<?=$key?>" aria-expanded="true" aria-controls="collapse-<?=$key?>">
+                                                    <? if (string_strpos($key, "deal") !== false) { ?>
+                                                        <?=system_showText(LANG_LABEL_REDEEMED);?> <b><?=$activity["title"]?></b>
+                                                    <? } elseif (string_strpos($key, "review") !== false) { ?>
+                                                        <?=system_showText(LANG_LABEL_RATED);?> <b><?=$activity["title"]?></b> <?=system_showText(LANG_WITH);?> <span class="stars-rating"><span class="rate-<?=$activity["rating"]?>"></span></span>
+                                                    <? } elseif (string_strpos($key, "comment") !== false) { ?>
+                                                        <?=system_showText(LANG_LABEL_COMMENTED);?> <b><?=$activity["title"]?></b>
+                                                    <? } ?>
+                                                </a>
+                                            </div>
+                                            <div id="collapse-<?=$key?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<?=$key?>" aria-expanded="false">
+                                                <div class="panel-body redem-body">
+                                                    <?php if (string_strpos($key, "deal") !== false) { ?>
+                                                        <div class="redem-title">
+                                                            <?=$activity["title_url"]?>
+                                                            <?php if ($id == sess_getAccountIdFromSession() && !$activity["used"]) { ?>
+                                                                <a class="button button-sm is-secondary pull-right" href="#" data-code="<?=$activity['redeem_code'];?>" data-name="<?=htmlspecialchars($info['nickname']);?>" data-id="<?=$activity['promotion_id']?>" data-modal="deal" data-ajax="true"><?=system_showText(LANG_LABEL_PRINT);?></a>
+                                                            <?php } ?>
+                                                        </div>
+                                                    <?php } ?>
+
+                                                    <div class="redem-date">
+                                                        <?=system_showText(LANG_BLOG_ON)?>
+                                                        <strong><?=format_date($activity["added"], DEFAULT_DATE_FORMAT, "datestring");?></strong>
+                                                    </div>
+
+                                                    <?php if (string_strpos($key, "deal") !== false) { ?>
+                                                        <?php if ($id == sess_getAccountIdFromSession()) { ?>
+                                                            <div class="redem-code"><?=system_showText(LANG_LABEL_DEAL_CODE);?> <strong><?=$activity["redeem_code"];?></strong></div>
+                                                        <?php } ?>
+
+                                                        <?php $hasDeal = true; ?>
+
+                                                    <?php } elseif (string_strpos($key, "review") !== false) { ?>
+                                                        <div class="redem-title" style="margin-top: 8px">
+                                                            <?=$activity["title_url"]?>
+                                                            <div class="paragraph p-1"><b><?=$activity["review_title"]?></b></div>
+                                                        </div>
+
+                                                        <div class="redem-review"><?=$activity["review"]?></div>
+
+                                                        <?php if ($activity["responseapproved"]) { ?>
+                                                            <div class="redem-response"><?=$activity["response"]?></div>
+                                                        <?php } ?>
+
+
+                                                    <?php } elseif (string_strpos($key, "comment") !== false) { ?>
+                                                        <div class="redem-date">
+                                                            <?=system_showText(LANG_BLOG_ON)?>
+                                                            <strong><?=format_date($activity["added"], DEFAULT_DATE_FORMAT, "datestring");?></strong>
+                                                        </div>
+
+                                                        <div class="redem-title">
+                                                            <?=$activity["title_url"]?>
+                                                        </div>
+
+                                                        <div class="redem-review"><?=$activity["description"]?></div>
+                                                    <?php } ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--Locals Card-->
@@ -470,129 +560,84 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                         </div>
                     </div>
 
-                    <!--FAVORITES-->
-                    <!--FAVORITES-->
-                    <!--FAVORITES-->
+                    <div class="list-con">
 
-                    <?php
-                    if (!$_GET["id"]) {
-                        $id = sess_getAccountIdFromSession();
-                    } else {
-                        $id = $_GET["id"];
-                    }
-                    $favoritesItems = system_getUserActivities("favorites", $id);
+                        <div class="left-list" style="width: 50%; float: left;">
+                            <!--FAVORITES/DO LIST-->
+                            <!--FAVORITES/DO LIST-->
+                            <!--FAVORITES/DO LIST-->
 
-                    if (is_array($favoritesItems) && count($favoritesItems)) {
-                        setting_get("review_listing_enabled", $review_enabled);
-                        $levelsWithReview = system_retrieveLevelsWithInfoEnabled("has_review");
-                        ?>
-                        <br>
-                        <div class="members-panel">
-                            <div class="panel-header">
-                                <?=system_showText(LANG_LABEL_FAVORITES);?>
-                            </div>
-                            <div class="panel-body">
-                                <?php foreach ($favoritesItems as $module => $favorites) {
-                                    if (is_array($favorites)) {
-                                        foreach ($favorites as $favorite) {
-                                            include(INCLUDES_DIR."/views/view_favorite.php");
-                                        }
-                                    }
-                                } ?>
-                            </div>
-                        </div>
-                    <?php } ?>
-                    <br>
-
-                    <!--RECENT_ACTIVITY-->
-                    <!--RECENT_ACTIVITY-->
-                    <!--RECENT_ACTIVITY-->
-
-                    <div class="members-panel edit-panel">
-                        <div class="panel-header">
-                            <?=system_showText(LANG_LABEL_PROFILE_RECENT_ACTIVITY)?>
-                        </div>
-                        <div class="panel-body">
-                            <?php if ($id == sess_getAccountIdFromSession()) { ?>
-                                <h3 class="heading h-3 text-center"><?=system_showText(LANG_LABEL_WELCOME);?>, <?=htmlspecialchars($info["nickname"]);?>!</h3>
-                                <div class="paragraph p-2 text-center"><?=system_showText(LANG_LABEL_PROFILE_TIP1);?></div>
-                            <? } ?>
-
-                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                             <?php
-                                if (count($userActivity)) {
-                                    foreach ($userActivity as $key => $activity) { ?>
+                            if (!$_GET["id"]) {
+                                $id = sess_getAccountIdFromSession();
+                            } else {
+                                $id = $_GET["id"];
+                            }
+                            $favoritesItems = system_getUserActivities("favorites", $id);
+
+                            if (is_array($favoritesItems) && count($favoritesItems)) {
+                                setting_get("review_listing_enabled", $review_enabled);
+                                $levelsWithReview = system_retrieveLevelsWithInfoEnabled("has_review");
+                                ?>
                                 <br>
                                 <div class="members-panel">
-                                    <div class="panel-header" role="tab" id="<?=$key?>">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapse-<?=$key?>" aria-expanded="true" aria-controls="collapse-<?=$key?>">
-                                        <? if (string_strpos($key, "deal") !== false) { ?>
-                                            <?=system_showText(LANG_LABEL_REDEEMED);?> <b><?=$activity["title"]?></b>
-                                        <? } elseif (string_strpos($key, "review") !== false) { ?>
-                                            <?=system_showText(LANG_LABEL_RATED);?> <b><?=$activity["title"]?></b> <?=system_showText(LANG_WITH);?> <span class="stars-rating"><span class="rate-<?=$activity["rating"]?>"></span></span>
-                                        <? } elseif (string_strpos($key, "comment") !== false) { ?>
-                                            <?=system_showText(LANG_LABEL_COMMENTED);?> <b><?=$activity["title"]?></b>
-                                        <? } ?>
-                                        </a>
+                                    <div class="panel-header">
+                                        <?=system_showText(LANG_LABEL_FAVORITES);?>
                                     </div>
-                                    <div id="collapse-<?=$key?>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<?=$key?>" aria-expanded="false">
-                                        <div class="panel-body redem-body">
-                                            <?php if (string_strpos($key, "deal") !== false) { ?>
-                                                <div class="redem-title">
-                                                    <?=$activity["title_url"]?>
-                                                    <?php if ($id == sess_getAccountIdFromSession() && !$activity["used"]) { ?>
-                                                        <a class="button button-sm is-secondary pull-right" href="#" data-code="<?=$activity['redeem_code'];?>" data-name="<?=htmlspecialchars($info['nickname']);?>" data-id="<?=$activity['promotion_id']?>" data-modal="deal" data-ajax="true"><?=system_showText(LANG_LABEL_PRINT);?></a>
-                                                    <?php } ?>
-                                                </div>
-                                            <?php } ?>
-
-                                            <div class="redem-date">
-                                                <?=system_showText(LANG_BLOG_ON)?>
-                                                <strong><?=format_date($activity["added"], DEFAULT_DATE_FORMAT, "datestring");?></strong>
-                                            </div>
-
-                                            <?php if (string_strpos($key, "deal") !== false) { ?>
-                                                <?php if ($id == sess_getAccountIdFromSession()) { ?>
-                                                    <div class="redem-code"><?=system_showText(LANG_LABEL_DEAL_CODE);?> <strong><?=$activity["redeem_code"];?></strong></div>
-                                                <?php } ?>
-
-                                                <?php $hasDeal = true; ?>
-
-                                            <?php } elseif (string_strpos($key, "review") !== false) { ?>
-                                                <div class="redem-title" style="margin-top: 8px">
-                                                    <?=$activity["title_url"]?>
-                                                    <div class="paragraph p-1"><b><?=$activity["review_title"]?></b></div>
-                                                </div>
-                                                
-                                                <div class="redem-review"><?=$activity["review"]?></div>
-
-                                                <?php if ($activity["responseapproved"]) { ?>
-                                                    <div class="redem-response"><?=$activity["response"]?></div>
-                                                <?php } ?>
-
-
-                                            <?php } elseif (string_strpos($key, "comment") !== false) { ?>
-                                                <div class="redem-date">
-                                                    <?=system_showText(LANG_BLOG_ON)?>
-                                                    <strong><?=format_date($activity["added"], DEFAULT_DATE_FORMAT, "datestring");?></strong>
-                                                </div>
-
-                                                <div class="redem-title">
-                                                    <?=$activity["title_url"]?>
-                                                </div>
-
-                                                <div class="redem-review"><?=$activity["description"]?></div>
-                                            <?php } ?>
-                                        </div>
+                                    <div class="panel-body">
+                                        <?php foreach ($favoritesItems as $module => $favorites) {
+                                            if (is_array($favorites) && $module !== 'favs') {
+                                                foreach ($favorites as $favorite) {
+                                                    include(INCLUDES_DIR."/views/view_favorite.php");
+                                                }
+                                            }
+                                        } ?>
                                     </div>
                                 </div>
-                                <?php
-                                    }
-                                }
-                                ?>
-                            </div>
+                            <?php } ?>
                         </div>
+
+                        <div class="right-list" style="width: 50%; float: left;">
+                            <!--FAVORITES/FAVORITE-->
+                            <!--FAVORITES/FAVORITE-->
+                            <!--FAVORITES/FAVORITE-->
+
+                            <?php
+                            if (!$_GET["id"]) {
+                                $id = sess_getAccountIdFromSession();
+                            } else {
+                                $id = $_GET["id"];
+                            }
+                            $favoritesItems = system_getUserActivities("favorites", $id);
+
+                            if (is_array($favoritesItems) && count($favoritesItems)) {
+                                setting_get("review_listing_enabled", $review_enabled);
+                                $levelsWithReview = system_retrieveLevelsWithInfoEnabled("has_review");
+                                ?>
+                                <br>
+                                <div class="members-panel">
+                                    <div class="panel-header">
+                                        <?=system_showText(LANG_LABEL_FAVS);?>
+                                    </div>
+                                    <div class="panel-body">
+                                        <?php foreach ($favoritesItems as $module => $favorites) {
+                                            if (is_array($favorites) && $module === 'favs') {
+                                                foreach ($favorites as $favorite) {
+                                                    include(INCLUDES_DIR."/views/view_favorite.php");
+                                                }
+                                            }
+                                        } ?>
+                                    </div>
+                                </div>
+                            <?php } ?>
+                        </div>
+
                     </div>
+
+
+                    <br>
+
+
 
                     <?php
                         /* ModStores Hooks */

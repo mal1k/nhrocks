@@ -47,6 +47,7 @@
                         <div class="details-title">
                             <h1 class="heading h-4" id="listing-title">{{ item.title }}</h1>
                             <div class="details-share">
+                                {{ favButton(item, 'favorite') }}
                                 {{ bookmarkButton(item, 'listing') }}
 
                                 {{ Utility.shareLinks() }}
@@ -154,6 +155,7 @@
                     <div class="details-title">
                         <div class="heading h-4">{{ item.title }}</div>
                         <div class="details-share">
+                            {{ favButton(item, 'favorite') }}
                             {{ bookmarkButton(item, 'listing') }}
 
                             {# ModStores Hooks #}
@@ -237,6 +239,7 @@
             <div class="details-title">
                 <h1 class="heading h-3">{{ item.title }}</h1>
                 <div class="details-share">
+                    {{ favButton(item, 'favorite') }}
                     {{ bookmarkButton(item, 'listing') }}
                     {{ Utility.shareLinks() }}
                 </div>

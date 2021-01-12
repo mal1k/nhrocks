@@ -29,7 +29,7 @@ web_bookmark:
     condition: "request.isXmlHttpRequest()"
     requirements:
         id: \d+
-        module: listing|event|classified|article|deal
+        module: listing|event|classified|article|deal|favorite
     options:
         expose: true
 
