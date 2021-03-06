@@ -290,6 +290,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
     $localCurrent = false;
 
     if($localCardDate){
+        // Don't require upload for previous card holders
+        $imageUploaded = true;
+
         $datetime1 = date_create($localCardDate);
         $datetime2 = date_create();
 
@@ -533,7 +536,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                     <div id="locals-con" class="members-panel edit-panel hide">
                         <div class="panel-header">Locals Card</div>
                         <div class="panel-body">
-                            <?php if(!$isLocalCardHolder) { ?>
+                            <?php if(!$isLocalCardHolder || !$localCurrent) { ?>
                                 <h3 class="heading h-3 text-center">Redeem deals with locals card!</h3>
                                 <div style="text-align: center;">
                                     <div style="text-align: center;display: inline-block;"><button href="#" class="button button-md is-primary" onclick="buyLocal(1)"><?=$locals_price_text ?? 'N/A'?></button></div>
@@ -541,7 +544,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                     <div id="error-message"></div>
                                 </div>
 
-                                <?php if(!$imageUploaded && !$localCurrent) { ?>
+                                <?php if(!$imageUploaded) { ?>
                                     <div class="form-box" style="padding-top: 20px;">
                                         <p class="alert alert-warning hidden" id="validation">
                                         </p>
