@@ -3299,6 +3299,7 @@ function system_getUserActivities($type, $accId)
 
         $hasItens = false;
         $quicklistObj = new \Quicklist();
+        
         $idsA = $quicklistObj->getQuicklist('article', $accId);
         $idsC = $quicklistObj->getQuicklist('classified', $accId);
         $idsE = $quicklistObj->getQuicklist('event', $accId);
