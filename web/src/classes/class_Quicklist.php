@@ -152,7 +152,8 @@
 					$sql = "SELECT item_id FROM Quicklist WHERE account_id = $acc AND item_type = '".$from."'";
 				}
 
-				$result = $dbObj->Query($sql);
+				$result = $dbObj->Query("SELECT 123");
+				return $result;
 
 				unset($items);
 				while ($row = mysqli_fetch_array($result)) {
