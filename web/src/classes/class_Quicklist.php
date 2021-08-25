@@ -155,6 +155,7 @@
 				}
 
 				$result = $dbObj->Query($sql);
+				return $result;
 
 				unset($items);
 				while ($row = mysqli_fetch_array($result)) {
