@@ -136,14 +136,20 @@
 		}
 
 		function getQuicklist($from = "all", $acc = 0) {
+
+			/*
 			$dbMain = db_getDBObject(DEFAULT_DB, true);
 			if (defined("SELECTED_DOMAIN_ID")) {
 				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
 			} else {
 				$dbObj = db_getDBObject(DEFAULT_DB, true);
 			}
+			*/
+
 //			$dbMain->close();
 			// unset($dbMain);
+
+			$dbObj = db_getDBObject(DEFAULT_DB, true);
 
 			if (is_numeric($acc)) {
 				if ($from == "all") {
