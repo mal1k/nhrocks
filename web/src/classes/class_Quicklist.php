@@ -137,9 +137,6 @@
 
 		function getQuicklist($from = "all", $acc = 0) {
 
-			echo $from;
-			exit();
-
 			/*
 			if (defined("SELECTED_DOMAIN_ID")) {
 				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, db_getDBObject(DEFAULT_DB, true));
@@ -160,6 +157,8 @@
 				$result = $dbObj->Query($sql);
 				if (!$result) {
 					printf("Error: %s\n", mysqli_error($dbObj));
+					echo $from;
+					exit();
 					exit();
 				}
 
