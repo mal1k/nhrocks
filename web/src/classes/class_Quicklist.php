@@ -145,7 +145,7 @@
 			}
 			*/
 
-			$dbObj = db_getDBObject(DEFAULT_DB, true);
+			$dbObj = mysqli_connect("127.0.0.1","wi36wd72_arca","W3.oJz1CrJ","automation_domain_en");
 
 			if (is_numeric($acc)) {
 				if ($from == "all") {
@@ -155,6 +155,10 @@
 				}
 
 				$result = $dbObj->Query($sql);
+				if (!$result) {
+					printf("Error: %s\n", mysqli_error($dbObj));
+					exit();
+				}
 
 				// unset($items);
 				$items = '';
