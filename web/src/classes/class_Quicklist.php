@@ -145,6 +145,8 @@
 //			$dbMain->close();
 			unset($dbMain);
 
+			$dbObj = db_getDBObject(DEFAULT_DB, true);
+
 			if (is_numeric($acc)) {
 				if ($from == "all") {
 					$sql = "SELECT * FROM Quicklist WHERE id = $acc";
