@@ -3293,8 +3293,6 @@ function system_getImageFromGallery($module, $id)
 function system_getUserActivities($type, $accId)
 {
 
-    return 1;
-
     $activities = array();
 
     if ($type == 'favorites') {
