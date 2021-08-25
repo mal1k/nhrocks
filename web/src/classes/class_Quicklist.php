@@ -136,16 +136,11 @@
 		}
 
 		function getQuicklist($from = "all", $acc = 0) {
-			$dbMain = db_getDBObject(DEFAULT_DB, true);
 			if (defined("SELECTED_DOMAIN_ID")) {
-				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
+				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, db_getDBObject(DEFAULT_DB, true));
 			} else {
 				$dbObj = db_getDBObject(DEFAULT_DB, true);
 			}
-//			$dbMain->close();
-			unset($dbMain);
-
-			$dbObj = db_getDBObject(DEFAULT_DB, true);
 
 			if (is_numeric($acc)) {
 				if ($from == "all") {
@@ -155,7 +150,6 @@
 				}
 
 				$result = $dbObj->Query($sql);
-				return $result . 'eh';
 
 				unset($items);
 				while ($row = mysqli_fetch_array($result)) {
