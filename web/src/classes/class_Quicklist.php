@@ -144,7 +144,7 @@
 			}
 			*/
 
-			$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, db_getDBObject(DEFAULT_DB, true));
+			$dbObj = db_getDBObject(DEFAULT_DB, true);
 
 			if (is_numeric($acc)) {
 				if ($from == "all") {
