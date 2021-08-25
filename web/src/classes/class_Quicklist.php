@@ -137,15 +137,13 @@
 
 		function getQuicklist($from = "all", $acc = 0) {
 
-			/*
 			if (defined("SELECTED_DOMAIN_ID")) {
 				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, db_getDBObject(DEFAULT_DB, true));
 			} else {
 				$dbObj = db_getDBObject(DEFAULT_DB, true);
 			}
-			*/
 
-			$dbObj = mysqli_connect("127.0.0.1","wi36wd72_arca","W3.oJz1CrJ","automation_domain_en");
+			// $dbObj = mysqli_connect("127.0.0.1","wi36wd72_arca","W3.oJz1CrJ","automation_domain_en");
 
 			if (is_numeric($acc)) {
 				if ($from == "all") {
