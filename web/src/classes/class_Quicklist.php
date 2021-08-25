@@ -140,7 +140,7 @@
 			if (defined("SELECTED_DOMAIN_ID")) {
 				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
 			} else {
-				$dbObj = db_getDBObject();
+				$dbObj = db_getDBObject(DEFAULT_DB, true);
 			}
 //			$dbMain->close();
 			unset($dbMain);
