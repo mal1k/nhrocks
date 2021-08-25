@@ -155,7 +155,9 @@
 
 				$result = $dbObj->Query($sql);
 
-				unset($items);
+				// unset($items);
+				$items = '';
+
 				while ($row = mysqli_fetch_array($result)) {
 					$items .= $row["item_id"].",";
 				}
