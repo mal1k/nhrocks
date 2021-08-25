@@ -143,7 +143,7 @@
 				$dbObj = db_getDBObject(DEFAULT_DB, true);
 			}
 //			$dbMain->close();
-			unset($dbMain);
+			// unset($dbMain);
 
 			if (is_numeric($acc)) {
 				if ($from == "all") {
