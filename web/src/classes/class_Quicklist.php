@@ -155,6 +155,10 @@
 				}
 
 				$result = $dbObj->Query($sql);
+				if (!$result) {
+					printf("Error: %s\n", mysqli_error($dbObj));
+					exit();
+				}
 
 				// unset($items);
 				$items = '';
