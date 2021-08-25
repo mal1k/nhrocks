@@ -19,9 +19,9 @@
     # ----------------------------------------------------------------------------------------------------
 
  ?>
-    <header class="header" data-type="1" is-sticky="<?=$widgetContent['stickyMenu'] === 'true' ? 'true' : 'false' ?>" is-inverse="<?=$widgetContent['backgroundColor'] === 'base' ? 'true' : 'false'?>" has-opacity="<?=$widgetContent['isTransparent'] === 'true' ? 'true' : 'false' ?>" has-mod="<?HookFire("header_check_dropdown")?>">
+    <header class="header boo" data-type="1" is-sticky="<?=$widgetContent['stickyMenu'] === 'true' ? 'true' : 'false' ?>" is-inverse="<?=$widgetContent['backgroundColor'] === 'base' ? 'true' : 'false'?>" has-opacity="<?=$widgetContent['isTransparent'] === 'true' ? 'true' : 'false' ?>" has-mod="<?HookFire("header_check_dropdown")?>">
         <div class="header-bar" data-align="right">
-            <div class="container">
+            <div class="container foox">
                 <div class="wrapper">
                     <a href="<?=DEFAULT_URL.'/'.ALIAS_ADVERTISE_URL_DIVISOR?>" class="bar-link"><?=$translator->trans($widgetContent['labelListWithUs'], [], 'widgets')?></a>
                     <?php if (sess_getAccountIdFromSession()) { ?>
@@ -54,7 +54,8 @@
                 </div>
             </div>
         </div>
-        <div class="header-content">
+
+        <div class="header-content alx">
             <div class="container">
                 <div class="wrapper">
                     <div class="content-left">

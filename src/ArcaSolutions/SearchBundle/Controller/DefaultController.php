@@ -606,6 +606,19 @@ class DefaultController extends Controller
                     $levels = null;
                     break;
             }
+            
+		    $conn = $this->get('doctrine')->getEntityManager()
+		    ->getConnection();
+            
+            	if($type == 'deal'){
+            		$sql = 'SELECT Listing.map_info FROM Promotion LEFT JOIN Listing on Promotion.listing_id = Listing.id WHERE Promotion.id = ' . $itemId;
+            	} else {
+			$sql = 'SELECT * FROM Listing WHERE id = ' . $itemId;
+		}
+		$stmt = $conn->prepare($sql);
+		$stmt->execute();
+		$map_info = $stmt->fetch()['map_info'];
+        	        	
 
             /* ModStores Hooks */
             HookFire("mapsummary_before_set_data", [
@@ -623,7 +636,9 @@ class DefaultController extends Controller
                 $elasticaIndex = $elasticaClient->getIndex($indexName);
                 $elasticaType = $elasticaIndex->getType($type);
                 $item = $elasticaType->getDocument($itemId);
-
+                
+                //item->map_info = $map_info->map_info;
+		
                 $itemData = $item->getData();
 
                 $categories = empty($itemData['categoryId']) ? [] : $searchEngine->categoryIdSearch(Utility::convertStringToArray($itemData['categoryId'],
@@ -634,7 +649,8 @@ class DefaultController extends Controller
                     ' '));
 
                 $hours = $this->container->get('listing.service')->formatHoursWork($itemData['hoursWork']);
-
+               
+		$item->map_info = $map_info;
                 $response[$itemData['title']] = $twig->render(
                     "::modules/{$type}/map-summary.html.twig",
                     [

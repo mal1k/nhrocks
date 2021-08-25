@@ -1,5 +1,7 @@
 <?php
 
+use ArcaSolutions\WebBundle\Entity\Quicklist;
+
 /*==================================================================*\
 ######################################################################
 #                                                                    #
@@ -999,6 +1001,7 @@ function system_registerForeignAccount(
         $sitemgr_msg .= '<b>'.string_ucwords(ZIPCODE_LABEL).': </b>'.$contact->getString('zip').'<br />';
         $sitemgr_msg .= '<b>'.system_showText(LANG_LABEL_PHONE).': </b>'.$contact->getString('phone').'<br />';
         $sitemgr_msg .= '<b>'.system_showText(LANG_LABEL_URL).': </b>'.$contact->getString('url').'<br />';
+        $sitemgr_msg .= '<b>'.system_showText(LANG_LABEL_INFO_MAP).': </b>'.$contact->getString('map_info').'<br />';
         $sitemgr_msg .= '<br /><a href="'.DEFAULT_URL.'/'.SITEMGR_ALIAS."/account/$accountViewLink.php?id=".$account->getNumber('id').'" target="_blank">'.DEFAULT_URL.'/'.SITEMGR_ALIAS."/account/$accountViewLink.php?id=".$account->getNumber('id').'</a><br /><br />';
         $sitemgr_msg .= EDIRECTORY_TITLE;
 
@@ -2824,6 +2827,8 @@ function system_sidebarInfo(&$label, &$extraFields)
         $label = system_showText(LANG_BROWSEPROMOTIONS);
     } elseif (ACTUAL_MODULE_FOLDER == BLOG_FEATURE_FOLDER) {
         $label = system_showText(LANG_BROWSEPOSTS);
+    } elseif (ACTUAL_MODULE_FOLDER == REFEREDBY_FEATURE_FOLDER) {
+        $label = system_showText(LANG_BROWSEPOSTS);
     } else {
         $extraFields = true;
         $label = system_showText(LANG_BROWSELISTINGS);
@@ -3248,6 +3253,7 @@ function system_getImageFromGallery($module, $id)
     $availableModules[] = 'event';
     $availableModules[] = 'classified';
     $availableModules[] = 'article';
+    $availableModules[] = 'referedby';
 
     if (in_array($module, $availableModules)) {
 
@@ -3287,7 +3293,7 @@ function system_getImageFromGallery($module, $id)
 function system_getUserActivities($type, $accId)
 {
 
-    $activities = [];
+    $activities = array();
 
     if ($type == 'favorites') {
 
@@ -3298,12 +3304,16 @@ function system_getUserActivities($type, $accId)
         $idsE = $quicklistObj->getQuicklist('event', $accId);
         $idsF = $quicklistObj->getQuicklist('favorite', $accId);
         $ids = $quicklistObj->getQuicklist('listing', $accId);
+        $ids = $quicklistObj->getQuicklist('referedby', $accId);
+
+        include('db.php');                             
 
         //Listing
         if ($ids) {
             $hasItens = true;
             $sql = 'SELECT id FROM Listing WHERE id IN ('.$ids.") AND status = 'A' ORDER BY level, title";
             $listings = db_getFromDBBySQL('listing', $sql, 'array');
+            //var_dump($listings);
         }
 
         //Classified

@@ -1,0 +1,2 @@
+[07-Mar-2021 19:02:59 America/New_York] PHP Warning:  Error while sending QUERY packet. PID=15887 in /home/wi36wd72/edirectory/web/src/classes/class_Mysql.php on line 103
+[07-Mar-2021 19:02:59 America/New_York] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/classes/class_ListingCategory.php on line 427

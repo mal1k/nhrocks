@@ -83,7 +83,7 @@
                 </div>
 
             <? } ?>
-
+            
             <form role="form" name="listing" id="listing" action="<?= system_getFormAction($_SERVER['PHP_SELF']) ?>"
                   method="post" enctype="multipart/form-data">
 

@@ -65,6 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 exit;
             }
         }
+        
+        $listingMap_info = new Listing($_POST["listing_id"]);
+        $listingMap_info->map_info = $_POST["map_info"];
+        $listingMap_info->Save();
     }
 
     NewImageUploader::treatPost($url_base, "Promotion");
@@ -475,7 +479,9 @@ if ($id) {
         header("Location: " . $url_redirect . "/");
         exit;
     }
-
+    $map_info = new Listing($promotion->data_in_array['listing_id']);
+    $promotion->map_info = $map_info->map_info; 
+	
     $promotion->extract();
     $account_id = $promotion->getNumber("account_id");
 

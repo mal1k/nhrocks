@@ -48,6 +48,7 @@
                         <input type="text" name="email" id="email" value="<?=$email?>" class="form-control" />
                     </div>
                     <? } ?>
+                    
                 </div>
 
                 <div class="form-group row">

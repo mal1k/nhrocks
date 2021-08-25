@@ -1,0 +1,34 @@
+[08-Sep-2020 09:07:50 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function query() on boolean in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php:485
+Stack trace:
+#0 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1235): UploadHandler->validate(NULL, Object(stdClass), NULL, NULL)
+#1 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1618): UploadHandler->handle_file_upload(NULL, NULL, '8813616', 'multipart/form-...', NULL, NULL, NULL)
+#2 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(175): UploadHandler->post()
+#3 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(159): UploadHandler->initialize()
+#4 /home/wi36wd72/edirectory/web/sitemgr/uploader/index.php(23): UploadHandler->__construct()
+#5 {main}
+  thrown in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php on line 485
+[03-Mar-2021 18:27:44 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function query() on boolean in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php:485
+Stack trace:
+#0 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1235): UploadHandler->validate(NULL, Object(stdClass), NULL, NULL)
+#1 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1618): UploadHandler->handle_file_upload(NULL, NULL, '17899882', 'multipart/form-...', NULL, NULL, NULL)
+#2 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(175): UploadHandler->post()
+#3 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(159): UploadHandler->initialize()
+#4 /home/wi36wd72/edirectory/web/sitemgr/uploader/index.php(23): UploadHandler->__construct()
+#5 {main}
+  thrown in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php on line 485
+[03-Mar-2021 18:48:26 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function query() on boolean in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php:485
+Stack trace:
+#0 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1235): UploadHandler->validate(NULL, Object(stdClass), NULL, NULL)
+#1 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1618): UploadHandler->handle_file_upload(NULL, NULL, '17897717', 'multipart/form-...', NULL, NULL, NULL)
+#2 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(175): UploadHandler->post()
+#3 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(159): UploadHandler->initialize()
+#4 /home/wi36wd72/edirectory/web/sitemgr/uploader/index.php(23): UploadHandler->__construct()
+#5 {main}
+  thrown in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php on line 485
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 16:03:31 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60

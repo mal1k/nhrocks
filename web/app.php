@@ -25,13 +25,18 @@ require_once __DIR__ . '/../app/AppKernel.php';
 //require_once __DIR__.'/../app/AppCache.php';
 
 
-$kernel = new AppKernel('prod', false);
+$kernel = new AppKernel('prod', true);
 
 // @TODO - uncomment the line below.
-//$kernel->loadClassCache();
+$kernel->loadClassCache();
 
-//$kernel = new AppCache($kernel);
+$kernel = new AppCache($kernel);
 $request = MultiDomainRequest::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
+//echo 'test';
+
+@ini_set('display_errors', '1');
+@ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);

@@ -41,7 +41,19 @@
         <input class="input custom-input-size" type="text" name="last_name" id="last_name" value="<?=$last_name?>" placeholder="<?=system_showText(LANG_LABEL_LAST_NAME);?>" />
         <input class="input custom-input-size username" type="email" name="username" id="username<?=($claimSection ? "_claim" : "")?>" value="<?=$username?>" maxlength="<?=USERNAME_MAX_LEN?>" onblur="populateField(this.value,'email');" placeholder="<?=system_showText(LANG_LABEL_USERNAME);?>" />
         <input type="hidden" name="email" id="email" value="<?=$email?>" />
-
+        
+        <br><br>
+        Refered by:<br/>
+        
+        <input list="refers" name="refer" class="input custom-input-size" disabled>
+          <datalist id="refers">
+            <option value="Nhrocks">
+            <option value="Nhrocks">
+            <option value="Nhrocks">
+            <option value="Nhrocks">
+          </datalist>
+        
+        
         <input class="input custom-input-size password signup_secondary <?php if (!$advertise_section){ echo 'hidden'; } ?>" placeholder="<?=system_showText(LANG_LABEL_PASSWORD);?>" id="password<?=($claimSection ? "_claim" : "")?>" type="password" name="password" maxlength="<?=PASSWORD_MAX_LEN?>" />
 
         <?php if (!$advertise_section) { ?>

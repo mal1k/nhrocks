@@ -94,6 +94,9 @@
 	define("LANG_MENU_ADVERTISE", "Advertise");
 	//FAQ
 	define("LANG_MENU_FAQ", "FAQ");
+	//REFERED BY
+	define("LANG_MENU_REFEREDBY", "REFERED BY");
+
 	//Sitemap
 	define("LANG_MENU_SITEMAP", "Sitemap");
 	//Contact Us
@@ -500,6 +503,8 @@
 	define("LANG_LABEL_CONTACT_EMAIL", "Contact E-mail");
 	//URL
 	define("LANG_LABEL_URL", "URL");
+	//MAP INFO
+	define("LANG_LABEL_INFO_MAP", "MAPINFO");
 	//Address
 	define("LANG_LABEL_ADDRESS", "Address");
 	//E-mail

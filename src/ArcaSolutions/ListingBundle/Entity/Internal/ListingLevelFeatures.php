@@ -174,7 +174,7 @@ class ListingLevelFeatures
         ]);
 
         $listingLevel = new self();
-
+	
         $listingLevel->name = (string)$level->getName();
 
         $listingLevel->isActive = $level->getActive() === 'y';
@@ -213,7 +213,7 @@ class ListingLevelFeatures
         if (isset($settings['classified']) && $settings['classified'] !== 'on') {
             unset($listingLevel->classifiedQuantityAssociation);
         }
-
+        
         foreach ($fields as $field) {
             switch ($field->getField()) {
                 case 'email' :

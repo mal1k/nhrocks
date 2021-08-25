@@ -118,7 +118,7 @@
             <div class="header-content">
                 <div class="container">
                     <div class="wrapper">
-                        <div class="content-left">
+                        <div class="content-left raees">
                             <a href="<?=DEFAULT_URL?>/" target="_parent" <?=(trim(EDIRECTORY_TITLE) ? "title=\"".EDIRECTORY_TITLE."\"" : "")?> class="header-logo" style="background-image: url(<?=image_getLogoImage();?>)"></a>
                         </div>
                         <? if (sess_getAccountIdFromSession()){ ?>

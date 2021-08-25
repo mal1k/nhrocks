@@ -173,6 +173,7 @@
             $sitemgr_msg .= "<b>".string_ucwords(ZIPCODE_LABEL).": </b>".$contact->getString("zip")."<br />";
             $sitemgr_msg .= "<b>".system_showText(LANG_LABEL_PHONE).": </b>".$contact->getString("phone")."<br />";
             $sitemgr_msg .= "<b>".system_showText(LANG_LABEL_URL).": </b>".$contact->getString("url")."<br />";
+			$sitemgr_msg .= '<b>'.system_showText(LANG_LABEL_INFO_MAP).': </b>'.$contact->getString('mapinfo').'<br />';
             $sitemgr_msg .="<br /><a href=\"".DEFAULT_URL."/".SITEMGR_ALIAS."/account/$accountViewLink.php?id=".$account->getNumber("id")."\" target=\"_blank\">".DEFAULT_URL."/".SITEMGR_ALIAS."/account/$accountViewLink.php?id=".$account->getNumber("id")."</a><br /><br />";
             $sitemgr_msg .= EDIRECTORY_TITLE;
 

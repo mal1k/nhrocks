@@ -64,7 +64,8 @@
     # BODY
     # ----------------------------------------------------------------------------------------------------
     $info = socialnetwork_retrieveInfoProfile($id);
-
+    //echo '<pre>';
+    //print_r($info);die();
     # ----------------------------------------------------------------------------------------------------
     # HEADER
     # ----------------------------------------------------------------------------------------------------
@@ -285,6 +286,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
     setting_get('locals_price_text_2', $locals_price_text_2);
 
     $localsCardHolderObj = new LocalsCardHolder($id);
+    //echo '<pre>';
+    //print_r($localsCardHolderObj);die();
     $isLocalCardHolder = $localsCardHolderObj->active === "1";
     $localCardDate = $localsCardHolderObj->getDate('entered');
     $localCurrent = false;
@@ -571,12 +574,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                             <!--FAVORITES/DO LIST-->
 
                             <?php
+                            ini_set('display_errors',1);
+                            error_reporting(E_ALL & ~E_NOTICE & ~E_STRICT);
+
                             if (!$_GET["id"]) {
                                 $id = sess_getAccountIdFromSession();
                             } else {
                                 $id = $_GET["id"];
                             }
+                            
+                           // $db = db_getDBObject(DEFAULT_DB,true);
+                            
                             $favoritesItems = system_getUserActivities("favorites", $id);
+
 
                             if (is_array($favoritesItems) && count($favoritesItems)) {
                                 setting_get("review_listing_enabled", $review_enabled);
@@ -585,7 +595,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                 <br>
                                 <div class="members-panel">
                                     <div class="panel-header">
-                                        <?=system_showText(LANG_LABEL_FAVORITES);?>
+                                        <?php system_showText(LANG_LABEL_FAVORITES);?>
                                     </div>
                                     <div class="panel-body">
                                         <?php foreach ($favoritesItems as $module => $favorites) {
@@ -611,7 +621,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                             } else {
                                 $id = $_GET["id"];
                             }
+
+                                                        
                             $favoritesItems = system_getUserActivities("favorites", $id);
+                            
 
                             if (is_array($favoritesItems) && count($favoritesItems)) {
                                 setting_get("review_listing_enabled", $review_enabled);
@@ -726,6 +739,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
         var imageUploaded = <?php print_r( !empty($imageUploaded)?'true':'false'); ?>;
         var localCurrent = <?php print_r( !empty($localCurrent)?'true':'false'); ?>;
         var isLocalCardHolder = <?php print_r( !empty($isLocalCardHolder)?'true':'false'); ?>;
+        var accountStatus = '<?php echo $info['active']; ?>';
+        //alert(accountStatus);
+        if(isLocalCardHolder)
+        	showLocals();
 
         function showLocals(){
             locals_con.classList.remove('hide');
@@ -733,7 +750,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
         }
 
         if(imageUploaded && (!localCurrent || !isLocalCardHolder)){
-            showLocals();
+            //showLocals();
         }
 
         show_locals_button.addEventListener("click", function(event){

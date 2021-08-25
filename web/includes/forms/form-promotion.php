@@ -266,6 +266,13 @@ if (!$members) {
                        placeholder="<?= system_showText(LANG_HOLDER_KEYWORDS); ?>" value="<?= $keywords ?>">
                 <p class="help-block small"><?= ucfirst(system_showText(LANG_LABEL_MAX)); ?> <?= MAX_KEYWORDS ?> <?= system_showText(LANG_LABEL_KEYWORDS); ?></p>
             </div>
+            
+            <div class="form-group">
+		<label for="map_info"><?= system_showText(LANG_LABEL_INFO_MAP) ?></label>
+		<input type="text" name="map_info" id="map_info" value="<?= $promotion->map_info ?>" maxlength="255"
+		       class="form-control <?= ($highlight == 'additional' && !$promotion->map_info  ? 'highlight' : '') ?>"
+		       placeholder="New York">
+	       </div>
 
         </div>
 
@@ -292,12 +299,14 @@ if (!$members) {
                     <input type="text" autocomplete="off" class="form-control date-input" id="end_date" name="end_date"
                            value="<?= $end_date ?>" placeholder="<?= format_printDateStandard() ?>">
                 </div>
+                 
             </div>
 
         </div>
+        
 
     </div>
-
+	
     <!-- Panel Discount Information  -->
     <?php
     system_fieldsGuide($arrayTutorial, $counterTutorial, system_showText(LANG_SITEMGR_DISCINFO), 'tour-discount');
@@ -460,5 +469,6 @@ if (!$members) {
             <p class="small text-muted"><?= system_showText(LANG_MSG_MAX_FILE_SIZE) ?> <?= UPLOAD_MAX_SIZE; ?>
                 MB. <?= system_showText(LANG_MSG_ANIMATEDGIF_NOT_SUPPORTED); ?></p>
         </div>
+	
     </div>
 </div>

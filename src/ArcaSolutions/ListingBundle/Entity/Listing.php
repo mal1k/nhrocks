@@ -3868,4 +3868,9 @@ class Listing
     {
         $this->lastTrafficSent = new \DateTime('now');
     }
+    
+    public function getMapInfo()
+    {
+        return $this->map_info;
+    }
 }

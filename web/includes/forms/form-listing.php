@@ -365,6 +365,32 @@ $levelObjAux = new ListingLevel();
                     </div>
                 </div>
             <?php } ?>
+
+               <!--<div class="form-group row custom-content-row"> 
+                    <div class="col-xs-12">
+                        <label for="map_info">Map Info</label>
+                        <input type="text" name="map_info" id="map_info" value="<?= $mapInfo ?>" maxlength="256" class="form-control"  tabindex="50">
+                    </div>
+                </div>-->
+
+
+
+                <?php //if (is_array($array_fields) && in_array('map_info', $array_fields)) { ?>
+                	
+                    <div class="col-xs-12">
+                        <label for="map_info"><?= system_showText(LANG_LABEL_INFO_MAP) ?></label>
+                        <input type="text" name="map_info" id="map_info" value="<?= $listing->data_in_array['map_info'] ?>" maxlength="255"
+                               class="form-control <?= ($highlight == 'additional' && !$listing->data_in_array['map_info']  ? 'highlight' : '') ?>"
+                               placeholder="New York">
+                    </div>
+                <?php //} ?>
+
+
+
+
+
+
+
         </div>
     </div>
 
@@ -383,6 +409,7 @@ $levelObjAux = new ListingLevel();
         'template_address_field'  => &$template_address_field,
         'template_address2_field' => &$template_address2_field,
         'loadMap'                 => &$loadMap,
+        //'mapInfo'                 => &$mapInfo,   
         'highlight'               => &$highlight,
         '_default_locations_info' => &$_default_locations_info,
         '_non_default_locations'  => &$_non_default_locations,

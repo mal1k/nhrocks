@@ -1,0 +1,2 @@
+[20-Dec-2020 12:46:53 America/New_York] PHP Warning:  mysqli_query(): MySQL server has gone away in /home/wi36wd72/edirectory/web/cron/statisticreport.php on line 303
+[20-Dec-2020 12:46:53 America/New_York] PHP Warning:  mysqli_query(): Error reading result set's header in /home/wi36wd72/edirectory/web/cron/statisticreport.php on line 303

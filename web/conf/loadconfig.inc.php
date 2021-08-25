@@ -84,6 +84,7 @@ include("phpini.inc.php");
 include(EDIRECTORY_ROOT . "/custom/domain/domain.inc.php");
 
 isset($_inCron) or $_inCron = false;
+
 isset($resetDomainSession) or $resetDomainSession = false;
 
 if (!$_inCron) {

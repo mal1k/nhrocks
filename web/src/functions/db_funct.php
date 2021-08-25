@@ -22,7 +22,27 @@
 		/*
 		 * Get all information of Domains
 		 */
-		$db = db_getDBObject(DEFAULT_DB,true);
+		$dbObj = db_getDBObject(DEFAULT_DB, true);
+		
+		/*		
+
+        $servername = "127.0.0.1";
+        $username = "wi36wd72_arca";
+        $password = "W3.oJz1CrJ";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password);
+
+		*/
+
+        // Check connection
+        if ($dbObj->connect_error) {
+          die("Connection failed: " . $dbObj->connect_error);
+        }
+        //echo "Connected successfully";
+
+        
+        
 		$sql = "SELECT smaccount_id,
 					   name,
 					   database_host,
@@ -40,7 +60,7 @@
 					   article_feature,
 					   id
 				   FROM Domain";
-		$result = $db->query($sql);
+		$result = $dbObj->query($sql);
 		if(mysqli_num_rows($result)){
 
 			/*

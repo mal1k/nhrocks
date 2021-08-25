@@ -40,6 +40,12 @@
 <div class="summary-map-info">
     <a href="{{ detailURL }}" class="heading h-4 map-info-title">{{ data.title }}</a>
 
+    {% if item.map_info %}
+        <div class="map-info-rating">
+            <span>{{ item.map_info }}</span>
+        </div>
+    {% endif %}
+
     {% if data.distance and data.distance < 40000 %}
         <div class="map-info-distance">
             {{ parseDistanceUnit(data.distance, isDistanceSorterEnabled, summaryTitle)|raw }}
@@ -64,6 +70,10 @@
                 {% else %}
                     <div class="info-price-free">{{ "Free"|trans }}</div>
                 {% endif %}
+
+                {# {% if priceFlags b-and 2 %}
+                    <div class="info-map-description">{{ dump(data) }}</div>
+                {% endif %} #}
             {% endif %}
         </div>
     {% endif %}

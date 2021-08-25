@@ -1,0 +1,38 @@
+[10-Sep-2020 15:21:30 America/New_York] PHP Warning:  file_put_contents(/home/wi36wd72/public_html/../app/config/domains/nhrocks.com.configs.yml): failed to open stream: Permission denied in /home/wi36wd72/edirectory/web/src/classes/class_Symfony.php on line 201
+[10-Sep-2020 15:23:40 America/New_York] PHP Warning:  file_put_contents(/home/wi36wd72/public_html/../app/config/domains/nhrocks.com.configs.yml): failed to open stream: Permission denied in /home/wi36wd72/edirectory/web/src/classes/class_Symfony.php on line 201
+[28-Oct-2020 10:09:32 America/New_York] PHP Warning:  file_put_contents(/home/wi36wd72/public_html/../app/config/domains/nhrocks.com.configs.yml): failed to open stream: Permission denied in /home/wi36wd72/edirectory/web/src/classes/class_Symfony.php on line 201
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 12:35:18 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 13:23:12 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[19-Aug-2021 14:20:50 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[20-Aug-2021 09:45:40 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60
+[24-Aug-2021 15:44:19 America/New_York] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home/wi36wd72/edirectory/web/src/functions/db_funct.php on line 60

@@ -1,0 +1,27 @@
+[09-Sep-2020 15:29:02 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function query() on boolean in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php:485
+Stack trace:
+#0 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1235): UploadHandler->validate(NULL, Object(stdClass), NULL, NULL)
+#1 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1618): UploadHandler->handle_file_upload(NULL, NULL, '80781580', 'multipart/form-...', NULL, NULL, NULL)
+#2 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(175): UploadHandler->post()
+#3 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(159): UploadHandler->initialize()
+#4 /home/wi36wd72/edirectory/web/sponsors/uploader/index.php(24): UploadHandler->__construct()
+#5 {main}
+  thrown in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php on line 485
+[17-Sep-2020 23:28:35 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function query() on boolean in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php:485
+Stack trace:
+#0 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1235): UploadHandler->validate(NULL, Object(stdClass), NULL, NULL)
+#1 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1618): UploadHandler->handle_file_upload(NULL, NULL, '24466736', 'multipart/form-...', NULL, NULL, NULL)
+#2 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(175): UploadHandler->post()
+#3 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(159): UploadHandler->initialize()
+#4 /home/wi36wd72/edirectory/web/sponsors/uploader/index.php(24): UploadHandler->__construct()
+#5 {main}
+  thrown in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php on line 485
+[17-Mar-2021 15:21:47 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Call to a member function query() on boolean in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php:485
+Stack trace:
+#0 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1235): UploadHandler->validate(NULL, Object(stdClass), NULL, NULL)
+#1 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(1618): UploadHandler->handle_file_upload(NULL, NULL, '10436563', 'multipart/form-...', NULL, NULL, NULL)
+#2 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(175): UploadHandler->post()
+#3 /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php(159): UploadHandler->initialize()
+#4 /home/wi36wd72/edirectory/web/sponsors/uploader/index.php(24): UploadHandler->__construct()
+#5 {main}
+  thrown in /home/wi36wd72/edirectory/web/src/classes/UploadHandler.php on line 485

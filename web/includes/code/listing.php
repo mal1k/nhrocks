@@ -53,7 +53,7 @@
 
     if ( $_SERVER['REQUEST_METHOD'] === 'POST')
     {
-
+    	
         NewImageUploader::treatPost($url_base, 'Listing');
 
         /*
@@ -99,6 +99,7 @@
         $_POST['title']        = trim( $_POST['title'] );
         $_POST['email']        = trim( $_POST['email'] );
         $_POST['url']          = trim( $_POST['url'] );
+        $_POST['map_info']     = trim( $_POST['map_info'] );
         $_POST['title']        = preg_replace( '/\s\s+/', ' ', $_POST['title'] );
         $_POST['friendly_url'] = str_replace( '.htm', '', $_POST['friendly_url'] );
         $_POST['friendly_url'] = str_replace( '.html', '', $_POST['friendly_url'] );
@@ -503,7 +504,7 @@
                     $msg_post_listing = 2;
                 }
             }
-
+		
             $listing->Save();
 
             /* ModStores Hooks */
@@ -654,6 +655,7 @@
                 $claimObject->setString( 'new_address', $listing->getString( 'address', false ) );
                 $claimObject->setString( 'new_address2', $listing->getString( 'address2', false ) );
                 $claimObject->setString( 'new_zip_code', $listing->getString( 'zip_code', false ) );
+                $claimObject->setString( 'new_map_info', $listing->getString( 'map_info', false ) );
                 $claimObject->setString( 'new_level', $listing->getNumber('level') );
                 $claimObject->setString( 'new_listingtemplate_id', $listing->getNumber('listingtemplate_id') );
                 $claimObject->setString('new_description', $listing->getString('description', false));
@@ -787,7 +789,7 @@
             $by_key   = array('id', 'account_id');
             $by_value = array( db_formatNumber( $id ), sess_getAccountIdFromSession() );
             $listing  = db_getFromDB( 'listing', $by_key, $by_value, 1, '', 'object', SELECTED_DOMAIN_ID );
-
+		
             if (Claim::isUndergoingClaim($id, sess_getAccountIdFromSession())) {
                 $underClaim = true;
             }
@@ -808,7 +810,7 @@
         {
             $listing->extract();
         }
-
+	
         // Location defines begin for edit listing
         $stop_search_locations = false;
         //if there is at least one non default location

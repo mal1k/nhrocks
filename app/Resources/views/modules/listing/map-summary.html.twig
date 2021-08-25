@@ -28,7 +28,13 @@
 
 {% set itemLocations  = ( data.locationId is not empty ? data.locationId|split(" ")|sort|reverse : null ) -%}
 <div class="summary-map-info">
-    <a href="{{ detailURL }}" class="heading h-4 map-info-title">{{ data.title }}</a>
+    <a href="{{ detailURL }}" class="heading h-4 map-info-title">{{ data.title }} </a>
+
+    {% if item.map_info %}
+        <div class="map-info-rating">
+            <span>{{ item.map_info }}</span>
+        </div>
+    {% endif %}
 
     {% if data.distance and data.distance < 40000 %}
         <div class="map-info-distance">

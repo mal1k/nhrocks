@@ -18,7 +18,7 @@
 	# * FILE: /classes/class_Quicklist.php
 	# ----------------------------------------------------------------------------------------------------
 
-	/**
+	/** 
 	 * <code>
 	 *		$quicklistObj = new Quicklist($id);
 	 * <code>

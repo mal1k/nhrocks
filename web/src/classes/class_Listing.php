@@ -121,6 +121,7 @@ class Listing extends Handle
     public $latitude;
     public $longitude;
     public $map_zoom;
+    public $map_info;
     public $locationManager;
     public $data_in_array;
     public $domain_id;
@@ -303,6 +304,7 @@ class Listing extends Handle
         $this->avg_review            = $row['avg_review']                ?: ($this->avg_review ?: 0);
         $this->package_id            = $row['package_id']                ?: ($this->package_id ?: 0);
         $this->package_price         = $row['package_price']             ?: ($this->package_price ?: 0);
+        $this->map_info	      = $row['map_info'];
 
         $this->data_in_array = $row;
 
@@ -491,6 +493,7 @@ class Listing extends Handle
                 . " latitude              = $this->latitude,"
                 . " longitude             = $this->longitude,"
                 . " map_zoom              = $this->map_zoom,"
+                . " map_info              = $this->map_info,"
                 . " package_id            = $this->package_id,"
                 . " package_price         = $this->package_price"
                 . " WHERE id              = $this->id";

@@ -1,0 +1,33 @@
+[15-Sep-2020 15:45:46 America/New_York] PHP Warning:  A non-numeric value encountered in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 150
+[15-Sep-2020 15:45:46 America/New_York] PHP Warning:  A non-numeric value encountered in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 150
+[17-Sep-2020 09:42:46 America/New_York] PHP Warning:  A non-numeric value encountered in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 150
+[17-Sep-2020 09:42:46 America/New_York] PHP Warning:  A non-numeric value encountered in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 150
+[12-May-2021 18:44:13 America/New_York] PHP Warning:  Invalid argument supplied for foreach() in /home/wi36wd72/edirectory/web/includes/code/bulkupdate.php on line 65
+[28-Jun-2021 12:25:10 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/wi36wd72/edirectory/web/includes/code/promotion.php:478
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 478
+[28-Jun-2021 12:25:40 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/wi36wd72/edirectory/web/includes/code/promotion.php:478
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 478
+[28-Jun-2021 12:25:44 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/wi36wd72/edirectory/web/includes/code/promotion.php:478
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 478
+[28-Jun-2021 12:26:08 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/wi36wd72/edirectory/web/includes/code/promotion.php:478
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 478
+[28-Jun-2021 12:40:58 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '}' in /home/wi36wd72/edirectory/web/includes/code/promotion.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 71
+[28-Jun-2021 12:41:01 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '}' in /home/wi36wd72/edirectory/web/includes/code/promotion.php:71
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 71
+[28-Jun-2021 12:45:36 America/New_York] PHP Fatal error:  Uncaught Symfony\Component\Debug\Exception\FatalThrowableError: Parse error: syntax error, unexpected '}' in /home/wi36wd72/edirectory/web/includes/code/promotion.php:72
+Stack trace:
+#0 {main}
+  thrown in /home/wi36wd72/edirectory/web/includes/code/promotion.php on line 72

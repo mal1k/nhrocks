@@ -46,4 +46,5 @@ final class ListingRepository extends EntityModulesRowRepository implements Enti
 
         return $qb->getQuery()->getOneOrNullResult();
     }
+    
 }

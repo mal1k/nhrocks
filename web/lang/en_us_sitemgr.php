@@ -386,6 +386,8 @@
 	define("LANG_SITEMGR_MENU_ABOUT", "About eDirectory");
 	//FAQ
 	define("LANG_SITEMGR_MENU_FAQ", "FAQ");
+    //REFERED BY
+	define("LANG_SITEMGR_MENU_REFEREDBY", "REFERED BY");
 	//Sign out
 	define("LANG_SITEMGR_MENU_LOGOUT", "Sign out");
 	//Back

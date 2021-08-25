@@ -99,6 +99,15 @@
                     /* ModStores Hooks */
                     HookFire( "sidebarcontent_after_render_faqitem");
                     ?>
+                    
+                    
+                    
+                    <a href="<?=DEFAULT_URL."/".SITEMGR_ALIAS."/content/referedby/"?>" class="list-group-item <?=(string_strpos($_SERVER["PHP_SELF"], "/content/referedby") !== false ? "active" : "")?>"><?=string_ucwords(system_showText(LANG_SITEMGR_MENU_REFEREDBY))?></a>
+
+                    <?php
+                    /* ModStores Hooks */
+                    HookFire( "sidebarcontent_after_render_refereditem");
+                    ?>
                 </div>
             </div>
         </div>

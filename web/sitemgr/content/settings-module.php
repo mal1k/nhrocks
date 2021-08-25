@@ -71,6 +71,9 @@
 
         case "blog":        $moduleObj = new Post($id);
                             break;
+            
+        case "referedby":   $moduleObj = new ReferedBy($id);
+                            break;    
     }
 
     # ----------------------------------------------------------------------------------------------------
