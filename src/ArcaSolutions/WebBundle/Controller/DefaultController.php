@@ -197,7 +197,7 @@ class DefaultController extends Controller
         /* gets user Id using profile credentials */
         $userId = $request->getSession()->get('SESS_ACCOUNT_ID');
         return JsonResponse::create([
-            'status' => $status,
+            'status' => $userId,
         ]);
 
         if ($userId === null) {
