@@ -203,23 +203,6 @@ class DefaultController extends Controller
             ]);
         }
 
-        $quicklist_obj = new \Quicklist(
-            $id,
-            $userId,
-            $id,
-            $module
-        );
-
-        try {
-            $quicklist_obj->Add();
-            $status = 'pinned';
-        } catch (\Exception $e) {
-            $quicklist_obj->Delete();
-            $status = 'unpinned';
-        }
-
-        /*
-
         $item = $this->get('doctrine')->getRepository('WebBundle:Quicklist')->findOneBy([
             'accountId' => $userId,
             'itemId'    => $id,
@@ -234,7 +217,7 @@ class DefaultController extends Controller
                 $item->setAccountId($userId)
                     ->setItemId($id)
                     ->setItemType($module);
-
+                // $item->Add();
                 $em->persist($item);
                 $status = 'pinned';
             } else {
@@ -249,11 +232,8 @@ class DefaultController extends Controller
             $status = 'fail';
         }
 
-        */
-        
-
         return JsonResponse::create([
-            'status1' => $status,
+            'status' => $status,
         ]);
     }
 }
