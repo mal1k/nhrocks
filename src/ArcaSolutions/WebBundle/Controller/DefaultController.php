@@ -203,11 +203,11 @@ class DefaultController extends Controller
             ]);
         }
 
-        $quicklist_obj = new Quicklist(
+        $quicklist_obj = new \Quicklist(
             "",
             $userId,
             $id,
-            $module
+            $module || "all"
         );
 
         try {
