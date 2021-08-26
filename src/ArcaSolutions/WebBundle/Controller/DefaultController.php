@@ -196,6 +196,9 @@ class DefaultController extends Controller
     {
         /* gets user Id using profile credentials */
         $userId = $request->getSession()->get('SESS_ACCOUNT_ID');
+        return JsonResponse::create([
+            'status' => $status,
+        ]);
 
         if ($userId === null) {
             return new JsonResponse([
@@ -213,11 +216,10 @@ class DefaultController extends Controller
             $em = $this->get('doctrine')->getManager();
 
             if ($item === null) {
-                $item = new \Quicklist();
+                $item = new Quicklist();
                 $item->setAccountId($userId)
                     ->setItemId($id)
                     ->setItemType($module);
-                $item->Add();
                 $em->persist($item);
                 $status = 'pinned';
             } else {
