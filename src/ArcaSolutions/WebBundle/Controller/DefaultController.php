@@ -203,19 +203,17 @@ class DefaultController extends Controller
             ]);
         }
 
-        $quicklist_obj = new \Quicklist(
-            "",
-            $userId,
-            $id,
-            $module
-        );
+        $item = new \Quicklist();
 
         try {
-            $quicklist_obj->Add();
-            $status = 'pinned';
+            $item->setAccountId($userId)
+                ->setItemId($id)
+                ->setItemType($module);
+            $item->Add();
+            $status = 'pinned!';
         } catch (\Exception $e) {
-            $quicklist_obj->Delete();
-            $status = 'unpinned';
+            $item->Delete();
+            $status = 'unpinned!';
         }
 
         /*
