@@ -160,6 +160,7 @@
 				}
 
 				$items = string_substr($items, 0, -1);
+				echo $items;
 
 				return $items;
 			} else {
