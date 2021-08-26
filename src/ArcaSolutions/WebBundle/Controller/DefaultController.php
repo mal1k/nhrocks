@@ -217,7 +217,7 @@ class DefaultController extends Controller
                 $item->setAccountId($userId)
                     ->setItemId($id)
                     ->setItemType($module);
-                // $item->Add();
+                $item->Add();
                 $em->persist($item);
                 $status = 'pinned';
             } else {
