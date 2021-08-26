@@ -3299,12 +3299,13 @@ function system_getUserActivities($type, $accId)
 
         $hasItens = false; // a
         $quicklistObj = new \Quicklist();
-        $idsA = $quicklistObj->getQuicklist('article', $accId);
-        $idsC = $quicklistObj->getQuicklist('classified', $accId);
-        $idsE = $quicklistObj->getQuicklist('event', $accId);
-        $idsF = $quicklistObj->getQuicklist('favorite', $accId);
-        $ids = $quicklistObj->getQuicklist('listing', $accId);
-        $ids = $quicklistObj->getQuicklist('referedby', $accId);
+
+        $idsA = implode(",", $quicklistObj->getQuicklist('article', $accId));
+        $idsC = implode(",", $quicklistObj->getQuicklist('classified', $accId));
+        $idsE = implode(",", $quicklistObj->getQuicklist('event', $accId));
+        $idsF = implode(",", $quicklistObj->getQuicklist('favorite', $accId));
+        $ids = implode(",", $quicklistObj->getQuicklist('listing', $accId));
+        $ids = implode(",", $quicklistObj->getQuicklist('referedby', $accId));
 
         include('db.php');                             
 
