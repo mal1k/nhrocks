@@ -233,6 +233,9 @@ class DefaultController extends Controller
 
         return JsonResponse::create([
             'status' => $status,
+            'account_id' => $userId,
+            'item_type' => $module,
+            'item_id' => $id
         ]);
     }
 }
