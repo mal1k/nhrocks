@@ -154,14 +154,13 @@
 
 				$result = $dbObj->Query($sql);
 
-				unset($items);
 				while ($row = mysqli_fetch_array($result)) {
 					$items .= $row["item_id"].",";
 				}
 
 				echo $items;
-
 				return $items;
+
 			} else {
 				return null;
 			}
