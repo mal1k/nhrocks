@@ -192,7 +192,7 @@ class DefaultController extends Controller
      * @throws \Facebook\Exceptions\FacebookSDKException
      * @throws \Twig_Error
      */
-    public function bookmarkAction(Request $request, $id, $module = '')
+    public function bookmarkAction(Request $request, $id, $module = 'referedby')
     {
         /* gets user Id using profile credentials */
         $userId = $request->getSession()->get('SESS_ACCOUNT_ID');
