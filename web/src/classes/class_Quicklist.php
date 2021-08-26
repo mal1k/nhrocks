@@ -153,9 +153,10 @@
 				}
 
 				$result = $dbObj->Query($sql);
+				$items = array();
 
 				while ($row = mysqli_fetch_array($result)) {
-					$items .= $row["item_id"].",";
+					$items[] = $row["item_id"];
 				}
 
 				echo $items;
