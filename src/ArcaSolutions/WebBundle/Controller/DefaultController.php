@@ -195,7 +195,11 @@ class DefaultController extends Controller
     public function bookmarkAction(Request $request, $id, $module = '')
     {
         /* gets user Id using profile credentials */
-        $userId = $request->getSession()->get('uid');
+        $userId = $request->getSession();
+
+        return JsonResponse::create([
+            'status' => json_encode($userId),
+        ]);
 
         if ($userId === null) {
             return new JsonResponse([
