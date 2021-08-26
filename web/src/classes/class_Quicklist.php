@@ -159,7 +159,7 @@
 					$items[] = $row["item_id"];
 				}
 
-				echo $items;
+				echo var_dump($items);
 				return $items;
 
 			} else {
