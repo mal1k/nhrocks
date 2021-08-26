@@ -3297,7 +3297,7 @@ function system_getUserActivities($type, $accId)
 
     if ($type == 'favorites') {
 
-        $hasItens = false;
+        $hasItens = false; // a
         $quicklistObj = new \Quicklist();
         $idsA = $quicklistObj->getQuicklist('article', $accId);
         $idsC = $quicklistObj->getQuicklist('classified', $accId);
