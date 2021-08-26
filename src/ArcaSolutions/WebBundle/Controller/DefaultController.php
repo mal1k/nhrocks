@@ -204,10 +204,10 @@ class DefaultController extends Controller
         }
 
         $quicklist_obj = new \Quicklist(
-            "",
+            $id,
             $userId,
             $id,
-            $module || "all"
+            $module
         );
 
         try {
@@ -253,7 +253,7 @@ class DefaultController extends Controller
         
 
         return JsonResponse::create([
-            'status' => $status,
+            'status1' => $status,
         ]);
     }
 }
