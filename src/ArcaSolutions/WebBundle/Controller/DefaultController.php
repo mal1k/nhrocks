@@ -204,7 +204,7 @@ class DefaultController extends Controller
         }
 
         $quicklist_obj = new \Quicklist(
-            $id,
+            "",
             $userId,
             $id,
             $module
