@@ -159,7 +159,7 @@
 					$items .= $row["item_id"].",";
 				}
 
-				$items = string_substr($items, 0, -1);
+				// $items = string_substr($items, 0, -1);
 
 				return $items;
 			} else {
