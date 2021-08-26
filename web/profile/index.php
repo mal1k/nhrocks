@@ -586,8 +586,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                            // $db = db_getDBObject(DEFAULT_DB,true);
                             
                             $favoritesItems = system_getUserActivities("favorites", $id);
-                            echo json_encode($favoritesItems);
-                            exit();
+                            
+                            // echo json_encode($favoritesItems);
+                            // exit();
 
                             if (is_array($favoritesItems) && count($favoritesItems)) {
                                 setting_get("review_listing_enabled", $review_enabled);
