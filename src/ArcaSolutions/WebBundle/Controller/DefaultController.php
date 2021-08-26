@@ -213,7 +213,7 @@ class DefaultController extends Controller
             $em = $this->get('doctrine')->getManager();
 
             if ($item === null) {
-                $item = new Quicklist();
+                $item = new \Quicklist();
                 $item->setAccountId($userId)
                     ->setItemId($id)
                     ->setItemType($module);
