@@ -253,7 +253,7 @@ class DefaultController extends Controller
         
 
         return JsonResponse::create([
-            'status1' => $status,
+            'status' => $status,
         ]);
     }
 }
