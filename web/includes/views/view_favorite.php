@@ -104,7 +104,8 @@
 
     } elseif ($module == "favs") {
 
-        $article = new Article($favorite["id"]);
+        $article = new Listing($favorite["id"]);
+        $level = new ListingLevel(true);
 
         echo json_encode($article);
 
