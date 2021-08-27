@@ -24,6 +24,11 @@
         $listing = new Listing($favorite["id"]);
         $level = new ListingLevel(true);
 
+        unset($item_phone);
+        if ($listing->phone) {
+            $item_phone = $listing->phone;
+        }
+
         $listingAux = $listing;
         $listing = $listing->data_in_array;
 
@@ -32,11 +37,6 @@
         $array_fields = system_getFormFields("Listing", $listing['level']);
 
         $itemLink = LISTING_DEFAULT_URL."/".htmlspecialchars($listing["friendly_url"]).".html";
-
-        unset($item_phone);
-        if ($listing->phone) {
-            $item_phone = $listing->phone;
-        }
 
         unset($avgreview);
         if ($review_enabled == "on") {
@@ -56,16 +56,16 @@
         $classified = new Classified($favorite["id"]);
         $level = new ClassifiedLevel(true);
 
+        unset($item_phone);
+        if ($classified->phone) {
+            $item_phone = $classified->phone;
+        }
+
         //Get fields according to level
         unset($array_fields);
         $array_fields = system_getFormFields("Classified", $classified->getNumber("level"));
 
         $itemLink = CLASSIFIED_DEFAULT_URL."/".$classified->getString("friendly_url").".html";
-
-        unset($item_phone);
-        if ($classified->phone) {
-            $item_phone = $classified->phone;
-        }
 
         $item_title = $classified->getString("title");
 
@@ -76,16 +76,16 @@
         $event = new Event($favorite["id"]);
         $level = new EventLevel(true);
 
+        unset($item_phone);
+        if ($event->phone) {
+            $item_phone = $event->phone;
+        }
+
         //Get fields according to level
         unset($array_fields);
         $array_fields = system_getFormFields("Event", $event->getNumber("level"));
 
         $itemLink = EVENT_DEFAULT_URL."/".$event->getString("friendly_url").".html";
-
-        unset($item_phone);
-        if ($event->phone) {
-            $item_phone = $event->phone;
-        }
 
         $item_title = $event->getString("title");
 
@@ -94,16 +94,17 @@
     } elseif ($module == "article") {
 
         $article = new Article($favorite["id"]);
-        $level = new ArticleLevel(true);
-        $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
-
-        $item_title = $article->getString("title");
-        $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
         unset($item_phone);
         if ($article->phone) {
             $item_phone = $article->phone;
         }
+
+        $level = new ArticleLevel(true);
+        $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
+
+        $item_title = $article->getString("title");
+        $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
         unset($avgreview);
 
@@ -112,15 +113,16 @@
         $article = new Listing($favorite["id"]);
         $level = new ListingLevel(true);
 
+        unset($item_phone);
+        if ($article->phone) {
+            $item_phone = $article->phone;
+        }
+
         $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
 
         $item_title = $article->getString("title");
         $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
-        unset($item_phone);
-        if ($article->phone) {
-            $item_phone = $article->phone;
-        }
 
     }
     ?>
