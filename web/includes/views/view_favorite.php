@@ -104,13 +104,9 @@
 
     } elseif ($module == "favs") {
 
-        $dbMain = db_getDBObject(DEFAULT_DB, true);
-        $db = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
+        $article = new Article($favorite["id"]);
 
-        $sql = "SELECT * FROM Article WHERE id = $var";
-        $row = mysqli_fetch_array($db->query($sql));
-
-        echo json_encode($row);
+        echo json_encode($article);
 
         /*
 
