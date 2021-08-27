@@ -102,6 +102,10 @@
 
         unset($avgreview);
 
+    } elseif ($module == "favs") {
+
+        echo "Testing...";
+
     }
     ?>
     <div class="favorite-item">
