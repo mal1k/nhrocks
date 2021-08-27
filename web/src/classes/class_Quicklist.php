@@ -253,7 +253,7 @@
 			} else {
 				$dbObj = db_getDBObject();
 			}
-			//		$dbMain->close();
+			//	$dbMain->close();
 			unset($dbMain);
 
             /* ModStores Hooks */
