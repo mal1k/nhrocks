@@ -3304,8 +3304,9 @@ function system_getUserActivities($type, $accId)
         $idsC = implode(",", $quicklistObj->getQuicklist('classified', $accId));
         $idsE = implode(",", $quicklistObj->getQuicklist('event', $accId));
         $idsF = implode(",", $quicklistObj->getQuicklist('favorite', $accId));
+
         $ids = implode(",", $quicklistObj->getQuicklist('listing', $accId));
-        $ids = implode(",", $quicklistObj->getQuicklist('referedby', $accId));
+        $idsV = implode(",", $quicklistObj->getQuicklist('referedby', $accId));
 
         include('db.php');                             
 
@@ -3315,6 +3316,14 @@ function system_getUserActivities($type, $accId)
             $sql = 'SELECT id FROM Listing WHERE id IN ('.$ids.") AND status = 'A' ORDER BY level, title";
             $listings = db_getFromDBBySQL('listing', $sql, 'array');
             //var_dump($listings);
+        }
+
+        // referedby
+        if ($idsV) {
+            $hasItens = true;
+            $sql = 'SELECT id FROM Listing WHERE id IN ('.$idsV.") AND status = 'A' ORDER BY level, title";
+            $referedby = db_getFromDBBySQL('referedby', $sql, 'array');
+            //var_dump($referedby);
         }
 
         //Classified
@@ -3351,7 +3360,8 @@ function system_getUserActivities($type, $accId)
                 'event'      => $events,
                 'classified' => $classifieds,
                 'article'    => $articles,
-                'favs'       => $favs
+                'favs'       => $favs,
+                'referedby'  => $referedby
             ];
         }
 
