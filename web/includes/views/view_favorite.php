@@ -104,14 +104,33 @@
 
     } elseif ($module == "favs") {
 
-        $article = new Article($favorite["id"]);
-        $level = new ArticleLevel(true);
+        $dbMain = db_getDBObject(DEFAULT_DB, true);
+        if ($domain_id) {
+            $this->domain_id = $domain_id;
+            $db = db_getDBObjectByDomainID($domain_id, $dbMain);
+        } else {
+            if (defined("SELECTED_DOMAIN_ID")) {
+                $db = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
+            } else {
+                $db = db_getDBObject();
+            }
+        }
+
+        unset($dbMain);
+
+        $sql = "SELECT * FROM Article WHERE id = $var";
+        $row = mysqli_fetch_array($db->query($sql));
+
+        echo json_encode($row);
+
+        /*
 
         $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
 
         $item_title = $article->getString("title");
         $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
+        */
     }
     ?>
     <div class="favorite-item">
