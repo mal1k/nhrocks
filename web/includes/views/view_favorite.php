@@ -107,16 +107,11 @@
         $article = new Listing($favorite["id"]);
         $level = new ListingLevel(true);
 
-        echo json_encode($article);
-
-        /*
-
         $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
 
         $item_title = $article->getString("title");
         $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
-        */
     }
     ?>
     <div class="favorite-item">
