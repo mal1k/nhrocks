@@ -104,7 +104,13 @@
 
     } elseif ($module == "favs") {
 
-        echo "Testing...";
+        $article = new Article($favorite["id"]);
+        $level = new ArticleLevel(true);
+
+        $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
+
+        $item_title = $article->getString("title");
+        $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
     }
     ?>
