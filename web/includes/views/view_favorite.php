@@ -115,7 +115,7 @@
 
         unset($item_phone);
         if ($article->phone) {
-            $item_phone = $article->display_url;
+            $item_phone = $article->phone;
         }
 
         $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
