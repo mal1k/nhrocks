@@ -600,9 +600,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                         <?php system_showText(LANG_LABEL_FAVORITES);?>
                                     </div>
                                     <div class="panel-body">
-                                        <?php foreach ($favoritesItems as $module => $listing) {
-                                            if (is_array($listing) && $module !== 'favs') {
-                                                foreach ($listing as $list) {
+                                        <?php foreach ($favoritesItems as $module => $favorites) {
+                                            if (is_array($favorites) && $module !== 'favs') {
+                                                foreach ($favorites as $favorite) {
                                                     include(INCLUDES_DIR."/views/view_favorite.php");
                                                 }
                                             }
