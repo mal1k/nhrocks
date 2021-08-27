@@ -18,6 +18,9 @@
     # * FILE: /includes/views/view_favorite.php
     # ----------------------------------------------------------------------------------------------------
 
+    echo $module . " | " . $favorite["id"];
+    exit();
+
     if ($module == "listing") {
 
         unset($listing);
