@@ -105,18 +105,7 @@
     } elseif ($module == "favs") {
 
         $dbMain = db_getDBObject(DEFAULT_DB, true);
-        if ($domain_id) {
-            $this->domain_id = $domain_id;
-            $db = db_getDBObjectByDomainID($domain_id, $dbMain);
-        } else {
-            if (defined("SELECTED_DOMAIN_ID")) {
-                $db = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
-            } else {
-                $db = db_getDBObject();
-            }
-        }
-
-        unset($dbMain);
+        $db = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
 
         $sql = "SELECT * FROM Article WHERE id = $var";
         $row = mysqli_fetch_array($db->query($sql));
