@@ -34,8 +34,8 @@
         $itemLink = LISTING_DEFAULT_URL."/".htmlspecialchars($listing["friendly_url"]).".html";
 
         unset($item_phone);
-        if (htmlspecialchars($listing["phone"]) && is_array($array_fields) && in_array("phone", $array_fields)) {
-            $item_phone = $listing["phone"];
+        if ($listing->phone) {
+            $item_phone = $listing->phone;
         }
 
         unset($avgreview);
@@ -63,8 +63,8 @@
         $itemLink = CLASSIFIED_DEFAULT_URL."/".$classified->getString("friendly_url").".html";
 
         unset($item_phone);
-        if (is_array($array_fields) && in_array("contact_phone", $array_fields)){
-            $item_phone = $classified->getString("phone");
+        if ($classified->phone) {
+            $item_phone = $classified->phone;
         }
 
         $item_title = $classified->getString("title");
@@ -83,8 +83,8 @@
         $itemLink = EVENT_DEFAULT_URL."/".$event->getString("friendly_url").".html";
 
         unset($item_phone);
-        if (is_array($array_fields) && in_array("phone", $array_fields)){
-            $item_phone = $event->getString("phone");
+        if ($event->phone) {
+            $item_phone = $event->phone;
         }
 
         $item_title = $event->getString("title");
@@ -100,6 +100,11 @@
         $item_title = $article->getString("title");
         $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
+        unset($item_phone);
+        if ($article->phone) {
+            $item_phone = $article->phone;
+        }
+
         unset($avgreview);
 
     } elseif ($module == "favs") {
@@ -114,7 +119,7 @@
 
         unset($item_phone);
         if ($article->phone) {
-            $item_phone = 'Phone number: ' . $article->phone;
+            $item_phone = $article->phone;
         }
 
     }
