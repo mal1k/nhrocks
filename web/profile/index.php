@@ -602,7 +602,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                     <div class="panel-body">
 
                                         <?php foreach ($favoritesItems as $module => $favorites) {
-                                            print_r($module);
+                                            echo json_encode($favoritesItems);
                                             exit();
                                             if (is_array($favorites) && $module === 'listing') {
                                                 foreach ($favorites as $favorite) {
