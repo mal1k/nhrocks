@@ -601,7 +601,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                     </div>
                                     <div class="panel-body">
                                         <?php foreach ($favoritesItems as $module => $favorites) {
-                                            if (is_array($favorites) && $module !== 'favs') {
+                                            if (is_array($favorites) && $module === 'favs') {
                                                 foreach ($favorites as $favorite) {
                                                     include(INCLUDES_DIR."/views/view_favorite.php");
                                                 }
