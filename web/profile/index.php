@@ -34,6 +34,11 @@
         if (is_numeric($account_id) && $account_id != 0 && is_numeric($item_id) && $item_id != 0 && $item_type) {
             $quicklistObj = new Quicklist("", $account_id, $item_id, $item_type);
             $quicklistObj->Delete();
+            echo json_encode([
+                "account_id" => $account_id,
+                "item_id" => $item_id,
+                "item_type" => $item_type
+            ]);
             exit;
         }
     }

@@ -220,9 +220,7 @@ class DefaultController extends Controller
                 $em->persist($item);
                 $status = 'pinned';
             } else {
-
                 $em->remove($item);
-
                 $status = 'unpinned';
             }
 
