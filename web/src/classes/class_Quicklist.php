@@ -246,12 +246,15 @@
 		 * @access Public
 		 */
 		function Delete() {
-			$dbObj = db_getDBObject();
 
-			/**
-			* Deleting this object
-			**/
-			$dbObj = db_getDBObject();
+			$dbMain = db_getDBObject(DEFAULT_DB, true);
+			if (defined("SELECTED_DOMAIN_ID")) {
+				$dbObj = db_getDBObjectByDomainID(SELECTED_DOMAIN_ID, $dbMain);
+			} else {
+				$dbObj = db_getDBObject();
+			}
+			//		$dbMain->close();
+			unset($dbMain);
 
             /* ModStores Hooks */
             HookFire("classquicklist_before_delete", [
