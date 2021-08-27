@@ -118,7 +118,7 @@
             $item_phone = $article->phone;
         }
 
-        $itemLink = ARTICLE_DEFAULT_URL."/".$article->getString("friendly_url").".html";
+        $itemLink = LISTING_DEFAULT_URL."/".$article->getString("friendly_url").".html";
 
         $item_title = $article->getString("title");
         $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'favorite');\"";
