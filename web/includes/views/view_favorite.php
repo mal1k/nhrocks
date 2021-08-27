@@ -114,7 +114,7 @@
 
         unset($item_phone);
         if ($article->phone) {
-            $item_phone = $article->phone;
+            $item_phone = 'Phone number: ' . $article->phone;
         }
 
     }
