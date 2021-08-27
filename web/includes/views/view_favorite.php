@@ -112,6 +112,11 @@
         $item_title = $article->getString("title");
         $remove_favorites_click = "onclick=\"itemInQuicklist(this, 'remove', '".sess_getAccountIdFromSession()."', '".$article->getNumber("id")."', 'article');\"";
 
+        unset($item_phone);
+        if (isset($article["phone"])) {
+            $item_phone = $article["phone"];
+        }
+
     }
     ?>
     <div class="favorite-item">
