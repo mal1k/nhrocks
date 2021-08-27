@@ -597,7 +597,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_FILES["fileToUpload"])) {
                                 <br>
                                 <div class="members-panel">
                                     <div class="panel-header">
-                                        <?php system_showText(LANG_LABEL_FAVORITES);?>
+                                        asdasd
                                     </div>
                                     <div class="panel-body">
 
